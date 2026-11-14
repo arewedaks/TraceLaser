@@ -47,13 +47,14 @@ origin-aware).
 
 ## Phase 1 — Repo hygiene
 
-- [ ] Add fork notice to README (independent fork of TraceLaser, same license) + keep upstream
+- [x] Add fork notice to README (independent fork of TraceLaser, same license) + keep upstream
       attribution and trademark notice intact
 - [x] Create local `reference/` folder (gitignored) with layout-study screenshots
       (`laser-plugin-data-settings.png`, `laser-plugin-machine-properties.jpg`) — not committed
-- [ ] Record M3 protocol knowledge + sources in a clean-room note (no decompiled material)
-- [ ] Decide: rename internal crates/binary/branding `tracelaser` → `tracelaser` **now** vs
-      **after feature** (tradeoff: clean branding early vs easier upstream merges now)
+- [x] Record M3 protocol knowledge + sources in a clean-room note (no decompiled material)
+      — `docs/m3-protocol.md`, source registered in `CLEANROOM.md`
+- [x] Decide: rename internal crates/binary/branding `tracedraw` → `tracelaser` **now** vs
+      **after feature** — done now (rename completed in commit `d3ada5ad`)
 
 ---
 
@@ -184,7 +185,7 @@ Rules for using references:
 
 ## Open decisions
 
-- [ ] **Rename timing:** internal `tracelaser` → `tracelaser` now or after feature lands?
+- [x] **Rename timing:** internal `tracedraw` → `tracelaser` done now (commit `d3ada5ad`).
 - [ ] **USB stack:** `rusb`/`libusb`, `nusb`, or CH341-specific crate — pick based on portability
       and maintenance (must work on Linux; Windows/macOS nice-to-have)
 - [ ] **Raster source:** render-to-bitmap via existing render path vs a dedicated engrave
@@ -201,3 +202,4 @@ Rules for using references:
 | 2026-04-11 | Roadmap: explicitly state Rust-only stack (constraints + Phase 2) |
 | 2026-04-11 | Roadmap: add Phase 3 design target (button/dialog layout) and Reference material section |
 | 2026-04-11 | Moved `reference/` screenshots to local-only (gitignored), removed from repo history-tracking going forward |
+| 2026-11-14 | Phase 1 hygiene completed: fork notice in README, clean-room M3 protocol note (`docs/m3-protocol.md`, source in `CLEANROOM.md`), internal rename done (`d3ada5ad`) |

@@ -34,6 +34,8 @@
   <sub>* The <a href="https://apps.microsoft.com/detail/9P50L12VHF33">Microsoft Store</a> version is signed and updates itself, but each version must pass the Store's certification first (hours to days), so it is often one or more releases behind the <a href="https://github.com/arewedaks/TraceLaser/releases/latest">latest download</a>.</sub>
 </p>
 
+> **TraceLaser** is an independent fork of [TraceLaser](https://github.com/tracedraw/tracedraw) (MIT OR Apache-2.0), kept under the same license with upstream attribution intact. This fork focuses on direct laser output for Lihuiyu M3 / CH341 controller boards; see [ROADMAP.md](ROADMAP.md).
+
 <p align="center">
   <sub>Alpha: expect bugs. A <code>.cdr</code> file that does not open right? <a href="https://github.com/arewedaks/TraceLaser/issues/new?template=cdr_file.yml">Send it in an issue</a>: sample files are what improves the reader most.</sub>
 </p>
