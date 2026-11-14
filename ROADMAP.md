@@ -49,8 +49,8 @@ origin-aware).
 
 - [ ] Add fork notice to README (independent fork of TraceDraw, same license) + keep upstream
       attribution and trademark notice intact
-- [ ] Create `reference/` folder and place the layout-study screenshots there
-      (`1.png` data settings, `2.jpg` machine properties)
+- [x] Create local `reference/` folder (gitignored) with layout-study screenshots
+      (`laser-plugin-data-settings.png`, `laser-plugin-machine-properties.jpg`) — not committed
 - [ ] Record M3 protocol knowledge + sources in a clean-room note (no decompiled material)
 - [ ] Decide: rename internal crates/binary/branding `tracedraw` → `tracelaser` **now** vs
       **after feature** (tradeoff: clean branding early vs easier upstream merges now)
@@ -167,7 +167,7 @@ decompiled material may be used.
 
 | What | Path | Use |
 |---|---|---|
-| Reference laser plugin UI (screenshots) | `reference/` (copied from the machine's `software parameter adjustment/`: `1.png` data settings, `2.jpg` machine properties) | Layout/field grouping for Phase 3 Design target |
+| Reference laser plugin UI (screenshots) | `reference/` **(local-only, gitignored)** — copied from `software parameter adjustment/` as `laser-plugin-data-settings.png` and `laser-plugin-machine-properties.jpg` | Layout/field grouping for Phase 3 Design target |
 | Independent Linux reference implementation (GPL-2+, **do not copy code**) | `~/Downloads/Compressed/K40_Whisperer-0.71_src` | Behaviour comparison, hardware validation, protocol spot-checks |
 | Independent Python reference (MIT) | Meerk40t venv at `/tmp/mk40uv` (`meerk40t/lihuiyu/*`) | Protocol documentation cross-check; MIT so behaviour study is fine, still prefer our own implementation |
 | Public protocol description | Lihymicro-GL / M2-Nano family control protocol notes | Source of protocol facts recorded in the clean-room note |
@@ -176,9 +176,9 @@ decompiled material may be used.
 Rules for using references:
 - Verify every protocol claim against **our own hardware** before relying on it.
 - Record each fact, its source and date in the clean-room note (Phase 1).
-- Never commit extracted binaries, DLLs, decompiler output, or screenshots from other
-  products; the `reference/` images are for layout study only and must be replaced by our
-  own mockups before any public release.
+- **Nothing from third-party products is committed:** `reference/` (screenshots), extracted
+  binaries, DLLs, and decompiler output stay local (gitignored). Use them for study only;
+  the UI will be rebuilt with our own widgets/mockups.
 
 ---
 
@@ -200,3 +200,4 @@ Rules for using references:
 | 2026-04-11 | Moved workspace to `/home/arewedaks/orca/TraceLaser` (ext4), deleted exFAT copy, roadmap updated |
 | 2026-04-11 | Roadmap: explicitly state Rust-only stack (constraints + Phase 2) |
 | 2026-04-11 | Roadmap: add Phase 3 design target (button/dialog layout) and Reference material section |
+| 2026-04-11 | Moved `reference/` screenshots to local-only (gitignored), removed from repo history-tracking going forward |
