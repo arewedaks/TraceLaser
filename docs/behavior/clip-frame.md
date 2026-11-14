@@ -13,7 +13,7 @@ contents are drawn over a copy of what lies beneath the frame, which
 then takes the page's place inside the frame (with the frame's
 opacity), so a merge mode inside a frame (Multiply on a photo) works on
 the backdrop as it does outside one
-(`tracedraw_render::band_tests::merge_modes_inside_a_clip_frame_reach_the_backdrop`).
+(`tracelaser_render::band_tests::merge_modes_inside_a_clip_frame_reach_the_backdrop`).
 
 The clip frame keeps the id of the object it was made from; the frame
 inside it gets an id of its own (Place Inside Frame), so it can be
@@ -51,7 +51,7 @@ frame is edited node by node, and the clip frame stays one
 - Edit Contents: takes the contents out of the frame to edit them (where
   they show, as Extract Contents does); the rest of the page fades to the
   "Visibility of inactive objects" of focus mode (Tools > Options >
-  TraceDraw > Edit, 20 % at first) while the frame and the contents are
+  TraceLaser > Edit, 20 % at first) while the frame and the contents are
   drawn in full (`App::render_focus`, the renderer's focus option with
   several objects; #981). At 0 % the rest is not drawn at all.
   Finish Editing Contents (the bar's Finish) puts them back; so does a
@@ -184,7 +184,7 @@ in place and lock work as for any clip frame. One undo step each.
 
 ## Checks
 
-- `tracedraw_core::command::tests::a_clip_frames_frame_is_found_and_painted`
+- `tracelaser_core::command::tests::a_clip_frames_frame_is_found_and_painted`
 - `pick_drag_tests::a_clip_frame_is_painted_and_reshaped_through_its_frame`
 
 - Given a locked clip frame, when the frame is moved by (10, 0), then the

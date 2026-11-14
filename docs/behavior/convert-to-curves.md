@@ -70,16 +70,16 @@ it but keeps an envelope live, so the frame being edited stays.
   content drawn as before (the clip frame's warp first, then its own)
   and the frame keeping its envelope; with only the frame's envelope
   left, the command is greyed
-  (`tracedraw_core::document::tests::a_clip_frame_bakes_its_warp_before_the_warps_inside`,
-  `tracedraw_core::document::tests::warps_under_a_live_contour_stay`).
+  (`tracelaser_core::document::tests::a_clip_frame_bakes_its_warp_before_the_warps_inside`,
+  `tracelaser_core::document::tests::warps_under_a_live_contour_stay`).
 - A brush press on an enveloped group converts nothing
   (`envelope_edit::tests::a_brush_press_leaves_an_enveloped_group`).
 - The bake itself: the warped outline equals what is drawn, the other
   effects keep their order and switched-off state, warps after a
   contour stay, perspective and distortion bake too, groups bake object
   by object, bitmaps keep their envelope
-  (`tracedraw_core::live::tests::bake_outline_warps_makes_the_envelope_the_outline`,
-  `tracedraw_core::live::tests::only_warps_before_a_contour_are_baked`,
-  `tracedraw_core::live::tests::perspective_and_distortion_bake_too`,
-  `tracedraw_core::live::tests::an_envelope_on_a_group_bakes_into_each_object`,
-  `tracedraw_core::live::tests::a_bitmap_keeps_its_envelope`).
+  (`tracelaser_core::live::tests::bake_outline_warps_makes_the_envelope_the_outline`,
+  `tracelaser_core::live::tests::only_warps_before_a_contour_are_baked`,
+  `tracelaser_core::live::tests::perspective_and_distortion_bake_too`,
+  `tracelaser_core::live::tests::an_envelope_on_a_group_bakes_into_each_object`,
+  `tracelaser_core::live::tests::a_bitmap_keeps_its_envelope`).

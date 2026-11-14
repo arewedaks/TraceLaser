@@ -358,7 +358,7 @@ impl EventProcessor {
         let window_target = Self::window_target(&self.target);
         let mut devices = self.devices.borrow_mut();
         if let Some(info) = DeviceInfo::get(&window_target.xconn, device as _) {
-            // TraceDraw: the atom that labels a pen's pressure valuator.
+            // TraceLaser: the atom that labels a pen's pressure valuator.
             let pressure_label = window_target.xconn.atoms()[AbsPressure];
             for info in info.iter() {
                 devices.insert(DeviceId(info.deviceid as _), Device::new(info, pressure_label));
@@ -516,10 +516,10 @@ impl EventProcessor {
 
             self.dnd.source_window = Some(source_window);
 
-            // TraceDraw: where the pointer is over the window goes out as a
+            // TraceLaser: where the pointer is over the window goes out as a
             // cursor move, as a drag of files gives the window no motion
             // events of its own, so that the drop can be told apart by where
-            // it lands (TraceDraw #1142). The place is in root window
+            // it lands (TraceLaser #1142). The place is in root window
             // coordinates, `(x << 16) | y`.
             let packed = xev.data.get_long(2);
             let root_x = ((packed >> 16) & 0xffff) as u16 as i16;
@@ -1179,7 +1179,7 @@ impl EventProcessor {
 
             let x = unsafe { *value };
 
-            // TraceDraw: a pen's pressure goes out as a touch that moves
+            // TraceLaser: a pen's pressure goes out as a touch that moves
             // with a force, as the Windows backend reports a pen; never
             // as a touch that starts or ends, which egui-winit would turn
             // into a second press of the button (vendor/README.md).

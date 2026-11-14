@@ -2,7 +2,7 @@
 
 > *Tradução automática: esta página pode estar atrasada em relação à versão em inglês.*
 
-Você pode [usar o TraceDraw no navegador](https://tracedraw.github.io/tracedraw/)
+Você pode [usar o TraceLaser no navegador](https://tracelaser.github.io/tracelaser/)
 sem instalar nada. É o mesmo programa da versão para computador, compilado para
 o navegador, então os menus, as ferramentas e os arquivos são os mesmos.
 
@@ -13,7 +13,7 @@ o navegador, então os menus, as ferramentas e os arquivos são os mesmos.
 Cada vez que a página abre, uma mensagem explica que a versão para navegador é
 o mesmo programa da versão para computador e o que muda. [[dialog.ok]] (ou
 <kbd>Enter</kbd>) a fecha; um segundo botão abre os downloads da versão para
-computador. No Windows, um terceiro botão abre o TraceDraw na Microsoft Store,
+computador. No Windows, um terceiro botão abre o TraceLaser na Microsoft Store,
 e a mensagem avisa que a versão da Store pode estar uma ou mais versões atrás
 do download mais recente, porque a Store certifica cada versão antes.
 
@@ -29,7 +29,7 @@ do download mais recente, porque a Store certifica cada versão antes.
   o texto precisa delas.
 - **Configurações** ficam guardadas naquele navegador, naquele computador.
 - **Teclas.** Enquanto o desenho tem o foco, os atalhos do programa vão para o
-  TraceDraw e não para o navegador, exceto as teclas da área de transferência,
+  TraceLaser e não para o navegador, exceto as teclas da área de transferência,
   recarregar e as ferramentas de desenvolvedor do navegador.
   <kbd>Ctrl+N</kbd>, <kbd>Ctrl+T</kbd> e <kbd>Ctrl+W</kbd> sempre ficam com o
   navegador, então use o menu [[menu.file]] para criar e fechar desenhos.

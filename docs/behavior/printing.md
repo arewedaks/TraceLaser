@@ -63,7 +63,7 @@ drawn at its size from the paper's corner; the copies and their
 collation go to the printer, the drawing's name is the job title. The
 script runs without a window and shows no "Printing page" box, and gives
 up after five minutes; what came of each print (the sheets sent, or the
-error) is written to `tracedraw.log`. A one-sheet print used to fail
+error) is written to `tracelaser.log`. A one-sheet print used to fail
 before it reached the printer, on every printer: the list of sheet sizes
 flattened in PowerShell when it held one sheet (#614; checked on a
 Windows machine with a printer writing to a file: one and two sheets
@@ -354,7 +354,7 @@ same function (`export::print_sheets`).
   changed afterwards is shown unchosen. Presets are kept in the
   preferences (`prefs::PrintPrefs::layout_presets`). Save to file...
   writes the layout as a `.tdlayout` file (JSON: `format`
-  `"tracedraw-print-layout"`, `version` 1 and the `layout`, the fields
+  `"tracelaser-print-layout"`, `version` 1 and the `layout`, the fields
   of `prefs::LayoutPreset`); Load from file... reads one (or a `.json`
   file holding one) into the open Print Preview or Print dialog and keeps
   it as a preset of its name. Another file is refused with a message;

@@ -5,7 +5,7 @@ that turns a request in words ("a red bicycle with blue wheels", "make
 the circle bigger and put the title under it") into a drawing. An AI
 service of the user's choice, with the user's own key, writes a program
 for the scripting object model (the one of the Scripts panel), and
-TraceDraw runs it as one undo step. TraceDraw has no AI of its own and no
+TraceLaser runs it as one undo step. TraceLaser has no AI of its own and no
 account; nothing is sent until the user presses Draw.
 
 ## Prompt bar
@@ -60,7 +60,7 @@ narrow panel.
 | Model | `claude-sonnet-5-5` for the Messages API; none for chat completions | the model name as the service lists it |
 | Longest reply | 32000 tokens | Messages API only (the row shows for it): `max_tokens` of each request, 1000 to 128000; a reply cut short at it says so. 8000 before #1011 cut long drawings short (`ai::tests::the_longest_reply_is_a_preference`) |
 | API key | empty | a password field; needed by the Messages API, optional for chat completions (sent as `Authorization: Bearer`) |
-| Remember the key on this computer | off | on: the key is kept in the preferences file (in the browser: the page's local storage), in plain text; off: it lives only until TraceDraw closes |
+| Remember the key on this computer | off | on: the key is kept in the preferences file (in the browser: the page's local storage), in plain text; off: it lives only until TraceLaser closes |
 
 Choosing another service clears the address and model (their defaults
 apply).
@@ -80,7 +80,7 @@ about a model than its name; the finished models come before the ones
 on trial (`preview`, `exp`, `beta`), each group in the service's order.
 The model set up always stays in the list, first when the list would
 leave it out. "Show every model the service lists", a box in the list
-shown when something was left out, brings them all back until TraceDraw
+shown when something was left out, brings them all back until TraceLaser
 closes. A list whose names tell nothing apart (a server with names of
 its own) is offered whole.
 

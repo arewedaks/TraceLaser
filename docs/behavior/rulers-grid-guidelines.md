@@ -137,7 +137,7 @@ stand for a distance in the world (`drawing_scale.rs`):
   guidelines edited (the row is highlighted): new guidelines, from the
   rulers, the Guidelines panel or presets, go there; only those are
   picked, moved, locked and deleted, the others are drawn as they are
-  and still snapped to. When TraceDraw starts the master guidelines
+  and still snapped to. When TraceLaser starts the master guidelines
   are the ones chosen, so guidelines
   dragged from the rulers are on every page; a click on a page's own
   "Guides" row makes new ones that page's only (#1775). The padlock of
@@ -285,7 +285,7 @@ properties for new objects (see `object-styles.md`), for new drawings.
 - `guides::tests::second_click_rotates_a_guide_about_the_clicked_point`
 - `ui::layout_options::tests::*` (form origin, presets)
 - `canvas::tests::grid_lines_thin_out_and_follow_the_origin`
-- `tracedraw_core` document tests: old guidelines load, appearance round
+- `tracelaser_core` document tests: old guidelines load, appearance round
   trips, defaults for documents without grid settings.
 - `drawing_scale::tests::presets_have_the_ratio_their_label_says`
 - `drawing_scale::tests::the_settings_find_their_preset_and_label`

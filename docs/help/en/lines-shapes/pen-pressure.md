@@ -1,7 +1,7 @@
 # Drawing with a graphics tablet
 
 A graphics tablet's pen moves the pointer and clicks like a mouse, so every
-tool works with it. Where the system also tells TraceDraw how hard the pen
+tool works with it. Where the system also tells TraceLaser how hard the pen
 presses, the Freehand and Brush Strokes tools let that pressure set the width
 of the stroke: press lightly for a thin line, harder for a wide one. The
 mouse draws an even width, as before.
@@ -49,7 +49,7 @@ The pressure is on at first. To draw with the pen at an even width, turn off
 | Browser version | yes | yes, where the browser reports it (see below) |
 
 On a Wayland desktop (the default of several Linux systems) the pen does not
-reach TraceDraw yet. Start TraceDraw with `tracedraw --x11` from a terminal:
+reach TraceLaser yet. Start TraceLaser with `tracelaser --x11` from a terminal:
 the window then opens through XWayland, where the pen moves the pointer,
 clicks and reports its pressure.
 

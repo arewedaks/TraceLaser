@@ -93,7 +93,7 @@ pub(crate) fn install_event_handlers(runner_ref: &WebRunner) -> Result<(), JsVal
     install_pointerup(runner_ref, &document)?;
     install_pointerdown(runner_ref, &canvas)?;
     install_mouseleave(runner_ref, &canvas)?;
-    // TraceDraw: a pen's pressure while it moves, also outside the canvas
+    // TraceLaser: a pen's pressure while it moves, also outside the canvas
     // during a drag (#1410).
     install_pen_pressure(runner_ref, &document)?;
 
@@ -423,13 +423,13 @@ fn install_copy_cut_paste(runner_ref: &WebRunner, target: &EventTarget) -> Resul
 
 fn install_window_events(runner_ref: &WebRunner, window: &EventTarget) -> Result<(), JsValue> {
     // Save-on-close
-    // TraceDraw: the event is `beforeunload`; `onbeforeunload` (the
+    // TraceLaser: the event is `beforeunload`; `onbeforeunload` (the
     // property's name) never fires, so nothing was saved on close (#1395).
     runner_ref.add_event_listener(window, "beforeunload", |_: web_sys::Event, runner| {
         runner.save();
     })?;
 
-    // TraceDraw: save when the page is hidden (another tab, a minimized
+    // TraceLaser: save when the page is hidden (another tab, a minimized
     // window, a phone's home screen, a tab being closed): the last moment
     // a browser reliably gives a page that may be discarded without
     // another event (#1395).
@@ -561,7 +561,7 @@ fn install_pointerdown(runner_ref: &WebRunner, target: &EventTarget) -> Result<(
         |event: web_sys::PointerEvent, runner: &mut AppRunner| {
             let modifiers = modifiers_from_mouse_event(&event);
             runner.input.set_modifiers(modifiers);
-            // TraceDraw: the pen's pressure before its press (#1410), and
+            // TraceLaser: the pen's pressure before its press (#1410), and
             // the pointer where it presses: Safari sends an Apple Pencil
             // no mouse moves (#1655).
             push_pen_pressure(runner, &event);
@@ -598,7 +598,7 @@ fn install_pointerdown(runner_ref: &WebRunner, target: &EventTarget) -> Result<(
                 event.stop_propagation();
             }
             // Note: prevent_default breaks VSCode tab focusing, hence why we don't call it here.
-            // TraceDraw: but a pen on the canvas is the editor's (#1655):
+            // TraceLaser: but a pen on the canvas is the editor's (#1655):
             // no text selection, handwriting or mouse events of the
             // browser's own.
             if is_pen {
@@ -618,7 +618,7 @@ fn install_pointerup(runner_ref: &WebRunner, target: &EventTarget) -> Result<(),
 
             let pos = pos_from_mouse_event(runner.canvas(), &event, runner.egui_ctx());
 
-            // TraceDraw: a lifted pen has no pressure (#1410).
+            // TraceLaser: a lifted pen has no pressure (#1410).
             push_pen_pressure(runner, &event);
 
             if is_interested_in_pointer_event(
@@ -689,8 +689,8 @@ fn is_interested_in_pointer_event(runner: &AppRunner, pos: egui::Pos2) -> bool {
     is_hovering_canvas || is_pointer_down
 }
 
-/// TraceDraw: the pressure of a pen's pointer event as a moving touch
-/// with a force, which TraceDraw's raw input hook reads and takes out
+/// TraceLaser: the pressure of a pen's pointer event as a moving touch
+/// with a force, which TraceLaser's raw input hook reads and takes out
 /// (see `pen_pressure.rs`, #1410). Nothing for a mouse or a touch. The
 /// pen's position comes from its own pointer events too (#1655), its
 /// buttons from `pointerdown` and `pointerup`.
@@ -714,7 +714,7 @@ fn push_pen_pressure(runner: &mut AppRunner, event: &web_sys::PointerEvent) {
     }
 }
 
-/// TraceDraw: a pen's pressure and position as it moves (over the
+/// TraceLaser: a pen's pressure and position as it moves (over the
 /// canvas, or anywhere during a drag) and when the browser cancels it
 /// (#1410, #1655: Safari sends an Apple Pencil no mouse events, so its
 /// pointer events are all there is).
@@ -842,7 +842,7 @@ fn install_touchstart(runner_ref: &WebRunner, target: &EventTarget) -> Result<()
 
 fn install_touchmove(runner_ref: &WebRunner, target: &EventTarget) -> Result<(), JsValue> {
     runner_ref.add_event_listener(target, "touchmove", |event: web_sys::TouchEvent, runner| {
-        // TraceDraw: an Apple Pencil moves through its pen pointer events
+        // TraceLaser: an Apple Pencil moves through its pen pointer events
         // (#1655); its touches only must not scroll the page.
         if super::input::only_stylus(&event) {
             event.prevent_default();
@@ -1055,9 +1055,9 @@ fn handle_gesture(event: web_sys::Event, runner: &mut AppRunner) {
 fn install_drag_and_drop(runner_ref: &WebRunner, target: &EventTarget) -> Result<(), JsValue> {
     runner_ref.add_event_listener(target, "dragover", |event: web_sys::DragEvent, runner| {
         if let Some(data_transfer) = event.data_transfer() {
-            // TraceDraw: where files are dragged goes in as a pointer move,
+            // TraceLaser: where files are dragged goes in as a pointer move,
             // so that a drop can be told apart by where it lands
-            // (TraceDraw #1142); the browser sends no mouse moves during the
+            // (TraceLaser #1142); the browser sends no mouse moves during the
             // drag.
             let pos = pos_from_mouse_event(runner.canvas(), &event, runner.egui_ctx());
             runner.input.raw.events.push(egui::Event::PointerMoved(pos));
@@ -1099,7 +1099,7 @@ fn install_drag_and_drop(runner_ref: &WebRunner, target: &EventTarget) -> Result
 
     runner_ref.add_event_listener(target, "drop", |event: web_sys::DragEvent, runner| {
         if let Some(data_transfer) = event.data_transfer() {
-            // TraceDraw: where the files were let go, before them (#1142).
+            // TraceLaser: where the files were let go, before them (#1142).
             let pos = pos_from_mouse_event(runner.canvas(), &event, runner.egui_ctx());
             runner.input.raw.events.push(egui::Event::PointerMoved(pos));
             // TODO(https://github.com/emilk/egui/issues/3702): support dropping folders

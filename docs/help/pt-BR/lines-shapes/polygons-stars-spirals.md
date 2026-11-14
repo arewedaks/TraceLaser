@@ -68,7 +68,7 @@ e clique em [[shapes.mine_remove]], ou clique nela com o botão direito. As
 formas incluídas não podem ser removidas.
 
 Suas formas ficam guardadas com as suas configurações, então continuam lá
-na próxima vez que o TraceDraw abrir.
+na próxima vez que o TraceLaser abrir.
 
 ## Linhas de ação {#action-lines}
 

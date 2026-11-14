@@ -1,30 +1,30 @@
 # Getting started
 
-This page takes you from installing TraceDraw to saving your first
+This page takes you from installing TraceLaser to saving your first
 drawing. On the way it names the parts of the window, so the other pages
 of this guide make sense.
 
-## Install TraceDraw
+## Install TraceLaser
 
 ### On your computer
 
-Every version of TraceDraw has a release with files for each system. To
+Every version of TraceLaser has a release with files for each system. To
 install it:
 
-1. Open the [latest release](https://github.com/tracedraw/tracedraw/releases/latest).
+1. Open the [latest release](https://github.com/arewedaks/TraceLaser/releases/latest).
 2. Download the file for your system (`<version>` is the version
    number):
 
    | System | File |
    |---|---|
-   | Windows (x64) | `tracedraw-<version>-windows-x86_64-setup.exe` (installer) or `tracedraw-<version>-windows-x86_64-portable.zip` |
-   | macOS (Apple silicon) | `tracedraw-<version>-macos-arm64.dmg` |
-   | macOS (Intel) | `tracedraw-<version>-macos-x86_64.dmg` |
-   | Linux (x86_64) | the `.deb` package (`_amd64`), `tracedraw-<version>-linux-amd64.AppImage` or `tracedraw-<version>-linux-x86_64.tar.gz` |
-   | Linux (arm64: Raspberry Pi 4/5 with a 64-bit system, ARM laptops) | the `.deb` package (`_arm64`), `tracedraw-<version>-linux-arm64.AppImage` or `tracedraw-<version>-linux-arm64.tar.gz` |
+   | Windows (x64) | `tracelaser-<version>-windows-x86_64-setup.exe` (installer) or `tracelaser-<version>-windows-x86_64-portable.zip` |
+   | macOS (Apple silicon) | `tracelaser-<version>-macos-arm64.dmg` |
+   | macOS (Intel) | `tracelaser-<version>-macos-x86_64.dmg` |
+   | Linux (x86_64) | the `.deb` package (`_amd64`), `tracelaser-<version>-linux-amd64.AppImage` or `tracelaser-<version>-linux-x86_64.tar.gz` |
+   | Linux (arm64: Raspberry Pi 4/5 with a 64-bit system, ARM laptops) | the `.deb` package (`_arm64`), `tracelaser-<version>-linux-arm64.AppImage` or `tracelaser-<version>-linux-arm64.tar.gz` |
 
 3. Install or unpack it as you would any program on your system. The
-   Windows installer asks which language TraceDraw starts in; System
+   Windows installer asks which language TraceLaser starts in; System
    language, selected at first, follows the language of Windows. Other
    copies start in the system's language. Change it at any time under
    Tools > Options > Global > General.
@@ -35,7 +35,7 @@ The downloads are not code-signed yet:
   anyway**.
 - On macOS, right-click the app and choose **Open** the first time.
 
-Every download also contains `tracedraw-cli`, a command-line tool for
+Every download also contains `tracelaser-cli`, a command-line tool for
 converting files (see [Customizing](customizing.md#scripts-and-automation)).
 
 If you want to try newer work before a release, the **Nightly build**
@@ -43,7 +43,7 @@ pre-release on the releases page is refreshed with every change.
 
 ### In your browser
 
-You can also [open TraceDraw in the browser](https://tracedraw.github.io/tracedraw/)
+You can also [open TraceLaser in the browser](https://tracelaser.github.io/tracelaser/)
 with nothing to install. While it loads, the page shows a progress bar;
 the editor starts when the bar is full.
 
@@ -65,17 +65,17 @@ The browser version is the same editor, with a few differences:
 The full list of differences is in
 [the browser notes](../behavior/web.md).
 
-## Start TraceDraw
+## Start TraceLaser
 
-When TraceDraw starts, a splash screen shows while fonts load. Then the
+When TraceLaser starts, a splash screen shows while fonts load. Then the
 main window opens, maximized the first time, and later at the size you
 left it.
 
-To turn the splash screen off: **Tools > Options > TraceDraw > General**,
+To turn the splash screen off: **Tools > Options > TraceLaser > General**,
 clear **Show the splash screen at start-up**.
 
 If your settings ever get into a muddle, press `F8` while the splash
-screen shows. Once the editor is up, TraceDraw asks whether to reset
+screen shows. Once the editor is up, TraceLaser asks whether to reset
 every preference. Your drawings are never touched. See
 [Customizing](customizing.md#reset-your-settings).
 
@@ -93,8 +93,8 @@ While only the Welcome Screen is open, the menu bar shows File, Tools,
 Window and Help. To bring it back later, use the standard toolbar's
 **Launch** button and choose **Welcome Screen**.
 
-To choose what TraceDraw shows when it starts: **Tools > Options >
-TraceDraw > General > On start-up**, then pick Welcome Screen, Start a
+To choose what TraceLaser shows when it starts: **Tools > Options >
+TraceLaser > General > On start-up**, then pick Welcome Screen, Start a
 new document, or Open last edited document.
 
 ## Create a new drawing
@@ -106,7 +106,7 @@ To start a drawing:
    Welcome Screen.
 2. In **Create a New Document**, set:
    - **Name** (`Untitled-1` and so on to start with);
-   - **Preset**: TraceDraw default, Default CMYK, Default RGB or Web;
+   - **Preset**: TraceLaser default, Default CMYK, Default RGB or Web;
    - **Number of pages** (1 to 999);
    - **Primary color mode**: CMYK (for print) or RGB (for screens);
    - **Page size** (A4 to start with), or a width and height with your
@@ -197,7 +197,7 @@ If the menus and buttons look too small or too large:
 The size is relative to the scaling your system gives the monitor, and
 it never changes how large your drawing is: zoom 100 % always shows the
 real size. To make zoom 100 % match a real ruler held against the
-screen, use **Tools > Options > TraceDraw > Display > Ruler
+screen, use **Tools > Options > TraceLaser > Display > Ruler
 calibration**. See [the Options notes](../behavior/options.md#interface-size).
 
 ## Save your drawing
@@ -208,12 +208,12 @@ Save As** (`Ctrl+Shift+S`), the **Save Drawing** dialog opens:
 1. Pick a folder (shortcuts to Home, Desktop, Documents, Downloads and
    Pictures are down the left).
 2. Type a **File name**.
-3. Choose **Save as type**: TraceDraw (`*.tdraw`), which keeps
+3. Choose **Save as type**: TraceLaser (`*.tdraw`), which keeps
    everything, or CDR files (`*.cdr`) with a **Version**.
 4. Optionally fill in **Title**, **Subject** and a **Rating**.
 5. Press **Save**.
 
-TraceDraw also keeps auto-backups of unsaved work and offers them after a
+TraceLaser also keeps auto-backups of unsaved work and offers them after a
 crash. Both are explained in [Files](files.md).
 
 ## Where next

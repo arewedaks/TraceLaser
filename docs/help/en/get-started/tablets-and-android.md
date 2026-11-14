@@ -1,14 +1,14 @@
 # Tablets and the Android app
 
-TraceDraw runs on tablets in two ways: the browser version installed as an
+TraceLaser runs on tablets in two ways: the browser version installed as an
 app (on an Android tablet, an iPad or a desktop computer), and a native app
 for Android tablets, phones and Chromebooks. Both are the same editor as the
 desktop version, with the same menus, tools and files.
 
 ## Installing the browser version as an app {#install}
 
-The [browser version](https://tracedraw.github.io/tracedraw/) can be installed
-from the browser. It then opens full screen with the TraceDraw icon, without
+The [browser version](https://tracelaser.github.io/tracelaser/) can be installed
+from the browser. It then opens full screen with the TraceLaser icon, without
 the browser's address bar and tabs, in any orientation, and keeps clear of a
 notch or rounded screen corners.
 
@@ -18,9 +18,9 @@ notch or rounded screen corners.
 - **iPad** (Safari): open the page, tap **Share**, then **Add to Home
   Screen**. On an iPad or iPhone, as on an Android tablet, the Open and
   Import dialogs list every file, since the system would grey out `.cdr`
-  files otherwise; pick a drawing TraceDraw opens.
+  files otherwise; pick a drawing TraceLaser opens.
 - **Desktop** (Chrome, Edge): click the install icon at the right end of the
-  address bar, or choose **Install TraceDraw** in the browser's menu.
+  address bar, or choose **Install TraceLaser** in the browser's menu.
 
 Once it has been opened, the installed app starts without a network
 connection, at the version you last used (fonts fetched from the web still
@@ -32,7 +32,7 @@ It is the same program as the browser version, so the differences listed in
 
 ## The Android app {#android}
 
-The Android app is TraceDraw built for 64-bit ARM tablets and phones and for
+The Android app is TraceLaser built for 64-bit ARM tablets and phones and for
 Chromebooks with Intel or AMD processors. Its installation files (APK) are
 attached to the releases and to the nightly builds of the project on GitHub.
 The app does not check for updates itself; [[menu.help > menu.help.updates]]
@@ -52,7 +52,7 @@ What works differently:
 - **Recent drawings** reopen from the list and the Welcome Screen, as on the
   desktop.
 - **Clipboard.** Text goes through the system clipboard: objects copied in
-  TraceDraw paste in other apps as text, and text copied elsewhere pastes as
+  TraceLaser paste in other apps as text, and text copied elsewhere pastes as
   text. Pictures copied in other apps are not read yet.
 - **Fonts.** The system's fonts are used.
 - **Keyboard.** A physical or Bluetooth keyboard works with the shortcuts.

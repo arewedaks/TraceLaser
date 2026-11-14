@@ -1,7 +1,7 @@
-//! TraceDraw: two decisions of the Windows backend that keep the pointer
+//! TraceLaser: two decisions of the Windows backend that keep the pointer
 //! where it is when a shortcut with Alt is pressed (#1922, see
 //! `vendor/README.md`). The file has no dependency on the rest of the
-//! crate, so that TraceDraw's tests can include and run it.
+//! crate, so that TraceLaser's tests can include and run it.
 //!
 //! A shortcut with Alt over a still mouse left the pointer as it was (the
 //! arrow) or invisible until the mouse moved: for a moment the system

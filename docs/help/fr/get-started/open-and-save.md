@@ -2,7 +2,7 @@
 
 > *Traduction automatique : cette page peut être en retard sur la version anglaise.*
 
-TraceDraw enregistre les dessins dans son propre format, `.tdraw`, qui
+TraceLaser enregistre les dessins dans son propre format, `.tdraw`, qui
 conserve tout, et peut aussi enregistrer des fichiers `.cdr`. Il ouvre de
 nombreux autres formats ; voir
 [Formats de fichier pris en charge](../file-formats/supported-formats.md).
@@ -25,7 +25,7 @@ d'un fichier au dessin ouvert ; voir
 [Importer des fichiers](../file-formats/import.md).
 
 Vous pouvez aussi faire glisser des fichiers depuis votre gestionnaire de
-fichiers sur TraceDraw. Un dessin (un fichier `.tdraw` ou `.cdr`, par
+fichiers sur TraceLaser. Un dessin (un fichier `.tdraw` ou `.cdr`, par
 exemple) lâché sur la barre de titre, les menus, les barres d'outils ou les
 onglets de documents s'ouvre dans son propre onglet ; lâché sur la fenêtre
 de dessin, il est importé dans le dessin ouvert. Le cadre et l'étiquette
@@ -33,7 +33,7 @@ affichés pendant le glissement indiquent ce qui va se passer. Là où le
 système n'indique pas où se trouve le pointeur (Linux, macOS), les dessins
 s'ouvrent dans un onglet et les images sont importées.
 
-Un dessin ouvert depuis le système pendant que TraceDraw tourne (un double
+Un dessin ouvert depuis le système pendant que TraceLaser tourne (un double
 clic dans le gestionnaire de fichiers ou le Finder, Ouvrir avec, ou Partager
 sous Android) s'ouvre dans un onglet de la fenêtre déjà ouverte, qui passe
 au premier plan. La version navigateur installée comme application fait de
@@ -68,7 +68,7 @@ pouvez les réactiver dans la page [[options.warnings]] de
 
 Choisissez [[menu.file > menu.file.save]] (<kbd>Ctrl+S</kbd>) pour écrire le
 dessin dans son fichier. Un nouveau dessin, ou un dessin ouvert depuis un
-format que TraceDraw sait seulement lire, n'a pas encore de fichier :
+format que TraceLaser sait seulement lire, n'a pas encore de fichier :
 Enregistrer ouvre alors la boîte de dialogue [[dialog.save_drawing]].
 
 ## Enregistrer sous {#save-as}
@@ -89,9 +89,9 @@ Pour enregistrer un dessin sous un nouveau nom :
    dossier de la liste pour l'ouvrir ; cliquez sur un fichier pour reprendre
    son nom.
 2. Tapez le [[dialog.file_name]]. L'extension du type choisi est ajoutée.
-3. Choisissez [[dialog.save_as_type]] : TraceDraw (`*.tdraw`) ou
+3. Choisissez [[dialog.save_as_type]] : TraceLaser (`*.tdraw`) ou
    [[file.cdr_files]].
-4. Choisissez la [[dialog.cdr_version]]. Pour les fichiers TraceDraw, c'est
+4. Choisissez la [[dialog.cdr_version]]. Pour les fichiers TraceLaser, c'est
    la version du format, la plus récente en premier. Pour les fichiers
    `.cdr`, c'est la version du fichier, de 27 à 7 ; un programme plus
    ancien ne peut ouvrir qu'une version aussi ancienne que lui ou plus
@@ -102,11 +102,11 @@ Pour enregistrer un dessin sous un nouveau nom :
      [[dialog.embed_color_profile_none]] stocke le profil CMJN du dessin dans
      le fichier.
    - [[dialog.embed_fonts]] (décoché au départ) stocke les polices utilisées
-     par le texte, quand leur licence le permet, dans les fichiers TraceDraw
+     par le texte, quand leur licence le permet, dans les fichiers TraceLaser
      et dans les fichiers `.cdr` à partir de la version 16. La case indique
      ce que les polices ajoutent au fichier. Cochez-la pour les dessins qui
      vont sur un ordinateur qui n'a peut-être pas les polices.
-   - Pour les fichiers TraceDraw sur ordinateur, [[dialog.save_package]]
+   - Pour les fichiers TraceLaser sur ordinateur, [[dialog.save_package]]
      enregistre le dessin dans un dossier à son nom avec les images liées,
      les fichiers de police et un rapport, et [[package.pdf]] ajoute un PDF.
      Voir [Créer un paquet](../file-formats/package.md).
@@ -117,7 +117,7 @@ Pour enregistrer un dessin sous un nouveau nom :
    pour l'enlever). Ce sont les propriétés du dessin, affichées aussi dans
    [Propriétés du document](../pages-layout/document-properties.md).
 7. Cliquez sur [[dialog.save]] ou appuyez sur <kbd>Entrée</kbd>. Si le
-   fichier existe, TraceDraw demande s'il faut le [[dialog.replace]].
+   fichier existe, TraceLaser demande s'il faut le [[dialog.replace]].
 
 La boîte de dialogue s'ouvre dans le dossier du dessin, sinon dans le
 dernier dossier où vous avez enregistré, sinon dans votre dossier de
@@ -153,9 +153,9 @@ conserve les dessins dans un dépôt GitHub (voir [GitHub](github.md)).
 Choisissez [[menu.file > menu.file.close]] (<kbd>Ctrl+F4</kbd>), cliquez sur
 le bouton de fermeture de l'onglet du dessin, ou cliquez sur l'onglet avec
 le bouton du milieu. [[menu.file.close_all]] ferme tous les dessins, et
-[[menu.file.exit]] (<kbd>Alt+F4</kbd>) ferme TraceDraw.
+[[menu.file.exit]] (<kbd>Alt+F4</kbd>) ferme TraceLaser.
 
-Quand un dessin a des modifications non enregistrées, TraceDraw demande
+Quand un dessin a des modifications non enregistrées, TraceLaser demande
 d'abord s'il faut les enregistrer : [[dialog.yes]] enregistre (en demandant
 un nom si le dessin n'a pas encore de fichier), [[dialog.no]] ferme sans
 enregistrer et [[dialog.cancel]] laisse le dessin ouvert. Quand plusieurs
@@ -166,17 +166,17 @@ arrête.
 
 ## Sauvegarde automatique et récupération {#recovery}
 
-TraceDraw conserve des sauvegardes de vos dessins ouverts
+TraceLaser conserve des sauvegardes de vos dessins ouverts
 tant que la sauvegarde automatique est active (la page [[options.save]] de
 [[menu.tools > menu.tools.options > menu.tools.options_app]] règle la
 fréquence et l'emplacement ; toutes les 20 minutes au départ). Fermer
-TraceDraw normalement les supprime.
+TraceLaser normalement les supprime.
 
-Si TraceDraw s'est arrêté sans se fermer, par exemple après une coupure de
+Si TraceLaser s'est arrêté sans se fermer, par exemple après une coupure de
 courant, il propose les sauvegardes au démarrage suivant :
 [[dialog.recover]] ouvre chacune comme un dessin non enregistré
 (Enregistrer demande alors où l'enregistrer), et [[dialog.discard]] laisse
-les sauvegardes dans leur dossier. Deux fenêtres TraceDraw ouvertes en même
+les sauvegardes dans leur dossier. Deux fenêtres TraceLaser ouvertes en même
 temps ne se proposent jamais les dessins l'une de l'autre.
 
 Dans la version pour navigateur, les sauvegardes sont gardées dans le

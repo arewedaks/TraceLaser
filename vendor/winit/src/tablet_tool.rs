@@ -1,4 +1,4 @@
-//! TraceDraw: a graphics tablet's pen on a native Wayland window (#1841).
+//! TraceLaser: a graphics tablet's pen on a native Wayland window (#1841).
 //!
 //! winit 0.30 binds no tablet protocol (`zwp_tablet_manager_v2`, the
 //! public tablet-v2 protocol of wayland-protocols), and a Wayland
@@ -41,10 +41,10 @@
 //! backend sets it on the tool as on the pointers, a named cursor through
 //! the cursor shape protocol (`cursor_shape_value`), a custom image on a
 //! surface of the tool's own, none while the window hides its cursor
-//! (TraceDraw draws its tool cursors itself). Before, the compositor
+//! (TraceLaser draws its tool cursors itself). Before, the compositor
 //! always showed its arrow for the pen.
 //!
-//! This file depends on nothing in the crate, and TraceDraw's tests
+//! This file depends on nothing in the crate, and TraceLaser's tests
 //! include and run it (`winit_tablet_tool::tests`).
 
 /// The largest pressure the protocol reports.

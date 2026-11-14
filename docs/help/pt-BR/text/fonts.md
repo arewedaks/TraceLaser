@@ -2,7 +2,7 @@
 
 > *Tradução automática: esta página pode estar atrasada em relação à versão em inglês.*
 
-O TraceDraw usa as fontes instaladas no seu computador, as fontes que você
+O TraceLaser usa as fontes instaladas no seu computador, as fontes que você
 acrescenta no Gerenciador de fontes e as fontes que vêm com um desenho. Esta
 página explica os painéis e a caixa de diálogo para trabalhar com fontes e
 caracteres especiais.
@@ -79,7 +79,7 @@ um só arquivo. Para defini-los no texto:
 Soltar o controle, ou digitar um valor, guarda o valor em um passo de
 desfazer. **Eixos padrão** remove os valores. Eles são salvos em arquivos
 `.tdraw` e desenhados em exportações e PDFs; um peso definido assim substitui
-o negrito que o TraceDraw desenharia.
+o negrito que o TraceLaser desenharia.
 
 ## Fontes ausentes {#missing}
 
@@ -163,7 +163,7 @@ Para usar o Gerenciador de fontes:
   sem instalar uma a uma; remover a pasta as tira de novo (fontes instaladas
   por conta própria ficam). **Acrescentar fonte** instala um arquivo de uma
   vez.
-- **Instalar** torna as fontes escolhidas disponíveis no TraceDraw, agora e a
+- **Instalar** torna as fontes escolhidas disponíveis no TraceLaser, agora e a
   cada início. **Desinstalar** as remove; as fontes do próprio sistema são
   protegidas.
 - **Acrescentar à coleção** e **Remover da coleção** organizam as fontes;

@@ -1,5 +1,5 @@
-// TraceDraw: what egui-winit applies again to a window it has just made
-// (see vendor/README.md, #787). Kept apart so that TraceDraw's own tests
+// TraceLaser: what egui-winit applies again to a window it has just made
+// (see vendor/README.md, #787). Kept apart so that TraceLaser's own tests
 // compile and run it (`splash::eframe_window_start::tests`): this copy is
 // outside the workspace and its own tests run in no gate.
 

@@ -3,39 +3,39 @@ resolver = "2"
 # Patched copies of dependencies, not workspace members (vendor/README.md).
 exclude = ["vendor"]
 members = [
-    "crates/core",
-    "crates/cdr-format",
-    "crates/cdr",
-    "crates/io",
-    "crates/text",
-    "crates/render",
-    "crates/vba",
-    "crates/vba-project",
-    "crates/tracecut",
-    "apps/tracedraw",
-    "apps/tracedraw-cli",
-    "apps/tracedraw-thumbnailer",
+    "crates/tracelaser-core",
+    "crates/tracelaser-cdr-format",
+    "crates/tracelaser-cdr",
+    "crates/tracelaser-io",
+    "crates/tracelaser-text",
+    "crates/tracelaser-render",
+    "crates/tracelaser-vba",
+    "crates/tracelaser-vba-project",
+    "crates/tracelaser-tracecut",
+    "apps/tracelaser",
+    "apps/tracelaser-cli",
+    "apps/tracelaser-thumbnailer",
 ]
 
 [workspace.package]
 version = "0.45.2"
 edition = "2021"
-authors = ["TraceDraw members and contributors"]
+authors = ["TraceLaser members and contributors"]
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/tracedraw/tracedraw"
-homepage = "https://github.com/tracedraw/tracedraw"
+repository = "https://github.com/arewedaks/TraceLaser"
+homepage = "https://github.com/arewedaks/TraceLaser"
 rust-version = "1.89"
 
 [workspace.dependencies]
-tracedraw-core = { path = "crates/core" }
-tracedraw-cdr-format = { path = "crates/cdr-format" }
-tracedraw-cdr = { path = "crates/cdr" }
-tracedraw-io = { path = "crates/io" }
-tracedraw-text = { path = "crates/text" }
-tracedraw-render = { path = "crates/render" }
-tracedraw-vba = { path = "crates/vba" }
-tracedraw-vba-project = { path = "crates/vba-project" }
-tracedraw-tracecut = { path = "crates/tracecut" }
+tracelaser-core = { path = "crates/tracelaser-core" }
+tracelaser-cdr-format = { path = "crates/tracelaser-cdr-format" }
+tracelaser-cdr = { path = "crates/tracelaser-cdr" }
+tracelaser-io = { path = "crates/tracelaser-io" }
+tracelaser-text = { path = "crates/tracelaser-text" }
+tracelaser-render = { path = "crates/tracelaser-render" }
+tracelaser-vba = { path = "crates/tracelaser-vba" }
+tracelaser-vba-project = { path = "crates/tracelaser-vba-project" }
+tracelaser-tracecut = { path = "crates/tracelaser-tracecut" }
 
 kurbo = { version = "0.13", features = ["serde"] }
 tiny-skia = "0.12"

@@ -427,7 +427,7 @@ is written exactly as before
 ## Importing a gradient
 
 The fountain fill editor's Import Gradient button reads a `.ggr` file
-(`tracedraw_io::ggr`) and replaces the stops with it. Plain linear
+(`tracelaser_io::ggr`) and replaces the stops with it. Plain linear
 segments with their middle halfway give their two ends; segments with
 another blending (curved, sine, sphere, step), a middle elsewhere or an
 HSV colouring are sampled into 17 stops. End colours given as the

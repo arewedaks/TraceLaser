@@ -3,14 +3,14 @@
 While Options > Save > Auto-backup is on, on the desktop, in the Android
 app and in the browser (see "In the browser" below).
 
-Each running TraceDraw keeps a small marker, `session-<id>.json`, in the
-auto-backup folder (`TraceDraw` in the temporary folder unless Options >
+Each running TraceLaser keeps a small marker, `session-<id>.json`, in the
+auto-backup folder (`TraceLaser` in the temporary folder unless Options >
 Save names another). It holds the time the session last checked in
 (once a minute) and the names of the auto-backups it wrote
 (`AutoBackup_of_<name>.tdraw`, every 20 minutes by default, see
 `options.md`).
 
-- Closing TraceDraw normally deletes the marker and the auto-backups that
+- Closing TraceLaser normally deletes the marker and the auto-backups that
   session wrote (unsaved drawings were already asked about).
 - At start, a marker that has not checked in for 3 minutes belongs to a
   session that ended without closing (a crash, a power cut). When its
@@ -18,7 +18,7 @@ Save names another). It holds the time the session last checked in
   an unsaved drawing without a file (Save asks where), and deletes the
   backup that opened; Discard leaves the backups in the folder and forgets
   the marker. A marker without backups is forgotten silently.
-- Two TraceDraw windows running at once each keep their own marker; one
+- Two TraceLaser windows running at once each keep their own marker; one
   never offers the other's drawings while it still checks in.
 - Auto-backups are written on a thread of their own from a copy of each
   drawing (pictures shared, not copied), straight to the file as the JSON
@@ -55,9 +55,9 @@ Save names another). It holds the time the session last checked in
 The browser has no folder; the page keeps both in its storage for the
 site (`web::backups`, `files::WEB_BACKUP_DIR`, the path `/backup`):
 
-- Markers go to local storage (key `tracedraw.recovery:/backup/session-<id>.json`),
+- Markers go to local storage (key `tracelaser.recovery:/backup/session-<id>.json`),
   written at once, so a page being left can still mark its session gone.
-- Backups go to the IndexedDB database `tracedraw` (store `backups`), keyed
+- Backups go to the IndexedDB database `tracelaser` (store `backups`), keyed
   by `/backup/<session id>/AutoBackup_of_<name>.tdraw`: each tab writes in
   a folder of its own, so two tabs never write over each other's. They are
   written on the spot (a browser has no threads). Options > Save shows no

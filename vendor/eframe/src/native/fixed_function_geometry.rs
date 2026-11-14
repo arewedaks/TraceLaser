@@ -1,6 +1,6 @@
-// TraceDraw: the arithmetic of the fixed-function painter
+// TraceLaser: the arithmetic of the fixed-function painter
 // (native/fixed_function_painter.rs, see vendor/README.md), kept apart
-// from the OpenGL calls so that TraceDraw's own tests compile and run it
+// from the OpenGL calls so that TraceLaser's own tests compile and run it
 // (`gpu::eframe_fixed_function_geometry::tests`).
 
 /// The scissor box in pixels for `clip_rect` (`[min_x, min_y, max_x,

@@ -4255,7 +4255,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "06bdbd8cfc056b8d2e2e85f29b56a3bdbecb527cef81eb39e3e7b98af4652770"
 
 [[package]]
-name = "tracedraw"
+name = "tracelaser"
 version = "0.45.2"
 dependencies = [
  "android-activity",
@@ -4288,14 +4288,14 @@ dependencies = [
  "sha2 0.10.9",
  "tiff",
  "tiny-skia",
- "tracedraw-cdr",
- "tracedraw-core",
- "tracedraw-io",
- "tracedraw-render",
- "tracedraw-text",
- "tracedraw-tracecut",
- "tracedraw-vba",
- "tracedraw-vba-project",
+ "tracelaser-cdr",
+ "tracelaser-core",
+ "tracelaser-io",
+ "tracelaser-render",
+ "tracelaser-text",
+ "tracelaser-tracecut",
+ "tracelaser-vba",
+ "tracelaser-vba-project",
  "ttf-parser",
  "ureq",
  "vaam-image-webp",
@@ -4316,7 +4316,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "tracedraw-cdr"
+name = "tracelaser-cdr"
 version = "0.45.2"
 dependencies = [
  "encoding_rs",
@@ -4325,15 +4325,15 @@ dependencies = [
  "serde",
  "serde_json",
  "tiny-skia",
- "tracedraw-cdr-format",
- "tracedraw-core",
+ "tracelaser-cdr-format",
+ "tracelaser-core",
  "ttf-parser",
  "web-time",
  "zip",
 ]
 
 [[package]]
-name = "tracedraw-cdr-format"
+name = "tracelaser-cdr-format"
 version = "0.45.2"
 dependencies = [
  "flate2",
@@ -4344,23 +4344,23 @@ dependencies = [
 ]
 
 [[package]]
-name = "tracedraw-cli"
+name = "tracelaser-cli"
 version = "0.45.2"
 dependencies = [
  "env_logger",
  "flate2",
  "image",
  "log",
- "tracedraw-cdr",
- "tracedraw-core",
- "tracedraw-io",
- "tracedraw-render",
- "tracedraw-text",
+ "tracelaser-cdr",
+ "tracelaser-core",
+ "tracelaser-io",
+ "tracelaser-render",
+ "tracelaser-text",
  "zip",
 ]
 
 [[package]]
-name = "tracedraw-core"
+name = "tracelaser-core"
 version = "0.45.2"
 dependencies = [
  "base64 0.22.1",
@@ -4372,7 +4372,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "tracedraw-io"
+name = "tracelaser-io"
 version = "0.45.2"
 dependencies = [
  "aes 0.8.4",
@@ -4391,9 +4391,9 @@ dependencies = [
  "svgtypes",
  "thiserror 2.0.21",
  "tiny-skia",
- "tracedraw-core",
- "tracedraw-render",
- "tracedraw-text",
+ "tracelaser-core",
+ "tracelaser-render",
+ "tracelaser-text",
  "ttf-parser",
  "usvg",
  "web-time",
@@ -4402,16 +4402,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "tracedraw-render"
+name = "tracelaser-render"
 version = "0.45.2"
 dependencies = [
  "log",
  "tiny-skia",
- "tracedraw-core",
+ "tracelaser-core",
 ]
 
 [[package]]
-name = "tracedraw-text"
+name = "tracelaser-text"
 version = "0.45.2"
 dependencies = [
  "encoding_rs",
@@ -4420,7 +4420,7 @@ dependencies = [
  "kurbo",
  "log",
  "rustybuzz",
- "tracedraw-core",
+ "tracelaser-core",
  "ttf-parser",
  "unicode-bidi",
  "unicode-general-category",
@@ -4428,33 +4428,33 @@ dependencies = [
 ]
 
 [[package]]
-name = "tracedraw-thumbnailer"
+name = "tracelaser-thumbnailer"
 version = "0.45.2"
 dependencies = [
- "tracedraw-core",
- "tracedraw-render",
- "tracedraw-text",
+ "tracelaser-core",
+ "tracelaser-render",
+ "tracelaser-text",
  "windows",
  "windows-core",
 ]
 
 [[package]]
-name = "tracedraw-tracecut"
+name = "tracelaser-tracecut"
 version = "0.45.2"
 dependencies = [
  "serde",
- "tracedraw-core",
+ "tracelaser-core",
 ]
 
 [[package]]
-name = "tracedraw-vba"
+name = "tracelaser-vba"
 version = "0.45.2"
 dependencies = [
  "boa_engine",
 ]
 
 [[package]]
-name = "tracedraw-vba-project"
+name = "tracelaser-vba-project"
 version = "0.45.2"
 dependencies = [
  "cfb",

@@ -1,10 +1,10 @@
 # Android app
 
 The same editor built as an Android app for 64-bit ARM tablets and
-phones (#893): `libtracedraw.so`, the `tracedraw` crate compiled as a
+phones (#893): `libtracelaser.so`, the `tracelaser` crate compiled as a
 shared library for `aarch64-linux-android` (and `x86_64-linux-android`
 for Chromebooks with Intel or AMD processors), loaded by the app's activity
-(`dev.tracedraw.app.TraceDrawActivity`, a `NativeActivity` with a page
+(`dev.tracelaser.app.TraceLaserActivity`, a `NativeActivity` with a page
 of Java in `packaging/android/java`) and packaged as an APK and as an
 App Bundle. eframe drives egui through winit's Android backend
 (`android-activity`, native activity) and draws with wgpu through
@@ -39,14 +39,14 @@ the owner does to publish it and what to test on a tablet first.
 | Clipboard | text, images and files through the system clipboard | text, pictures and files through the system's clipboard service: Copy puts the selection's SVG text there (other apps paste it as text, the editor as objects), Paste reads text copied elsewhere (artistic text, or objects when it is SVG), a picture copied elsewhere as a bitmap and documents copied elsewhere as imports (#1403); copies inside the editor work as before |
 | Text size and contrast (#1412) | the desktop's text size and high contrast | the system's font scale (Settings > Display > Font size, which reaches the running app: `fontScale` is among the configuration changes the activity handles) and Android 14's contrast setting or high contrast text, read through the activity's `getAccessibility` every 3 s (`behavior/options.md`) |
 | Options that do nothing on Android (#1415) | shown | hidden: Show the splash screen (the app starts without one), Use hardware acceleration and the graphics card (the app always draws with OpenGL ES, `gpu::ANDROID_BACKENDS`) and the AI agents section of Global > General (no agent on the phone to serve; a setting carried over from a desktop opens no link, `App::sync_mcp_link`); Edit Bitmap's program says Android asks which app edits the picture (#1398) |
-| Settings | `settings.json` in the configuration folder | `settings.json` in the app's private folder (`TRACEDRAW_CONFIG_DIR` set by `android_main`) |
-| Fonts | installed system fonts | the system's fonts (`/system/fonts`, `/product/fonts` and `/vendor/fonts`: Roboto, Noto and the rest; the font database looks in no folder on Android by itself, so `tracedraw_text` names these). Font Manager > Add Font copies the picked font into `fonts` in the app's private folder and installs it from there, at once and at every start (#1400); Add Folder picks several font files at once and adds each the same way (#1399) |
+| Settings | `settings.json` in the configuration folder | `settings.json` in the app's private folder (`TRACELASER_CONFIG_DIR` set by `android_main`) |
+| Fonts | installed system fonts | the system's fonts (`/system/fonts`, `/product/fonts` and `/vendor/fonts`: Roboto, Noto and the rest; the font database looks in no folder on Android by itself, so `tracelaser_text` names these). Font Manager > Add Font copies the picked font into `fonts` in the app's private folder and installs it from there, at once and at every start (#1400); Add Folder picks several font files at once and adds each the same way (#1399) |
 | Keyboard | the physical keyboard | a physical or Bluetooth keyboard works. The on-screen keyboard shows while a text, a table cell or a field takes typed text and types into an invisible view of the activity (`TextInputView`): a `NativeActivity` offers input methods no text field, so before #1309 only the key presses of Latin letters arrived and Chinese, Japanese, Korean, Tamil and other composed scripts never did. What the input method composes, commits and deletes reaches the editor as an input method's events (`soft_keyboard.rs`), its Backspace, Enter and arrow presses as keys. A tap with the Text tool starts a text there and brings the keyboard up; a tap into the text or field once more brings it back after the system's key hid it; it hides only once three frames in a row take no text, so a lone frame without the caret does not hide it and end what the input method composes; when the system ignores the request (the view's focus reaches the input method a moment later), it is made again up to five times, 100 ms apart. The emulator check types through a test keyboard and as key presses (see "The emulator check"); not checked on a device |
 | Updates | a check of GitHub's releases, asked about at the first start | none: Google Play updates the app (its policy refuses apps that download code of their own), so there is no first-start question and no daily check; Help > Updates opens the app's Play page (`updates::store_install`) |
 | AI Drawing, AI Generate, GitHub, dictionary downloads | HTTPS requests, certificates checked by the system's verifier | the same requests, certificates checked against the system's own store, the files Android's TLS reads (`/apex/com.android.conscrypt/cacerts` on Android 14 and later, else `/system/etc/security/cacerts`), read once at the first request, with the Mozilla roots bundled in the app when neither can be read (`net::tls_config`). The system's verifier the desktop uses needs a Java part the app does not carry, so every request failed its certificate check before (#1396). The emulator check sends one request at the start and wants it answered (see "The emulator check") |
 | Temporary files (auto-backups, crash recovery) | the system's temporary folder | `tmp` in the app's private folder (`TMPDIR` set by `android_main`: the system's default, `/data/local/tmp`, is closed to apps) |
 | Help | the user Help in the browser | the same pages open in the browser |
-| Errors | a message box and the log file | the system log only: `adb logcat -s tracedraw` |
+| Errors | a message box and the log file | the system log only: `adb logcat -s tracelaser` |
 | Configuration changes (rotation, window size, keyboard, dark mode, language, font size) | the window follows them | the same: the activity declares them (`android:configChanges`), so the system does not relaunch it. A relaunch the manifest cannot prevent (a new screen density, a change of the system's resource overlays: wallpaper colours, icon shapes, display cutout) ends the process once the drawings are backed up, and the system starts the app again in a new process, which offers them (see "Relaunches" below) |
 
 ## Mouse
@@ -113,7 +113,7 @@ Off, every touch gets through. The activity's Java code sees none of
 these events: a `NativeActivity` hands its input queue to the native
 code, so the tool type comes from the NDK's motion events
 (`AMotionEvent_getToolType`, through `android-activity`), and
-`TraceDrawActivity.java` has no touch handler of its own to pass it on
+`TraceLaserActivity.java` has no touch handler of its own to pass it on
 (its `TextInputView` only takes the keyboard's input). Checks:
 `palm::tests` (fake motion events: the hand while the pen is down, while
 it hovers, a hand that landed first, fingers alone, the option off) and
@@ -130,7 +130,7 @@ desktop.
 Android apps built for Android 11 and later cannot browse the shared
 storage themselves; they ask the system's picker, which hands back a
 content URI with a grant to read it (and write it, for most providers).
-TraceDraw keeps the editor's path-based code and names each document by
+TraceLaser keeps the editor's path-based code and names each document by
 a synthetic path:
 
 ```text
@@ -169,9 +169,9 @@ The print service, the share sheet and the other apps need the file
 itself, and the editor's files (the print PDF, a picture to edit) live in
 the app's private folders, which no other app can open. The activity's
 file provider, `SharedFiles` (`packaging/android/java`, authority
-`dev.tracedraw.app.files`, not exported, `grantUriPermissions`), serves
+`dev.tracelaser.app.files`, not exported, `grantUriPermissions`), serves
 the files of the app's files and cache folders under
-`content://dev.tracedraw.app.files/files/<path>` (or `cache/<path>`),
+`content://dev.tracelaser.app.files/files/<path>` (or `cache/<path>`),
 with the display name and size share targets ask for; a path that leads
 out of those folders (`..`, links) is refused. The bridge
 (`android::outside`) calls the activity's `printFile` (a
@@ -209,25 +209,25 @@ export ANDROID_ABIS="arm64-v8a x86_64"   # arm64-v8a alone by default
 # keytool, jarsigner); bundletool (BUNDLETOOL_JAR, on PATH, or
 # downloaded once into dist-android/tools).
 scripts/android/build.sh
-adb install -r dist-android/tracedraw-<version>-android-arm64-v8a-debug.apk
+adb install -r dist-android/tracelaser-<version>-android-arm64-v8a-debug.apk
 ```
 
 The script builds the library for each ABI in `ANDROID_ABIS`
-(`cargo rustc -p tracedraw --lib --release --target
+(`cargo rustc -p tracelaser --lib --release --target
 aarch64-linux-android --crate-type cdylib`, and `x86_64-linux-android`
 for `x86_64`, with the NDK's clang as the C compiler and linker for the
 Rust target and the dependencies' C code), strips it, compiles the activity (`javac -source 8 -target 8`
 against the platform's `android.jar`, then `d8 --min-api 24` into one
 `classes.dex`), compiles the launcher icons (`packaging/android/res`,
 from the application icon), links them with the manifest
-(`packaging/android/AndroidManifest.xml`: package `dev.tracedraw.app`,
-`TraceDrawActivity` with `android.app.lib_name` = `tracedraw`, minimum
+(`packaging/android/AndroidManifest.xml`: package `dev.tracelaser.app`,
+`TraceLaserActivity` with `android.app.lib_name` = `tracelaser`, minimum
 Android 7.0 / API 24, target Android 16 / API 36, full-screen theme,
 every configuration change handled by the app, `INTERNET` the only
 permission) into an APK with the version code from `Cargo.toml`
 (0.19.10 is 19010), and makes one APK per ABI
-(`tracedraw-<version>-android-<abi>-debug.apk`): it adds the code and
-that ABI's library (`lib/arm64-v8a/libtracedraw.so`), aligns it and
+(`tracelaser-<version>-android-<abi>-debug.apk`): it adds the code and
+that ABI's library (`lib/arm64-v8a/libtracelaser.so`), aligns it and
 signs it with a debug
 key (`~/.android/debug.keystore`, made when missing, as the Android
 tools do). A debug-signed APK installs on a device that allows apps from
@@ -241,9 +241,9 @@ device only its own), which `bundletool build-bundle`
 turns into the `.aab`; `jarsigner` signs it with the upload key when
 `ANDROID_KEYSTORE_BASE64` (or `ANDROID_KEYSTORE`), `ANDROID_KEYSTORE_PASSWORD`,
 `ANDROID_KEY_ALIAS` and `ANDROID_KEY_PASSWORD` are set
-(`tracedraw-<version>-android-release.aab`, for Play App Signing with
+(`tracelaser-<version>-android-release.aab`, for Play App Signing with
 our upload key) and with the debug key otherwise
-(`tracedraw-<version>-android-debug.aab`, for `bundletool build-apks
+(`tracelaser-<version>-android-debug.aab`, for `bundletool build-apks
 --local-testing` only); `bundletool validate` checks the result.
 bundletool 1.18.1 is pinned with its SHA-256 for the download.
 
@@ -304,8 +304,8 @@ lines, the activity's events, the focus and, for a process still there,
 its main thread's Java stack as annotations on the job, which can be
 read without downloading the artifacts.
 
-The app is started with `--es tracedraw.https_check
-https://api.github.com/zen` (`TRACEDRAW_HTTPS_URL` changes the address;
+The app is started with `--es tracelaser.https_check
+https://api.github.com/zen` (`TRACELASER_HTTPS_URL` changes the address;
 empty sends none): it sends one GET the way the online features send
 theirs and logs `HTTPS check: <url> answered <status>` or the error.
 The check notes the answer and the certificate store read (`HTTPS: <n>
@@ -316,7 +316,7 @@ notice (#1396).
 With the test keyboard (`scripts/android/test-ime`, an input method
 built by `scripts/android/build_test_ime.sh`, installed and made the
 system's keyboard by the check, never shipped), the check also types
-(#1489, #1496): the app is started with `--es tracedraw.check typing`,
+(#1489, #1496): the app is started with `--es tracelaser.check typing`,
 opens a drawing with the Text tool on (`soft_keyboard::check`) and logs
 what the text being edited reads after each change; the check taps the
 middle of the screen and wants a text started and the keyboard shown for
@@ -329,7 +329,7 @@ when a step fails, is a notice on the job.
 The x86_64 library runs natively there. The ARM64 library cannot be
 checked this way: the emulator's ARM translation (Android 11 and 14
 images) stops it in the first JNI calls of the activity glue, before
-any TraceDraw code runs (the `jni` crate's exception check sees an
+any TraceLaser code runs (the `jni` crate's exception check sees an
 exception flagged and none to fetch, and the glue aborts), while the
 same code compiled for x86_64 passes them. The ARM64 build is the same
 source; a device check (`docs/android-play.md`) covers it.
@@ -365,7 +365,7 @@ Now:
   scale and weight, colour mode, grammatical gender), so those never
   relaunch it. The screen density is left out: a new density starts the
   editor afresh at its scale.
-- `TraceDrawActivity.onDestroy` starts a thread and then calls
+- `TraceLaserActivity.onDestroy` starts a thread and then calls
   `NativeActivity.onDestroy`, which first takes the window from the
   editor: winit's Suspended, on which eframe's save backs the drawings
   up (`Shell::save`, #1395). The thread waits (`nativeAwaitWindowGone`,
@@ -380,12 +380,12 @@ Now:
 
 ## How it is wired
 
-- `apps/tracedraw/src/lib.rs` holds the whole app; `main.rs` is the
-  desktop and browser program (`tracedraw::run()`); `android.rs`
+- `apps/tracelaser/src/lib.rs` holds the whole app; `main.rs` is the
+  desktop and browser program (`tracelaser::run()`); `android.rs`
   (`#[cfg(target_os = "android")]`) is the Android entry:
   `android_main(app: AndroidApp)`, called by the glue of
   `android-activity` on the app's thread, sets up the system logger
-  (tag `tracedraw`), a panic hook that logs, the settings and documents
+  (tag `tracelaser`), a panic hook that logs, the settings and documents
   folders from the activity's paths, keeps the activity's JNI reference
   and registers the native method, the Touch workspace on a first start,
   the language, then `eframe::run_native` with `NativeOptions {
@@ -402,7 +402,7 @@ Now:
   (the wait of the activity's end, see "Relaunches") and `outside`
   (print, share, edit and view, through `SharedFiles`).
   Every JNI failure is logged and comes back as `None`, never a panic.
-- `packaging/android/java/dev/tracedraw/app/TraceDrawActivity.java`: the
+- `packaging/android/java/dev/tracelaser/app/TraceLaserActivity.java`: the
   activity, with the picker intents, `onActivityResult`, the content
   resolver reads and writes, the clipboard and the on-screen keyboard,
   all on the right threads. `TextInputView.java`: the one-pixel view the

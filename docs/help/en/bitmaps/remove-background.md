@@ -19,7 +19,7 @@ the same command.
 ## Options {#options}
 
 - **[[dialog.bg_colors]]** The colors to remove, one row each. At first
-  there is one row, **[[dialog.bg_colors_auto_button]]**: TraceDraw learns
+  there is one row, **[[dialog.bg_colors_auto_button]]**: TraceLaser learns
   the background's colors from the edges of the picture (up to four, so a
   gradient or a two-tone backdrop works). Each row has:
   - its swatch;
@@ -63,7 +63,7 @@ the same command.
   redo the changes made in the dialog box.
 
 [[dialog.ok]] remembers the options and the list of colors until you close
-TraceDraw, so the next Remove Background starts with them.
+TraceLaser, so the next Remove Background starts with them.
 
 ## Tips {#tips}
 

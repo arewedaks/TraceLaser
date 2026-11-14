@@ -2,9 +2,9 @@
 
 ## Copy (Ctrl+C) and Cut (Ctrl+X)
 
-The selection goes to TraceDraw's own clipboard, which keeps everything
+The selection goes to TraceLaser's own clipboard, which keeps everything
 (styles, effects, links to object styles), and as SVG text to the system
-clipboard, so other programs can paste it. Right after the copy TraceDraw
+clipboard, so other programs can paste it. Right after the copy TraceLaser
 notes what the system clipboard holds, without reading it back: the text
 it wrote (writing text replaces everything there), and on Windows the
 system's clipboard change count. A copy that writes nothing there (nodes,
@@ -16,7 +16,7 @@ On a Linux desktop the copy is offered as an SVG image (`image/svg+xml`),
 as a PNG picture with a transparent background (150 dpi, at most 4000
 pixels on the longer side) and as the SVG text, so a presentation or a
 word processor pastes a picture, not the SVG source (#2288). On X11
-TraceDraw owns the clipboard itself and draws the picture only when a
+TraceLaser owns the clipboard itself and draws the picture only when a
 program asks for it (`x11_copy.rs`). On Wayland the SVG and the text are
 offered at once through the compositor's data control protocol and the
 picture joins them when it has been drawn, on a thread of its own, unless
@@ -119,7 +119,7 @@ tries again twice, 150 ms apart, when no answer came
 (`x11_clipboard.rs`). A clipboard without a picture type is not waited
 for. On a Wayland desktop the clipboard library reads first and the X11
 clipboard the desktop keeps beside it is read when it finds nothing.
-TraceDraw keeps one connection to the system clipboard for the session
+TraceLaser keeps one connection to the system clipboard for the session
 instead of opening one for each read.
 
 On an X11 desktop the clipboard's text and its list of copied files are

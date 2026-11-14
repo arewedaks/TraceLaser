@@ -81,7 +81,7 @@ polygon, snaps the same way.
 
 ## The pointer
 
-A solid black arrow (drawn by TraceDraw on a white halo, its tip on the
+A solid black arrow (drawn by TraceLaser on a white halo, its tip on the
 hot spot) with a mark at its lower right for what a press would take:
 a small hollow square over a node (of a curve, or of a rectangle,
 ellipse or polygon, or an envelope, perspective or mesh node), a dot
@@ -196,7 +196,7 @@ round their corners with their own handles either way.
   moves the corner's middle less than 2 screen pixels has none, so a node
   where the curve barely turns, or between very short sides, shows no
   widget that a drag would leave unchanged; zoomed in far enough, it
-  shows (`tracedraw_core::corner_cut::corner_reach`,
+  shows (`tracelaser_core::corner_cut::corner_reach`,
   `tools2::tests::corner_widgets_show_only_where_they_round_something`).
   A side is measured through the smooth nodes of the curve, as far as
   the next corner (at most 8 segments): a corner with a smooth node
@@ -325,7 +325,7 @@ round their corners with their own handles either way.
   `corner_cut::tests::rounded_corners_are_found_and_taken_back_off`,
   `corner_cut::tests::chosen_rounded_corners_are_taken_off_alone`,
   `corner_cut::tests::other_curves_are_not_rounded_corners`
-  and `tracedraw_core` `corner_cut::tests::corners_and_the_largest_fillet_they_take`.
+  and `tracelaser_core` `corner_cut::tests::corners_and_the_largest_fillet_they_take`.
 
 ## Rectangles, ellipses and polygons
 
@@ -410,7 +410,7 @@ Corner widgets).
   `nodes::tests::a_run_through_the_start_of_a_closed_curve_becomes_a_curve`,
   `nodes::tests::runs_on_an_open_curve`).
 - `pick_drag_tests::corner_widgets_round_every_corner_or_the_chosen_ones`
-- `tracedraw_core` `corner_cut::tests::corners_and_the_largest_fillet_they_take`
+- `tracelaser_core` `corner_cut::tests::corners_and_the_largest_fillet_they_take`
 - `pick_drag_tests::overlays_are_drawn_on_a_white_line`
 - `pick_drag_tests::nodes_are_taken_within_the_pick_distance_and_a_near_miss_keeps_the_selection`
 - `pick_drag_tests::the_shape_tool_says_a_rectangle_is_still_a_rectangle`
@@ -445,7 +445,7 @@ Corner widgets).
 - `kind_nodes::tests::points_between_the_vertices_twist_the_star`
 - `kind_nodes::tests::inner_nodes_cross_the_centre_into_an_inverted_star` (#1331)
 - `pick_drag_tests::a_bspline_keeps_its_control_points_for_the_shape_tool`
-- `tracedraw_core::command::tests::a_spline_follows_its_control_points_until_the_outline_is_changed_otherwise`
+- `tracelaser_core::command::tests::a_spline_follows_its_control_points_until_the_outline_is_changed_otherwise`
 - `geometry::tests::twisting_turns_the_points_between_the_vertices` (core): the
   vertices stay, the points between them keep their distance and turn by
   the twist; a plain polygon turned gains points at its sides' middles.

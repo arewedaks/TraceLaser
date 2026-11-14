@@ -20,7 +20,7 @@ bitmap selecionado tem o mesmo comando.
 ## Opções {#options}
 
 - **[[dialog.bg_colors]]** As cores a remover, uma por linha. No início há
-  uma só linha, **[[dialog.bg_colors_auto_button]]**: o TraceDraw descobre
+  uma só linha, **[[dialog.bg_colors_auto_button]]**: o TraceLaser descobre
   as cores do fundo nas bordas da imagem (até quatro, então um degradê ou um
   fundo de dois tons funciona). Cada linha tem:
   - a amostra da cor;
@@ -64,7 +64,7 @@ bitmap selecionado tem o mesmo comando.
   setas ao lado desfazem e refazem as mudanças feitas na caixa de diálogo.
 
 [[dialog.ok]] guarda as opções e a lista de cores até você fechar o
-TraceDraw, e o próximo Remover fundo começa com elas.
+TraceLaser, e o próximo Remover fundo começa com elas.
 
 ## Dicas {#tips}
 

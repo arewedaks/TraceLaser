@@ -1,6 +1,6 @@
-// TraceDraw: windows are centred on the primary monitor where it lies on
+// TraceLaser: windows are centred on the primary monitor where it lies on
 // the desktop, not from the desktop's top-left corner (see
-// vendor/README.md, #1800). Kept apart so that TraceDraw's own tests
+// vendor/README.md, #1800). Kept apart so that TraceLaser's own tests
 // compile and run it (`splash::eframe_monitor_place::tests`): this copy
 // is outside the workspace and its own tests run in no gate.
 //

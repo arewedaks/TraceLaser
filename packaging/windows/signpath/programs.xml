@@ -4,10 +4,10 @@
      "unsigned-programs-<build>" (windows-x86_64, windows-x86). -->
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <zip-file>
-    <pe-file path="tracedraw.exe">
+    <pe-file path="tracelaser.exe">
       <authenticode-sign />
     </pe-file>
-    <pe-file path="tracedraw-cli.exe">
+    <pe-file path="tracelaser-cli.exe">
       <authenticode-sign />
     </pe-file>
   </zip-file>

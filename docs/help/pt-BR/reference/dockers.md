@@ -58,7 +58,7 @@ página lista cada painel e a página que o explica.
   recolher dobra a área dos painéis;
   as setas dele apontam para o lado da janela para onde ela se dobra (para a
   esquerda nos painéis encaixados à esquerda).
-- Os painéis que você deixa abertos voltam na próxima vez que o TraceDraw
+- Os painéis que você deixa abertos voltam na próxima vez que o TraceLaser
   inicia.
 - Os atalhos dos painéis alternam: pressionar um quando o painel dele está na
   frente oculta os painéis.

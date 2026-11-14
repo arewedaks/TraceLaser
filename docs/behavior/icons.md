@@ -110,6 +110,6 @@ tool is drawn from, by group:
   implicit commands, arcs), the triangulation of concave shapes, the
   ribbons.
 - `help_shots::icon_sheet` (ignored; `ICON_SHEET=<dir> cargo test -p
-  tracedraw --lib icon_sheet -- --ignored`) draws every icon on a
+  tracelaser --lib icon_sheet -- --ignored`) draws every icon on a
   light and a dark panel at 1x and 2x pixels per point into `<dir>`,
   for a look by eye.

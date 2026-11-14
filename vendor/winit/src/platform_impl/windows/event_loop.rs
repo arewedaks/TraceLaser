@@ -1637,7 +1637,7 @@ unsafe fn public_window_callback_inner(
                 }
             }
 
-            // TraceDraw: Alt with a letter starts no keyboard menu mode in a
+            // TraceLaser: Alt with a letter starts no keyboard menu mode in a
             // window without a menu bar; the mode took the mouse, so the
             // pointer was not updated until it moved (#1922).
             let has_menu_bar = unsafe { GetMenu(window) != 0 };
@@ -1725,7 +1725,7 @@ unsafe fn public_window_callback_inner(
                 w.mouse.set_cursor_flags(window, |f| f.set(CursorFlags::IN_WINDOW, false)).ok();
             }
 
-            // TraceDraw: the system also ends the leave tracking when a
+            // TraceLaser: the system also ends the leave tracking when a
             // menu mode or another window takes the mouse while the pointer
             // stands still in the window (#1922). That is no leave: the
             // program is not told, so it keeps updating the pointer. The
@@ -2325,7 +2325,7 @@ unsafe fn public_window_callback_inner(
                 }
             }
 
-            // TraceDraw: on Windows 11 the window takes the rectangle Windows
+            // TraceLaser: on Windows 11 the window takes the rectangle Windows
             // suggests, which keeps it under the pointer while it is dragged
             // (`size_bounds::takes_suggested_rect`, vendor/README.md, #2487).
             let new_outer_rect: RECT;
@@ -2674,7 +2674,7 @@ enum PointerMoveKind {
     None,
 }
 
-/// TraceDraw: whether the pointer has left `window` when a `WM_MOUSELEAVE`
+/// TraceLaser: whether the pointer has left `window` when a `WM_MOUSELEAVE`
 /// comes, read from where it is now (#1922, `crate::alt_shortcuts`).
 fn pointer_left_window(window: HWND) -> bool {
     let mut client: RECT = unsafe { mem::zeroed() };

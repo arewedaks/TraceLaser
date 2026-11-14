@@ -2,7 +2,7 @@
 
 > *Tradução automática: esta página pode estar atrasada em relação à versão em inglês.*
 
-O TraceDraw salva os desenhos no próprio formato, `.tdraw`, que guarda tudo, e
+O TraceLaser salva os desenhos no próprio formato, `.tdraw`, que guarda tudo, e
 também pode salvar arquivos `.cdr`. Ele abre muitos outros formatos; veja
 [Formatos de arquivo compatíveis](../file-formats/supported-formats.md).
 
@@ -22,14 +22,14 @@ direita, ou clique nele com o botão direito e escolha
 um arquivo ao desenho aberto; veja [Importar arquivos](../file-formats/import.md).
 
 Você também pode arrastar arquivos do gerenciador de arquivos para o
-TraceDraw. Um desenho (como um arquivo `.tdraw` ou `.cdr`) solto sobre a barra
+TraceLaser. Um desenho (como um arquivo `.tdraw` ou `.cdr`) solto sobre a barra
 de título, os menus, as barras de ferramentas ou as guias de documentos abre em
 uma guia própria; solto sobre a janela de desenho, é importado no desenho
 aberto. A moldura e o rótulo mostrados durante o arraste dizem o que vai
 acontecer. Onde o sistema não informa onde está o ponteiro (Linux, macOS),
 desenhos abrem em uma guia e imagens são importadas.
 
-Um desenho aberto pelo sistema enquanto o TraceDraw está em execução (um
+Um desenho aberto pelo sistema enquanto o TraceLaser está em execução (um
 clique duplo no gerenciador de arquivos ou no Finder, Abrir com, ou
 Compartilhar no Android) abre em uma guia da janela já aberta, que vem para
 a frente. A versão para navegador instalada como aplicativo faz o mesmo com
@@ -44,7 +44,7 @@ página, o tamanho real, ou a página, a posição e o zoom que tinha ao ser sal
 ### Avisos depois de abrir {#open-notes}
 
 Quando alguns objetos de um arquivo aberto não puderam ser lidos, ou o desenho
-usa fontes que não estão instaladas no seu computador, o TraceDraw avisa
+usa fontes que não estão instaladas no seu computador, o TraceLaser avisa
 depois que o arquivo abre:
 
 - Para objetos que não puderam ser lidos, uma mensagem informa quantos são. Um
@@ -63,7 +63,7 @@ Você pode reativá-los na página [[options.warnings]] de
 
 Escolha [[menu.file > menu.file.save]] (<kbd>Ctrl+S</kbd>) para gravar o
 desenho de volta no seu arquivo. Um desenho novo, ou aberto de um formato que o
-TraceDraw só lê, ainda não tem arquivo, então Salvar abre a caixa de diálogo
+TraceLaser só lê, ainda não tem arquivo, então Salvar abre a caixa de diálogo
 [[dialog.save_drawing]].
 
 ## Salvar como {#save-as}
@@ -83,9 +83,9 @@ Para salvar um desenho com um nome novo:
    Clique duas vezes em uma pasta da lista para abri-la; clique em um arquivo
    para usar o nome dele.
 2. Digite o [[dialog.file_name]]. A extensão do tipo escolhido é acrescentada.
-3. Escolha [[dialog.save_as_type]]: TraceDraw (`*.tdraw`) ou
+3. Escolha [[dialog.save_as_type]]: TraceLaser (`*.tdraw`) ou
    [[file.cdr_files]].
-4. Escolha a [[dialog.cdr_version]]. Para arquivos TraceDraw, é a versão do
+4. Escolha a [[dialog.cdr_version]]. Para arquivos TraceLaser, é a versão do
    formato, da mais nova para a mais antiga. Para arquivos `.cdr`, é a versão do
    arquivo, de 27 até 7; um programa mais antigo só abre uma versão tão antiga
    quanto ele ou mais. A versão escolhida fica com o desenho, então Salvar a
@@ -95,7 +95,7 @@ Para salvar um desenho com um nome novo:
      [[dialog.embed_color_profile_none]] guarda o perfil CMYK do desenho no
      arquivo.
    - [[dialog.embed_fonts]] (desligado de início) guarda as fontes que o texto
-     usa, quando a licença permite, em arquivos TraceDraw e em arquivos `.cdr`
+     usa, quando a licença permite, em arquivos TraceLaser e em arquivos `.cdr`
      a partir da versão 16. A caixa mostra quanto as fontes acrescentam ao
      arquivo. Marque-a para desenhos que vão para um computador que talvez não
      tenha as fontes.
@@ -103,7 +103,7 @@ Para salvar um desenho com um nome novo:
      por quê: a licença proíbe incorporar, ou não há arquivo de fonte para
      incorporar (o texto é desenhado por uma fonte substituta, ou a fonte está
      num arquivo de coleção).
-   - Para arquivos TraceDraw no computador, [[dialog.save_package]] salva o
+   - Para arquivos TraceLaser no computador, [[dialog.save_package]] salva o
      desenho em uma pasta com o nome dele, com as imagens vinculadas, os
      arquivos de fonte e um relatório, e [[package.pdf]] acrescenta um PDF.
      Veja [Empacotar um desenho](../file-formats/package.md).
@@ -114,7 +114,7 @@ Para salvar um desenho com um nome novo:
    as propriedades do desenho, também mostradas em
    [Propriedades do documento](../pages-layout/document-properties.md).
 7. Clique em [[dialog.save]] ou pressione <kbd>Enter</kbd>. Se o arquivo já
-   existir, o TraceDraw pergunta se deve [[dialog.replace]].
+   existir, o TraceLaser pergunta se deve [[dialog.replace]].
 
 A caixa de diálogo começa na pasta do desenho, senão na última pasta em que
 você salvou, senão na sua pasta de documentos. Um desenho aberto de um arquivo
@@ -148,9 +148,9 @@ guarda desenhos em um repositório do GitHub (veja [GitHub](github.md)).
 Escolha [[menu.file > menu.file.close]] (<kbd>Ctrl+F4</kbd>), clique no botão
 de fechar da guia do desenho ou clique na guia com o botão do meio.
 [[menu.file.close_all]] fecha todos os desenhos, e [[menu.file.exit]]
-(<kbd>Alt+F4</kbd>) fecha o TraceDraw.
+(<kbd>Alt+F4</kbd>) fecha o TraceLaser.
 
-Quando um desenho tem alterações não salvas, o TraceDraw pergunta se deve
+Quando um desenho tem alterações não salvas, o TraceLaser pergunta se deve
 salvá-las antes: [[dialog.yes]] salva (pedindo um nome se o desenho ainda não
 tiver arquivo), [[dialog.no]] fecha sem salvar e [[dialog.cancel]] mantém o
 desenho aberto. Quando vários desenhos têm alterações, ele pergunta sobre cada
@@ -160,18 +160,18 @@ um; Cancelar interrompe.
 
 ## Backup automático e recuperação {#recovery}
 
-O TraceDraw guarda cópias de segurança dos desenhos abertos
+O TraceLaser guarda cópias de segurança dos desenhos abertos
 enquanto o backup automático estiver ativado (a página [[options.save]] de
 [[menu.tools > menu.tools.options > menu.tools.options_app]] define a
-frequência e o local; a cada 20 minutos de início). Fechar o TraceDraw
+frequência e o local; a cada 20 minutos de início). Fechar o TraceLaser
 normalmente as remove.
 
-Se o TraceDraw terminou sem fechar, por exemplo depois de uma queda de energia,
+Se o TraceLaser terminou sem fechar, por exemplo depois de uma queda de energia,
 ele oferece as cópias na próxima vez que iniciar: [[dialog.recover]] abre cada
 uma como um desenho não salvo (Salvar então pergunta onde salvá-lo), e
-[[dialog.discard]] deixa as cópias na pasta. Duas janelas do TraceDraw abertas
+[[dialog.discard]] deixa as cópias na pasta. Duas janelas do TraceLaser abertas
 ao mesmo tempo nunca oferecem os desenhos uma da outra. Quando o sistema fecha
-o TraceDraw sem perguntar sobre desenhos não salvos (o Encerrar do menu do
+o TraceLaser sem perguntar sobre desenhos não salvos (o Encerrar do menu do
 macOS, sair da sessão) ou manda o app para Android para o segundo plano, as
 cópias são gravadas na hora, e o próximo início as oferece.
 

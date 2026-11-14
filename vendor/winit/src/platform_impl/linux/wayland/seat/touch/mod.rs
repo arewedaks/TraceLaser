@@ -31,7 +31,7 @@ impl TouchHandler for WinitState {
         id: i32,
         position: (f64, f64),
     ) {
-        // TraceDraw: a finger on the window's frame drives the frame, as
+        // TraceLaser: a finger on the window's frame drives the frame, as
         // the mouse does (#2070); before, the touch found no window and
         // was dropped.
         if frame_parent(&surface).is_some() {
@@ -100,7 +100,7 @@ impl TouchHandler for WinitState {
             None => return,
         };
 
-        // TraceDraw: a finger lifted from the window's frame (#2070).
+        // TraceLaser: a finger lifted from the window's frame (#2070).
         if frame_parent(&touch_point.surface).is_some() {
             let seat = touch.seat().clone();
             self.frame_touch(&seat, &touch_point.surface, FrameInput::FingerUp, serial, time);
@@ -150,7 +150,7 @@ impl TouchHandler for WinitState {
             None => return,
         };
 
-        // TraceDraw: a finger moving on the window's frame starts the move
+        // TraceLaser: a finger moving on the window's frame starts the move
         // or the resize its press asked for, with the press's serial the
         // window kept (#2070).
         if frame_parent(&touch_point.surface).is_some() {
@@ -193,7 +193,7 @@ impl TouchHandler for WinitState {
             },
         };
 
-        // TraceDraw: the points are taken first, so that the frame under
+        // TraceLaser: the points are taken first, so that the frame under
         // a finger can be left (#2070).
         let points: Vec<_> = seat_state.touch_map.drain().collect();
         for (id, touch_point) in points {
@@ -243,7 +243,7 @@ impl TouchHandler for WinitState {
 }
 
 impl WinitState {
-    /// TraceDraw: tell the frame `surface` belongs to what a finger did on
+    /// TraceLaser: tell the frame `surface` belongs to what a finger did on
     /// it (#2070); `serial` is the press's, `time` the event's.
     fn frame_touch(
         &mut self,
@@ -272,7 +272,7 @@ impl WinitState {
     }
 }
 
-/// TraceDraw: the window's surface for a surface of its frame (one with
+/// TraceLaser: the window's surface for a surface of its frame (one with
 /// a parent); `None` for the window's own surface (#2070).
 fn frame_parent(surface: &WlSurface) -> Option<WlSurface> {
     surface.data::<SurfaceData>()?.parent_surface().cloned()

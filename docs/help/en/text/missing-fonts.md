@@ -1,7 +1,7 @@
 # Missing fonts
 
 A drawing made on another computer can use fonts that are not installed on
-yours. TraceDraw always shows such text in an installed font that looks
+yours. TraceLaser always shows such text in an installed font that looks
 close, and keeps the text's own font name. When the drawing opens, the
 [[missing_fonts.title]] dialog box lets you choose which installed font
 draws each missing one, for now or for good.
@@ -13,14 +13,14 @@ dialog box lists them:
 
 1. Each row shows the [[missing_fonts.missing]] and the font it is
    [[missing_fonts.substitute]] now. The first choice in the list is the
-   font TraceDraw picked by itself, marked "(automatic)": a font drawn to
+   font TraceLaser picked by itself, marked "(automatic)": a font drawn to
    the same widths when there is one, else one of the same style.
 2. To use another font, open the list of the row and click an installed
    family. Type part of a name in [[missing_fonts.filter]] to narrow the
    lists.
 3. Choose how long the choice holds:
    - [[missing_fonts.session]] (the default): the font you chose draws the
-     text until TraceDraw closes, bold and italic text included. The drawing
+     text until TraceLaser closes, bold and italic text included. The drawing
      keeps its own font names, so it is saved with them and shows in its own
      fonts on a computer that has them.
    - [[missing_fonts.keep]]: every text in the missing family, also in
@@ -29,7 +29,7 @@ dialog box lists them:
 4. Click [[dialog.ok]].
 
 When you have the font itself as a file, click [[missing_fonts.add_font]]
-and pick it (several files at once if you like). TraceDraw installs it as
+and pick it (several files at once if you like). TraceLaser installs it as
 the Font Manager's Add Font does and remembers it for the next start (on
 Android a copy is kept, in a browser it is stored there); the fonts it
 brings leave the list, and when none is left the dialog box closes.

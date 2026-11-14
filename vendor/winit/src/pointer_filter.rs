@@ -1,4 +1,4 @@
-//! TraceDraw: the program's say on each pointer of Android's motion
+//! TraceLaser: the program's say on each pointer of Android's motion
 //! events, with the tool that made it (finger, stylus, eraser, mouse),
 //! for palm rejection (#1832, see `vendor/README.md`). winit hands every
 //! touch to the program as a `Touch` with no word of its tool, and drops
@@ -8,7 +8,7 @@
 //! the touches the filter names (a hand that landed before the pen) with
 //! `Cancelled`. With no filter set every touch is delivered, as winit does
 //! without the change. The file has no dependency on the rest of the
-//! crate, so that TraceDraw's tests can include and run it.
+//! crate, so that TraceLaser's tests can include and run it.
 
 use std::sync::{Mutex, MutexGuard};
 

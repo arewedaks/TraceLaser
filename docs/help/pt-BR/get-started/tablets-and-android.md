@@ -2,16 +2,16 @@
 
 > *Tradução automática: esta página pode estar atrasada em relação à versão em inglês.*
 
-O TraceDraw roda em tablets de dois jeitos: a versão para navegador instalada
+O TraceLaser roda em tablets de dois jeitos: a versão para navegador instalada
 como app (num tablet Android, num iPad ou num computador) e um app nativo
 para tablets, celulares e Chromebooks com Android. Os dois são o mesmo editor
 da versão para computador, com os mesmos menus, ferramentas e arquivos.
 
 ## Instalar a versão para navegador como app {#install}
 
-A [versão para navegador](https://tracedraw.github.io/tracedraw/) pode ser
+A [versão para navegador](https://tracelaser.github.io/tracelaser/) pode ser
 instalada pelo navegador. Ela então abre em tela cheia com o ícone do
-TraceDraw, sem a barra de endereço e as guias do navegador, em qualquer
+TraceLaser, sem a barra de endereço e as guias do navegador, em qualquer
 orientação, e evita o entalhe ou os cantos arredondados da tela.
 
 - **Tablet Android** (Chrome, Edge, Samsung Internet): abra a página, depois
@@ -20,9 +20,9 @@ orientação, e evita o entalhe ou os cantos arredondados da tela.
 - **iPad** (Safari): abra a página, toque em **Compartilhar** e depois em
   **Adicionar à Tela de Início**. No iPad e no iPhone, como num tablet Android, as caixas
   Abrir e Importar mostram todos os arquivos, porque o sistema deixaria os
-  arquivos `.cdr` cinza; escolha um desenho que o TraceDraw abre.
+  arquivos `.cdr` cinza; escolha um desenho que o TraceLaser abre.
 - **Computador** (Chrome, Edge): clique no ícone de instalar na ponta direita
-  da barra de endereço, ou escolha **Instalar TraceDraw** no menu do
+  da barra de endereço, ou escolha **Instalar TraceLaser** no menu do
   navegador.
 
 Depois de aberto uma vez, o app instalado inicia sem conexão de rede, na
@@ -35,7 +35,7 @@ listadas em [A versão para navegador](browser-version.md#differences).
 
 ## O app para Android {#android}
 
-O app para Android é o TraceDraw feito para tablets e celulares ARM de 64 bits
+O app para Android é o TraceLaser feito para tablets e celulares ARM de 64 bits
 e para Chromebooks com processadores Intel ou AMD. Os arquivos de instalação
 (APK) acompanham as versões e as compilações noturnas do projeto no GitHub. O
 app não procura atualizações sozinho; [[menu.help > menu.help.updates]] abre a
@@ -56,7 +56,7 @@ O que funciona diferente:
 - **Desenhos recentes** reabrem pela lista e pela Tela de boas-vindas, como no
   computador.
 - **Área de transferência.** O texto passa pela área de transferência do
-  sistema: objetos copiados no TraceDraw são colados em outros apps como
+  sistema: objetos copiados no TraceLaser são colados em outros apps como
   texto, e texto copiado em outro lugar é colado como texto. Imagens copiadas
   em outros apps ainda não são lidas.
 - **Fontes.** São usadas as fontes do sistema.

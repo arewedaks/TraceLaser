@@ -1,11 +1,11 @@
-//! TraceDraw: files the system asks the application to open (macOS sends
+//! TraceLaser: files the system asks the application to open (macOS sends
 //! the files opened from Finder, by a double click or Open With, to the
 //! running application as an "open documents" event, never on the command
 //! line; see `vendor/README.md`). The application delegate hands them
 //! here; the program takes them with a handler it sets before the event
 //! loop runs. Files that arrive before a handler is set wait for it, so
 //! the files a start was launched with are not lost. The file has no
-//! dependency on the rest of the crate, so that TraceDraw's tests can
+//! dependency on the rest of the crate, so that TraceLaser's tests can
 //! include and run it.
 
 use std::path::PathBuf;

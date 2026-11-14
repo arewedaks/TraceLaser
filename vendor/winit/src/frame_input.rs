@@ -1,4 +1,4 @@
-//! TraceDraw: a finger or a graphics tablet's pen on the window's frame
+//! TraceLaser: a finger or a graphics tablet's pen on the window's frame
 //! on Wayland (#2070).
 //!
 //! A compositor that leaves the title bar to the application (GNOME's)
@@ -20,7 +20,7 @@
 //!   normal button, its secondary barrel button presses the alternate
 //!   one (the window menu, on a press only); leaving the frame leaves it.
 //!
-//! This file depends on nothing in the crate, and TraceDraw's tests
+//! This file depends on nothing in the crate, and TraceLaser's tests
 //! include and run it (`winit_frame_input::tests`).
 
 /// The frame's buttons, as the mouse's left and right buttons press them.

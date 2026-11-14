@@ -74,13 +74,13 @@ pub struct WindowState {
     /// The pointers observed on the window.
     pub pointers: Vec<Weak<ThemedPointer<WinitPointerData>>>,
 
-    /// TraceDraw: the graphics tablet pens over the window, which show
+    /// TraceLaser: the graphics tablet pens over the window, which show
     /// its cursor as the pointers do (#1841).
     pub tablet_cursors: Vec<TabletCursor>,
 
     selected_cursor: SelectedCursor,
 
-    /// TraceDraw: the image of the custom cursor shown, while
+    /// TraceLaser: the image of the custom cursor shown, while
     /// `selected_cursor` is that cursor (#2557).
     custom_cursor_image: Option<Arc<CursorImage>>,
 
@@ -516,7 +516,7 @@ impl WindowState {
         }
     }
 
-    /// TraceDraw: drive the frame from a finger or a pen on its surface
+    /// TraceLaser: drive the frame from a finger or a pen on its surface
     /// `surface` (#2070, `crate::frame_input`). `serial` is the press's,
     /// which a move, a resize or the window menu is asked for with.
     #[allow(clippy::too_many_arguments)]
@@ -789,7 +789,7 @@ impl WindowState {
                 warn!("Failed to set cursor to {:?}", cursor_icon);
             }
         });
-        // TraceDraw: a pen over the window shows it too (#1841).
+        // TraceLaser: a pen over the window shows it too (#1841).
         self.apply_on_tablets();
     }
 
@@ -804,7 +804,7 @@ impl WindowState {
             },
         };
 
-        // TraceDraw: egui-winit sets a bitmap cursor again every frame
+        // TraceLaser: egui-winit sets a bitmap cursor again every frame
         // the pointer moves. The same image is already on the pointer:
         // making a new buffer and committing the cursor surface each frame
         // costs the compositor work for nothing (#2557).
@@ -824,7 +824,7 @@ impl WindowState {
         }
 
         self.selected_cursor = SelectedCursor::Custom(cursor);
-        // TraceDraw: a pen over the window shows it too (#1841).
+        // TraceLaser: a pen over the window shows it too (#1841).
         self.apply_on_tablets();
     }
 
@@ -1027,7 +1027,7 @@ impl WindowState {
 
     /// Set the visibility state of the cursor.
     pub fn set_cursor_visible(&mut self, cursor_visible: bool) {
-        // TraceDraw: shown already, with a custom cursor (egui-winit says
+        // TraceLaser: shown already, with a custom cursor (egui-winit says
         // so every frame it sets one): nothing changes (#2557).
         if cursor_visible
             && self.cursor_visible
@@ -1049,12 +1049,12 @@ impl WindowState {
                 pointer.pointer().set_cursor(latest_enter_serial, None, 0, 0);
             }
         }
-        // TraceDraw: a pen over the window shows it too (#1841).
+        // TraceLaser: a pen over the window shows it too (#1841).
         self.apply_on_tablets();
     }
 
-    /// TraceDraw: a graphics tablet's pen came over the window (#1841):
-    /// it shows the window's cursor (the tool's, or none where TraceDraw
+    /// TraceLaser: a graphics tablet's pen came over the window (#1841):
+    /// it shows the window's cursor (the tool's, or none where TraceLaser
     /// draws its own) instead of the compositor's arrow.
     pub fn tablet_tool_entered(&mut self, cursor: TabletCursor) {
         self.tablet_cursors.retain(|c| c.tool != cursor.tool);
@@ -1062,19 +1062,19 @@ impl WindowState {
         self.tablet_cursors.push(cursor);
     }
 
-    /// TraceDraw: the pen `tool` left the window, or went away (#1841).
+    /// TraceLaser: the pen `tool` left the window, or went away (#1841).
     pub fn tablet_tool_left(&mut self, tool: &ZwpTabletToolV2) {
         self.tablet_cursors.retain(|c| &c.tool != tool);
     }
 
-    /// TraceDraw: show the window's cursor on every pen over it.
+    /// TraceLaser: show the window's cursor on every pen over it.
     fn apply_on_tablets(&self) {
         for cursor in &self.tablet_cursors {
             self.apply_on_tablet(cursor);
         }
     }
 
-    /// TraceDraw: show the window's cursor on the pen of `cursor`: none
+    /// TraceLaser: show the window's cursor on the pen of `cursor`: none
     /// while the cursor is hidden, a named one through the cursor shape
     /// protocol, a custom image on the pen's own cursor surface.
     fn apply_on_tablet(&self, cursor: &TabletCursor) {
@@ -1351,7 +1351,7 @@ fn into_sctk_adwaita_config(theme: Option<Theme>) -> sctk_adwaita::FrameConfig {
     }
 }
 
-/// TraceDraw: a graphics tablet's pen in proximity of a window (#1841):
+/// TraceLaser: a graphics tablet's pen in proximity of a window (#1841):
 /// the tool, the serial of its `proximity_in` (which its cursor requests
 /// name), its cursor shape device when the compositor has the protocol,
 /// and a surface of its own for custom cursor images.

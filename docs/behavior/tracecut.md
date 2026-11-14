@@ -10,7 +10,7 @@ selected when it opened.
 Options > Global > General, **Show TraceCut in Launch and the Tools
 menu** (on at first), hides both entries for those who do not cut.
 
-The geometry is the `tracedraw-tracecut` crate (pure geometry over
+The geometry is the `tracelaser-tracecut` crate (pure geometry over
 page-space outlines in millimetres); the window turns its results into
 commands. Contributed by LaMka21 (#170).
 
@@ -21,7 +21,7 @@ outline, not the one it had before the effect. So an enveloped object
 is cut where it shows, and nesting keeps what shows apart; it used to
 be placed by its outline from before the envelope, and its neighbours
 landed on the part the envelope had pulled out (#2227,
-`tracedraw_tracecut::tests::an_enveloped_object_gives_the_outline_it_draws`,
+`tracelaser_tracecut::tests::an_enveloped_object_gives_the_outline_it_draws`,
 `tracecut_nest::tests::an_enveloped_object_is_nested_by_what_it_draws`).
 What an effect adds beside the object (contour steps, blend steps, a
 shadow) is not part of its outline.
@@ -136,7 +136,7 @@ job's box (bottom left at first) into the job.
   created, the device must exist) or **Network** (`host` or
   `host:port`, port 9100 at first, raw TCP, 5 s to connect). Sending
   runs on a thread of its own and the status line says how it went.
-  TraceDraw does not set the port's speed: set it to the cutter's once
+  TraceLaser does not set the port's speed: set it to the cutter's once
   with the system's tools (or the cutter's driver). In the browser and
   on Android only File is offered.
 - **Test cut**: cuts, at once and with these settings, a square of the
@@ -153,7 +153,7 @@ job's size. OK saves or sends; the drawing does not change.
 G-code for CNC routers and mills, from the outlines of the selection
 (groups opened, a clip frame by its frame), flattened within the
 **curve accuracy** (0.02 mm at first). The geometry is
-`tracedraw_tracecut::cnc`.
+`tracelaser_tracecut::cnc`.
 
 - **Tool diameter** (3.175 mm): the tool's centre follows each closed
   outline offset by the radius (the offset Contour uses, round corners
@@ -426,7 +426,7 @@ the tool; the new group is selected.
 
 Marks for eyelets (grommets), circles of the **diameter** (10 mm at
 first), added as a group named Eyelets. The geometry is
-`tracedraw_tracecut::eyelets`.
+`tracelaser_tracecut::eyelets`.
 
 - **Along** **the selection's box** (at first): the box round all the
   selected objects, shrunk by the **distance from the edge** (15 mm,
@@ -452,7 +452,7 @@ The preview shows the circles; the status line counts them.
 
 The flat panels of a box with finger joints, for cutting from sheet
 material with a laser or a CNC router, added as a group named Box. It
-needs no selection. The geometry is `tracedraw_tracecut::boxes`.
+needs no selection. The geometry is `tracelaser_tracecut::boxes`.
 
 - **Width** (200 mm), **depth** (150 mm) and **height** (100 mm) of the
   box; **sizes are** **outside** (at first) or **inside**, the room in
@@ -487,7 +487,7 @@ on the line with a laser, or with CNC Toolpath set to Outside.
 
 The flat pattern of a tray folded from composite panel, such as a sign
 face with returns or the body of a light box. It needs no selection.
-The geometry is `tracedraw_tracecut::tray`. Its settings are kept in
+The geometry is `tracelaser_tracecut::tray`. Its settings are kept in
 the preferences (`tracecut.tray`) and come back the next time the
 window opens; presets work as for every tool.
 

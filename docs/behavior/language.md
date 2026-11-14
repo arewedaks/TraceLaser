@@ -1,6 +1,6 @@
 # Interface language at first start
 
-Which language TraceDraw's menus, dialogs and tips start in, and how the
+Which language TraceLaser's menus, dialogs and tips start in, and how the
 Windows installer's language choice reaches the app. The languages
 themselves are listed in `docs/i18n.md`.
 
@@ -43,7 +43,7 @@ the app writes nothing to the registry.
 ## The system's language
 
 `system_locale::preferred_languages()` gives the system's languages, most
-preferred first, and `i18n::best_language` takes the first TraceDraw has:
+preferred first, and `i18n::best_language` takes the first TraceLaser has:
 
 - Windows: `GetUserPreferredUILanguages` (the display languages of
   Settings > Time & language), else `GetUserDefaultUILanguage` mapped by
@@ -66,11 +66,11 @@ Indonesian) gives Indonesian; `C` and `POSIX` give nothing.
 
 ## The Windows installer
 
-`packaging/windows/tracedraw.iss` (Inno Setup):
+`packaging/windows/tracelaser.iss` (Inno Setup):
 
 - The wizard runs in the system's language when Inno Setup ships a
   translation for it, else in English (`ShowLanguageDialog=no`).
-- The page "TraceDraw's language", after Select Additional Tasks, has one
+- The page "TraceLaser's language", after Select Additional Tasks, has one
   list: "System language (<the language it gives here>)" first, then the
   nineteen interface languages in the app's order. System language is
   selected, so an install where nothing is changed follows the system.
@@ -81,11 +81,11 @@ Indonesian) gives Indonesian; `C` and `POSIX` give nothing.
   `/APPLANGUAGE=<code>` or `/APPLANGUAGE=system` on the command line
   selects that (silent installs).
 - The choice is recorded as the string value `InstallerLanguage` of
-  `Software\TraceDraw`: `system` or the code (`en`, `pt-BR`, `zh-CN`,
+  `Software\TraceLaser`: `system` or the code (`en`, `pt-BR`, `zh-CN`,
   `zh-TW`...). The key is under HKEY_CURRENT_USER for an install for the
   user alone, HKEY_LOCAL_MACHINE for one for all users; the app reads
   HKCU first, then HKLM. Uninstalling removes the value.
-- A portable copy (a `tracedraw-settings` folder beside the program) and
+- A portable copy (a `tracelaser-settings` folder beside the program) and
   the Microsoft Store's copy do not read the value.
 
 ## Options

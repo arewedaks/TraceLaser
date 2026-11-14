@@ -4,7 +4,7 @@
 
 Um livreto imprime duas páginas em cada lado de uma folha de papel, dispostas
 para que as folhas dobradas se leiam em ordem: um cardápio, um programa, um
-pequeno catálogo ou uma revista. O TraceDraw emparelha as páginas por você;
+pequeno catálogo ou uma revista. O TraceLaser emparelha as páginas por você;
 você escolhe como o livreto é encadernado.
 
 ## Imprimir um livreto {#print}

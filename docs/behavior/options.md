@@ -1,6 +1,6 @@
 # Options dialogs
 
-Tools > Options is a submenu: TraceDraw
+Tools > Options is a submenu: TraceLaser
 (Ctrl+J), Customization, Tools, Global, Workspaces and AI each open the
 Options window on their pages, and Document Setup (greyed with no
 drawing open) on the document's pages, so every tab of the window has
@@ -8,7 +8,7 @@ its entry there and in the standard bar's Options list (#2006,
 `ui::menus::options_items_tests::the_options_list_has_document_setup`).
 Page > Document Setup opens it on the document's pages too (also a
 double-click on a ruler, the page border or its shadow). The window has a tab for each of them along the top, so every
-option is a click away: TraceDraw, Customization, Tools, Global,
+option is a click away: TraceLaser, Customization, Tools, Global,
 Workspaces, AI and, while a drawing is open, Document Setup. A tab
 shows its set's page list and the page of that set shown last (else its
 first page); the title follows the tab, and OK and Cancel cover what
@@ -46,7 +46,7 @@ was changed on every tab (#633).
   the close button and Esc put back everything the dialog changed,
   including document settings (their commands are undone).
 
-## TraceDraw Options
+## TraceLaser Options
 
 | Page | Settings (defaults) |
 |---|---|
@@ -58,8 +58,8 @@ was changed on every tab (#633).
 | Snapping | Snap to objects, page, guidelines, grid, baseline grid, pixels; snapping radius (10 px); show snap location marks and the screen tip (on); the modes, each with its mark (all on), Select All, Deselect All |
 | Alignment Guides | On or off; guides for the selection as one or each object; edges, centres, the page, equal spacing, equal sizes; margins with offset and inset; colour and line style; Reset (see `live-guides.md`) |
 | Dynamic Guides | On or off; angles (check boxes every 15 degrees, others added by value); distance and angle tip; tick marks, their spacing, snap to ticks; colour and line style; Reset (see `live-guides.md`) |
-| Save | Back up original file before saving (on): `backup_of_<name>` next to the file or in a chosen folder; Auto-backup every 20 minutes (on): each open drawing with unsaved changes as `AutoBackup_of_<name>.tdraw` in `TraceDraw` under the temporary folder or a chosen folder; a session that ended without closing offers them at the next start (see `recovery.md`). In a browser and on Android no folder can be chosen: both Browse buttons are greyed with the reason (the page's storage, the app's own folder; #1399) |
-| Text | Five tabs (`options_text_tab`). Display: keyboard text increment (1 pt: Ctrl+8 and Ctrl+2 grow and shrink the selected text), text units (points at first, any unit of the rulers: font sizes on the property bar, the Text docker, the table bar, this page and the object information show and take sizes in it, a unit typed with the value counts; sizes are kept in points, `settings.text_units`, `pick_drag_tests::font_sizes_show_and_type_in_the_text_units`, #529), default font and size (of new text: they do not follow the text selected and can be changed while a text is selected; with no text selected the Text tool's bar shows and sets them, `the_default_text_font_does_not_follow_the_selection`, #449), non-printing characters. Paragraph Text: show text frames, hyphenation, hyphenation patterns (Built-in (English) or a `hyph_*.dic` file found in the dictionary folders, shown without `hyph_`; see `text.md`). Fonts: show recently used fonts at the top of the font lists (on) and how many (5, 1 to 20; the lists keep the last 20), font sample size. Spelling: ignore words with numbers, ignore words in capitals (both off, also under Options in the Spell Checker), add corrections to Autocorrect (off: a word replaced in the Spell Checker becomes a replacement row, its row replaced if it has one). Dictionaries: the Hunspell dictionaries found (and on Windows its own spell checker), each with a check box, TraceDraw's dictionaries folder with Open Folder and Also read dictionaries from (a folder, Browse and Clear), both not in a browser (on Android, Browse picks `.dic` and `.aff` files as Add Files does, #1399), Download dictionary (a language and Download), Add Files and Read Again (see `writing-tools.md`, #1405). Autocorrect: see `writing-tools.md`; Text > Proofing > Autocorrect opens this tab |
+| Save | Back up original file before saving (on): `backup_of_<name>` next to the file or in a chosen folder; Auto-backup every 20 minutes (on): each open drawing with unsaved changes as `AutoBackup_of_<name>.tdraw` in `TraceLaser` under the temporary folder or a chosen folder; a session that ended without closing offers them at the next start (see `recovery.md`). In a browser and on Android no folder can be chosen: both Browse buttons are greyed with the reason (the page's storage, the app's own folder; #1399) |
+| Text | Five tabs (`options_text_tab`). Display: keyboard text increment (1 pt: Ctrl+8 and Ctrl+2 grow and shrink the selected text), text units (points at first, any unit of the rulers: font sizes on the property bar, the Text docker, the table bar, this page and the object information show and take sizes in it, a unit typed with the value counts; sizes are kept in points, `settings.text_units`, `pick_drag_tests::font_sizes_show_and_type_in_the_text_units`, #529), default font and size (of new text: they do not follow the text selected and can be changed while a text is selected; with no text selected the Text tool's bar shows and sets them, `the_default_text_font_does_not_follow_the_selection`, #449), non-printing characters. Paragraph Text: show text frames, hyphenation, hyphenation patterns (Built-in (English) or a `hyph_*.dic` file found in the dictionary folders, shown without `hyph_`; see `text.md`). Fonts: show recently used fonts at the top of the font lists (on) and how many (5, 1 to 20; the lists keep the last 20), font sample size. Spelling: ignore words with numbers, ignore words in capitals (both off, also under Options in the Spell Checker), add corrections to Autocorrect (off: a word replaced in the Spell Checker becomes a replacement row, its row replaced if it has one). Dictionaries: the Hunspell dictionaries found (and on Windows its own spell checker), each with a check box, TraceLaser's dictionaries folder with Open Folder and Also read dictionaries from (a folder, Browse and Clear), both not in a browser (on Android, Browse picks `.dic` and `.aff` files as Add Files does, #1399), Download dictionary (a language and Download), Add Files and Read Again (see `writing-tools.md`, #1405). Autocorrect: see `writing-tools.md`; Text > Proofing > Autocorrect opens this tab |
 
 ## Customization
 
@@ -119,7 +119,7 @@ of new rounded connectors, 0 to 1000 mm, 3 mm by default), Mesh Fill
 ## Global and Workspaces
 
 Global > General: user interface language (System language first, then every language; see `language.md`); check for updates at start (desktop, asked at first start, see `updates.md`); Reset all settings... (asks
-first, then puts every preference back to how TraceDraw comes, keeping
+first, then puts every preference back to how TraceLaser comes, keeping
 the recent drawings, the last folder and the window's size; drawings are
 not touched). Global > File Locations: where the preferences and
 auto-backups are kept. Workspaces: the workspace in use, and exporting
@@ -232,7 +232,7 @@ message never replaces another dialog that is open.
 
 Pen settings (pressure curves for tablets), Tablet Mode, VBA and
 plug-ins have no page: a pen's pressure sets widths as it comes, with
-one checkbox under Curve tools (see `pen-pressure.md`); TraceDraw has
+one checkbox under Curve tools (see `pen-pressure.md`); TraceLaser has
 its own workspaces instead of a tablet mode, scripts in JavaScript
 (Scripts panel) and hosts no plug-ins.
 
@@ -279,7 +279,7 @@ window first shows it (#1134):
 | Zoom level | the zoom typed beside the list (`open_zoom_percent`, 1 to 10000 %, 100 at first; a value that is not a number gives 100), the middle of the page in the middle of the window (#1266) |
 | As saved | the page, the point in the middle of the window and the zoom the drawing had when it was last saved |
 
-Saving a TraceDraw file keeps its view in the file (`saved_view`: the
+Saving a TraceLaser file keeps its view in the file (`saved_view`: the
 page index, the middle point in mm and the zoom in percent of real
 size). Keeping it is no undo step and does not mark the drawing changed,
 and undo and redo leave it alone. A file saved without it (an older
@@ -332,8 +332,8 @@ step (see `multipage-view.md`,
   opening; the Shelf asking before removing)
 - `ui::options_global::tests::the_global_pages_draw`
 - `drawing_scale::tests::zoom_100_follows_the_ruler_calibration`
-- `tracedraw_render` `open_curves_are_not_filled_unless_the_document_says_so`
-- `tracedraw_io` `open_curves_lose_their_fill_in_vector_exports`
+- `tracelaser_render` `open_curves_are_not_filled_unless_the_document_says_so`
+- `tracelaser_io` `open_curves_lose_their_fill_in_vector_exports`
 - `app::tests` start-up, backups and clip frame centring (below)
 
 ## Theme
@@ -420,17 +420,17 @@ system within seconds and no frame waits for the system:
 
 ## Where the preferences are kept
 
-- `TRACEDRAW_CONFIG_DIR` when it is set.
-- Otherwise a folder called `tracedraw-settings` next to the program,
+- `TRACELASER_CONFIG_DIR` when it is set.
+- Otherwise a folder called `tracelaser-settings` next to the program,
   when there is one: a portable copy (on a USB stick, say) keeps its
   preferences there and leaves nothing on the computer. The Windows
   portable zip ships the folder (with a note inside saying what it is
   for; `packaging/windows/portable`), so it is portable as unzipped;
   deleting the folder makes that copy use the system's place
   (`settings::tests::the_portable_zip_ships_the_settings_folder`).
-- Otherwise the system's place: `%APPDATA%\TraceDraw` on Windows,
-  `~/Library/Application Support/TraceDraw` on macOS,
-  `$XDG_CONFIG_HOME/tracedraw` (or `~/.config/tracedraw`) elsewhere; the
+- Otherwise the system's place: `%APPDATA%\TraceLaser` on Windows,
+  `~/Library/Application Support/TraceLaser` on macOS,
+  `$XDG_CONFIG_HOME/tracelaser` (or `~/.config/tracelaser`) elsewhere; the
   browser keeps them in its local storage.
 
 Menus, lists and dialogs appear at once, without fading in.

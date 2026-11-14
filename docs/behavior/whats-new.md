@@ -5,7 +5,7 @@
   header) shows the version, its date and a short title; a click opens
   one plain paragraph about what changed for users and a "Want to know
   more?" link to that version's GitHub release page
-  (`https://github.com/tracedraw/tracedraw/releases/tag/v<version>`),
+  (`https://github.com/arewedaks/TraceLaser/releases/tag/v<version>`),
   opened in the system browser (a new tab in the browser version). The
   newest row is open at first, the others closed.
 - The rows are `RELEASES` in `ui/welcome.rs` (version, date, title key,

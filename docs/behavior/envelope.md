@@ -25,12 +25,12 @@ Ctrl+F7).
   keeping its own fill and outline; perspective and distortions on a
   group work the same way. The group used to be drawn as one path with
   its own empty fill, so it vanished
-  (`tracedraw_core::live::tests::an_envelope_on_a_group_keeps_each_object`).
+  (`tracelaser_core::live::tests::an_envelope_on_a_group_keeps_each_object`).
   A blend inside the group bends with it: the copy of the end object the
   blend draws its steps to, and the path it follows, are mapped too, so
   the steps between the two objects follow the envelope; they used to be
   mixed toward the unbent end and stayed where they were (#2120,
-  `tracedraw_core::live::tests::a_grouped_blend_bends_with_the_group`).
+  `tracelaser_core::live::tests::a_grouped_blend_bends_with_the_group`).
 - On an extruded object the envelope bends the body too, whichever of
   the two was put on first: an outline warp (envelope, perspective,
   distortion) after an extrusion in the object's effects is put on the
@@ -38,11 +38,11 @@ Ctrl+F7).
   the bent object all along it. The frame is around the object's
   outline, not around the body (for a body turned in space or bevelled,
   whose object is drawn among its faces: around the outline before the
-  turn; `tracedraw_core::live::warp_box`). The body used to be built
+  turn; `tracelaser_core::live::warp_box`). The body used to be built
   from the outline as it was before the envelope and stayed behind the
   bent object, and on a turned or bevelled body the envelope did
   nothing (#2214,
-  `tracedraw_core::live::warped_extrusion_tests::an_envelope_on_an_extruded_object_bends_its_body`).
+  `tracelaser_core::live::warped_extrusion_tests::an_envelope_on_an_extruded_object_bends_its_body`).
   A contour or a blend between the extrusion and the envelope is still
   drawn from the outline as it is at its own place.
 - Curves are flattened before the mapping with a tolerance of 1/50 000
@@ -177,8 +177,8 @@ nothing selected, how to start.
   arched band went down onto it, where CorelDRAW leaves it above the
   band, arched like it; the video of #2344 shows the same, the object
   moved into the shape by hand afterwards) (#993, #2344, #2178,
-  `tracedraw_core::envelope::tests::frames_are_made_from_outlines`,
-  `tracedraw_core::envelope::tests::a_band_keeps_its_own_corners_as_the_frame_corners`,
+  `tracelaser_core::envelope::tests::frames_are_made_from_outlines`,
+  `tracelaser_core::envelope::tests::a_band_keeps_its_own_corners_as_the_frame_corners`,
   `envelope_edit::tests::an_object_taking_a_shapes_outline_keeps_its_place`,
   `text_effect_tests::text_takes_the_shape_of_an_object_as_its_envelope`).
   An open line, or an outline with more than 96 nodes, gives nothing and
@@ -189,7 +189,7 @@ nothing selected, how to start.
   the envelope is gone. Break Apart then breaks the warped curve into its
   parts, and enveloped artistic text into one curve per letter, each
   warped as the whole text was, with its holes kept (O, B, A). The
-  warped outline is fitted with curves (`tracedraw_core::fit::fit_path`,
+  warped outline is fitted with curves (`tracelaser_core::fit::fit_path`,
   corners kept, within a ten-thousandth of the outline's size, 0.005 to
   0.05 mm), so the result is smooth curves with about as many nodes as
   the outline had before, not the warp's dense lines ("ABC": 52 nodes
@@ -233,19 +233,19 @@ rectangle selects it, and the selection box reaches the top of the arch.
 
 ## Checks
 
-- `tracedraw_core::envelope::tests::a_fresh_frame_changes_nothing`
-- `tracedraw_core::envelope::tests::older_envelopes_are_single_arcs`
-- `tracedraw_core::envelope::tests::the_modes_shape_the_sides_a_node_moves`
-- `tracedraw_core::envelope::tests::nodes_are_added_and_removed`
-- `tracedraw_core::envelope::tests::bending_a_segment_moves_its_point_and_keeps_its_nodes`
+- `tracelaser_core::envelope::tests::a_fresh_frame_changes_nothing`
+- `tracelaser_core::envelope::tests::older_envelopes_are_single_arcs`
+- `tracelaser_core::envelope::tests::the_modes_shape_the_sides_a_node_moves`
+- `tracelaser_core::envelope::tests::nodes_are_added_and_removed`
+- `tracelaser_core::envelope::tests::bending_a_segment_moves_its_point_and_keeps_its_nodes`
 - `pick_drag_tests::dragging_an_envelope_segment_bends_it`
-- `tracedraw_core::envelope::tests::the_mappings_fill_the_frame_differently`
-- `tracedraw_core::live::tests::visual_bounds_follow_the_live_effects`
-- `tracedraw_core::live::warped_extrusion_tests::an_envelope_on_an_extruded_object_bends_its_body`
-- `tracedraw_core::live::warped_extrusion_tests::every_warp_after_an_extrusion_reaches_its_body`
-- `tracedraw_core::live::warped_extrusion_tests::a_contour_before_the_envelope_keeps_its_outline`
-- `tracedraw_core::live::warped_extrusion_tests::a_turned_body_is_built_from_the_bent_outline`
-- `tracedraw_core::live::warped_extrusion_tests::the_warp_box_is_the_outline_before_the_body`
+- `tracelaser_core::envelope::tests::the_mappings_fill_the_frame_differently`
+- `tracelaser_core::live::tests::visual_bounds_follow_the_live_effects`
+- `tracelaser_core::live::warped_extrusion_tests::an_envelope_on_an_extruded_object_bends_its_body`
+- `tracelaser_core::live::warped_extrusion_tests::every_warp_after_an_extrusion_reaches_its_body`
+- `tracelaser_core::live::warped_extrusion_tests::a_contour_before_the_envelope_keeps_its_outline`
+- `tracelaser_core::live::warped_extrusion_tests::a_turned_body_is_built_from_the_bent_outline`
+- `tracelaser_core::live::warped_extrusion_tests::the_warp_box_is_the_outline_before_the_body`
 - `envelope_edit::tests::an_envelope_bends_the_body_of_an_extruded_object`
 - `envelope_edit::tests::dragging_a_node_is_one_step_in_the_chosen_mode`
 - `envelope_edit::tests::handles_and_nodes_in_the_unconstrained_mode`
@@ -259,6 +259,6 @@ rectangle selects it, and the selection box reaches the top of the arch.
 - `text_effect_tests::breaking_several_warped_texts_keeps_the_stacking_order`
 - `text_effect_tests::an_envelope_keeps_the_colours_of_the_letters`
 - `envelope_edit::tests::break_apart_leaves_an_enveloped_group`
-- `tracedraw_core::live::tests::a_baked_group_object_loses_its_spline`
-- `tracedraw_core::live::tests::outline_warp_warps_parts_as_the_whole`
+- `tracelaser_core::live::tests::a_baked_group_object_loses_its_spline`
+- `tracelaser_core::live::tests::outline_warp_warps_parts_as_the_whole`
 - `ui::envelope_ui::tests::the_bar_and_the_docker_draw`

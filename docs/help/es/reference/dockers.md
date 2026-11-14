@@ -59,6 +59,6 @@ izquierda). Esta página enumera cada panel y la página que lo explica.
   sus flechas apuntan al lado de la ventana hacia el que se pliega (a la
   izquierda para los paneles acoplados a la izquierda).
 - Los paneles que deja abiertos vuelven la próxima vez que se inicia
-  TraceDraw.
+  TraceLaser.
 - Los atajos de los paneles alternan: pulsar uno cuando su panel está al
   frente oculta los paneles.

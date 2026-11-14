@@ -31,4 +31,4 @@ else is faded. Exports and printing are not affected.
   fades the rest of the page while you edit the contents of a clip frame.
 - Whether a double-click enters focus mode is set on the same page.
 
-See [TraceDraw options](../customize/options-app.md#edit).
+See [TraceLaser options](../customize/options-app.md#edit).

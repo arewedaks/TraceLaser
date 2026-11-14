@@ -1,4 +1,4 @@
-// TraceDraw: the painter of the OpenGL renderer is one of two (see
+// TraceLaser: the painter of the OpenGL renderer is one of two (see
 // vendor/README.md): egui_glow's, with shaders and buffer objects, or the
 // fixed-function one on desktop OpenGL below 3.0, whose drivers draw the
 // first wrongly (#616).
@@ -13,7 +13,7 @@ use super::fixed_function_painter::FixedFunctionPainter;
 
 /// The environment variable that picks the painter by hand: `fixed` or
 /// `shaders`.
-pub const PAINTER_ENV: &str = "TRACEDRAW_GL_PAINTER";
+pub const PAINTER_ENV: &str = "TRACELASER_GL_PAINTER";
 
 /// What draws egui on the OpenGL context.
 pub enum GlPainter {

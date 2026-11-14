@@ -32,16 +32,16 @@ const need = (name) => {
 };
 
 // The module.
-if (need("tracedraw_bg.wasm")) {
-  const bytes = read("tracedraw_bg.wasm");
+if (need("tracelaser_bg.wasm")) {
+  const bytes = read("tracelaser_bg.wasm");
   if (!WebAssembly.validate(bytes)) {
-    problem("tracedraw_bg.wasm is not a valid WebAssembly module");
+    problem("tracelaser_bg.wasm is not a valid WebAssembly module");
   }
 }
 // wasm-bindgen writes the default export as `export default init` or as
 // `export { initSync, __wbg_init as default }`, depending on the version.
-if (need("tracedraw.js") && !/export default|as default\s*[},]/.test(text("tracedraw.js"))) {
-  problem("tracedraw.js has no default export (the page's init)");
+if (need("tracelaser.js") && !/export default|as default\s*[},]/.test(text("tracelaser.js"))) {
+  problem("tracelaser.js has no default export (the page's init)");
 }
 
 // The page.
@@ -55,7 +55,7 @@ if (need("index.html")) {
     ["the standalone flag", '<meta name="apple-mobile-web-app-capable" content="yes">'],
     ["the home-screen icon", '<link rel="apple-touch-icon" href="icon-192.png">'],
     ["the service worker registration", 'navigator.serviceWorker.register("sw.js")'],
-    ["the module", "tracedraw_bg.wasm"],
+    ["the module", "tracelaser_bg.wasm"],
   ]) {
     if (!page.includes(needle)) {
       problem(`index.html lacks ${what}: ${needle}`);
@@ -141,7 +141,7 @@ if (need("sw.js")) {
     problem("sw.js has no SHELL list");
   } else {
     const files = [...list[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]);
-    for (const wanted of ["./", "index.html", "tracedraw.js", "tracedraw_bg.wasm", "manifest.webmanifest"]) {
+    for (const wanted of ["./", "index.html", "tracelaser.js", "tracelaser_bg.wasm", "manifest.webmanifest"]) {
       if (!files.includes(wanted)) {
         problem(`sw.js does not cache ${wanted}`);
       }

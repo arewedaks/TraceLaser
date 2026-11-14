@@ -4,28 +4,28 @@ Desktop only (the browser build is always the latest; there Help >
 Updates opens the releases page).
 
 - Help > Updates asks GitHub for the project's latest release
-  (`api.github.com/repos/tracedraw/tracedraw/releases/latest`) and says
+  (`api.github.com/repos/tracelaser/tracelaser/releases/latest`) and says
   whether it is newer than this version (numbers compared as major,
   minor, patch; drafts, pre-releases and the nightly build never count).
 - A newer release offers Download, Release notes, Skip this version and
   Close. Download opens the link of the release file named exactly for
   this system, its processor (x86_64, or arm64 for aarch64) and how this
   copy was installed; the system's installer does the installing:
-  - Linux run as an AppImage (`APPIMAGE` set): `tracedraw-<v>-linux-<arch>.AppImage`,
+  - Linux run as an AppImage (`APPIMAGE` set): `tracelaser-<v>-linux-<arch>.AppImage`,
     where x86_64 looks for `linux-amd64` first and then `linux-x86_64`
     (releases up to 0.19.8). From 0.19.9 on the release names the x86_64
     AppImage `linux-amd64`, which sorts before `linux-arm64`: updaters of
     0.19.8 and earlier take the first AppImage in GitHub's list, sorted
     by name, and so get the x86_64 file (#1038). The tar.gz keeps
     `linux-x86_64`;
-  - Linux installed from the `.deb` (dpkg's list for `tracedraw` names
-    the running program): `tracedraw_<v>_<amd64|arm64>.deb`;
+  - Linux installed from the `.deb` (dpkg's list for `tracelaser` names
+    the running program): `tracelaser_<v>_<amd64|arm64>.deb`;
   - Linux unpacked from the tar.gz (a program outside `/usr`):
-    `tracedraw-<v>-linux-<arch>.tar.gz`;
-  - Windows installed with setup: `tracedraw-<v>-windows-<arch>-setup.exe`;
-    the portable copy (the `tracedraw-settings` folder next to the
-    program): `tracedraw-<v>-windows-<arch>-portable.zip`;
-  - macOS: `tracedraw-<v>-macos-<arch>.dmg`.
+    `tracelaser-<v>-linux-<arch>.tar.gz`;
+  - Windows installed with setup: `tracelaser-<v>-windows-<arch>-setup.exe`;
+    the portable copy (the `tracelaser-settings` folder next to the
+    program): `tracelaser-<v>-windows-<arch>-portable.zip`;
+  - macOS: `tracelaser-<v>-macos-<arch>.dmg`.
   When the release has no such file (an rpm or other system package
   under `/usr`, a Flatpak or Snap, a processor without a build such as
   Windows on arm64) no file is downloaded and Download opens the release
@@ -34,7 +34,7 @@ Updates opens the releases page).
 - The update card (`ui/update_card.rs`): once a newer release is known
   (found by the check at start or by Help > Updates) and was not
   skipped, a card opens in the middle of the window, over a dimmed
-  window, with the TraceDraw icon, the name, an UPDATE badge, the two
+  window, with the TraceLaser icon, the name, an UPDATE badge, the two
   versions ("v0.28.0 to 0.29.0") and a line of text. Update now starts
   the install described below (where the copy cannot install by itself
   it opens the Updates box, which offers Download); nothing is
@@ -46,14 +46,14 @@ Updates opens the releases page).
   close it for the session; a card dismissed during the download comes
   back once, when the file is ready. It shows on the Welcome Screen, on
   an empty workspace and over the page sorter as well as over a drawing
-  (TraceDraw opens on the Welcome Screen, so the card must be there at
+  (TraceLaser opens on the Welcome Screen, so the card must be there at
   start). It waits for any dialog (the first-start question, recovery)
   and does not show over one. Help >
   Updates shows its own box instead of the card.
 - Every start while an update is known: the check at start runs once a
   day, and also at every start while the last check found a newer release
   that is not installed or skipped (`settings.pending_update`), so the
-  card is there each time TraceDraw opens until the update is done. It is
+  card is there each time TraceLaser opens until the update is done. It is
   the same request the daily check makes (GitHub's latest release, nothing
   about the user); a check that finds this version the latest forgets it.
   Skip this version in the Updates box stops it.
@@ -67,7 +67,7 @@ Updates opens the releases page).
 - The progress dialog (`ui/update_progress.rs`), opened by Install in
   the Updates box: a window of a fixed size (500 x 280 points with its
   title bar, so nothing moves while the numbers change), moved by its
-  title bar, with the TraceDraw icon, "Updating TraceDraw" and "Version
+  title bar, with the TraceLaser icon, "Updating TraceLaser" and "Version
   <this> to <new>". Below them the step (`updates::InstallState`):
   - Downloading: an egui progress bar, the whole percent done (rounded
     down, 100 only with the last byte, `updates::percent`) and the line
@@ -88,7 +88,7 @@ Updates opens the releases page).
   - Checking the download (the size and SHA-256 digest are compared) and
     Installing (the file is moved, unpacked or copied into place): a
     moving bar, Cancel greyed (a file is not stopped half way).
-  - Ready (`Installed` or `Ready`): a green check mark, "TraceDraw <new>
+  - Ready (`Installed` or `Ready`): a green check mark, "TraceLaser <new>
     is ready", a line saying what Restart does, Restart Now (the default,
     Enter) and Later.
   - Failed: a red mark, "The update could not be installed", the reason
@@ -106,8 +106,8 @@ Updates opens the releases page).
     the running file's permissions and moved over it. The new version is
     in place (`InstallState::Installed`).
   - Windows installed with setup (not the portable copy, not the Store
-    copy): the release's `tracedraw-<v>-windows-<arch>-setup.exe` is
-    downloaded to `%TEMP%\tracedraw-update` (`InstallState::Ready`) and
+    copy): the release's `tracelaser-<v>-windows-<arch>-setup.exe` is
+    downloaded to `%TEMP%\tracelaser-update` (`InstallState::Ready`) and
     nothing is run yet.
   - macOS app bundle (`X.app/Contents/MacOS/<program>`; a build run from
     the source tree has no bundle and gets Download): the disk image is
@@ -119,8 +119,8 @@ Updates opens the releases page).
     folder the user cannot write to fails the install and offers
     Download.
   - Linux unpacked from the tar.gz: the archive is downloaded, checked,
-    and its `tracedraw` replaces the running program (under the running
-    file's name, in case the copy was renamed) and its `tracedraw-cli`
+    and its `tracelaser` replaces the running program (under the running
+    file's name, in case the copy was renamed) and its `tracelaser-cli`
     the tool beside it, if one is there. Every new file is written as a
     hidden `.<name>.update` first and moved over the old one by rename
     (a running program can be replaced that way); a damaged archive, one
@@ -129,7 +129,7 @@ Updates opens the releases page).
   - Windows portable zip: the zip's top-level files (the program, the
     tool, README and licences) replace the ones beside the running
     program. Entries in a folder, with a path separator, a drive or a
-    leading dot are skipped, so the `tracedraw-settings` folder, in the
+    leading dot are skipped, so the `tracelaser-settings` folder, in the
     zip and beside the program, is never touched. Windows cannot
     overwrite a running program but can rename it: the old file is set
     aside as `.<name>.old`, the new one moved in (the old one moves back
@@ -137,13 +137,13 @@ Updates opens the releases page).
     (`updates::clean_leftovers`).
   - Linux installed from the `.deb` (offered only when `pkexec` is on the
     `PATH`): the package is downloaded and checked to
-    `$XDG_CACHE_HOME/tracedraw-update` (`~/.cache/...`, mode 0700; never
+    `$XDG_CACHE_HOME/tracelaser-update` (`~/.cache/...`, mode 0700; never
     a shared `/tmp`, because the file is installed as the administrator
     and must not be swappable after the check) and nothing is run yet
     (`InstallState::Ready`).
   After an in-place install (AppImage, app, tar.gz, portable zip) and
   after a Windows or `.deb` download the dialog offers Restart Now and
-  Later (for the Windows setup and the `.deb` it says that TraceDraw
+  Later (for the Windows setup and the `.deb` it says that TraceLaser
   closes, installs the update and starts again). Later
   closes the dialog and changes nothing: the new version runs from the
   next start (Windows: the downloaded setup is not run). Restart exits
@@ -157,13 +157,13 @@ Updates opens the releases page).
     /NORESTART /relaunch=1`. The shell is used so that the setup can ask
     for administrator approval (a copy installed for all users). Setup
     keeps the install folder and install mode of the existing copy, its
-    settings and file associations, and `packaging/windows/tracedraw.iss`
-    starts the new TraceDraw at the end when `/relaunch=1` is given;
+    settings and file associations, and `packaging/windows/tracelaser.iss`
+    starts the new TraceLaser at the end when `/relaunch=1` is given;
   - macOS: `open -n <bundle>`;
   - tar.gz and portable zip: the program again;
   - `.deb`: `sh -c 'pkexec dpkg -i "$1"; rm -f "$1"; exec "$2"'`: the
     password is asked by the system's authentication dialog, the file is
-    removed and the program (`/usr/bin/tracedraw`) starts whether the
+    removed and the program (`/usr/bin/tracelaser`) starts whether the
     install worked or not (a refused password leaves the old version,
     which starts).
   Copies with no release file (an rpm or other system package, Flatpak,
@@ -213,7 +213,7 @@ Updates opens the releases page).
 - `updates::tests::swapping_the_bundle_never_leaves_the_app_missing`
 - `updates::tests::a_downloaded_file_is_kept_only_when_it_checks_out`
 - `updates::tests::restart_starts_the_new_version` (the commands, and the
-  `/relaunch` entry in `tracedraw.iss`)
+  `/relaunch` entry in `tracelaser.iss`)
 - `updates::tests::the_new_version_starts_only_after_restart`
 - `ui::dialogs::tests::the_updates_dialog_draws_every_state` (Ready too)
 - `documents::tests::cancelling_the_exit_cancels_restart`

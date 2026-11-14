@@ -79,7 +79,7 @@ band's height:
   object at the left the first line starts the indent past the object's
   edge, as the next lines start at the edge. A negative (hanging) indent
   reaches back only at the column's edge, never over an object (#1110,
-  `tracedraw_text::tests::the_first_line_indent_holds_beside_a_wrap_object`).
+  `tracelaser_text::tests::the_first_line_indent_holds_beside_a_wrap_object`).
 - With no part left the line moves down (a quarter of the line spacing,
   at least 0.25 mm, or to the next baseline grid line) until one shows,
   then to the next column, and the text overflows past the last column
@@ -104,9 +104,9 @@ band's height:
 
 ## Checks
 
-- `tracedraw_core::text_flow::tests` (segments, sides, contour, which
+- `tracelaser_core::text_flow::tests` (segments, sides, contour, which
   objects reach a frame, the page grid origin).
-- `tracedraw_text::tests::paragraph_text_flows_around_a_wrap_object`,
+- `tracelaser_text::tests::paragraph_text_flows_around_a_wrap_object`,
   `wrap_sides_keep_the_text_left_right_or_above_and_below`,
   `the_page_baseline_grid_lines_up_frames_at_different_heights`.
 - `pick_drag_tests::the_wrap_style_list_starts_with_none`.

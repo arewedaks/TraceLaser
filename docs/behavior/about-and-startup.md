@@ -1,8 +1,8 @@
 # About box and start-up
 
-## About TraceDraw
+## About TraceLaser
 
-Help > About TraceDraw opens the About box from the Welcome Screen as well
+Help > About TraceLaser opens the About box from the Welcome Screen as well
 as from a drawing. It is a chrome dialog (white title bar with the close
 button) 480 points wide:
 
@@ -23,7 +23,7 @@ button) 480 points wide:
 
 ## Splash screen
 
-While TraceDraw starts, a borderless 640 x 380 point window centred on
+While TraceLaser starts, a borderless 640 x 380 point window centred on
 the primary monitor (where that monitor lies on the desktop, see below)
 shows the same artwork as the About banner at a larger size
 (two selected nodes on the main curve), the 96 px icon, the name at
@@ -117,7 +117,7 @@ the version on the right).
   (`splash::tests::small_screens_get_a_window_that_fits_and_starts_maximized`,
   `splash::tests::the_main_window_offers_the_maximize_button`).
 - Options > General > Show the splash screen at start-up turns it off.
-  `--no-splash` or `TRACEDRAW_NO_SPLASH=1` skip it for one run and open a
+  `--no-splash` or `TRACELASER_NO_SPLASH=1` skip it for one run and open a
   plain 1600 x 950 window (automation and the visual checks use this).
 - `--x11` (Linux) opens the window through the windowing layer's X11
   backend (XWayland on a Wayland desktop), where a graphics tablet's pen
@@ -150,11 +150,11 @@ the version on the right).
 ## One window for every start (#646)
 
 A file opened from the file manager, a shortcut or the command line while
-TraceDraw runs opens in a tab of the running window (or shows its tab
+TraceLaser runs opens in a tab of the running window (or shows its tab
 when it is open already, see `documents.md`), which comes to the front;
 the new start ends at once, before its log would replace the running
 one's (`instance.rs`). Several files selected together all go there (the
-Linux launcher passes them to one start, `Exec=tracedraw %F`). A start
+Linux launcher passes them to one start, `Exec=tracelaser %F`). A start
 with no file, one with `--new-instance`, and the `--mcp`, `--mcp-window`
 and `--reset-settings` starts open windows of their own.
 
@@ -190,32 +190,32 @@ and `--reset-settings` starts open windows of their own.
   user restored it from the taskbar (#2129, still so on 0.44.0;
   `instance::tests::a_minimized_window_comes_up_for_the_files_from_its_logic`).
 - A start with the next renderer after a failed one (see below) takes the
-  place over. Portable copies and `TRACEDRAW_CONFIG_DIR` each have their
+  place over. Portable copies and `TRACELASER_CONFIG_DIR` each have their
   own window.
 - macOS does not put a file opened from Finder (double click, Open With,
   a file dropped on the Dock icon) on the command line: it sends the
   running program an "open documents" event, at launch and later. The
   windowing layer's application delegate takes it
   (`application:openURLs:`, in the patched winit copy, see
-  `vendor/README.md`) and hands the paths to the handler TraceDraw sets
+  `vendor/README.md`) and hands the paths to the handler TraceLaser sets
   before the window opens (`winit::platform::macos::set_open_files_handler`);
   they join the files handed over above and open in tabs of the window.
   Files that come before the handler is set wait for it. They are kept
   too: a start with the next renderer (see below) gets them on its
   command line (`instance::with_files_opened_by_system`), since the
   window that failed had them only in its inbox. The
-  `CFBundleDocumentTypes` of `packaging/macos/Info.plist` offer TraceDraw
+  `CFBundleDocumentTypes` of `packaging/macos/Info.plist` offer TraceLaser
   for `.tdraw` and `.cdr` by content type, not by extension only: Finder
   keeps the default program of a file per content type (Get Info >
   Open with > Change All, and a double click go through it), and a type
   given by extension only matches none of the system's. The system types
   `.cdr` files as disk images (`com.apple.disk-image-cdr`, kind
   "DVD/CD-R Master Image", opened by the disk image mounter), so the
-  `.cdr` entry names that type and `dev.tracedraw.cdr` (imported, for
+  `.cdr` entry names that type and `dev.tracelaser.cdr` (imported, for
   systems without a `.cdr` type of their own), as an Editor with the rank
-  Alternate: TraceDraw never takes `.cdr` files over by itself, but Change
+  Alternate: TraceLaser never takes `.cdr` files over by itself, but Change
   All makes it their default program and a double click then opens them
-  in TraceDraw. `.tdraw` is TraceDraw's own type (`dev.tracedraw.tdraw`,
+  in TraceLaser. `.tdraw` is TraceLaser's own type (`dev.tracelaser.tdraw`,
   exported, Owner). The same two formats as the Linux launcher and the
   Windows installers (#1504). Checked by
   `macos_package::tests`; the association itself is not yet tried on a
@@ -263,7 +263,7 @@ and `--reset-settings` starts open windows of their own.
   `gpu::tests::windows_takes_a_card_through_direct3d_12`). Off, the software adapter (WARP on Windows, a CPU Vulkan driver
   elsewhere). Options shows what draws the window in this run; the
   choice takes effect at the next start.
-- A start that cannot open the window that way runs TraceDraw again with
+- A start that cannot open the window that way runs TraceLaser again with
   the next renderer, the other arguments kept; the first process waits
   for it. With hardware acceleration on the order is the graphics card,
   then `--renderer=gl` (OpenGL, as earlier versions drew), then
@@ -284,13 +284,13 @@ and `--reset-settings` starts open windows of their own.
   which has no Direct3D 12 and which wgpu's OpenGL backend refuses below
   3.3) gets the last one and draws on the card through `--renderer=gl`,
   with the fixed-function painter of the next item
-  (`TRACEDRAW_GL_PAINTER=shaders` keeps egui's GLSL 1.20 shaders),
+  (`TRACELASER_GL_PAINTER=shaders` keeps egui's GLSL 1.20 shaders),
   instead of on the CPU (#616). eframe 0.36
   stopped after OpenGL ES; the likely reason the reporter's
   `--renderer=gl` did not start is that Windows drivers of that age
   cannot make an OpenGL ES context (WGL needs an extension they do not
   offer), which the log of a build with this fallback will confirm.
-  TraceDraw carries eframe 0.36.2 with the fallback of eframe 0.37
+  TraceLaser carries eframe 0.36.2 with the fallback of eframe 0.37
   (`vendor/README.md`,
   `gpu::tests::opengl_falls_back_to_a_compatibility_context`,
   `gpu::eframe_context_fallback::tests`). Checked
@@ -300,8 +300,8 @@ and `--reset-settings` starts open windows of their own.
   fixed-function pipeline of OpenGL 1.x (client-side vertex arrays,
   texturing that multiplies the vertex colour, premultiplied alpha
   blending; no shaders, buffer objects or vertex array objects), the
-  painter TraceDraw carries in its eframe copy (`vendor/README.md`,
-  `TRACEDRAW_GL_PAINTER=fixed` or `=shaders` overrides the choice). The
+  painter TraceLaser carries in its eframe copy (`vendor/README.md`,
+  `TRACELASER_GL_PAINTER=fixed` or `=shaders` overrides the choice). The
   2012 driver of the Intel HD Graphics of 2010 PCs (8.15.10.2900, OpenGL
   2.1, #616) opened the window with egui's shaders and drew everything
   after the first mesh of each frame as black boxes and stray triangles,
@@ -312,7 +312,7 @@ and `--reset-settings` starts open windows of their own.
   reports (up to twelve). Textures are kept to 8192 px a side at most,
   as on wgpu; mipmaps are not made (OpenGL 3.0), so a shrunk picture
   filters without them. Checked under Mesa forced to OpenGL 2.1
-  (`TRACEDRAW_GL_CONTEXT=compat`, which asks for the compatibility
+  (`TRACELASER_GL_CONTEXT=compat`, which asks for the compatibility
   profile first, as Mesa would otherwise answer the OpenGL ES attempt):
   the window matches the one egui's shaders draw
   (`gpu::eframe_fixed_function_geometry::tests` cover the scissor,
@@ -352,7 +352,7 @@ and `--reset-settings` starts open windows of their own.
   the next renderer is tried; it is not written to `crash.log` or shown.
   When no renderer is left, the reason is logged and shown in a message
   box naming the log (a panic of the last one is shown as a crash, with
-  `crash.log`), and TraceDraw ends with an error.
+  `crash.log`), and TraceLaser ends with an error.
 - A renderer can also end the program without an error to hand on: a
   graphics driver that crashes the process, or hangs it until it is
   closed, inside wgpu's set-up. So before the window is opened the start
@@ -379,7 +379,7 @@ and `--reset-settings` starts open windows of their own.
   start left `renderer-attempt` behind and this one draws with another
   renderer than Options asks for, `gpu::fell_back`) says so once in the
   status bar as soon as its first frame is shown: "The last start could
-  not show the window, so TraceDraw now draws with ...", and a click on
+  not show the window, so TraceLaser now draws with ...", and a click on
   it opens Options > General to choose the graphics card or hardware
   acceleration again; a new choice there is tried afresh at the next
   start (`gpu::tests::the_fallback_is_said_only_after_a_failed_start`).
@@ -387,7 +387,7 @@ and `--reset-settings` starts open windows of their own.
 - A start that has shown no frame 20 seconds after it began
   (`gpu::WINDOW_WAIT`: the driver hung it inside wgpu's set-up or while
   it drew the first frame, so it never comes back to hand over; logged
-  as "no frame on the screen after 20s with ...") starts TraceDraw again with the next
+  as "no frame on the screen after 20s with ...") starts TraceLaser again with the next
   renderer itself, the other arguments kept, and ends. Before that it
   answers no to later starts, so a file opened meanwhile goes to a window
   of its own instead of to the window that never shows. With the last
@@ -397,7 +397,7 @@ and `--reset-settings` starts open windows of their own.
   `instance::tests::a_start_without_its_window_declines_files`).
   A start that already handed the window to the next renderer (that
   renderer failed at once and it waits for the new start) is settled:
-  its watch stops, so no second TraceDraw opens 20 seconds later beside
+  its watch stops, so no second TraceLaser opens 20 seconds later beside
   the one in use
   (`gpu::tests::a_start_that_handed_over_is_not_started_again`).
 - The log names every graphics adapter wgpu offers (backend, type,
@@ -406,7 +406,7 @@ and `--reset-settings` starts open windows of their own.
   was made with ...; waiting for its first frame") and "the first frame
   reached the screen with ..." once it is shown; an
   OpenGL start adds the driver's vendor, renderer and versions.
-- The log goes to `tracedraw.log` in the settings folder as well as to
+- The log goes to `tracelaser.log` in the settings folder as well as to
   the console (written afresh each start; a start handed over to the
   next renderer adds to it). A panic is written to `crash.log` there and
   shown in a message box naming that file, once; the Windows build has
@@ -419,7 +419,7 @@ and `--reset-settings` starts open windows of their own.
   `info,wgpu_core::instance=debug`, `RUST_LOG` replaces it). The first
   frame logs how long the start took, the window's size in pixels, the
   pixels per point and the monitor's size. With `RUST_LOG=debug` (or
-  `info,tracedraw=debug`) a line every 10 s while frames happen gives
+  `info,tracelaser=debug`) a line every 10 s while frames happen gives
   their count, how many had input, the mean and longest time to build
   one, the mean and longest gap between them, and the five most frequent
   reasons a frame was asked for; an idle window logs nothing, and with
@@ -452,7 +452,7 @@ and `--reset-settings` starts open windows of their own.
   `ui::cursors::tests::a_software_adapter_shows_the_system_pointers`).
 - With Use hardware acceleration off, when working on the drawing turns
   out slow on the software adapter and this computer has a graphics
-  card, TraceDraw says so once a run (`ui::gpu_hint`): of the last 60
+  card, TraceLaser says so once a run (`ui::gpu_hint`): of the last 60
   frames of a drag, a scroll or a zoom (a frame following another one of
   work, gaps over a second left out as pauses), 30 or more came over
   0.1 s apart (under ten a second). The card is the first separate or
@@ -469,10 +469,10 @@ and `--reset-settings` starts open windows of their own.
 ## Back to the defaults
 
 Pressing F8 while the splash screen shows asks, once the editor is up,
-whether to reset every preference to how TraceDraw comes (Options >
+whether to reset every preference to how TraceLaser comes (Options >
 Global > Reset all settings... asks the same). Reset keeps the recent
 drawings, the last folder and the window's size; Cancel changes
-nothing. `tracedraw --reset-settings` resets without asking (scripts,
+nothing. `tracelaser --reset-settings` resets without asking (scripts,
 support). Drawings are never touched.
 
 - `splash::tests::f8_while_starting_asks_to_reset_the_settings`
@@ -482,10 +482,10 @@ support). Drawings are never touched.
 ## Window state
 
 On Linux the window (splash and main window alike) gives the application
-id `tracedraw` (`splash::APP_ID`): the Wayland `app_id` and the class of
+id `tracelaser` (`splash::APP_ID`): the Wayland `app_id` and the class of
 its X11 `WM_CLASS`, which docks and task bars match to the installed
-`tracedraw.desktop` (its file name and `StartupWMClass=tracedraw`) to show
-TraceDraw's icon. It was the window's name, "TraceDraw", and a dock such as
+`tracelaser.desktop` (its file name and `StartupWMClass=tracelaser`) to show
+TraceLaser's icon. It was the window's name, "TraceLaser", and a dock such as
 Plank showed a blank icon (#1718,
 `splash::tests::the_window_says_which_desktop_file_it_belongs_to`).
 

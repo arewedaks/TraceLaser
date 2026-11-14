@@ -1,0 +1,20 @@
+[package]
+name = "tracelaser-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Headless TraceLaser: inspect .cdr files and convert documents"
+
+[dependencies]
+tracelaser-core.workspace = true
+tracelaser-cdr.workspace = true
+tracelaser-io.workspace = true
+tracelaser-render.workspace = true
+tracelaser-text.workspace = true
+env_logger.workspace = true
+log.workspace = true
+flate2 = "1"
+
+[dev-dependencies]
+image = { version = "0.25", default-features = false, features = ["png", "bmp"] }
+zip.workspace = true

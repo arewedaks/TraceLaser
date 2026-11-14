@@ -77,7 +77,7 @@ qui sopra.
 ![La pagina Posizioni dei file delle opzioni globali](../../img/customize-global-options-file-locations.png)
 
 Mostra dove vengono conservati le preferenze e i backup automatici. Le
-preferenze si trovano in una cartella `tracedraw-settings` accanto al
+preferenze si trovano in una cartella `tracelaser-settings` accanto al
 programma, se esiste (una copia portatile), altrimenti nella posizione del
 sistema dedicata alle impostazioni dei programmi; la versione per browser le
 conserva nel browser.

@@ -28,7 +28,7 @@ SimplySign cloud with a code from a phone app, which is awkward to
 automate). EV certificates no longer skip the SmartScreen reputation
 (since 2024), so they buy nothing over OV for this.
 
-For TraceDraw, a project by one person in the EU, the free routes are the
+For TraceLaser, a project by one person in the EU, the free routes are the
 ones to take: apply to the SignPath Foundation for the installer and the
 portable zip, and publish the MSIX in the Microsoft Store.
 
@@ -44,14 +44,14 @@ time of writing).
 
 ## What gets signed
 
-- `tracedraw.exe` and `tracedraw-cli.exe`, before they are packed (so the
+- `tracelaser.exe` and `tracelaser-cli.exe`, before they are packed (so the
   installer, the portable zip and the MSIX all carry signed programs).
-- The installers, `tracedraw-<version>-windows-x86_64-setup.exe` and
-  the 32-bit `tracedraw-<version>-windows-x86-setup.exe` (#1975). Each
+- The installers, `tracelaser-<version>-windows-x86_64-setup.exe` and
+  the 32-bit `tracelaser-<version>-windows-x86-setup.exe` (#1975). Each
   Windows build uploads its own SignPath artifacts
   (`unsigned-programs-<build>`, `unsigned-installer-<build>`); the
   "installer" artifact configuration in SignPath must match
-  `tracedraw-*-windows-*-setup.exe`, as
+  `tracelaser-*-windows-*-setup.exe`, as
   `packaging/windows/signpath/installer.xml` does.
 - Not signed: the uninstaller the installer writes (it is never
   downloaded, so SmartScreen does not check it) and the macOS and Linux
@@ -64,7 +64,7 @@ SignPath that means approving every push, so leave it off there.
 ## SignPath Foundation
 
 1. Make sure the project meets the terms at <https://signpath.org/terms>:
-   an OSI license for everything (TraceDraw is MIT or Apache-2.0), no
+   an OSI license for everything (TraceLaser is MIT or Apache-2.0), no
    malware, released, described on its download page, the "Code signing
    policy" section in the README (already there) and multi-factor
    authentication on GitHub and SignPath for everyone in the team roles.
@@ -86,7 +86,7 @@ SignPath that means approving every push, so leave it off there.
    - variable `SIGNPATH_ORGANIZATION_ID`: your organisation id (SignPath >
      Settings);
    - variable `SIGNPATH_PROJECT_SLUG`: the project slug (for example
-     `tracedraw`);
+     `tracelaser`);
    - variable `SIGNPATH_POLICY_SLUG`: the signing policy slug.
 6. Make a release: Actions > build > Run workflow with the version (for
    example `0.3.0`), or push a version tag (`git tag v0.3.0 && git push
@@ -104,15 +104,15 @@ SignPath that means approving every push, so leave it off there.
 1. Register as an individual developer in Partner Center
    (<https://developer.microsoft.com/microsoft-store/register>, no fee for
    individuals).
-2. Create the app and reserve the name "TraceDraw".
+2. Create the app and reserve the name "TraceLaser".
 3. Open the app's Product management > Product identity page and copy
    three values into GitHub variables:
    - `MSIX_IDENTITY_NAME`: Package/Identity/Name (like
-     `12345TraceDraw.TraceDraw`);
+     `12345TraceLaser.TraceLaser`);
    - `MSIX_PUBLISHER`: Package/Identity/Publisher (like `CN=1A2B3C4D-...`);
    - `MSIX_PUBLISHER_NAME`: Package/Properties/PublisherDisplayName (your
      name as the Store shows it).
-4. From then on every build attaches `tracedraw-<version>-windows-x86_64.msix`
+4. From then on every build attaches `tracelaser-<version>-windows-x86_64.msix`
    to its release (a release `1.2.3` becomes package version `1.2.3.0`;
    development builds use the run number as the fourth number). Upload the
    one of a version tag in a new submission under Packages; the Store
@@ -121,15 +121,15 @@ SignPath that means approving every push, so leave it off there.
    privacy policy address and the reason for the full-trust capability)
    see [`store-listing.md`](store-listing.md).
 6. The manifest is `packaging/windows/msix/AppxManifest.xml` (the program
-   runs with full trust; `.tdraw` and `.cdr` open with it; `tracedraw-cli`
+   runs with full trust; `.tdraw` and `.cdr` open with it; `tracelaser-cli`
    works in a terminal); its tiles are in
    `packaging/windows/msix/Assets/`. Without the variables the build still
    packs a check package with a placeholder identity, so a broken manifest
    shows up in CI, but does not publish it. The package has a single
    application: the Store refuses a second one hidden from the Start menu (a
    "headless app") without a waiver, and an application may declare only one
-   command-line alias, so the Store package has `tracedraw-cli` but not the
-   `tracedraw` alias.
+   command-line alias, so the Store package has `tracelaser-cli` but not the
+   `tracelaser` alias.
 7. Submitting each version automatically. Once the app is live in the Store
    (the API cannot make the first submission), the `store` job of the build
    hands every version's MSIX to the Store and submits it for certification:
@@ -177,7 +177,7 @@ In Windows, right-click the file > Properties > Digital Signatures, or in
 PowerShell:
 
 ```powershell
-Get-AuthenticodeSignature .\tracedraw-0.3.0-windows-x86_64-setup.exe | Format-List
+Get-AuthenticodeSignature .\tracelaser-0.3.0-windows-x86_64-setup.exe | Format-List
 ```
 
 `Status` should be `Valid` and `SignerCertificate` should name the

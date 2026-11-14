@@ -2,7 +2,7 @@
 
 > *Tradução automática: esta página pode estar atrasada em relação à versão em inglês.*
 
-O TraceDraw verifica ortografia e gramática, encontra sinônimos, corrige
+O TraceLaser verifica ortografia e gramática, encontra sinônimos, corrige
 enquanto você digita e conserta textos que chegaram com caracteres errados. Os
 comandos ficam em [[menu.text > menu.text.writing_tools]] e no menu
 [[menu.text]].
@@ -33,7 +33,7 @@ da página ([[writing.scope_document]]) ou só os textos selecionados
 
 ### Dicionários {#dictionaries}
 
-O TraceDraw verifica a ortografia com dicionários Hunspell: para cada idioma,
+O TraceLaser verifica a ortografia com dicionários Hunspell: para cada idioma,
 um arquivo `.dic` e um arquivo `.aff` com o mesmo nome, como `pt_BR.dic` e
 `pt_BR.aff`. Dicionários gratuitos para a maioria dos idiomas podem ser baixados
 dos projetos que os fazem; outros programas costumam instalá-los também.

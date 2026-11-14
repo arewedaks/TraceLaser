@@ -1,4 +1,4 @@
-# Maintaining TraceDraw
+# Maintaining TraceLaser
 
 How reviewers and maintainers look after issues and pull requests. The
 roles themselves (who can do what, and how one moves up) are in
@@ -12,13 +12,13 @@ roles themselves (who can do what, and how one moves up) are in
 Work from the issues nobody has read yet, not from the labels:
 
 - **Not read yet:** open issues without `triaged`
-  ([search](https://github.com/tracedraw/tracedraw/issues?q=is%3Aissue+is%3Aopen+-label%3Atriaged+sort%3Acreated-asc)),
+  ([search](https://github.com/arewedaks/TraceLaser/issues?q=is%3Aissue+is%3Aopen+-label%3Atriaged+sort%3Acreated-asc)),
   oldest first.
 - **The work queue:** open issues with `triaged`, by priority:
-  [`P0`](https://github.com/tracedraw/tracedraw/issues?q=is%3Aissue+is%3Aopen+label%3AP0),
+  [`P0`](https://github.com/arewedaks/TraceLaser/issues?q=is%3Aissue+is%3Aopen+label%3AP0),
   then `P1`, `P2`, `P3`.
 - **Answers to read:** `needs info` issues with a new comment
-  ([search](https://github.com/tracedraw/tracedraw/issues?q=is%3Aissue+is%3Aopen+label%3A%22needs+info%22+sort%3Aupdated-desc)).
+  ([search](https://github.com/arewedaks/TraceLaser/issues?q=is%3Aissue+is%3Aopen+label%3A%22needs+info%22+sort%3Aupdated-desc)).
 
 ### Do not trust the labels an issue arrives with
 
@@ -45,7 +45,7 @@ Only labels set by a reviewer or maintainer are used to plan work.
 
 | Priority | What | Examples |
 |---|---|---|
-| `P0` | the program stops, freezes or loses work; a file that opened before no longer opens; saving writes a file that does not open again | a panic, a hang on opening a file, a `.cdr` saved by TraceDraw that its reader rejects |
+| `P0` | the program stops, freezes or loses work; a file that opened before no longer opens; saving writes a file that does not open again | a panic, a hang on opening a file, a `.cdr` saved by TraceLaser that its reader rejects |
 | `P1` | a regression in the latest release; a `.cdr` that opens wrong, with the file attached; an export that is wrong; the program does not start on a platform | objects missing from a sample, a PDF that prints wrong |
 | `P2` | any other bug with the steps to repeat it | a tool that misbehaves in one case |
 | `P3` | small or cosmetic | a misaligned control, a typo in the interface |
@@ -75,7 +75,7 @@ or exact steps comes first: it is the one that can be fixed.
 
 An attached file comes from someone you do not know. Treat it that way:
 
-- **Open it only with TraceDraw or `tracedraw-cli`** (`info`, `inspect`,
+- **Open it only with TraceLaser or `tracelaser-cli`** (`info`, `inspect`,
   `convert`), which are written never to panic or run anything from a
   file and to stop at the memory limits in `docs/cdr-format.md`. Do not
   open it in other programs, and never run anything that comes in a
@@ -85,7 +85,7 @@ An attached file comes from someone you do not know. Treat it that way:
 - **Keep it outside the repository**, in a folder of its own, and delete
   it when the issue is done. Files that belong to someone else are never
   committed (see `CLEANROOM.md`); a test needs a fixture made for
-  TraceDraw that shows the same thing.
+  TraceLaser that shows the same thing.
 - **Check that it may be shared.** A file with personal data, client work
   or logos that is clearly not the reporter's: hide the comment, ask for
   a small drawing made just for the report instead.
@@ -159,7 +159,7 @@ everything above holds. Thank the contributor either way.
   tests:" item and check it is meant; a lost feature is not a valid
   reason. To run it by hand on a pull request: `python3
   scripts/ci/check_merged_work.py --base origin/main --head <pr head>
-  --repo tracedraw/tracedraw --body-file <description>`.
+  --repo tracelaser/tracelaser --body-file <description>`.
 - Before merging, read the deletions, not only the additions: look at
   `git diff --stat` for files that shrink a lot or disappear and at every
   deleted test. A pull request that puts a whole file back to an older
@@ -188,17 +188,17 @@ Preparing a release, in that pull request:
 1. Give the "Unreleased" section of `CHANGELOG.md` its version and date
    (`## 0.40.0 (2026-11-05)`) and set the version in `Cargo.toml`.
 2. What's New on the Welcome Screen: add the new version's row on top of
-   `RELEASES` in `apps/tracedraw/src/ui/welcome.rs` and drop the oldest,
+   `RELEASES` in `apps/tracelaser/src/ui/welcome.rs` and drop the oldest,
    so it keeps the last ten releases. Write its title and its paragraph
    (`welcome.news.v0_40_title`, `welcome.news.v0_40_body`) in
-   `apps/tracedraw/lang/en.toml` from the version's changelog section:
+   `apps/tracelaser/lang/en.toml` from the version's changelog section:
    one short paragraph for everyone, with only what a user notices and no
    technical details, record names or issue numbers. Translate both into
    the other eighteen languages (`# mt` for machine translations) and
    delete the dropped version's keys from every language. A test fails
    while the top row is not the version in `Cargo.toml`.
 3. Help > Highlight What's New: replace `NEW_IN_THIS_VERSION` in
-   `apps/tracedraw/src/ui/menus.rs` with the menu rows new in this
+   `apps/tracelaser/src/ui/menus.rs` with the menu rows new in this
    version, and update the highlights in
    `docs/help/*/welcome/whats-new.md`.
 

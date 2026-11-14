@@ -233,7 +233,7 @@ they are read, object streams and cross-reference streams included.
   file's name, a masked field, OK and Cancel); the user or the owner
   password opens it. A wrong one asks again and says so; Cancel leaves
   it closed and says why in the status bar. Import asks the same way.
-- On the command line `TRACEDRAW_PASSWORD` gives the password.
+- On the command line `TRACELASER_PASSWORD` gives the password.
 - Other security handlers (certificates) are refused with a message.
 
 How: the parser never decrypts. The trailer's `/Encrypt` key is renamed
@@ -307,7 +307,7 @@ their own crypt filter and signature contents are left alone.
   result the factor doubles until it fits
   (`shrink_factor_brings_pictures_within_the_limits`). The file of
   #1804 comes in at 11160 x 14794 (`the_picture_of_1804_comes_in_at_its_own_size`,
-  run with `TRACEDRAW_PDF_1804` and `--ignored`; about 840 MB at most
+  run with `TRACELASER_PDF_1804` and `--ignored`; about 840 MB at most
   in a debug build). The message after opening:
   `a_shrunk_picture_is_told_after_opening`; the option:
   `pictures_are_reduced_only_when_asked_on_the_desktop`.

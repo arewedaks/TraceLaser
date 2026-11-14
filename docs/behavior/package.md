@@ -16,7 +16,7 @@ As greys the choice with the reason (#1401, "On Android" below).
 |---|---|---|
 | The drawing | `<name>.tdraw` | With the fonts it already carries (text pasted from other drawings). |
 | Linked pictures | `Pictures/` | Every bitmap linked to a file (an imported picture, Edit Bitmap), in groups, clip frames and symbols too; each file once; two files of one name become `logo.png` and `logo-2.png`. |
-| Font files | `Fonts/` | One file per face the text uses: the installed file that draws it (the same lookup text uses: legacy names, a family named with its weight, the regular face for a missing style), or the font the drawing carries. Only fonts whose licence allows them to go with a document (OS/2 `fsType` not restricted and not bitmap only, as for embedding, `tracedraw_text::usable_in_documents`). |
+| Font files | `Fonts/` | One file per face the text uses: the installed file that draws it (the same lookup text uses: legacy names, a family named with its weight, the regular face for a missing style), or the font the drawing carries. Only fonts whose licence allows them to go with a document (OS/2 `fsType` not restricted and not bitmap only, as for embedding, `tracelaser_text::usable_in_documents`). |
 | A PDF (optional) | `<name>.pdf` | Written with the Export as PDF choices made last (text and fonts, bitmaps, bookmarks) and the drawing's bleed. |
 | A report | `<name> report.txt` (named in the interface language) | The drawing, the PDF, each picture copied (from and to), pictures not found, each font copied, fonts left out because of their licence (with their file) and families not installed (with the font drawing their text). |
 
@@ -40,7 +40,7 @@ went in and how many items could not.
 
 ## Save As > Package
 
-Beside Embed fonts for the TraceDraw type, Package (off) and Include a
+Beside Embed fonts for the TraceLaser type, Package (off) and Include a
 PDF. With Package ticked the drawing is saved as
 `<folder>/<name>/<name>.tdraw` (the folder is made; an existing file
 there asks before it is replaced, as any Save As does), its pictures are
@@ -93,7 +93,7 @@ fonts where they are not installed. Nothing is installed in the system.
   in a folder of its name with its picture in `Pictures/`, the link is
   relative and reads back
   (`ui::save_as::tests::save_as_package_puts_the_drawing_in_a_folder_with_its_pictures`).
-- `tracedraw_text` finds the file a face came from
+- `tracelaser_text` finds the file a face came from
   (`tests::the_path_of_a_face_is_the_file_it_came_from`).
 
 Not done: a ZIP of the folder.

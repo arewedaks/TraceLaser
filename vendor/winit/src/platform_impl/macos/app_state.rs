@@ -69,7 +69,7 @@ declare_class!(
             self.did_finish_launching(notification)
         }
 
-        // TraceDraw: the Quit item of the application menu (Command+Q),
+        // TraceLaser: the Quit item of the application menu (Command+Q),
         // the Dock icon's Quit, a log-out or shut-down all send
         // `terminate:`, which asks here first. Without this method AppKit
         // terminates at once and no window hears of it; the program's
@@ -89,7 +89,7 @@ declare_class!(
             self.will_terminate(notification)
         }
 
-        // TraceDraw: files opened from Finder (double click, Open With,
+        // TraceLaser: files opened from Finder (double click, Open With,
         // dropped on the Dock icon) arrive here, at launch and while the
         // program runs, never on the command line (vendor/README.md).
         #[method(application:openURLs:)]

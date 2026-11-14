@@ -3,7 +3,7 @@
 One preview serves every dialog that changes a picture: Trace Bitmap,
 Remove Background, the colour mode dialogs (Black and White, Duotone,
 Indexed), every bitmap effect dialog and Image Adjustments
-(`apps/tracedraw/src/ui/before_after.rs`). Each dialog is a window the
+(`apps/tracelaser/src/ui/before_after.rs`). Each dialog is a window the
 user sizes (960 x 640 points at first, never under 720 x 480, a
 maximize button in the title bar; Trace Bitmap keeps its 1040 x 700):
 the preview takes the left of the window and grows with it, the

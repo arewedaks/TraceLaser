@@ -24,7 +24,7 @@ of its name and run it, without looking through the menus.
   bar says so.
 - Settings are found too (live test of 0.41: "Fill open curves" took
   minutes to find). After the commands the list holds every setting of
-  the Options (TraceDraw, Customization, Tools, Global, Workspaces, AI)
+  the Options (TraceLaser, Customization, Tools, Global, Workspaces, AI)
   and of Document Setup by its label, with the page it is on ("Options >
   Tools > Zoom/Pan", "Document Setup > General"), and each page by its
   name. A setting is also found by the words of its tip ("not closed"

@@ -1,7 +1,7 @@
 # Sliders
 
 Every slider in the bars, dockers and dialogs is the one widget
-`ui::Slider` (`apps/tracedraw/src/ui/slider.rs`). Only the Color docker's
+`ui::Slider` (`apps/tracelaser/src/ui/slider.rs`). Only the Color docker's
 sliders (its colour channel sliders and its spot ink Tint slider) and the
 Trace Bitmap dialog's sliders still use the toolkit's slider.
 

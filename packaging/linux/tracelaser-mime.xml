@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The TraceLaser drawing type, so file managers know .tdraw files and
+     show their pictures through tracelaser.thumbnailer. -->
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-tdraw">
+    <comment>TraceLaser drawing</comment>
+    <sub-class-of type="application/json"/>
+    <glob pattern="*.tdraw"/>
+    <icon name="tracelaser"/>
+  </mime-type>
+</mime-info>

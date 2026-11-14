@@ -1,8 +1,8 @@
-//! TraceDraw: a window's minimum and maximum size kept in logical units,
+//! TraceLaser: a window's minimum and maximum size kept in logical units,
 //! so that they follow the monitor's scaling on Windows, and where a
 //! window moved to a monitor of another scaling goes (see
 //! `vendor/README.md`, #2487). The file has no dependency on the rest of
-//! the crate, so that TraceDraw's tests can include and run it.
+//! the crate, so that TraceLaser's tests can include and run it.
 
 /// The first build of Windows 11.
 const WINDOWS_11_BUILD: u32 = 22000;

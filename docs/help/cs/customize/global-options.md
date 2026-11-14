@@ -71,6 +71,6 @@ na prosté zprávě výše.
 ![Stránka Umístění souborů v globálních možnostech](../../img/customize-global-options-file-locations.png)
 
 Ukazuje, kde jsou uloženy předvolby a automatické zálohy. Předvolby jsou ve
-složce `tracedraw-settings` vedle programu, pokud existuje (přenosná kopie),
+složce `tracelaser-settings` vedle programu, pokud existuje (přenosná kopie),
 jinak v místě, které váš systém určuje pro nastavení programů; verze pro
 prohlížeč je uchovává v prohlížeči.

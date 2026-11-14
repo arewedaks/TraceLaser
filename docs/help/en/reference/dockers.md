@@ -57,6 +57,6 @@ the page that explains it.
 - The close button in a panel's title bar takes it out of the tabs; the
   collapse button folds the panel area; its arrows point to the side of the
   window the panels fold toward (left for panels docked at the left).
-- The panels you leave open come back the next time TraceDraw starts.
+- The panels you leave open come back the next time TraceLaser starts.
 - Panel shortcuts toggle: pressing one when its panel is in front hides the
   panels.

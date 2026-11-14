@@ -39,7 +39,7 @@ off too and is lit while it is on (#1019).
 - The space between pages is a document property
   (`Metadata::page_spacing`, mm), saved in `.tdraw` files only once set;
   a drawing without it (any file from before) uses 30 mm
-  (`tracedraw_core` `the_page_spacing_defaults_to_30_mm_and_round_trips`).
+  (`tracelaser_core` `the_page_spacing_defaults_to_30_mm_and_round_trips`).
   Values are kept between 0 and 1000 mm.
 - Set from Page > Page Spacing (presets 0, 5, 10, 20, 30, 50 mm, or
   Custom... in the document's units) and Document Setup > Layout > Page
@@ -67,7 +67,7 @@ off too and is lit while it is on (#1019).
   text as typed, empty for every page), saved in `.tdraw` files only
   once set, one undo step, like the page spacing. A range that names no
   page left (pages deleted since) shows every page
-  (`tracedraw_core` `the_multipage_pages_are_kept_and_default_to_all`,
+  (`tracelaser_core` `the_multipage_pages_are_kept_and_default_to_all`,
   `page_ranges_read_numbers_and_ranges_in_page_order`).
 - The pages shown are packed into the grid in page order, as if the
   others were not there; with facing pages each page keeps its side of

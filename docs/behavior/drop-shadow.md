@@ -24,7 +24,7 @@ with linear edges, as before.
 
 Saved as `.cdr`, a shadow goes out as a picture of it (150 dpi, with its
 transparency; the merge mode is not in the picture) beneath the object,
-which any program shows; from version 14 TraceDraw opens the object with
+which any program shows; from version 14 TraceLaser opens the object with
 its shadow again (#1031, `behavior/files.md`). The app and the command
 line pass the renderer's picture; where none is passed (a call of the
 writer without pictures, `document_to_cdr_version`, or a shadow the
@@ -103,7 +103,7 @@ written (the blend goes out alone, with a warning in the log).
   the effects of its objects draw, and the shadow's picture (Break
   Drop Shadow Apart, PDF, `.cdr`) is the same silhouette, an envelope
   or another warp taken in
-  (`tracedraw_render`
+  (`tracelaser_render`
   `tests::an_extruded_object_casts_the_shadow_of_its_body_beneath_it`,
   `tests::the_shadow_picture_of_an_enveloped_object_is_of_what_is_drawn`).
   A picture with effects keeps the shadow of what its pixels show.
@@ -197,7 +197,7 @@ be given directly (#1323,
 Native ellipses, polygons and stars cast and pick their shadow by their
 own outline, the same as after Convert to Curves, on every platform
 (`shadow_tool::tests::native_shapes_pick_their_shadow_by_the_outline`,
-`tracedraw_render` `tests::native_shapes_cast_the_shadow_of_their_outline`).
+`tracelaser_render` `tests::native_shapes_cast_the_shadow_of_their_outline`).
 
 The silhouette is what the object shows: its fill, and its outline as
 drawn (the band of a variable, calligraphic or placed outline, the
@@ -209,15 +209,15 @@ neither fill nor outline casts its filled outline. The shadow's layer
 reaches round all the outline covers, so a wide outline's shadow is not
 cut at the object's box. The shadow is still measured, and placed, on
 the object's path
-(`tracedraw_render` `tests::an_unfilled_object_casts_the_shadow_of_its_outline`).
+(`tracelaser_render` `tests::an_unfilled_object_casts_the_shadow_of_its_outline`).
 
 The fill part is filled by the object's own fill rule, so a hole of the
 object (a ring of two circles combined, the middle of a crossing star) is
 a hole of its shadow, on the page, in a group's shadow and in the
 shadow's picture; text, and a curve set to the nonzero rule, stay solid
 where their contours overlap (#2216,
-`tracedraw_render` `tests::a_drop_shadow_keeps_the_holes_of_its_object`,
-`tracedraw_cdr` `shadow_image::tests::the_shadow_of_a_ring_has_its_hole`).
+`tracelaser_render` `tests::a_drop_shadow_keeps_the_holes_of_its_object`,
+`tracelaser_cdr` `shadow_image::tests::the_shadow_of_a_ring_has_its_hole`).
 
 ## Picking a shadow
 

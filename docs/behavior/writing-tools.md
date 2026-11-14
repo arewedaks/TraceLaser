@@ -16,7 +16,7 @@ Selection).
 
 Dictionaries (`spell.rs`, `hunspell.rs`): Hunspell dictionaries, a
 `.dic` word file with the `.aff` affix file of the same name, found in
-TraceDraw's `dictionaries` folder under the configuration folder and in
+TraceLaser's `dictionaries` folder under the configuration folder and in
 the folder named under Options > Text > Spelling > Also read
 dictionaries from (each with the folders inside it, three deep, so a
 dictionary package unpacked there or another program's dictionary folder
@@ -36,7 +36,7 @@ twice is used once, the user's folders first. `hyph_*` and `th_*` files
 (hyphenation patterns, thesauri) are left out; a `.dic` with no `.aff`
 is a plain word list. The Spelling tab lists them by name, each with a
 check box (on; the names switched off are kept in the preferences),
-Open Folder (creates and opens TraceDraw's folder) and Read Again
+Open Folder (creates and opens TraceLaser's folder) and Read Again
 (reads the folders and the dictionaries again).
 
 More dictionaries on every platform (#1405):
@@ -47,13 +47,13 @@ More dictionaries on every platform (#1405):
   `ATTRIBUTION.md`; the interface language's is chosen first) and
   Download, which fetches the affix file, the word file and the licence
   (`dictionary_download.rs`). On the desktop and on Android they go to
-  TraceDraw's dictionaries folder as `<code>.aff`, `<code>.dic` and
+  TraceLaser's dictionaries folder as `<code>.aff`, `<code>.dic` and
   `<code>.license.txt` (`en_GB`, `pt`); a browser has no folder, so it
   holds them in memory and fetches them again at each visit (the
   settings remember them, `downloaded_dictionaries`; the browser's cache
   answers). The status bar says when one is installed or why it failed.
 - Add Files: `.dic` and `.aff` files picked with the system's (or the
-  browser's, or Android's) file picker are copied to TraceDraw's
+  browser's, or Android's) file picker are copied to TraceLaser's
   folder, or held in memory for the visit in a browser.
 - Windows: its own spell checker (the Spell Checking API,
   `spell_windows.rs`) checks the languages installed in Windows; it is
@@ -190,7 +190,7 @@ a script (Indian scripts, Sinhala, Thai and the others of South-East
 Asia, Tibetan, Arabic, Hebrew, Armenian, Georgian, Ethiopic, Greek,
 Cyrillic) and maps none of its characters (#1358,
 `text_editing::tests::autocorrect_leaves_fonts_with_a_script_at_latin_places_alone`,
-`tracedraw_text::tests::fonts_with_a_script_at_latin_places_are_told_apart`).
+`tracelaser_text::tests::fonts_with_a_script_at_latin_places_are_told_apart`).
 
 Autocorrect never changes text that was pasted or imported, only typed
 characters.

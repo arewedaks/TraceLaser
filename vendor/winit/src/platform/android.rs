@@ -187,7 +187,7 @@ pub mod activity {
     pub struct AndroidApp;
 }
 
-/// TraceDraw: the program's filter of the pointers of motion events, with
+/// TraceLaser: the program's filter of the pointers of motion events, with
 /// their tools, for palm rejection (#1832, `pointer_filter.rs`).
 #[cfg(android_platform)]
 pub use crate::pointer_filter::{

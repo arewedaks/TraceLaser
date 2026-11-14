@@ -5,7 +5,7 @@ Settings dialog for the active drawing, with the tabs General, Color,
 Document, Objects, Prepress, Security and the issues tab, then "?", OK
 and Cancel. OK writes the file named on General (in the browser the file
 is downloaded). The dialog is `ui/publish_pdf.rs`; the file comes from
-`tracedraw_io::pdf` and its protection from `tracedraw_io::pdf_crypt`.
+`tracelaser_io::pdf` and its protection from `tracelaser_io::pdf_crypt`.
 
 ## General
 
@@ -209,12 +209,12 @@ The standard security handler of ISO 32000-2, revision 6:
 
 ## Command line
 
-`tracedraw-cli convert in out.pdf` takes the same choices from the
-environment: `TRACEDRAW_PDF_BOOKMARKS=1`, `TRACEDRAW_PDF_OPEN_PASSWORD`,
-`TRACEDRAW_PDF_OWNER_PASSWORD` and `TRACEDRAW_PDF_DENY` (a comma list of
+`tracelaser-cli convert in out.pdf` takes the same choices from the
+environment: `TRACELASER_PDF_BOOKMARKS=1`, `TRACELASER_PDF_OPEN_PASSWORD`,
+`TRACELASER_PDF_OWNER_PASSWORD` and `TRACELASER_PDF_DENY` (a comma list of
 print, hq-print, copy, modify, annotate, forms, assemble, accessibility;
-it needs the owner password). `TRACEDRAW_PDF_TEXT=curves` writes text
-as curves and `TRACEDRAW_PDF_TEXT=named` leaves the fonts out of the
+it needs the owner password). `TRACELASER_PDF_TEXT=curves` writes text
+as curves and `TRACELASER_PDF_TEXT=named` leaves the fonts out of the
 file.
 
 ## Checks

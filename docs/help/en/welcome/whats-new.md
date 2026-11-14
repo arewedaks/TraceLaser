@@ -1,6 +1,6 @@
 # What's new
 
-Each version of TraceDraw adds features and fixes. This page explains how to
+Each version of TraceLaser adds features and fixes. This page explains how to
 find out what changed and lists the highlights of the latest versions.
 
 ## Seeing what is new in the program {#in-the-program}
@@ -15,9 +15,9 @@ find out what changed and lists the highlights of the latest versions.
   in this version in the menus: a small dot appears at the end of each new
   command, beside the arrow of a submenu that leads to one, and over the
   title of a menu that holds one. The marks go away when you turn the
-  command off, and the command is off again the next time TraceDraw starts.
+  command off, and the command is off again the next time TraceLaser starts.
 - The complete list of changes of every version is in the project's
-  [change log](https://github.com/tracedraw/tracedraw/blob/main/CHANGELOG.md).
+  [change log](https://github.com/arewedaks/TraceLaser/blob/main/CHANGELOG.md).
 
 ## Highlights of recent versions {#highlights}
 
@@ -71,7 +71,7 @@ find out what changed and lists the highlights of the latest versions.
   [The Before and After preview](../bitmaps/before-after-preview.md).
 - **Help in your language.** Every **?** button and <kbd>F1</kbd> open the
   page of this Help about the dialog box, panel or tool in front of you, in
-  the language TraceDraw is set to.
+  the language TraceLaser is set to.
 - **Document info.** [[menu.file > menu.file.document_properties]]
   keeps the language, title, subject, author, copyright, tags, notes and
   rating of a drawing, over a full report of what the drawing holds. See

@@ -17,7 +17,7 @@ Look in: This page (default) or Whole drawing (every page, then the
 master layers).
 
 Criteria, each used only while ticked; an object is found when it meets
-every ticked one (`tracedraw_core::find::ObjectQuery`):
+every ticked one (`tracelaser_core::find::ObjectQuery`):
 
 | Criterion | Default | Meets it |
 |---|---|---|

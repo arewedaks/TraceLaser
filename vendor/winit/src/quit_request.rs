@@ -1,4 +1,4 @@
-//! TraceDraw: the program's say on a quit asked of the whole application
+//! TraceLaser: the program's say on a quit asked of the whole application
 //! (macOS: the Quit item of the application menu and its Command+Q, the
 //! Dock icon's Quit, a log-out or shut-down; see `vendor/README.md`).
 //! AppKit asks the application delegate whether it may terminate; the
@@ -7,7 +7,7 @@
 //! and closes its window itself), so the delegate cancels the terminate;
 //! `false` lets it go ahead. With no handler set the terminate goes ahead,
 //! as winit does without the change. The file has no dependency on the
-//! rest of the crate, so that TraceDraw's tests can include and run it.
+//! rest of the crate, so that TraceLaser's tests can include and run it.
 
 use std::sync::{Mutex, MutexGuard};
 

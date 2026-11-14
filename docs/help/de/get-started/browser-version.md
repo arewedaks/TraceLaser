@@ -2,7 +2,7 @@
 
 > *Maschinelle Übersetzung: Diese Seite kann hinter der englischen Fassung zurückliegen.*
 
-Sie können [TraceDraw in einem Webbrowser verwenden](https://tracedraw.github.io/tracedraw/),
+Sie können [TraceLaser in einem Webbrowser verwenden](https://tracelaser.github.io/tracelaser/),
 ohne etwas zu installieren. Es ist dasselbe Programm wie die Desktopversion,
 für den Browser erstellt, sodass Menüs, Werkzeuge und Dateien dieselben sind.
 
@@ -14,7 +14,7 @@ Bei jedem Öffnen der Seite erklärt eine Meldung, dass die Browserversion
 dasselbe Programm wie die Desktopversion ist und was sich unterscheidet.
 [[dialog.ok]] (oder <kbd>Enter</kbd>) schließt sie; eine zweite Schaltfläche
 öffnet die Downloads der Desktopversion. Unter Windows öffnet eine dritte
-Schaltfläche TraceDraw im Microsoft Store, und die Meldung ergänzt, dass die
+Schaltfläche TraceLaser im Microsoft Store, und die Meldung ergänzt, dass die
 Store-Version eine oder mehrere Versionen hinter dem neuesten Download liegen
 kann, weil der Store jede Version zuerst zertifiziert.
 
@@ -31,7 +31,7 @@ kann, weil der Store jede Version zuerst zertifiziert.
   Ihr Text sie zum ersten Mal benötigt.
 - **Einstellungen** werden in diesem Browser auf diesem Computer gespeichert.
 - **Tasten.** Solange die Zeichnung den Fokus hat, gehen die Tastenkürzel des
-  Programms an TraceDraw statt an den Browser, außer den Tasten für die
+  Programms an TraceLaser statt an den Browser, außer den Tasten für die
   Zwischenablage, Neu laden und den Entwicklertools des Browsers.
   <kbd>Ctrl+N</kbd>, <kbd>Ctrl+T</kbd> und <kbd>Ctrl+W</kbd> bleiben immer
   beim Browser; verwenden Sie daher das Menü [[menu.file]], um Zeichnungen zu

@@ -29,7 +29,7 @@ pub(crate) struct WebInput {
     /// The raw input to `egui`.
     pub raw: egui::RawInput,
 
-    /// TraceDraw: whether a pen reported real pressure yet (#1410).
+    /// TraceLaser: whether a pen reported real pressure yet (#1410).
     pub pen: super::pen_pressure::PenPressure,
 }
 

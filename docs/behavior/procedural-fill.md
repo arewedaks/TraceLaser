@@ -1,7 +1,7 @@
 # Procedural fill
 
 A fill made of a pattern from a small library, each pattern drawn by
-TraceDraw's own code from a few numbers: a tile of filled paths that
+TraceLaser's own code from a few numbers: a tile of filled paths that
 repeats over the object. The whole drawing is our own; no pattern code
 or pattern definition comes from any other program.
 

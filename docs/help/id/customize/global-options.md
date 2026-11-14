@@ -73,6 +73,6 @@ biasa di atas.
 ![Halaman Lokasi Berkas pada opsi global](../../img/customize-global-options-file-locations.png)
 
 Menampilkan tempat preferensi dan cadangan otomatis disimpan. Preferensi
-berada di folder `tracedraw-settings` di samping program bila folder itu ada
+berada di folder `tracelaser-settings` di samping program bila folder itu ada
 (salinan portabel), selain itu di tempat yang disediakan sistem Anda untuk
 pengaturan program; versi peramban menyimpannya di peramban.

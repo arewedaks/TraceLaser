@@ -64,7 +64,7 @@ pub fn viewport_builder(
         viewport_builder.inner_size
     };
 
-    // TraceDraw: the primary monitor is kept for the application, and a
+    // TraceLaser: the primary monitor is kept for the application, and a
     // centred window is centred where that monitor lies on the desktop,
     // not from the desktop's top-left corner (#1800, vendor/README.md).
     #[cfg(not(target_os = "ios"))]
@@ -102,7 +102,7 @@ pub fn viewport_builder(
     }
 }
 
-/// TraceDraw: `egui_winit::create_window`, with what is applied again to
+/// TraceLaser: `egui_winit::create_window`, with what is applied again to
 /// the new window taken from [`super::window_start::after_creation`]: a
 /// window made maximized is not given its size again, which un-maximized
 /// it on Windows before it was maximized again (#787).
@@ -297,7 +297,7 @@ impl EpiIntegration {
             self.can_drag_window = true;
         }
 
-        // TraceDraw: a paste shortcut that the application's gate says
+        // TraceLaser: a paste shortcut that the application's gate says
         // must not read the clipboard's text is not handed to egui-winit,
         // which would read it (see vendor/README.md, #1488).
         if super::paste_gate::blocks(event) {
@@ -449,7 +449,7 @@ impl EpiIntegration {
     }
 
     pub fn save(&mut self, app: &mut dyn epi::App, window: Option<&winit::window::Window>) {
-        // TraceDraw: `App::save` runs without the "persistence" feature
+        // TraceLaser: `App::save` runs without the "persistence" feature
         // too, with a storage that keeps nothing, so the app hears of
         // Android's suspend (its window goes and the system may end the
         // process without another word) and backs its drawings up (#1395).
@@ -489,7 +489,7 @@ impl EpiIntegration {
     }
 }
 
-/// TraceDraw: the storage `App::save` gets without the "persistence"
+/// TraceLaser: the storage `App::save` gets without the "persistence"
 /// feature: it keeps nothing.
 #[cfg(not(feature = "persistence"))]
 struct NoStorage;

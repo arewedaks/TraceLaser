@@ -58,7 +58,7 @@ typesetting does, or back in lines; one "Vertical Text" undo step
 (`App::set_vertical_text`, `ParagraphStyle::vertical`, saved with the
 drawing). They show with a Japanese or Chinese interface language, and
 for any text whose letters stand upright in columns (ideographs, kana,
-hangul; `App::vertical_text_offered`, `tracedraw_text::upright`).
+hangul; `App::vertical_text_offered`, `tracelaser_text::upright`).
 
 - The written lines become columns read top to bottom and placed right
   to left, each column a line's height apart (the line spacing). Artistic
@@ -99,7 +99,7 @@ hangul; `App::vertical_text_offered`, `tracedraw_text::upright`).
   right to left; a text set back in lines keeps it). Left to right,
   paragraph text starts at the top left of its frame and artistic text
   at its origin, the columns going right. Each written line is placed
-  mirrored across its own band (`tracedraw_text::mirrored_baseline`:
+  mirrored across its own band (`tracelaser_text::mirrored_baseline`:
   the baseline `y` with ascent `a` and descent `d` goes to
   `-y - a + d`), so the columns change order while every letter keeps
   its orientation; vertical alignment moves them towards the far (right)
@@ -211,7 +211,7 @@ Text and Glyphs dockers and Options (default font):
   are added) and at most 8 ms a frame, so the list opens as fast with
   thousands of fonts and fills in over the next frames ("Reading
   fonts..." until it is done); with nothing ticked nothing is read
-  (`tracedraw_text::traits`,
+  (`tracelaser_text::traits`,
   `ui::font_list::tests::the_filter_keeps_the_families_with_what_it_asks`).
 - "Used last": the last five families picked in any font list, newest
   first (kept in the preferences, `recent_fonts`), while nothing is typed.
@@ -291,9 +291,9 @@ concatenated spans; the layout's line boxes give its place on the page.
 | Up / Down | the same x on the previous / next line (the x is remembered across moves) |
 | Home / End, Ctrl+Home / End | line start / end, text start / end |
 | Ctrl+A | select all |
-| Mixed directions (an Arabic or Hebrew word in English text, or the other way round) | the Unicode bidirectional algorithm gives each character its level, the first strong letter setting the direction; it is worked out for each run of one formatting between tabs and line ends, so a direction change across differently formatted characters keeps them in text order. Each run of one level is shaped its own way; lines break in text order and each line shows its runs in display order: Arabic typed after "Asasa " reads right to left, joined, to the right of it, and a paragraph too narrow for "Hi مرحبا بك" keeps "Hi مرحبا" on the first line; digits inside right-to-left text read left to right (#628, `tracedraw_text::tests::mixed_text_is_cut_into_runs_of_one_direction`, `tracedraw_text::tests::lines_are_seen_in_bidi_order`, `tracedraw_text::tests::mixed_directions_lay_each_run_its_own_way`, `tracedraw_text::tests::mixed_paragraph_text_breaks_in_text_order`, `pick_drag_tests::right_to_left_typed_after_english_runs_right_to_left`) |
+| Mixed directions (an Arabic or Hebrew word in English text, or the other way round) | the Unicode bidirectional algorithm gives each character its level, the first strong letter setting the direction; it is worked out for each run of one formatting between tabs and line ends, so a direction change across differently formatted characters keeps them in text order. Each run of one level is shaped its own way; lines break in text order and each line shows its runs in display order: Arabic typed after "Asasa " reads right to left, joined, to the right of it, and a paragraph too narrow for "Hi مرحبا بك" keeps "Hi مرحبا" on the first line; digits inside right-to-left text read left to right (#628, `tracelaser_text::tests::mixed_text_is_cut_into_runs_of_one_direction`, `tracelaser_text::tests::lines_are_seen_in_bidi_order`, `tracelaser_text::tests::mixed_directions_lay_each_run_its_own_way`, `tracelaser_text::tests::mixed_paragraph_text_breaks_in_text_order`, `pick_drag_tests::right_to_left_typed_after_english_runs_right_to_left`) |
 | A text begun in Hebrew or Arabic | its first letters typed (or pasted) into an empty text that is left aligned or not aligned, the default, align it to the right: artistic text grows to the left of the click and paragraph text starts at the frame's right edge, as right-to-left text is read. A text whose first letter is Latin (digits and spaces do not count) keeps its alignment, and an alignment chosen later stays (discussion #2122, `text_editing::tests::a_text_begun_in_hebrew_runs_from_the_right`) |
-| Right-to-left text (Arabic, Hebrew) | the caret before a letter is at its right end and the end of the text at its left; a selection shades the letters it holds, all of them after Ctrl+A, where it used to shade only the first letter (#629, `tracedraw_text::tests::right_to_left_carets_run_from_the_right`, `pick_drag_tests::select_all_in_right_to_left_text_highlights_all_of_it`); character backgrounds and a callout's box cover such text too, mixed directions included (`callouts::tests::text_boxes_and_backgrounds_cover_mixed_direction_text`) |
+| Right-to-left text (Arabic, Hebrew) | the caret before a letter is at its right end and the end of the text at its left; a selection shades the letters it holds, all of them after Ctrl+A, where it used to shade only the first letter (#629, `tracelaser_text::tests::right_to_left_carets_run_from_the_right`, `pick_drag_tests::select_all_in_right_to_left_text_highlights_all_of_it`); character backgrounds and a callout's box cover such text too, mixed directions included (`callouts::tests::text_boxes_and_backgrounds_cover_mixed_direction_text`) |
 | Ctrl+B / I / U | toggle bold, italic, underline on the selection, or on the whole text without one |
 | Ctrl+C / X / V, Edit > Cut / Copy / Paste / Delete, the toolbar's buttons, the right-click menu | act on the characters of the text being edited, never on the object (#1377): Copy keeps the selected characters with their formatting (font, size, colours, outline, every character setting) for a paste into a text here and puts their plain text on the system clipboard for other programs (line breaks as the system's line end); Paste puts them back with their formatting while the clipboard still holds that text, also into another text (characters showing their text's own fill or outline get it as theirs where the texts differ), and pastes text copied elsewhere as it is, in the style at the caret. Objects copied with Edit > Copy (SVG on the system clipboard) paste their text with its formatting, never the SVG markup; Cut and Paste are one undo step each. Copied characters are the last copy (they replace objects copied before) and, pasted with the Pick tool, make an artistic text of them with their formatting and their text's fill and outline (`text_editing::tests::copied_characters_pasted_outside_a_text_keep_their_colours`). The right-click menu while editing has Undo, Cut, Copy, Paste, Delete, Select All (and Insert Placeholder Text in a paragraph frame) and Properties. On the desktop the clipboard is read when Paste is chosen from a menu; in the browser a menu's Paste has only the characters copied here, Ctrl+V the clipboard's text; on Android the system clipboard is read first (#1378, `text_editing::tests::copied_characters_keep_their_colours_when_pasted`, `text_editing::tests::copied_objects_paste_their_text_not_their_markup`) |
 | Click / Shift+click / drag | place the caret / extend / select |
@@ -379,18 +379,18 @@ fonts such as the one in #1358): the characters of code page 1252's
 places 0x80 to 0x9F, including the five the page leaves empty (0x81,
 0x8D, 0x8F, 0x90, 0x9D), type from Alt codes and keyboard programs, show
 in the Glyphs docker, and are drawn whichever of their two names the
-font maps (U+201A or U+0082, `tracedraw_text::tests::code_page_1252_places_go_by_either_name`).
+font maps (U+201A or U+0082, `tracelaser_text::tests::code_page_1252_places_go_by_either_name`).
 A letter the shaper's character map lacks while another map of the font
 has it (a symbol map beside a Unicode one) draws the font's glyph,
 never the empty notdef
-(`tracedraw_text::tests::letters_one_character_map_lacks_draw_from_the_other`).
+(`tracelaser_text::tests::letters_one_character_map_lacks_draw_from_the_other`).
 In a font with a symbol map only, a letter at 0x80 to 0x9F draws
 whether the text holds the code itself (U+0084), the character code
 page 1252 has there, as Windows delivers a code typed for such a font
 ("„", U+201E), or the place the symbol map keeps it at, as text pasted
 from other programs holds it (U+F084); these went to another font and
 showed as a box (Tamil letters such as ஷ, #1937,
-`tracedraw_text::tests::a_symbol_font_draws_its_letters_at_the_places_of_code_page_1252`),
+`tracelaser_text::tests::a_symbol_font_draws_its_letters_at_the_places_of_code_page_1252`),
 and Autocorrect leaves the letters typed in such fonts as typed (see
 `writing-tools.md`).
 
@@ -684,7 +684,7 @@ every text holds the whole text.
   copy whose characters differ from its link's (the original was
   changed since it was copied) takes the link's characters.
 - Saved in `.tdraw` files as the text's `content_link` key (texts with
-  the same key are linked); a TraceDraw that does not know it opens the
+  the same key are linked); a TraceLaser that does not know it opens the
   texts unlinked. `.cdr`, PDF, SVG and the other formats get each text
   as plain text with its own characters and looks; the link is not
   written (`linked_text_content_goes_out_as_plain_texts`).
@@ -720,7 +720,7 @@ every text holds the whole text.
   version 16, its line spacing. Paragraph text goes out as paragraph
   text, its frame and the text flowing in it (and from version 16 its
   columns), so it opens as paragraph text in the other program and in
-  TraceDraw (#1226). A frame the files cannot hold as TraceDraw draws
+  TraceLaser (#1226). A frame the files cannot hold as TraceLaser draws
   it (scaled or slanted by its transform, vertical text, fit to frame,
   placed from the middle or bottom, linked frames, several columns
   before version 16, any frame in version 8) goes out as one artistic
@@ -742,7 +742,7 @@ every text holds the whole text.
   default 12.7 mm, saved with the other settings as `default_tab_mm`)
   sets that spacing for every paragraph without stops of its own; the
   tab ruler's lighter grid and the Tabs dialog's note follow it
-  (`tracedraw_text::tests::default_tab_stops_follow_the_spacing`,
+  (`tracelaser_text::tests::default_tab_stops_follow_the_spacing`,
   `paragraphs::tests::the_default_tab_spacing_follows_the_setting`,
   `ui::options::tests::the_default_tab_spacing_is_a_saved_setting`).
 - A tab goes to the first stop past where it stands. The text after it,
@@ -752,8 +752,8 @@ every text holds the whole text.
   `.` or `,` on the stop (text with neither ends at the stop). Text too
   wide for the room before the stop starts where the tab stands: the
   pen never goes back (#1852,
-  `tracedraw_text::tests::tab_kinds_place_the_text_after_the_tab`,
-  `tracedraw_text::tests::right_and_decimal_tabs_line_up_prices`).
+  `tracelaser_text::tests::tab_kinds_place_the_text_after_the_tab`,
+  `tracelaser_text::tests::right_and_decimal_tabs_line_up_prices`).
 - A stop's leader (none, dots, dashes or a line) repeats its character,
   in the font of the tab, over the gap the tab leaves; the copies sit on
   a grid from the frame's edge, so the leaders of neighbouring lines line
@@ -761,7 +761,7 @@ every text holds the whole text.
 - Lines break with the tabs measured to their stops. A tab at a line's
   end takes no room, so a stop past the frame's right edge sends the
   text after the tab to the next line, as in the other program
-  (`tracedraw_text::tests::a_tab_past_the_line_end_wraps_what_follows`).
+  (`tracelaser_text::tests::a_tab_past_the_line_end_wraps_what_follows`).
 - Text > Tabs lists the stops of the paragraphs at the caret (or of the
   selected text's first paragraph): each row has the position, the kind
   (Left, Center, Right, Decimal tab), the leader and a button that
@@ -772,7 +772,7 @@ every text holds the whole text.
   the empty text where nothing read it back, so Add tab seemed to do
   nothing (#1852,
   `ui::dialogs::tests::add_tab_works_on_a_new_empty_paragraph_frame`).
-- The tab ruler (#1852, `apps/tracedraw/src/tab_ruler.rs`): while a
+- The tab ruler (#1852, `apps/tracelaser/src/tab_ruler.rs`): while a
   paragraph frame is edited with the Text tool, a strip 14 points tall
   runs along the frame's top edge, 4 points beyond the selection
   handles, with a tick every millimetre (every 5 mm when they would be
@@ -828,9 +828,9 @@ every text holds the whole text.
   Only the codes of left (0) and right (1) stops are known: others read
   as left stops. Saving writes paragraph text as one artistic text a
   line, and now cuts a line at its tabs, each part placed where the
-  stops put it, so the other program shows the columns where TraceDraw
+  stops put it, so the other program shows the columns where TraceLaser
   does whatever its own stops (`tests/paragraph_tabs.rs`). Paragraph
-  frames (`TRACEDRAW_CDR_PARAGRAPH_FRAMES=1`, versions 16 on) carry the
+  frames (`TRACELASER_CDR_PARAGRAPH_FRAMES=1`, versions 16 on) carry the
   stops in their style strings, centre and decimal stops as left ones.
 - `.tdraw` files write each stop as `{"pos", "kind", "leader"}`; files
   from before tab kinds hold a bare number per stop, read as a left
@@ -1022,9 +1022,9 @@ alternates (`salt`), Swash (`swsh`); then Superscript and Subscript.
   `edit_spans`; the Glyphs docker's alternates set their feature the same
   way (`set_feature`).
 - Checks: `document::tests::features_switch_on_and_off_and_positions_round_trip`,
-  `tracedraw_text::tests::features_switched_off_and_on_change_the_glyphs`,
-  `tracedraw_text::tests::superscripts_use_the_font_or_a_smaller_shifted_form`,
-  `tracedraw_io::tests::switched_off_features_and_superscripts_round_trip_in_native_files`,
+  `tracelaser_text::tests::features_switched_off_and_on_change_the_glyphs`,
+  `tracelaser_text::tests::superscripts_use_the_font_or_a_smaller_shifted_form`,
+  `tracelaser_io::tests::switched_off_features_and_superscripts_round_trip_in_native_files`,
   `text_docker::tests::opentype_buttons_follow_the_font_and_switch_features_on_and_off`.
 
 ## Character offsets, angle and spacing
@@ -1126,7 +1126,7 @@ use in documents (the OS/2 embedding bits read as the specification
 has them: restricted only when the restricted bit is set without a more
 permissive one, since a font setting several takes the most permissive;
 bitmaps-only counts from table version 2; the reserved bits, which old
-fonts set, mean nothing; `tracedraw_text::usable_in_documents`); others
+fonts set, mean nothing; `tracelaser_text::usable_in_documents`); others
 are skipped with a log line and their text falls back like any missing
 font. The Fonts docker marks carried families
 "embedded" under "Fonts in document". In every font list (the property
@@ -1388,17 +1388,17 @@ stand-in next to each missing family: "Arial (Liberation Sans)".
 ## Checks
 
 - Character styles (#1209):
-  `tracedraw_core` `document::tests::line_styles_read_the_old_flags_and_write_them_back`,
+  `tracelaser_core` `document::tests::line_styles_read_the_old_flags_and_write_them_back`,
   `document::tests::text_parts_carry_the_characters_overprint`;
-  `tracedraw_text` `tests::double_underlines_are_two_thin_lines_a_thin_line_apart`,
+  `tracelaser_text` `tests::double_underlines_are_two_thin_lines_a_thin_line_apart`,
   `tests::word_only_underlines_skip_the_spaces`,
   `tests::all_caps_shapes_the_capitals_and_keeps_the_text`,
   `tests::enclosed_characters_get_a_ring_each_where_the_font_has_no_forms`;
-  `tracedraw_io` `tests::character_styles_round_trip_in_native_files`,
+  `tracelaser_io` `tests::character_styles_round_trip_in_native_files`,
   `pdf::tests::overprint_is_written_for_objects_and_for_characters`;
   `ui::text_docker::tests::character_styles_switch_on_the_selected_text`.
 
-- `tracedraw_text::tests::vertical_text_sets_columns_with_turned_and_upright_letters`,
+- `tracelaser_text::tests::vertical_text_sets_columns_with_turned_and_upright_letters`,
   `tests::letters_that_stand_upright_in_columns`,
   `document::tests::vertical_text_is_off_by_default_and_placed_from_the_top_right`,
   `text_editing::tests::vertical_text_has_carets_across_its_columns_and_a_switch`
@@ -1407,9 +1407,9 @@ stand-in next to each missing family: "Arial (Liberation Sans)".
 - Character colours: `text_editing::tests::a_colour_picked_with_characters_selected_colours_only_them`,
   `text_editing::tests::without_a_character_selection_the_colour_goes_to_the_object`,
   `text_editing::tests::the_bar_changes_only_what_it_changed_on_the_selection`,
-  `tracedraw_core` `document::tests::characters_with_their_own_colours_are_drawn_in_one_part_per_look`,
+  `tracelaser_core` `document::tests::characters_with_their_own_colours_are_drawn_in_one_part_per_look`,
   `document::tests::character_outlines_are_saved_and_layout_only_is_not`,
-  `tracedraw_render` `tests::characters_are_drawn_in_their_own_colours`,
+  `tracelaser_render` `tests::characters_are_drawn_in_their_own_colours`,
   `tests::spans_only_laid_out_keep_their_room_but_are_not_drawn` (text crate).
 - The Text docker: `ui::text_docker::tests::the_sections_open_close_and_draw_for_any_text`,
   `ui::text_docker::tests::vertical_alignment_is_kept_with_the_text`,

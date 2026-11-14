@@ -1,6 +1,6 @@
 # Fonts and glyphs
 
-TraceDraw uses the fonts installed on your computer, fonts you add in the
+TraceLaser uses the fonts installed on your computer, fonts you add in the
 Font Manager, and fonts that come with a drawing. This page explains the
 panels and the dialog box for working with fonts and special characters.
 
@@ -78,7 +78,7 @@ file. To set them on text:
 Letting go of the slider, or typing a value, keeps it as one undo step.
 **Default axes** takes the values off. The values are saved in `.tdraw`
 files and drawn in exports and PDF files; a weight set this way replaces
-the bold TraceDraw would otherwise draw.
+the bold TraceLaser would otherwise draw.
 
 ## Missing fonts {#missing}
 
@@ -160,7 +160,7 @@ To use the Font Manager:
   stay). In the browser and on Android, where no folder can be read, it
   lets you choose several font files at once instead. **Add font** installs
   one file at once.
-- **Install** makes the picked fonts available in TraceDraw, now and at every
+- **Install** makes the picked fonts available in TraceLaser, now and at every
   start. **Uninstall** removes them; the system's own fonts are protected.
 - **Add to collection** and **Remove from collection** organize fonts; drag
   fonts onto Favorites or a collection to add them.

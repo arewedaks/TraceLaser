@@ -1,4 +1,4 @@
-//! TraceDraw: a graphics tablet's pen on a native Wayland window (#1841,
+//! TraceLaser: a graphics tablet's pen on a native Wayland window (#1841,
 //! `vendor/README.md`). winit 0.30 binds no tablet protocol, and a
 //! compositor sends a pen's input over nothing else, so the pen did not
 //! reach a Wayland window at all. This file binds the public tablet-v2
@@ -309,7 +309,7 @@ impl Dispatch<ZwpTabletToolV2, TabletToolData> for WinitState {
                             .clone()
                     });
                 // The window's own cursor, as its pointers show it: the
-                // tool's, or none where TraceDraw draws its own (#1841).
+                // tool's, or none where TraceLaser draws its own (#1841).
                 // Over the window's frame, the default arrow.
                 let window_id = wayland::make_wid(&surface);
                 let window = state.windows.get_mut().get(&window_id).cloned();

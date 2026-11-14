@@ -136,18 +136,18 @@ mesh.
 
 ## Checks
 
-- `tracedraw_core::style::tests::meshes_regrid_and_lose_lines_keeping_their_colours`
-- `tracedraw_core::style::tests::mesh_handles_move_with_their_nodes_and_cut_at_new_lines`
-- `tracedraw_render::tests::curved_mesh_cells_follow_their_handles`
-- `tracedraw_render::tests::nothing_shows_outside_a_mesh_grid`
-- `tracedraw_render::tests::a_zoomed_mesh_costs_only_what_shows`
-- `tracedraw_render::tests::band_threads_share_one_mesh_picture`
-- `tracedraw_core::style::tests::a_double_click_puts_the_new_mesh_node_where_it_was`
+- `tracelaser_core::style::tests::meshes_regrid_and_lose_lines_keeping_their_colours`
+- `tracelaser_core::style::tests::mesh_handles_move_with_their_nodes_and_cut_at_new_lines`
+- `tracelaser_render::tests::curved_mesh_cells_follow_their_handles`
+- `tracelaser_render::tests::nothing_shows_outside_a_mesh_grid`
+- `tracelaser_render::tests::a_zoomed_mesh_costs_only_what_shows`
+- `tracelaser_render::tests::band_threads_share_one_mesh_picture`
+- `tracelaser_core::style::tests::a_double_click_puts_the_new_mesh_node_where_it_was`
 - `pick_drag_tests::mesh_nodes_land_where_they_are_clicked_and_dragged`
 - `pick_drag_tests::mesh_nodes_and_their_handles_are_dragged`
-- `tracedraw_core::style::tests::mesh_handles_lie_on_the_grid_lines_and_bend_them`
-- `tracedraw_cdr::write::tests::a_mesh_fill_goes_out_as_its_mean_colour_and_is_counted`
-- `tracedraw_render::tests::mesh_fill_blends_corner_colours`
-- `tracedraw_render::tests::smooth_mesh_colour_flows_through_the_nodes`
+- `tracelaser_core::style::tests::mesh_handles_lie_on_the_grid_lines_and_bend_them`
+- `tracelaser_cdr::write::tests::a_mesh_fill_goes_out_as_its_mean_colour_and_is_counted`
+- `tracelaser_render::tests::mesh_fill_blends_corner_colours`
+- `tracelaser_render::tests::smooth_mesh_colour_flows_through_the_nodes`
 - `mesh_tool::tests::the_mesh_tool_builds_colours_and_clears_meshes`
 - `ui::fill_tool_bars::tests::the_fill_tool_bars_draw`

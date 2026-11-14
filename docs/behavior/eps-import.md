@@ -7,7 +7,7 @@ start with `%!` (the PostScript-based versions of that format; the later
 PDF-based ones go through the PDF import). A classic `.ai` file whose
 header carries the format's version comments (`%AI5_FileFormat`,
 `%%AI8_CreatorVersion` or an `%AI3_` comment) and whose prolog brings no
-procedure set of its own, as the files of TraceDraw's Illustrator 8
+procedure set of its own, as the files of TraceLaser's Illustrator 8
 export (see `export.md`, AI files), is run with the format's operators
 defined first in PostScript: paths (`m`, `l`, `L`, `c`, `C`, `v`, `V`,
 `y`, `Y`), painting (`f`, `F`, `s`, `S`, `b`, `B`, `n`, `N`, with the

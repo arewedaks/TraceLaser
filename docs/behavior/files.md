@@ -1,7 +1,7 @@
 # Saving files
 
 File > Save (Ctrl+S) writes the drawing back to its file. A drawing that
-has none (new, or opened from a format TraceDraw only reads or converts,
+has none (new, or opened from a format TraceLaser only reads or converts,
 `.cdr` included), and File > Save As (Ctrl+Shift+S), open the Save
 Drawing dialog.
 
@@ -51,12 +51,12 @@ One window, 760 px wide, the same on every system:
 - **File name**: the drawing's file name, else its title, else
   "Graphic1", with the type's extension; a name typed with either
   extension, or none, gets the chosen type's.
-- **Save as type**: TraceDraw (`*.tdraw`, the native JSON format, which
+- **Save as type**: TraceLaser (`*.tdraw`, the native JSON format, which
   keeps everything) or CDR files (`*.cdr`). It starts at `.cdr` for a
   drawing that came from or was saved to a `.cdr` file, and for a
   drawing without a file when Options > Global > File Formats > Save
   new drawings as .cdr files is on.
-- **Version**: for TraceDraw files the `.tdraw` format version, a
+- **Version**: for TraceLaser files the `.tdraw` format version, a
   choice once there is more than one; while there is only one the row
   is left empty (`docs/tdraw-format.md`, #613); for `.cdr` 27 down to 14, each with its
   release name ("v14 (X4)", "v27 (2026)").
@@ -82,11 +82,11 @@ One window, 760 px wide, the same on every system:
   a collection file; a family with one face that may be embedded is not
   listed. No note when every face goes in. Before, the box simply showed
   no size and the user took the font for lost (#1219;
-  `tracedraw_cdr::write::left_out`, `save_as::fonts_left_out_text`). Both
+  `tracelaser_cdr::write::left_out`, `save_as::fonts_left_out_text`). Both
   choices stay for the next Save As and for Save. Embed fonts starts
   off, so that drawings saved one after another do not each carry a copy
   of the same fonts (#886).
-- **Embed fonts (size)** for TraceDraw files: on (it starts off, #886), the
+- **Embed fonts (size)** for TraceLaser files: on (it starts off, #886), the
   installed fonts the text uses go into the `.tdraw` file, one file per
   face (the regular face for a bold or italic the family lacks), where
   the font's licence allows use in documents, so the drawing keeps its
@@ -124,19 +124,19 @@ version decides who can open a file:
   `pick_drag_tests::the_cdr_version_chosen_in_options_survives_a_restart_and_starts_save_as`).
 - The version chosen stays with the drawing: Save writes the same
   version again without asking. Each open drawing keeps its own.
-- TraceDraw saves every version from 7 to 27 (#1139).
+- TraceLaser saves every version from 7 to 27 (#1139).
   A drawing opened from an older `.cdr` (versions 1 to 6) keeps its
   file, but Save does not write that version: the status line says
   which version Save writes ("Save writes version 7."), and Save opens
-  "Older file version": the drawing came from version N, TraceDraw does
+  "Older file version": the drawing came from version N, TraceLaser does
   not save in it, choose a version from 7 to 27; Choose Version...
   (or Enter) opens Save As on version 7, Cancel saves nothing. Once
   saved in a checked version, Save writes it without asking. A file
   newer than 27 is saved as 27. Options > Global > File Formats (version
   27 at first) is used for a drawing saved to a `.cdr` file without a
   version of its own.
-- `tracedraw-cli convert in.svg out.cdr` writes version 27, or the
-  version in `TRACEDRAW_CDR_VERSION` (7 to 27; another version is
+- `tracelaser-cli convert in.svg out.cdr` writes version 27, or the
+  version in `TRACELASER_CDR_VERSION` (7 to 27; another version is
   refused with exit code 2). The MCP `save` tool takes an optional
   `version`, 7 to 27 (`mcp.md`).
 
@@ -146,11 +146,11 @@ Live effects and drop shadows are saved as what they draw (a distorted
 rectangle as its curve, a contour as its steps, a shadow as a picture
 of it beneath the object), which any program shows. From version 14
 the file also carries the objects themselves, so opened again in
-TraceDraw a distortion, contour, envelope, perspective, extrusion,
+TraceLaser a distortion, contour, envelope, perspective, extrusion,
 bevel, block shadow, symmetry or drop shadow is live again (#1031), as
 blends are (#986); an object another program moved or changed in
 between opens as it was drawn. The objects themselves are kept whole in
-`tracedraw/effects.json` (each object as TraceDraw stores it, its
+`tracelaser/effects.json` (each object as TraceLaser stores it, its
 pictures and the end objects of its blends included), so the member grows
 with them; a member that inflates past 64 MB is not read, and its
 objects open as drawn.
@@ -162,10 +162,10 @@ others') is kept open for reading for as long as the drawing is open
 under that name, shared with programs that read or write it but not with
 a delete, a rename or a move (`file_hold.rs`). The Explorer then refuses
 to delete, rename or move the file, or to replace it with another, and
-says it is open in TraceDraw. Save writes the file in place, so it goes
+says it is open in TraceLaser. Save writes the file in place, so it goes
 on as before, and other programs still read the file (the thumbnail in
-the Explorer, a backup, a second TraceDraw window). The hold ends when
-the drawing is closed or saved under another name, and when TraceDraw
+the Explorer, a backup, a second TraceLaser window). The hold ends when
+the drawing is closed or saved under another name, and when TraceLaser
 ends. A drawing opened from a file it does not save to (a `.cdr`, an
 SVG, a PDF) holds that file until it is saved under a name of its own.
 A drawing never saved and one opened from a template hold nothing. A
@@ -194,12 +194,12 @@ another name.
   run on the Windows build by `scripts/windows/spell-check`).
 
 - Given a folder with a subfolder, a `.cdr` and a `.txt` file, the
-  TraceDraw type lists the subfolder only and CDR the subfolder and the
+  TraceLaser type lists the subfolder only and CDR the subfolder and the
   `.cdr` file; saving "poster" as CDR version 15 with a title, subject
   and rating writes `poster.cdr` there (version 15), sets the properties
   and remembers the folder; the next Save As starts there as `.cdr`
   version 27; an existing name asks first and Replace overwrites it; a
-  TraceDraw file is written with its own extension, in the format version
+  TraceLaser file is written with its own extension, in the format version
   chosen (0), which Ctrl+S keeps and opening the file brings back
   (`ui::save_as::tests::save_as_chooses_folder_name_type_version_and_properties`).
 - An empty name, a bare extension and a missing folder save nothing and
@@ -214,7 +214,7 @@ another name.
   (`ui::save_as::tests::a_drawing_opened_from_a_cdr_file_keeps_its_version`).
 - Options set to version 15 and `.cdr` for new drawings: Ctrl+Shift+S on
   a new drawing opens Save As at CDR version 15; with the defaults it
-  opens at TraceDraw, version 27 for `.cdr`
+  opens at TraceLaser, version 27 for `.cdr`
   (`pick_drag_tests::save_as_starts_at_the_cdr_type_and_version_the_options_set`).
 - A drawing with a CMYK profile offers it by name and size; saved with
   the box on, the version 27 file holds the profile, with the box off it
@@ -246,7 +246,7 @@ another name.
   With Embed fonts on, the run styles name the embedded face exactly as
   the paragraph's style does and the font table is the one a text of one
   colour gets (`two_colours_name_the_embedded_font_as_one_colour_does`).
-  `tracedraw-cli check` reports a run style marked as applying no member.
+  `tracelaser-cli check` reports a run style marked as applying no member.
 - With Embed fonts on, each embedded font is listed and embedded as the
   face its file holds: the font table entry, the embedding's face block
   and its font header carry the font's own weight and slant (a bold
@@ -261,7 +261,7 @@ another name.
   #1484; `write::tests::a_face_is_listed_as_the_face_its_font_file_holds`,
   `write::tests::bold_text_in_a_light_face_is_written_as_the_family_bold`).
 - Text drawn by another face of its font than the one it asks for, a
-  face TraceDraw draws as it is, is saved to `.cdr` as that face (with
+  face TraceLaser draws as it is, is saved to `.cdr` as that face (with
   or without Embed fonts): regular Khand text whose only installed file
   is Khand Bold, drawn bold, is saved as Khand bold (style `weight` 4096
   and the bold face's font record), as the program that reads `.cdr`
@@ -270,11 +270,11 @@ another name.
   although Khand was installed and dropped the embedded font when saving
   again. A face told by its style bits within its family (bold, italic)
   or by its weight within its typographic family ("Khand Medium" drawing
-  "Khand" is saved at 500); bold that TraceDraw makes by thickening a
+  "Khand" is saved at 500); bold that TraceLaser makes by thickening a
   face stays as the text asks. The text reads back as that face (#1733;
   `write::tests::regular_text_drawn_by_the_bold_file_is_written_bold`,
   `write::tests::text_is_written_as_the_face_that_draws_it`).
-- Italic text whose font has no italic face, which TraceDraw slants
+- Italic text whose font has no italic face, which TraceLaser slants
   itself, is saved to `.cdr` upright, as the upright face that draws it
   and that Embed fonts embeds: "RAJ 100" Bold Italic with only the
   "RAJ 100" Bold file is saved as "RAJ 100" bold (style `italic` 0,
@@ -284,15 +284,15 @@ another name.
   "RAJ 100-Bold-Italic", a face neither the file nor the system has,
   reported it missing and drew "RAJ 100-Bold"; it offers no italic for
   such a font itself, so it shows the text upright. From version 14
-  the file's own member (`tracedraw/effects.json`) keeps the text, so
-  TraceDraw opens it italic again; a file saved again elsewhere opens
+  the file's own member (`tracelaser/effects.json`) keeps the text, so
+  TraceLaser opens it italic again; a file saved again elsewhere opens
   upright (#1733;
   `write::tests::italic_text_slanted_from_an_upright_file_is_written_upright`,
   `write::tests::italic_text_of_a_weight_without_an_italic_face_is_written_upright`).
 - A version 16+ `.cdr` that the program reading `.cdr` files saved again
-  from a TraceDraw file, with embedded fonts, opens with its texts: its
+  from a TraceLaser file, with embedded fonts, opens with its texts: its
   run records marked as applying nothing still carry a style string,
-  which TraceDraw 0.29.0 did not read, skipping every text (#1467, read
+  which TraceLaser 0.29.0 did not read, skipping every text (#1467, read
   since 0.30.0; `write::tests::a_run_record_of_no_marks_is_read_with_its_style_string`).
 - A line of more than 128 colours saved as `.cdr` in any version keeps
   the colours of its first 128 and gives the letters of the others the
@@ -305,7 +305,7 @@ another name.
   `check::tests::bitmap_outlines_need_node_marks`).
 - A picture or shape without an outline saved as `.cdr` 16 to 27 holds,
   in its style string, the outline the program's own files give such
-  objects (every member, width 0, no type); the outline type 1 TraceDraw
+  objects (every member, width 0, no type); the outline type 1 TraceLaser
   wrote is in no file of that program, and the checker reports it (#1226;
   `write::tests::objects_without_an_outline_write_the_files_outline_of_width_0`,
   `check::tests::style_strings_hold_no_outline_type_but_0`).

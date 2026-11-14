@@ -190,7 +190,7 @@ before), CMYK or Grayscale. Other formats are always RGB and ignore it.
   saved before it existed are RGB), the last export of each format and
   the preferences (`export::tests::cmyk_bitmap_exports_keep_the_inks`,
   `prefs::tests::export_presets_keep_the_colour_mode`,
-  `tracedraw_io::cmyk_bitmap` tests).
+  `tracelaser_io::cmyk_bitmap` tests).
 
 ## Presets
 
@@ -305,7 +305,7 @@ last AI export and in export presets.
   as the public "Adobe Illustrator File Format Specification" describes
   it, for programs that read only those files (3D and engraving
   programs among them). The file starts `%!PS-Adobe-3.0` with
-  `%%Creator: TraceDraw`, `%%AI8_CreatorVersion: 8.0`, `%%Title`,
+  `%%Creator: TraceLaser`, `%%AI8_CreatorVersion: 8.0`, `%%Title`,
   `%%BoundingBox` and `%%HiResBoundingBox` (the page, in points, from
   0 0), `%AI5_FileFormat 4.0`, `%AI3_ColorUsage`, `%AI3_TemplateBox`,
   `%AI3_TileBox`, `%AI5_ArtSize` and `%AI5_NumLayers`; its prolog and
@@ -342,7 +342,7 @@ last AI export and in export presets.
     transparency is not kept. Use PDF-compatible for those.
   One file holds one page (one artboard, whose box is the page): with
   several pages each is written to its own numbered file, as for EPS.
-  TraceDraw opens these files again through its PostScript reader,
+  TraceLaser opens these files again through its PostScript reader,
   which defines the format's operators for a classic AI file that
   brings no procedure set of its own (see `eps-import.md`).
   Whether a given program accepts the file depends on what that program

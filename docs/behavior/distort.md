@@ -3,7 +3,7 @@
 Push and Pull, Zipper and Twister as a live effect (`Effect::Distort`):
 the object keeps its own outline and draws the distorted one, so the
 distortion can be changed, moved or cleared at any time. The formulas
-are in `tracedraw_core::distort`; the tool in `distort_tool.rs`, its bar
+are in `tracelaser_core::distort`; the tool in `distort_tool.rs`, its bar
 in `ui/distort_bar.rs`.
 
 ## Formulas
@@ -79,7 +79,7 @@ such files of #1824.
   bases stay `amplitude` straight out on the other side. The handle's
   place so sets the lean: under the middle the teeth stand upright,
   toward one end they lean that way. Random, Local and Smooth work as
-  above. TraceDraw's own Zipper never has it; a Zipper read from a
+  above. TraceLaser's own Zipper never has it; a Zipper read from a
   `.cdr` file keeps it while its values are edited (the tilt then has
   no effect).
 - `zipper_zero_direction(path, c)`: the outline's unit normal (left of
@@ -241,10 +241,10 @@ such files of #1824.
 - `distort::tests::tilted_teeth_still_follow_the_handle_and_smooth_ones_never_cross`
 - `distort::tests::smooth_teeth_are_waves_that_never_cross`
 - `distort::tests::shifted_tips_start_with_a_tip_moved_toward_the_centre`
-- `parse::tests::version_16_zipper_distortions_open_live` (tracedraw-cdr)
-- `parse::tests::version_16_twister_distortions_open_live` (tracedraw-cdr)
-- `parse::tests::version_16_push_and_pull_distortions_open_live` (tracedraw-cdr)
-- `parse::tests::version_16_stacked_distortions_draw_them_all` (tracedraw-cdr)
+- `parse::tests::version_16_zipper_distortions_open_live` (tracelaser-cdr)
+- `parse::tests::version_16_twister_distortions_open_live` (tracelaser-cdr)
+- `parse::tests::version_16_push_and_pull_distortions_open_live` (tracelaser-cdr)
+- `parse::tests::version_16_stacked_distortions_draw_them_all` (tracelaser-cdr)
 - `distort::tests::a_twisted_line_is_a_smooth_spiral_to_its_ends`
 - `distort::tests::older_files_and_odd_values_read`
 - `distort_tool::tests::a_drag_distorts_about_where_it_started`

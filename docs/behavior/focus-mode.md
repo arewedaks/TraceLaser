@@ -31,7 +31,7 @@ title leaves focus mode; a click on a step goes back to that group.
   it in place, inside the frame (#2157,
   `pick_drag_tests::a_focused_clip_frame_picks_and_edits_its_contents`).
 - Everything else is drawn at the "Visibility of inactive objects"
-  (Tools > Options > TraceDraw > Edit, 0 to 100 %, default 20 %; Reset restores
+  (Tools > Options > TraceLaser > Edit, 0 to 100 %, default 20 %; Reset restores
   it). The focused object is drawn again at full strength on top. The
   same setting fades the page while a clip frame's contents are edited.
   At 0 % the rest of the page is not drawn at all, so a crowded page

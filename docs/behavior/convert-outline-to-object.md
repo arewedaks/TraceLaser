@@ -99,19 +99,19 @@ One undo step, and the new objects are selected.
   (`tools2::tests::a_variable_outline_becomes_a_band_of_few_curves`).
 - The fitting: a given node with no vertex within the tolerance goes to
   the nearest vertex within its reach
-  (`tracedraw_core::fit::tests::a_node_between_two_vertices_takes_the_nearest`);
+  (`tracelaser_core::fit::tests::a_node_between_two_vertices_takes_the_nearest`);
   of two nodes within reach, the nearer one.
 - Given 10 mm and 17 mm lines with round ends, each tip has a node on
   it (within 0.001 mm), each end two curves
   (`tools2::tests::wide_round_ends_have_a_node_at_each_tip`).
 - The fitting: given nodes where a stadium's ends meet its sides, it
   becomes two lines and four curves with nodes at the tips
-  (`tracedraw_core::fit::tests::given_nodes_split_a_stadium_where_its_ends_meet_its_sides`);
+  (`tracelaser_core::fit::tests::given_nodes_split_a_stadium_where_its_ends_meet_its_sides`);
   a flattened circle becomes four curves within 0.02 mm,
   a rectangle four lines, collinear points one line, an open arc one
   curve keeping its ends, and degenerate input does not panic
-  (`tracedraw_core::fit::tests::a_flattened_circle_becomes_four_curves`,
-  `tracedraw_core::fit::tests::a_rectangle_keeps_four_corners_and_lines`,
-  `tracedraw_core::fit::tests::collinear_points_become_one_line`,
-  `tracedraw_core::fit::tests::open_runs_keep_their_ends`,
-  `tracedraw_core::fit::tests::nothing_breaks_on_degenerate_input`).
+  (`tracelaser_core::fit::tests::a_flattened_circle_becomes_four_curves`,
+  `tracelaser_core::fit::tests::a_rectangle_keeps_four_corners_and_lines`,
+  `tracelaser_core::fit::tests::collinear_points_become_one_line`,
+  `tracelaser_core::fit::tests::open_runs_keep_their_ends`,
+  `tracelaser_core::fit::tests::nothing_breaks_on_degenerate_input`).

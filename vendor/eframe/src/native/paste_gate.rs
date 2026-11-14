@@ -1,6 +1,6 @@
-// TraceDraw: the application may stop egui-winit reading the clipboard's
+// TraceLaser: the application may stop egui-winit reading the clipboard's
 // text for a paste shortcut (see vendor/README.md, #1488). Kept apart so
-// that TraceDraw's own tests compile and run it
+// that TraceLaser's own tests compile and run it
 // (`clipboard::eframe_paste_gate::tests`): this copy is outside the
 // workspace and its own tests run in no gate.
 //

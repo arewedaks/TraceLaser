@@ -146,7 +146,7 @@ Each tool's pointer says which tool is active (code: `ui/cursors.rs`):
 | Every other tool (shapes, dimensions, connectors, effects, fills, Crop, Knife, Table, ...) | the cross hair with the tool's icon at its lower right on a light patch |
 
 The arrows (pointing, moving, resizing) are the system's own. The cross
-hair and the text I-beam are painted by TraceDraw, black on a white
+hair and the text I-beam are painted by TraceLaser, black on a white
 halo, with the system pointer hidden, so they show on a page of any
 colour: the system's invert what is under them, and on Windows they can
 show white on a white page (#655,
@@ -191,7 +191,7 @@ frame), and on Wayland pads its buffer to whole multiples of 12 pixels
 so that any integer buffer scale divides it (see `vendor/README.md`).
 macOS and the browser paint the drawn pointers as before (the browser
 takes no bitmap from the window, and macOS takes a bitmap's pixels for
-points); `TRACEDRAW_BITMAP_POINTERS=1` turns the bitmaps on there for
+points); `TRACELASER_BITMAP_POINTERS=1` turns the bitmaps on there for
 a trial, `0` off on Windows and Linux.
 (`cursors::tests::a_drawn_pointer_is_handed_to_the_system_as_a_bitmap`,
 `cursors::tests::every_drawn_pointer_has_a_bitmap_in_the_screens_pixels`.)

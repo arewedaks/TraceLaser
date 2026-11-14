@@ -205,7 +205,7 @@ The object (the source, `s`) drawn through its mask is mixed with
 everything beneath it (the backdrop, `b`) by the merge mode, each
 channel in 0..1 unless the mode says otherwise. The mix applies where
 both are present; where only one is, that one shows, as the usual
-compositing of blend modes does (`tracedraw_render::composite_layer`).
+compositing of blend modes does (`tracelaser_render::composite_layer`).
 The `.tdraw` name of a mode is its name in lower case without spaces
 (`softlight`, `colordodge`).
 

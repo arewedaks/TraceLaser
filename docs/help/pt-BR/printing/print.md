@@ -2,7 +2,7 @@
 
 > *Tradução automática: esta página pode estar atrasada em relação à versão em inglês.*
 
-Escolha [[menu.file > menu.file.print]] (<kbd>Ctrl+P</kbd>). O TraceDraw monta
+Escolha [[menu.file > menu.file.print]] (<kbd>Ctrl+P</kbd>). O TraceLaser monta
 as folhas e as envia à impressora que você escolher, ou abre um PDF delas no
 visualizador do seu sistema, onde você escolhe a impressora e imprime. Na
 versão para navegador, o PDF é baixado.

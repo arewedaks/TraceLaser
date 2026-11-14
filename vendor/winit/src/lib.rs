@@ -210,39 +210,39 @@ pub mod event_loop;
 mod icon;
 pub mod keyboard;
 pub mod monitor;
-// TraceDraw: a pen's pressure on X11 and macOS (vendor/README.md).
+// TraceLaser: a pen's pressure on X11 and macOS (vendor/README.md).
 #[allow(dead_code)]
 mod pen_pressure;
-// TraceDraw: a window's size bounds follow the monitor's scaling on
+// TraceLaser: a window's size bounds follow the monitor's scaling on
 // Windows (vendor/README.md, #2487).
 #[cfg(windows_platform)]
 pub(crate) mod size_bounds;
-// TraceDraw: files the system asks to open on macOS (vendor/README.md).
+// TraceLaser: files the system asks to open on macOS (vendor/README.md).
 #[cfg(macos_platform)]
 pub(crate) mod opened_files;
-// TraceDraw: the program's say on a quit of the application on macOS
+// TraceLaser: the program's say on a quit of the application on macOS
 // (vendor/README.md).
 #[cfg(macos_platform)]
 pub(crate) mod quit_request;
-// TraceDraw: the program's say on each pointer of Android's motion events,
+// TraceLaser: the program's say on each pointer of Android's motion events,
 // with its tool, for palm rejection (vendor/README.md).
 #[cfg(android_platform)]
 pub(crate) mod pointer_filter;
-// TraceDraw: a mouse's buttons, wheel and hover on Android
+// TraceLaser: a mouse's buttons, wheel and hover on Android
 // (vendor/README.md).
 #[cfg(android_platform)]
 pub(crate) mod android_mouse;
-// TraceDraw: files dragged over a window on Wayland (vendor/README.md).
+// TraceLaser: files dragged over a window on Wayland (vendor/README.md).
 #[cfg(wayland_platform)]
 pub(crate) mod file_drop;
-// TraceDraw: a graphics tablet's pen on Wayland (vendor/README.md).
+// TraceLaser: a graphics tablet's pen on Wayland (vendor/README.md).
 #[cfg(wayland_platform)]
 pub(crate) mod tablet_tool;
-// TraceDraw: a finger or a pen on the window's frame on Wayland
+// TraceLaser: a finger or a pen on the window's frame on Wayland
 // (vendor/README.md).
 #[cfg(wayland_platform)]
 pub(crate) mod frame_input;
-// TraceDraw: the pointer kept on a shortcut with Alt on Windows
+// TraceLaser: the pointer kept on a shortcut with Alt on Windows
 // (vendor/README.md).
 #[cfg(windows_platform)]
 pub(crate) mod alt_shortcuts;

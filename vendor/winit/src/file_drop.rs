@@ -1,4 +1,4 @@
-//! TraceDraw: files dragged over a window on Wayland (#1142).
+//! TraceLaser: files dragged over a window on Wayland (#1142).
 //!
 //! winit 0.30 does not bind the Wayland data device, so a native Wayland
 //! window never heard of files dragged over it from a file manager: no
@@ -12,12 +12,12 @@
 //! - every enter and motion sends the pointer's place, as the X11 and
 //!   macOS copies do, because the system drag sends the window no pointer
 //!   moves: where the files are let go decides between importing them and
-//!   opening them (TraceDraw's `drop_files.rs`);
+//!   opening them (TraceLaser's `drop_files.rs`);
 //! - the drop sends `DroppedFile` for each file once the list is read (it
 //!   may come after the drop), and the offer is then finished;
 //! - a drag that leaves without a drop cancels the hovered files.
 //!
-//! This file depends on nothing in the crate, and TraceDraw's tests
+//! This file depends on nothing in the crate, and TraceLaser's tests
 //! include and run it (`winit_file_drop::tests`).
 
 use std::path::PathBuf;

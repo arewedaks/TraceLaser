@@ -1,6 +1,6 @@
-// TraceDraw: backported from eframe 0.37.0, where it sits in
+// TraceLaser: backported from eframe 0.37.0, where it sits in
 // native/glow_integration.rs with the tests below (see vendor/README.md).
-// Kept apart so that TraceDraw's own tests compile and run it
+// Kept apart so that TraceLaser's own tests compile and run it
 // (`gpu::eframe_context_fallback::tests`): this copy is outside the
 // workspace and its own tests run in no gate.
 

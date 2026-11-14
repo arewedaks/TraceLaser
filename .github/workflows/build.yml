@@ -38,10 +38,10 @@ jobs:
         with:
           components: clippy
       - uses: Swatinem/rust-cache@v2
-      - run: cargo test --workspace --exclude tracedraw
-      - run: cargo clippy --workspace --exclude tracedraw -- -D warnings
+      - run: cargo test --workspace --exclude tracelaser
+      - run: cargo clippy --workspace --exclude tracelaser -- -D warnings
 
-  # The editor's own tests (the tracedraw crate), on their own so the
+  # The editor's own tests (the tracelaser crate), on their own so the
   # other checks do not wait for them. They need the window system's
   # libraries to build, not a display.
   app-test:
@@ -57,7 +57,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y pkg-config libxkbcommon-dev libwayland-dev libgl1-mesa-dev \
             libx11-dev libxcursor-dev libxrandr-dev libxi-dev libgtk-3-dev
-      - run: cargo test -p tracedraw
+      - run: cargo test -p tracelaser
 
   build:
     needs: test
@@ -120,7 +120,7 @@ jobs:
             libx11-dev libxcursor-dev libxrandr-dev libxi-dev libgtk-3-dev libfuse2
           cargo install cargo-deb
 
-      # The spell checker of Windows (apps/tracedraw/src/spell_windows.rs,
+      # The spell checker of Windows (apps/tracelaser/src/spell_windows.rs,
       # #1405) on a real Windows: its tests alone, in a crate of their own
       # so the whole app is not built for tests.
       - name: Windows spell checker
@@ -129,7 +129,7 @@ jobs:
         run: cargo test -- --nocapture
 
       - name: Build
-        run: cargo build --release --target ${{ matrix.target }} -p tracedraw -p tracedraw-cli -p tracedraw-thumbnailer
+        run: cargo build --release --target ${{ matrix.target }} -p tracelaser -p tracelaser-cli -p tracelaser-thumbnailer
 
       # The main window, after the splash screen and without it, can be
       # maximized and resized under a window manager (see
@@ -138,7 +138,7 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt-get install -y xvfb openbox x11-utils libgl1-mesa-dri libxkbcommon-x11-0
-          scripts/visual/window_check.sh target/${{ matrix.target }}/release/tracedraw
+          scripts/visual/window_check.sh target/${{ matrix.target }}/release/tracelaser
 
       # Windows code signing, see docs/code-signing.md. Release builds (v*
       # tags) are signed once a provider is set up in the repository's
@@ -176,14 +176,14 @@ jobs:
           signing-account-name: ${{ vars.ARTIFACT_SIGNING_ACCOUNT }}
           certificate-profile-name: ${{ vars.ARTIFACT_SIGNING_PROFILE }}
           files: |
-            ${{ github.workspace }}\target\${{ matrix.target }}\release\tracedraw.exe
-            ${{ github.workspace }}\target\${{ matrix.target }}\release\tracedraw-cli.exe
-            ${{ github.workspace }}\target\${{ matrix.target }}\release\tracedraw_thumbnailer.dll
+            ${{ github.workspace }}\target\${{ matrix.target }}\release\tracelaser.exe
+            ${{ github.workspace }}\target\${{ matrix.target }}\release\tracelaser-cli.exe
+            ${{ github.workspace }}\target\${{ matrix.target }}\release\tracelaser_thumbnailer.dll
           file-digest: SHA256
           timestamp-rfc3161: http://timestamp.acs.microsoft.com
           timestamp-digest: SHA256
-          description: TraceDraw
-          description-url: https://github.com/tracedraw/tracedraw
+          description: TraceLaser
+          description-url: https://github.com/arewedaks/TraceLaser
 
       - name: Programs to sign (SignPath)
         id: unsigned-programs
@@ -193,9 +193,9 @@ jobs:
           # One per Windows build: artifact names are unique in a run.
           name: unsigned-programs-${{ matrix.name }}
           path: |
-            target/${{ matrix.target }}/release/tracedraw.exe
-            target/${{ matrix.target }}/release/tracedraw-cli.exe
-            target/${{ matrix.target }}/release/tracedraw_thumbnailer.dll
+            target/${{ matrix.target }}/release/tracelaser.exe
+            target/${{ matrix.target }}/release/tracelaser-cli.exe
+            target/${{ matrix.target }}/release/tracelaser_thumbnailer.dll
           if-no-files-found: error
           retention-days: 1
 
@@ -226,13 +226,13 @@ jobs:
           New-Item -ItemType Directory -Force dist | Out-Null
           $src = "target\${{ matrix.target }}\release"
           # The files' processor name, as the in-app updater looks for it
-          # (apps/tracedraw/src/updates.rs, asset_names): x86 for 32-bit.
+          # (apps/tracelaser/src/updates.rs, asset_names): x86 for 32-bit.
           $arch = if ("${{ matrix.target }}" -like "i686-*") { "x86" } else { "x86_64" }
-          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" /DVersion=${{ steps.ver.outputs.version }} /DArch=$arch /DSrcDir="$PWD\$src" packaging\windows\tracedraw.iss
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" /DVersion=${{ steps.ver.outputs.version }} /DArch=$arch /DSrcDir="$PWD\$src" packaging\windows\tracelaser.iss
           # The portable zip carries the settings folder, so it keeps its
           # preferences beside the program and writes nothing to %APPDATA%.
-          Copy-Item -Recurse -Force packaging\windows\portable\tracedraw-settings "$src\tracedraw-settings"
-          Compress-Archive -Path "$src\tracedraw.exe","$src\tracedraw-cli.exe","$src\tracedraw-settings",README.md,LICENSE-MIT,LICENSE-APACHE -DestinationPath "dist\tracedraw-${{ steps.ver.outputs.version }}-windows-$arch-portable.zip"
+          Copy-Item -Recurse -Force packaging\windows\portable\tracelaser-settings "$src\tracelaser-settings"
+          Compress-Archive -Path "$src\tracelaser.exe","$src\tracelaser-cli.exe","$src\tracelaser-settings",README.md,LICENSE-MIT,LICENSE-APACHE -DestinationPath "dist\tracelaser-${{ steps.ver.outputs.version }}-windows-$arch-portable.zip"
 
       # The Microsoft Store package (the Store signs it). Attached to the
       # release once the Store identity variables are set; until then a
@@ -264,8 +264,8 @@ jobs:
           file-digest: SHA256
           timestamp-rfc3161: http://timestamp.acs.microsoft.com
           timestamp-digest: SHA256
-          description: TraceDraw Setup
-          description-url: https://github.com/tracedraw/tracedraw
+          description: TraceLaser Setup
+          description-url: https://github.com/arewedaks/TraceLaser
 
       - name: Installer to sign (SignPath)
         id: unsigned-installer
@@ -302,26 +302,26 @@ jobs:
           mkdir -p dist
           arch=$([[ "${{ matrix.target }}" == aarch64* ]] && echo arm64 || echo x86_64)
           packaging/macos/build-dmg.sh "${{ steps.ver.outputs.version }}" "target/${{ matrix.target }}/release" "$arch"
-          rm -rf dist/TraceDraw.app
+          rm -rf dist/TraceLaser.app
 
       - name: Package (Linux)
         if: runner.os == 'Linux'
         run: |
           mkdir -p dist
-          cargo deb -p tracedraw --target ${{ matrix.target }} --no-build --deb-version "${{ steps.ver.outputs.version }}" -o dist/
+          cargo deb -p tracelaser --target ${{ matrix.target }} --no-build --deb-version "${{ steps.ver.outputs.version }}" -o dist/
           arch=$([[ "${{ matrix.target }}" == aarch64* ]] && echo arm64 || echo x86_64)
           packaging/linux/build-appimage.sh "${{ steps.ver.outputs.version }}" "target/${{ matrix.target }}/release" "$arch"
           rm -f dist/linuxdeploy.AppImage
-          tar -C "target/${{ matrix.target }}/release" -czf "dist/tracedraw-${{ steps.ver.outputs.version }}-linux-$arch.tar.gz" tracedraw tracedraw-cli
+          tar -C "target/${{ matrix.target }}/release" -czf "dist/tracelaser-${{ steps.ver.outputs.version }}-linux-$arch.tar.gz" tracelaser tracelaser-cli
 
       - uses: actions/upload-artifact@v4
         with:
-          name: tracedraw-${{ matrix.name }}
+          name: tracelaser-${{ matrix.name }}
           path: dist/*
           if-no-files-found: error
 
   # The browser build: WebAssembly and WebGL 2, published to GitHub Pages
-  # and attached to the releases as tracedraw-<version>-web.zip.
+  # and attached to the releases as tracelaser-<version>-web.zip.
   web:
     needs: test
     runs-on: ubuntu-latest
@@ -371,28 +371,28 @@ jobs:
           echo "$RUNNER_TEMP/binaryen-${BINARYEN}/bin" >> "$GITHUB_PATH"
 
       - name: Build
-        run: cargo build --target wasm32-unknown-unknown --profile web -p tracedraw
+        run: cargo build --target wasm32-unknown-unknown --profile web -p tracelaser
 
       - name: Page
         run: |
           mkdir -p site dist
-          wasm-bindgen --target web --no-typescript --out-dir site target/wasm32-unknown-unknown/web/tracedraw.wasm
+          wasm-bindgen --target web --no-typescript --out-dir site target/wasm32-unknown-unknown/web/tracelaser.wasm
           # Optimise for size and drop the name, debug and producer
           # sections before the size is measured.
-          wasm-opt -Oz --strip-debug --strip-producers -o site/tracedraw_bg.wasm site/tracedraw_bg.wasm
+          wasm-opt -Oz --strip-debug --strip-producers -o site/tracelaser_bg.wasm site/tracelaser_bg.wasm
           cp web/FONTS.md site/
           # The page with the module's size (the download shows its progress)
           # and the version.
-          size=$(wc -c < site/tracedraw_bg.wasm | tr -d ' ')
+          size=$(wc -c < site/tracelaser_bg.wasm | tr -d ' ')
           sed -e "s/data-wasm-size=\"0\"/data-wasm-size=\"$size\"/" -e "s/@VERSION@/${{ steps.ver.outputs.version }}/" \
               web/index.html > site/index.html
           grep -q "data-wasm-size=\"$size\"" site/index.html
           if grep -q "@VERSION@" site/index.html; then exit 1; fi
-          cp assets/icon/tracedraw-256.png site/icon-256.png
+          cp assets/icon/tracelaser-256.png site/icon-256.png
           # The interface languages but English, which the module embeds:
-          # the page fetches the one chosen (apps/tracedraw/src/i18n.rs).
+          # the page fetches the one chosen (apps/tracelaser/src/i18n.rs).
           mkdir -p site/lang
-          for f in apps/tracedraw/lang/*.toml; do
+          for f in apps/tracelaser/lang/*.toml; do
             [ "$(basename "$f")" = en.toml ] || cp "$f" site/lang/
           done
           # The installable app (docs/behavior/web.md, "Installing on a
@@ -401,15 +401,15 @@ jobs:
           # script and module, so every deploy is a new worker and a new
           # cache (never a stale module against a new script).
           cp web/manifest.webmanifest site/
-          cp assets/icon/tracedraw-192.png site/icon-192.png
-          cp assets/icon/tracedraw-512.png site/icon-512.png
-          build=$(cat site/index.html site/tracedraw.js site/tracedraw_bg.wasm site/manifest.webmanifest site/lang/*.toml | sha256sum | cut -c1-16)
+          cp assets/icon/tracelaser-192.png site/icon-192.png
+          cp assets/icon/tracelaser-512.png site/icon-512.png
+          build=$(cat site/index.html site/tracelaser.js site/tracelaser_bg.wasm site/manifest.webmanifest site/lang/*.toml | sha256sum | cut -c1-16)
           sed -e "s/@VERSION@/${{ steps.ver.outputs.version }}/" -e "s/@BUILD@/$build/" web/sw.js > site/sw.js
           # The module loads, the page links the manifest and registers the
           # worker, the manifest and the worker are valid and name files the
           # site holds (Node, no packages, no network).
           node scripts/web/check_pwa.mjs site
-          (cd site && zip -r "../dist/tracedraw-${{ steps.ver.outputs.version }}-web.zip" .)
+          (cd site && zip -r "../dist/tracelaser-${{ steps.ver.outputs.version }}-web.zip" .)
 
       # The font folder of the published page (web/fonts.txt): free fonts
       # the page fetches the first time a drawing's text needs them, so
@@ -432,11 +432,11 @@ jobs:
       # the screenshots of docs/help/img; the app's "?" buttons and F1
       # open its pages (docs/behavior/help.md).
       - name: Help
-        run: python3 web/help_site.py docs/help apps/tracedraw/lang site/help
+        run: python3 web/help_site.py docs/help apps/tracelaser/lang site/help
 
       # The browser version is published on the project's page, not as a
       # download: the folder is kept with the run only (its name does not
-      # match the release's tracedraw-* artifacts).
+      # match the release's tracelaser-* artifacts).
       - uses: actions/upload-artifact@v4
         with:
           name: web-site
@@ -454,7 +454,7 @@ jobs:
   # the upload key when the ANDROID_KEYSTORE_* secrets are set (Play App
   # Signing) and with the debug key otherwise. Both are kept with the
   # run only, never attached to the releases (their names do not match
-  # tracedraw-*): uploading to Play is the owner's step.
+  # tracelaser-*): uploading to Play is the owner's step.
   android:
     needs: test
     runs-on: ubuntu-latest
@@ -486,7 +486,7 @@ jobs:
           scripts/android/build.sh
           ls -la dist-android/*.apk dist-android/*.aab
           # The emulator check's keyboard, kept apart from the app.
-          scripts/android/build_test_ime.sh dist-android/test/tracedraw-test-ime.apk
+          scripts/android/build_test_ime.sh dist-android/test/tracelaser-test-ime.apk
       - uses: actions/upload-artifact@v4
         with:
           name: android-apk
@@ -495,7 +495,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: android-test-ime
-          path: dist-android/test/tracedraw-test-ime.apk
+          path: dist-android/test/tracelaser-test-ime.apk
           if-no-files-found: error
       - uses: actions/upload-artifact@v4
         with:
@@ -548,7 +548,7 @@ jobs:
           arch: x86_64
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
-          script: TRACEDRAW_TEST_IME=test-ime/tracedraw-test-ime.apk scripts/android/emulator_check.sh "$(ls apk/*-x86_64-debug.apk | head -n 1)" dist-android/emulator-check
+          script: TRACELASER_TEST_IME=test-ime/tracelaser-test-ime.apk scripts/android/emulator_check.sh "$(ls apk/*-x86_64-debug.apk | head -n 1)" dist-android/emulator-check
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -595,7 +595,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           path: artifacts
-          pattern: tracedraw-*
+          pattern: tracelaser-*
           merge-multiple: true
       # The Android APKs (one per ABI, signed with a debug key) go with the
       # installers, so a tablet can install the build of the same commit.
@@ -660,7 +660,7 @@ jobs:
         if: steps.store.outputs.enabled == 'true'
         with:
           path: store
-          pattern: tracedraw-windows-*
+          pattern: tracelaser-windows-*
           merge-multiple: true
       - uses: microsoft/microsoft-store-apppublisher@v1.1
         if: steps.store.outputs.enabled == 'true'

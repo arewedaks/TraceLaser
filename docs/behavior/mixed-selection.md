@@ -50,7 +50,7 @@ for the rest of its outline. The line style and arrowheads leave objects
 without an outline as they are.
 
 Commands: `Command::PatchStroke` and `Command::PatchFill` carry the
-fields to copy (`tracedraw_core::patch::StrokeField`, `FillField`);
+fields to copy (`tracelaser_core::patch::StrokeField`, `FillField`);
 `patch::stroke_mixed` and `patch::fill_mixed` say which values differ.
 
 Checks: `patch::tests::*` (core), `mixed::tests::*` (a width change

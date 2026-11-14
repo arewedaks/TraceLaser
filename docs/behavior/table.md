@@ -126,7 +126,7 @@ cell does nothing and says so on the status bar.
   first part keeps the text; every part keeps the background,
   alignment and outer borders.
   (`table_bar::tests::the_count_dialog_inserts_and_splits`,
-  `tracedraw_core::table::tests::split_a_cell_into_three_rows_and_columns`)
+  `tracelaser_core::table::tests::split_a_cell_into_three_rows_and_columns`)
 - Convert Text to Table (a dialog, #1276): paragraphs become rows; the
   cells are cut at commas, tabs, a user-defined separator (an empty one
   keeps each paragraph whole) or not at all (Paragraphs: one column, a
@@ -177,9 +177,9 @@ setting, so the new border shows. Lines inside a merged cell are not
 drawn. With separated borders every cell draws its own box, smaller by
 half the spacing on each side, and the table's border draws the table's
 outline.
-(`tracedraw_core::table::tests::outside_borders_of_a_selection_take_their_own_stroke`,
-`tracedraw_core::table::tests::each_border_choice_picks_its_sides`,
-`tracedraw_core::table::tests::separated_borders_shrink_cells_and_draw_the_outline`)
+(`tracelaser_core::table::tests::outside_borders_of_a_selection_take_their_own_stroke`,
+`tracelaser_core::table::tests::each_border_choice_picks_its_sides`,
+`tracelaser_core::table::tests::separated_borders_shrink_cells_and_draw_the_outline`)
 
 ### Text of several cells
 

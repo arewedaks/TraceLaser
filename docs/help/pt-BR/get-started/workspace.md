@@ -2,7 +2,7 @@
 
 > *Tradução automática: esta página pode estar atrasada em relação à versão em inglês.*
 
-A janela do TraceDraw contém seus desenhos e tudo o que é preciso para
+A janela do TraceLaser contém seus desenhos e tudo o que é preciso para
 trabalhar neles. Esta página dá nome às suas partes, para que as outras páginas
 desta Ajuda façam sentido.
 

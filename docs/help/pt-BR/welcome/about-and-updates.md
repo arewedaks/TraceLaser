@@ -1,8 +1,8 @@
-# Sobre o TraceDraw e atualizações
+# Sobre o TraceLaser e atualizações
 
 > *Tradução automática: esta página pode estar atrasada em relação à versão em inglês.*
 
-O TraceDraw é livre e de código aberto. Esta página explica como ver qual
+O TraceLaser é livre e de código aberto. Esta página explica como ver qual
 versão você tem, como obter uma mais nova e onde pedir ajuda.
 
 ## A caixa Sobre {#about}
@@ -11,16 +11,16 @@ Escolha [[menu.help > menu.help.about]] para ver a versão em uso, o autor, a
 licença, um link para o código-fonte e com o que o programa é feito. Pressione
 [[dialog.close]], <kbd>Enter</kbd> ou <kbd>Esc</kbd> para fechá-la.
 
-![A caixa Sobre o TraceDraw](../../img/welcome-about-and-updates-about.png)
+![A caixa Sobre o TraceLaser](../../img/welcome-about-and-updates-about.png)
 
 ## Procurar atualizações {#updates}
 
-No computador, o TraceDraw pode avisar quando uma versão mais nova é lançada.
+No computador, o TraceLaser pode avisar quando uma versão mais nova é lançada.
 
 Para procurar agora:
 
 1. Escolha [[menu.help > menu.help.updates]].
-2. O TraceDraw consulta a página de versões do projeto e diz se há uma versão
+2. O TraceLaser consulta a página de versões do projeto e diz se há uma versão
    mais nova que a sua. Versões de teste e compilações noturnas nunca são
    oferecidas.
 3. Quando há uma versão mais nova, escolha o que fazer:
@@ -33,7 +33,7 @@ Para procurar agora:
    - [[dialog.close]] fecha a caixa.
 
 Quando uma versão mais nova é conhecida, um cartão abre no meio da janela ao
-iniciar o TraceDraw, com os dois números de versão e **Atualizar agora**, e você
+iniciar o TraceLaser, com os dois números de versão e **Atualizar agora**, e você
 atualiza sem abrir o menu. **Novidades** abre as notas da versão e **Dispensar**
 fecha o cartão até a próxima abertura. Nada é baixado até você escolher
 Atualizar agora.
@@ -44,7 +44,7 @@ cópia que tem um download: o instalador e o zip portátil do Windows, o app do
 Mac e, no Linux, o AppImage, o arquivo compactado e o `.deb`. Instalar baixa a
 nova versão, confere se o download está completo e é autêntico e depois:
 
-- no **instalador do Windows**, espera você escolher **Fechar e instalar**: o TraceDraw
+- no **instalador do Windows**, espera você escolher **Fechar e instalar**: o TraceLaser
   fecha (perguntando sobre desenhos com alterações não salvas), o instalador
   roda por cima desta cópia, mantém suas configurações e associações de
   arquivo, e a nova versão abre sozinha;
@@ -52,17 +52,17 @@ nova versão, confere se o download está completo e é autêntico e depois:
   lugar e nunca mexe na pasta de configurações; **Reiniciar agora** abre a
   nova versão;
 - num **`.deb` no Linux**, espera você escolher **Fechar e instalar**: o
-  TraceDraw fecha, o sistema pede sua senha de administrador, instala o pacote
-  e o TraceDraw abre de novo (se você cancelar a senha, abre a versão antiga);
+  TraceLaser fecha, o sistema pede sua senha de administrador, instala o pacote
+  e o TraceLaser abre de novo (se você cancelar a senha, abre a versão antiga);
 - num **arquivo compactado (tar.gz) no Linux**, troca o programa no próprio
   lugar; **Reiniciar agora** abre a nova versão;
-- no **Mac**, troca o app do TraceDraw no próprio lugar; **Reiniciar agora**
+- no **Mac**, troca o app do TraceLaser no próprio lugar; **Reiniciar agora**
   abre a nova versão;
 - num **AppImage no Linux**, coloca o novo arquivo no lugar do antigo;
   **Reiniciar agora** abre a nova versão.
 
 Escolha **Mais tarde** para continuar trabalhando: a nova versão roda na
-próxima vez que você abrir o TraceDraw (no Windows, o instalador baixado só
+próxima vez que você abrir o TraceLaser (no Windows, o instalador baixado só
 roda quando você escolhe Fechar e instalar; num `.deb`, o pacote baixado só é
 instalado nessa hora). Se algo não conferir, a versão antiga fica como estava e
 a caixa diz por quê e oferece **Baixar**. As cópias sem download (outros
@@ -77,10 +77,10 @@ isso e oferece a página de versões.
 
 Em [[menu.tools > menu.tools.options > menu.tools.options_global]], na página
 [[options.general]], há uma opção para procurar atualizações ao iniciar. Ela
-vem ativada: uma vez por dia, o TraceDraw verifica em silêncio ao iniciar e só
+vem ativada: uma vez por dia, o TraceLaser verifica em silêncio ao iniciar e só
 avisa quando sai uma versão mais nova que você não pulou.
 
-Na primeira vez que o TraceDraw inicia, ele pergunta se deve procurar atualizações: [[updates.policy_always]] ou [[updates.policy_never]]. Até você responder, o TraceDraw não faz nenhuma conexão por conta própria. A resposta define esta opção, então você pode mudá-la aqui quando quiser.
+Na primeira vez que o TraceLaser inicia, ele pergunta se deve procurar atualizações: [[updates.policy_always]] ou [[updates.policy_never]]. Até você responder, o TraceLaser não faz nenhuma conexão por conta própria. A resposta define esta opção, então você pode mudá-la aqui quando quiser.
 
 > **Observação:** A versão para navegador é sempre a mais recente. Nela,
 > [[menu.help > menu.help.updates]] abre a página de versões.
@@ -94,7 +94,7 @@ compactado ou imagem de disco).
 
 ## A Tela de boas-vindas {#welcome-screen}
 
-A Tela de boas-vindas é a primeira guia quando o TraceDraw inicia. Nela você
+A Tela de boas-vindas é a primeira guia quando o TraceLaser inicia. Nela você
 pode criar um desenho, abrir um dos desenhos usados por último (cada um com uma
 miniatura; [[menu.file.clear_recent]] esquece a lista), começar a partir de um
 modelo, ler as notícias e encontrar material de aprendizado. Quando uma página
@@ -113,4 +113,4 @@ lugar. Escolha
 - [[menu.help > menu.help.support]] abre o rastreador de problemas, onde você
   pode relatar um problema.
 - [[menu.help > menu.help.message_settings]] abre as opções em que as
-  mensagens do TraceDraw são definidas.
+  mensagens do TraceLaser são definidas.

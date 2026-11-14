@@ -83,7 +83,7 @@ side: a bulge of 11 mm in 1 mm moves). Now the outline under the nib's
 core goes with it whatever the speed: the same drag gives a tongue 30 mm
 long, 10 mm wide at its middle and near its end, in 1 mm moves, in 6 mm
 moves or in one (#2228,
-`tracedraw_core::effects::tests::smudge_draws_a_tongue_whatever_the_speed`).
+`tracelaser_core::effects::tests::smudge_draws_a_tongue_whatever_the_speed`).
 Dragging along a thin part (a ring's wall narrower than the nib's core)
 carries both of its edges, as a finger through wet paint does.
 
@@ -97,7 +97,7 @@ moved is fitted back into curves; the outline before and after it
 keeps its segments exactly. Refitting the whole stretch in reach at
 every pointer event let the edge beside the nib creep and wobble, the
 more the slower the stroke (#2546,
-`tracedraw_core::effects::tests::smudge_leaves_the_outline_away_from_the_nib`).
+`tracelaser_core::effects::tests::smudge_leaves_the_outline_away_from_the_nib`).
 
 A step measures the stretch in reach into points an eighth of the
 radius apart and fits it back, as a Smear step does. On a stroke that
@@ -107,19 +107,19 @@ left 19 elements, having smoothed the stroke away.
 
 ## Checks
 
-- `tracedraw_core::effects::tests::brushes_touch_only_the_subpaths_they_reach`
-- `tracedraw_core::effects::tests::brushes_leave_the_segments_out_of_reach_exactly`
-- `tracedraw_core::effects::tests::smooth_fits_jagged_lines_within_the_nib`
-- `tracedraw_core::effects::tests::a_smooth_stroke_along_a_wobbly_spiral_leaves_few_nodes_on_it`
-- `tracedraw_core::effects::tests::long_smudge_and_twirl_strokes_stay_light`
-- `tracedraw_core::effects::tests::smudge_draws_a_tongue_whatever_the_speed`
+- `tracelaser_core::effects::tests::brushes_touch_only_the_subpaths_they_reach`
+- `tracelaser_core::effects::tests::brushes_leave_the_segments_out_of_reach_exactly`
+- `tracelaser_core::effects::tests::smooth_fits_jagged_lines_within_the_nib`
+- `tracelaser_core::effects::tests::a_smooth_stroke_along_a_wobbly_spiral_leaves_few_nodes_on_it`
+- `tracelaser_core::effects::tests::long_smudge_and_twirl_strokes_stay_light`
+- `tracelaser_core::effects::tests::smudge_draws_a_tongue_whatever_the_speed`
 - `brushes::tests::a_stroke_is_one_step_and_follows_the_settings`
 - `brushes::tests::attract_repel_and_twirl_follow_their_modes`
 - `brushes::hold_tests::attract_and_repel_come_to_rest_while_held`
-- `tracedraw_core::effects::tests::attract_and_repel_are_the_same_in_every_direction`
-- `tracedraw_core::effects::tests::attract_and_repel_stay_within_the_nib`
-- `tracedraw_core::effects::tests::a_roughen_stroke_adds_spikes_once`
-- `tracedraw_core::effects::tests::roughen_leaves_no_white_slivers`
+- `tracelaser_core::effects::tests::attract_and_repel_are_the_same_in_every_direction`
+- `tracelaser_core::effects::tests::attract_and_repel_stay_within_the_nib`
+- `tracelaser_core::effects::tests::a_roughen_stroke_adds_spikes_once`
+- `tracelaser_core::effects::tests::roughen_leaves_no_white_slivers`
 - `pick_drag_tests::attract_works_from_the_press_and_settles_while_held`
 - `pick_drag_tests::roughen_adds_detail_up_to_a_cap_per_stroke`
 - `brushes::page_space_tests::the_nib_is_measured_on_the_page_whatever_the_object_scale`

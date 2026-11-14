@@ -25,7 +25,7 @@ after opening, and the command line tool has no dialogs.
   "<font> (automatic)", then every installed family. Find a font narrows
   the list as letters are typed.
 - For this session only (the default): the drawing keeps its font names;
-  the font chosen draws each family until TraceDraw closes
+  the font chosen draws each family until TraceLaser closes
   (`FontSystem::set_substitute`, tried before the automatic stand-ins,
   bold and italic text included). Saved files keep the missing names, so
   the text comes back in its own font on a computer that has it.
@@ -62,9 +62,9 @@ after opening, and the command line tool has no dialogs.
 - Given For this session only, the font chosen draws the family, the
   drawing keeps its font name and the status names the stand-in
   (`ui::missing_fonts::tests::a_font_chosen_for_the_session_draws_the_text_and_the_drawing_keeps_its_font`).
-- `tracedraw_text`: a chosen stand-in draws the family and clears back to
+- `tracelaser_text`: a chosen stand-in draws the family and clears back to
   the automatic one (`tests::a_chosen_stand_in_draws_a_missing_family`).
-- `tracedraw_core`: `command::tests::a_font_family_is_replaced_throughout_the_drawing`.
+- `tracelaser_core`: `command::tests::a_font_family_is_replaced_throughout_the_drawing`.
 - Given the plain note turned off (the choice of before the dialog), the
   dialog still asks; its box turns off the dialog alone; with both off
   the status line leads to the Warnings page; with the note on and the

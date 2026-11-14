@@ -1,6 +1,6 @@
-# MCP server (`tracedraw --mcp`)
+# MCP server (`tracelaser --mcp`)
 
-`tracedraw --mcp` runs the editor without a window and speaks the Model
+`tracelaser --mcp` runs the editor without a window and speaks the Model
 Context Protocol over stdin and stdout: JSON-RPC 2.0, one message per
 line, protocol version 2024-11-05, the `tools` capability. An AI agent
 (or any MCP client) connected to it opens, edits, inspects, exports and
@@ -9,21 +9,21 @@ saves documents with the same commands and undo history a user has.
 Client configuration, for example:
 
 ```json
-{ "mcpServers": { "tracedraw": { "command": "tracedraw", "args": ["--mcp"] } } }
+{ "mcpServers": { "tracelaser": { "command": "tracelaser", "args": ["--mcp"] } } }
 ```
 
-## The open window (`tracedraw --mcp-window`)
+## The open window (`tracelaser --mcp-window`)
 
-The same tools can work on the drawings of a TraceDraw window the user
+The same tools can work on the drawings of a TraceLaser window the user
 has open. Options > Global > General > "Let AI agents on this computer
 edit the open drawing (MCP)" (off by default, desktop only) makes the
 window listen on a free port of `127.0.0.1` and write the port, a random
 128-bit token and its process id to `mcp-window.json` in the preferences
-folder (removed when the option is turned off or TraceDraw closes). The
+folder (removed when the option is turned off or TraceLaser closes). The
 client is configured with the bridge as its command:
 
 ```json
-{ "mcpServers": { "tracedraw-window": { "command": "tracedraw", "args": ["--mcp-window"] } } }
+{ "mcpServers": { "tracelaser-window": { "command": "tracelaser", "args": ["--mcp-window"] } } }
 ```
 
 The bridge reads the file and forwards each line of standard input as an
@@ -94,5 +94,5 @@ The same rule applies to drawing in the window.
   an error naming the option (`mcp_link::tests::without_a_window_the_bridge_says_so`);
   the option starts and stops listening
   (`mcp_link::tests::the_option_starts_and_stops_listening`).
-- Checked on screen: `tracedraw --mcp-window` drew a star and a line of
+- Checked on screen: `tracelaser --mcp-window` drew a star and a line of
   text in the open window.

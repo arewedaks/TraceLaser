@@ -95,7 +95,7 @@ left page reaches across the spine stays at the spine. Each page took
 the side that put most of its own objects on it before, and the pages
 showed one by one: a book opened with pages mixed and no spreads
 (#1660, `parse::tests::a_book_on_facing_pages_opens_in_spreads`).
-Nothing is written for facing pages: a `.cdr` saved from TraceDraw has
+Nothing is written for facing pages: a `.cdr` saved from TraceLaser has
 single pages, each object where it shows on its page.
 
 ## Not done

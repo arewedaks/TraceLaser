@@ -462,17 +462,17 @@
 
 | कमांड | देखें |
 |---|---|
-| [[menu.help.help_topics]] | [TraceDraw सहायता में आपका स्वागत है](../index.md#in-the-app) |
-| [[menu.help.product_help]] | [TraceDraw सहायता में आपका स्वागत है](../index.md#in-the-app) |
-| [[menu.help.welcome_screen]] | [TraceDraw के बारे में और अपडेट](../welcome/about-and-updates.md) |
-| [[menu.help.video_tutorials]] | [TraceDraw के बारे में और अपडेट](../welcome/about-and-updates.md) |
+| [[menu.help.help_topics]] | [TraceLaser सहायता में आपका स्वागत है](../index.md#in-the-app) |
+| [[menu.help.product_help]] | [TraceLaser सहायता में आपका स्वागत है](../index.md#in-the-app) |
+| [[menu.help.welcome_screen]] | [TraceLaser के बारे में और अपडेट](../welcome/about-and-updates.md) |
+| [[menu.help.video_tutorials]] | [TraceLaser के बारे में और अपडेट](../welcome/about-and-updates.md) |
 | [[menu.help.hints]] | [The Hints panel](../get-started/hints.md) |
-| [[menu.help.quick_start_guide]] | [TraceDraw के बारे में और अपडेट](../welcome/about-and-updates.md) |
-| [[menu.help.user_guide]] | [TraceDraw के बारे में और अपडेट](../welcome/about-and-updates.md) |
+| [[menu.help.quick_start_guide]] | [TraceLaser के बारे में और अपडेट](../welcome/about-and-updates.md) |
+| [[menu.help.user_guide]] | [TraceLaser के बारे में और अपडेट](../welcome/about-and-updates.md) |
 | [[menu.help.whats_new]] | [नया क्या है](../welcome/whats-new.md) |
 | [[menu.help.highlight_whats_new]] | [नया क्या है](../welcome/whats-new.md) |
-| [[menu.help.updates]] | [TraceDraw के बारे में और अपडेट](../welcome/about-and-updates.md) |
-| [[menu.help.message_settings]] | [TraceDraw के बारे में और अपडेट](../welcome/about-and-updates.md) |
-| [[menu.help.community]] | [TraceDraw के बारे में और अपडेट](../welcome/about-and-updates.md) |
-| [[menu.help.support]] | [TraceDraw के बारे में और अपडेट](../welcome/about-and-updates.md) |
-| [[menu.help.about]] | [TraceDraw के बारे में और अपडेट](../welcome/about-and-updates.md) |
+| [[menu.help.updates]] | [TraceLaser के बारे में और अपडेट](../welcome/about-and-updates.md) |
+| [[menu.help.message_settings]] | [TraceLaser के बारे में और अपडेट](../welcome/about-and-updates.md) |
+| [[menu.help.community]] | [TraceLaser के बारे में और अपडेट](../welcome/about-and-updates.md) |
+| [[menu.help.support]] | [TraceLaser के बारे में और अपडेट](../welcome/about-and-updates.md) |
+| [[menu.help.about]] | [TraceLaser के बारे में और अपडेट](../welcome/about-and-updates.md) |

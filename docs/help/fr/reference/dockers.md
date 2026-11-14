@@ -59,6 +59,6 @@ l'explique.
   onglets ; le bouton de réduction replie la zone des panneaux ;
   ses flèches pointent vers le côté de la fenêtre où elle se replie (à gauche
   pour les panneaux ancrés à gauche).
-- Les panneaux laissés ouverts reviennent au prochain démarrage de TraceDraw.
+- Les panneaux laissés ouverts reviennent au prochain démarrage de TraceLaser.
 - Les raccourcis des panneaux basculent : appuyer sur l'un quand son panneau
   est au premier plan masque les panneaux.

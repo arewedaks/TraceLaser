@@ -14,7 +14,7 @@ draw (a contour, a blend, an extrusion), are mirrored with it. The commands are 
    (<kbd>Alt+S</kbd>).
 
 A vertical mirror line is placed at the right edge of the object, so the copy
-appears next to it, and TraceDraw goes straight into editing the symmetry.
+appears next to it, and TraceLaser goes straight into editing the symmetry.
 
 ## Editing a symmetry {#edit}
 

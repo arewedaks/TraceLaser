@@ -2,7 +2,7 @@
 
 A booklet prints two pages on each side of a sheet of paper, placed so that
 the folded sheets read in order: a menu, a program, a small catalog or a
-zine. TraceDraw pairs the pages for you; you choose how the booklet is bound.
+zine. TraceLaser pairs the pages for you; you choose how the booklet is bound.
 
 ## Printing a booklet {#print}
 

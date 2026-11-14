@@ -1,4 +1,4 @@
-//! TraceDraw: files dragged over a window from a file manager (#1142,
+//! TraceLaser: files dragged over a window from a file manager (#1142,
 //! `vendor/README.md`). winit 0.30 binds no `wl_data_device`, so a
 //! native Wayland window received no file drops at all. The Wayland
 //! drag's events go to `crate::file_drop`, which decides what the window

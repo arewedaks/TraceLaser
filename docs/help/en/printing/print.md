@@ -1,6 +1,6 @@
 # Printing a drawing
 
-Choose [[menu.file > menu.file.print]] (<kbd>Ctrl+P</kbd>). TraceDraw builds the
+Choose [[menu.file > menu.file.print]] (<kbd>Ctrl+P</kbd>). TraceLaser builds the
 sheets and sends them to the printer you choose, or opens a PDF of them in
 your system's viewer, where you choose the printer and print. In the browser
 version, the PDF is downloaded.

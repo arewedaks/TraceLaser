@@ -1,6 +1,6 @@
-// TraceDraw: a painter for egui on the fixed-function OpenGL pipeline,
+// TraceLaser: a painter for egui on the fixed-function OpenGL pipeline,
 // used when the driver offers desktop OpenGL below 3.0 (see
-// vendor/README.md and TraceDraw's docs/behavior/about-and-startup.md).
+// vendor/README.md and TraceLaser's docs/behavior/about-and-startup.md).
 
 //! A painter for egui on the fixed-function OpenGL pipeline: OpenGL 2.0 or
 //! later driven the OpenGL 1.x way, with client-side vertex arrays

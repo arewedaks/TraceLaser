@@ -975,7 +975,7 @@ fn mkdid(w: xinput::DeviceId) -> crate::event::DeviceId {
 pub struct Device {
     _name: String,
     scroll_axes: Vec<(i32, ScrollAxis)>,
-    // TraceDraw: the valuator labelled "Abs Pressure" of a graphics
+    // TraceLaser: the valuator labelled "Abs Pressure" of a graphics
     // tablet's pen, with its range (vendor/README.md).
     pressure_axis: Option<PressureAxis>,
     // For master devices, this is the paired device (pointer <-> keyboard).
@@ -983,7 +983,7 @@ pub struct Device {
     attachment: c_int,
 }
 
-/// TraceDraw: a pen's pressure valuator.
+/// TraceLaser: a pen's pressure valuator.
 #[derive(Debug, Copy, Clone)]
 pub struct PressureAxis {
     pub number: i32,
@@ -1005,7 +1005,7 @@ enum ScrollOrientation {
 }
 
 impl Device {
-    /// TraceDraw: `pressure_label` is the "Abs Pressure" atom, which
+    /// TraceLaser: `pressure_label` is the "Abs Pressure" atom, which
     /// marks a pen's pressure valuator.
     fn new(info: &ffi::XIDeviceInfo, pressure_label: xproto::Atom) -> Self {
         let name = unsafe { CStr::from_ptr(info.name).to_string_lossy() };
@@ -1016,7 +1016,7 @@ impl Device {
             // Identify scroll axes
             for &class_ptr in Device::classes(info) {
                 let ty = unsafe { (*class_ptr)._type };
-                // TraceDraw: the pressure axis of a graphics tablet's pen.
+                // TraceLaser: the pressure axis of a graphics tablet's pen.
                 if ty == ffi::XIValuatorClass {
                     let info = unsafe { &*(class_ptr as *const ffi::XIValuatorClassInfo) };
                     if info.label == pressure_label as _ && info.max > info.min {

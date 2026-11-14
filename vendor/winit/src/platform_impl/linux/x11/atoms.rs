@@ -92,7 +92,7 @@ atom_manager! {
     TextUriList: b"text/uri-list",
     None: b"None",
 
-    // TraceDraw: the label of a graphics tablet's pressure valuator.
+    // TraceLaser: the label of a graphics tablet's pressure valuator.
     AbsPressure: b"Abs Pressure",
 
     // Miscellaneous Atoms

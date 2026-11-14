@@ -462,17 +462,17 @@
 
 | コマンド | 参照 |
 |---|---|
-| [[menu.help.help_topics]] | [TraceDraw ヘルプへようこそ](../index.md#in-the-app) |
-| [[menu.help.product_help]] | [TraceDraw ヘルプへようこそ](../index.md#in-the-app) |
-| [[menu.help.welcome_screen]] | [TraceDraw について、および更新](../welcome/about-and-updates.md) |
-| [[menu.help.video_tutorials]] | [TraceDraw について、および更新](../welcome/about-and-updates.md) |
+| [[menu.help.help_topics]] | [TraceLaser ヘルプへようこそ](../index.md#in-the-app) |
+| [[menu.help.product_help]] | [TraceLaser ヘルプへようこそ](../index.md#in-the-app) |
+| [[menu.help.welcome_screen]] | [TraceLaser について、および更新](../welcome/about-and-updates.md) |
+| [[menu.help.video_tutorials]] | [TraceLaser について、および更新](../welcome/about-and-updates.md) |
 | [[menu.help.hints]] | [The Hints panel](../get-started/hints.md) |
-| [[menu.help.quick_start_guide]] | [TraceDraw について、および更新](../welcome/about-and-updates.md) |
-| [[menu.help.user_guide]] | [TraceDraw について、および更新](../welcome/about-and-updates.md) |
+| [[menu.help.quick_start_guide]] | [TraceLaser について、および更新](../welcome/about-and-updates.md) |
+| [[menu.help.user_guide]] | [TraceLaser について、および更新](../welcome/about-and-updates.md) |
 | [[menu.help.whats_new]] | [新機能](../welcome/whats-new.md) |
 | [[menu.help.highlight_whats_new]] | [新機能](../welcome/whats-new.md) |
-| [[menu.help.updates]] | [TraceDraw について、および更新](../welcome/about-and-updates.md) |
-| [[menu.help.message_settings]] | [TraceDraw について、および更新](../welcome/about-and-updates.md) |
-| [[menu.help.community]] | [TraceDraw について、および更新](../welcome/about-and-updates.md) |
-| [[menu.help.support]] | [TraceDraw について、および更新](../welcome/about-and-updates.md) |
-| [[menu.help.about]] | [TraceDraw について、および更新](../welcome/about-and-updates.md) |
+| [[menu.help.updates]] | [TraceLaser について、および更新](../welcome/about-and-updates.md) |
+| [[menu.help.message_settings]] | [TraceLaser について、および更新](../welcome/about-and-updates.md) |
+| [[menu.help.community]] | [TraceLaser について、および更新](../welcome/about-and-updates.md) |
+| [[menu.help.support]] | [TraceLaser について、および更新](../welcome/about-and-updates.md) |
+| [[menu.help.about]] | [TraceLaser について、および更新](../welcome/about-and-updates.md) |

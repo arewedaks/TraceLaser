@@ -3,7 +3,7 @@
 # check that it comes up and stays up (docs/behavior/android.md, CI job
 # android-emulator):
 #   scripts/android/emulator_check.sh <app.apk> [output folder]
-# The app must still be running after TRACEDRAW_ANDROID_WAIT seconds (45
+# The app must still be running after TRACELASER_ANDROID_WAIT seconds (45
 # by default) with no crash in the system log (a Java FATAL EXCEPTION, a
 # native crash with its tombstone, a Rust panic, an ANR), its log must
 # say it drew its first frame and loaded the system fonts, and its screen
@@ -12,15 +12,15 @@
 # check then does on purpose) must bring the app back in a new process
 # that draws again. The output folder (dist-android/emulator-check by
 # default) gets the screenshot (screen.png), the whole system log
-# (logcat.txt), the app's own lines (tracedraw.txt) and the crash log
+# (logcat.txt), the app's own lines (tracelaser.txt) and the crash log
 # (crash.txt), also when the check fails; on GitHub Actions a failure
 # also leaves its key log lines as annotations on the job.
 #
 # The app also sends one HTTPS request at its start (to
-# TRACEDRAW_HTTPS_URL, https://api.github.com/zen by default; empty: no
+# TRACELASER_HTTPS_URL, https://api.github.com/zen by default; empty: no
 # request) and logs the answer: its certificate check must pass (#1396).
 #
-# With TRACEDRAW_TEST_IME set to the test keyboard's APK
+# With TRACELASER_TEST_IME set to the test keyboard's APK
 # (scripts/android/build_test_ime.sh), the check also types (#1489,
 # #1496): the app starts with the Text tool on (soft_keyboard::check), a
 # tap on the canvas must start a text and bring up the keyboard, and
@@ -32,8 +32,8 @@ cd "$(dirname "$0")/../.."
 
 apk="${1:?usage: scripts/android/emulator_check.sh <app.apk> [output folder]}"
 out="${2:-dist-android/emulator-check}"
-wait_s="${TRACEDRAW_ANDROID_WAIT:-45}"
-pkg=dev.tracedraw.app
+wait_s="${TRACELASER_ANDROID_WAIT:-45}"
+pkg=dev.tracelaser.app
 mkdir -p "$out"
 
 fail() {
@@ -65,8 +65,8 @@ collect() {
     # the system's lines about the app.
     pids=$(sed -n "s/.*Start proc \([0-9]*\):$pkg\/.*/\1/p" "$out/logcat.txt" | tr '\n' ' ')
     awk -v pids=" $pids " -v pkg="$pkg" \
-        'index(pids, " " $3 " ") || index($0, pkg) || / tracedraw *:/ || /RustPanic/' \
-        "$out/logcat.txt" > "$out/tracedraw.txt" || true
+        'index(pids, " " $3 " ") || index($0, pkg) || / tracelaser *:/ || /RustPanic/' \
+        "$out/logcat.txt" > "$out/tracelaser.txt" || true
 }
 # On GitHub Actions a failed check leaves its key lines as annotations
 # on the job (each one message, lines joined), readable without the
@@ -80,12 +80,12 @@ summary() {
     [ -n "${GITHUB_ACTIONS:-}" ] || return 0
     s="$out/summary"
     mkdir -p "$s"
-    grep -hE "FATAL EXCEPTION|AndroidRuntime|Fatal signal|Abort message|Tombstone written|ANR in|panicked at|RustPanic| tracedraw *: (panic|ERROR)" \
+    grep -hE "FATAL EXCEPTION|AndroidRuntime|Fatal signal|Abort message|Tombstone written|ANR in|panicked at|RustPanic| tracelaser *: (panic|ERROR)" \
         "$out/logcat.txt" "$out/crash.txt" 2>/dev/null | cut -c1-220 | head -n 40 > "$s/crash" || true
-    grep -E " tracedraw *:" "$out/tracedraw.txt" 2>/dev/null | tail -n 40 > "$s/app" || true
+    grep -E " tracelaser *:" "$out/tracelaser.txt" 2>/dev/null | tail -n 40 > "$s/app" || true
     adb logcat -d -b events -v threadtime 2>/dev/null \
         | grep -E "_relaunch|_on_(create|destroy|stop)_called|am_proc_died|am_kill" \
-        | grep -E "$pkg|TraceDrawActivity" | tail -n 20 > "$s/events" || true
+        | grep -E "$pkg|TraceLaserActivity" | tail -n 20 > "$s/events" || true
     { python3 scripts/android/screen_check.py "$out/screen.png" 2>&1 || true
       sh_dev dumpsys window | grep -E 'mCurrentFocus|mFocusedApp' || true
       echo "pidof: $(sh_dev pidof "$pkg" || echo none)"; } > "$s/screen"
@@ -112,7 +112,7 @@ on_exit() {
 trap on_exit EXIT
 
 # Whether the process $1 said in the log that the system relaunched the
-# activity and it ends for that (TraceDrawActivity.onDestroy), and
+# activity and it ends for that (TraceLaserActivity.onDestroy), and
 # whether it logged its first frame.
 said() {
     adb logcat -d -v threadtime 2>/dev/null \
@@ -129,7 +129,7 @@ pid_now() {
 }
 # Whether the process $1 began a relaunch of its activity: its onStop
 # for handleRelaunchActivity, in the event log (Android 11 and 14 alike).
-# A process that did must end (TraceDrawActivity.onDestroy); one still
+# A process that did must end (TraceLaserActivity.onDestroy); one still
 # there long after is frozen in NativeActivity.onDestroy.
 relaunching() {
     adb logcat -d -b events -v threadtime 2>/dev/null \
@@ -223,8 +223,8 @@ adb logcat -b all -G 16M >/dev/null 2>&1 || adb logcat -G 16M >/dev/null 2>&1 ||
 
 # The test keyboard, the system's input method from now on, and the
 # app started for the typing check.
-ime_apk="${TRACEDRAW_TEST_IME:-}"
-ime=dev.tracedraw.testime/.TestIme
+ime_apk="${TRACELASER_TEST_IME:-}"
+ime=dev.tracelaser.testime/.TestIme
 # The system's input method now (its id, as Settings keeps it).
 ime_now() {
     sh_dev settings get secure default_input_method
@@ -251,7 +251,7 @@ start_extras=""
 if [ -n "$ime_apk" ]; then
     adb install -r "$ime_apk"
     use_test_ime || fail "the test keyboard $ime is not the system's input method (it is $(ime_now); installed: $(sh_dev ime list -a -s | tr '\n' ' '))"
-    start_extras="--es tracedraw.check typing"
+    start_extras="--es tracelaser.check typing"
 fi
 
 # The launcher activity, as the home screen starts it.
@@ -260,9 +260,9 @@ case "$component" in
     "$pkg"/*) ;;
     *) fail "no launcher activity for $pkg (got: $component)" ;;
 esac
-https_url="${TRACEDRAW_HTTPS_URL-https://api.github.com/zen}"
+https_url="${TRACELASER_HTTPS_URL-https://api.github.com/zen}"
 if [ -n "$https_url" ]; then
-    start_extras="$start_extras --es tracedraw.https_check $https_url"
+    start_extras="$start_extras --es tracelaser.https_check $https_url"
 fi
 # shellcheck disable=SC2086
 sh_dev am start -W -n "$component" $start_extras
@@ -331,7 +331,7 @@ wait_said() {
 }
 # How many lines the test keyboard logged with $1.
 ime_count() {
-    adb logcat -d -s tracedraw-ime:I 2>/dev/null | grep -cF "$1" || true
+    adb logcat -d -s tracelaser-ime:I 2>/dev/null | grep -cF "$1" || true
 }
 # What the check found, for the notice at its end.
 typing_notes=""
@@ -348,7 +348,7 @@ typing_fail() {
     typing_note "FAILED: $*"
     typing_note "the system's input method: $(ime_now)"
     typing_note "input method: $(sh_dev dumpsys input_method | grep -E 'mServedView|mCurFocusedWindow |mInputShown|mCurClient|mIsInputViewShown|mCurMethodId|mShowRequested' | sed 's/^ *//' | head -n 12 | tr '\n' ';')"
-    typing_note "keyboard log: $(adb logcat -d -s tracedraw-ime:I 2>/dev/null | tail -n 8 | cut -c 32-200 | tr '\n' ';')"
+    typing_note "keyboard log: $(adb logcat -d -s tracelaser-ime:I 2>/dev/null | tail -n 8 | cut -c 32-200 | tr '\n' ';')"
     typing_note "app log: $(adb logcat -d -v threadtime 2>/dev/null | awk -v p="$pid" '$3 == p && /keyboard|typing check/' | tail -n 12 | cut -c 32-220 | tr '\n' ';')"
     typing_report
     fail "typing: $*"
@@ -356,7 +356,7 @@ typing_fail() {
 # Have the test keyboard type: "compose" or "commit" and the code points
 # (hexadecimal, separated by commas), then wait for the app to log $3.
 ime_type() {
-    sh_dev am broadcast -a dev.tracedraw.testime.TYPE --es "$1" "$2" >/dev/null
+    sh_dev am broadcast -a dev.tracelaser.testime.TYPE --es "$1" "$2" >/dev/null
     wait_said "$pid" "$3" 10 || typing_fail "after the keyboard's $1 of $2 the text never read: $3"
     typing_note "$1 $2: $3"
 }
@@ -384,7 +384,7 @@ typing_check() {
         sleep 1
         t=$((t + 1))
     done
-    typing_note "the keyboard came up: $(adb logcat -d -s tracedraw-ime:I 2>/dev/null | grep -F "keyboard shown for $pkg" | tail -n 1 | cut -c 32-200)"
+    typing_note "the keyboard came up: $(adb logcat -d -s tracelaser-ime:I 2>/dev/null | grep -F "keyboard shown for $pkg" | tail -n 1 | cut -c 32-200)"
     ime_type compose 6e,69 'typing check: text "", composing "ni"'
     ime_type commit 4f60,597d 'typing check: text "你好", composing ""'
     ime_type commit 61,62,63 'typing check: text "你好abc", composing ""'
@@ -405,7 +405,7 @@ cat "$out/focus.txt"
 grep -q "$pkg" "$out/focus.txt" || fail "$pkg does not have the focus"
 
 collect
-crashes=$(grep -E "FATAL EXCEPTION|Fatal signal|\*\*\* \*\*\* \*\*\*|Tombstone written|ANR in $pkg|panicked at|RustPanic| tracedraw *: panic:" \
+crashes=$(grep -E "FATAL EXCEPTION|Fatal signal|\*\*\* \*\*\* \*\*\*|Tombstone written|ANR in $pkg|panicked at|RustPanic| tracelaser *: panic:" \
     "$out/logcat.txt" "$out/crash.txt" || true)
 if [ -n "$crashes" ]; then
     echo "$crashes" >&2
@@ -413,8 +413,8 @@ if [ -n "$crashes" ]; then
 fi
 # The editor's own word that it drew (frame_stats logs its first frame),
 # found the system fonts, and the picture of it.
-grep -q " tracedraw *: .*first frame" "$out/logcat.txt" || fail "the editor never drew a frame"
-if grep -q " tracedraw *: .*loaded 0 font faces" "$out/logcat.txt"; then
+grep -q " tracelaser *: .*first frame" "$out/logcat.txt" || fail "the editor never drew a frame"
+if grep -q " tracelaser *: .*loaded 0 font faces" "$out/logcat.txt"; then
     fail "the editor found no system fonts"
 fi
 python3 scripts/android/screen_check.py "$out/screen.png" || fail "the screen does not show the editor"

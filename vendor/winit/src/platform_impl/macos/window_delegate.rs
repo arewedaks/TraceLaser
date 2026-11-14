@@ -32,7 +32,7 @@ use super::monitor::{self, flip_window_screen_coordinates, get_display_id};
 use super::observer::RunLoop;
 use super::view::WinitView;
 use super::window::WinitWindow;
-// TraceDraw: the pointer's place during a drag of files (#1142).
+// TraceLaser: the pointer's place during a drag of files (#1142).
 use super::DEVICE_ID;
 use super::{ffi, Fullscreen, MonitorHandle, OsError, WindowId};
 use crate::dpi::{LogicalPosition, LogicalSize, PhysicalPosition, PhysicalSize, Position, Size};
@@ -381,7 +381,7 @@ declare_class!(
             };
             let filenames: Retained<NSArray<NSString>> = unsafe { Retained::cast(filenames) };
 
-            // TraceDraw: where the drag is, before the files (#1142).
+            // TraceLaser: where the drag is, before the files (#1142).
             self.queue_drag_position(sender);
             filenames.into_iter().for_each(|file| {
                 let path = PathBuf::from(file.to_string());
@@ -391,7 +391,7 @@ declare_class!(
             true
         }
 
-        /// TraceDraw: invoked as the dragged image moves over the window;
+        /// TraceLaser: invoked as the dragged image moves over the window;
         /// its place goes out as a cursor move (#1142). The operation is a
         /// copy, as `draggingEntered:` answers.
         #[method(draggingUpdated:)]
@@ -423,7 +423,7 @@ declare_class!(
             };
             let filenames: Retained<NSArray<NSString>> = unsafe { Retained::cast(filenames) };
 
-            // TraceDraw: where the files were let go, before them (#1142).
+            // TraceLaser: where the files were let go, before them (#1142).
             self.queue_drag_position(sender);
             filenames.into_iter().for_each(|file| {
                 let path = PathBuf::from(file.to_string());
@@ -837,10 +837,10 @@ impl WindowDelegate {
         self.ivars().app_delegate.maybe_queue_window_event(self.window().id(), event);
     }
 
-    /// TraceDraw: the place of a drag of files over the window, from the
+    /// TraceLaser: the place of a drag of files over the window, from the
     /// dragging info `sender`, goes out as a cursor move: AppKit sends the
     /// view no mouse moves while files are dragged, and where they are
-    /// let go decides what TraceDraw does with them (TraceDraw #1142).
+    /// let go decides what TraceLaser does with them (TraceLaser #1142).
     fn queue_drag_position(&self, sender: &NSObject) {
         // SAFETY: `sender` conforms to NSDraggingInfo, whose
         // `draggingLocation` is the pointer in the window's base

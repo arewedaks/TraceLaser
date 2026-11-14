@@ -4,7 +4,7 @@
 
 A caneta de uma mesa digitalizadora move o ponteiro e clica como um mouse,
 então toda ferramenta funciona com ela. Onde o sistema também informa ao
-TraceDraw a força com que a caneta pressiona, as ferramentas Mão livre e
+TraceLaser a força com que a caneta pressiona, as ferramentas Mão livre e
 Pinceladas deixam essa pressão definir a largura do traço: pressione de leve
 para uma linha fina, com mais força para uma larga. O mouse desenha com
 largura uniforme, como antes.
@@ -52,7 +52,7 @@ A pressão vem ligada. Para desenhar com a caneta em largura uniforme, desligue
 | Versão para navegador | sim | sim, quando o navegador informa (veja abaixo) |
 
 Num ambiente Wayland (o padrão de vários sistemas Linux) a caneta ainda não
-chega ao TraceDraw. Inicie o TraceDraw com `tracedraw --x11` num terminal: a
+chega ao TraceLaser. Inicie o TraceLaser com `tracelaser --x11` num terminal: a
 janela então abre pelo XWayland, onde a caneta move o ponteiro, clica e
 informa a pressão.
 

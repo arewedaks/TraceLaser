@@ -1,6 +1,6 @@
 # Co nowego
 
-Każda wersja TraceDraw dodaje funkcje i poprawki. Ta strona wyjaśnia, jak
+Każda wersja TraceLaser dodaje funkcje i poprawki. Ta strona wyjaśnia, jak
 sprawdzić, co się zmieniło, i wymienia najważniejsze nowości ostatnich wersji.
 
 ## Nowości w programie {#in-the-program}
@@ -15,9 +15,9 @@ sprawdzić, co się zmieniło, i wymienia najważniejsze nowości ostatnich wers
   co nowe w tej wersji: mała kropka pojawia się na końcu każdego nowego
   polecenia, obok strzałki podmenu, które do niego prowadzi, i nad tytułem
   menu, które je zawiera. Oznaczenia znikają po wyłączeniu polecenia, a przy
-  następnym uruchomieniu TraceDraw polecenie znowu jest wyłączone.
+  następnym uruchomieniu TraceLaser polecenie znowu jest wyłączone.
 - Pełna lista zmian każdej wersji znajduje się w
-  [dzienniku zmian](https://github.com/tracedraw/tracedraw/blob/main/CHANGELOG.md)
+  [dzienniku zmian](https://github.com/arewedaks/TraceLaser/blob/main/CHANGELOG.md)
   projektu.
 
 ## Najważniejsze nowości ostatnich wersji {#highlights}
@@ -50,7 +50,7 @@ sprawdzić, co się zmieniło, i wymienia najważniejsze nowości ostatnich wers
   dole ustawia rozmiar. Zobacz [Porządkowanie obiektów i warstw](../objects/objects-and-layers.md#objects-docker).
 - **Pomoc w Twoim języku.** Każdy przycisk **?** i <kbd>F1</kbd> otwierają
   stronę tej Pomocy o oknie dialogowym, panelu lub narzędziu przed Tobą, w
-  języku ustawionym w TraceDraw.
+  języku ustawionym w TraceLaser.
 - **Właściwości dokumentu.**
   [[menu.file > menu.file.document_properties]] przechowuje język, tytuł,
   temat, autora, prawa autorskie, tagi, notatki i ocenę rysunku, nad pełnym

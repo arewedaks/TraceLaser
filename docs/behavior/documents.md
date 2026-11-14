@@ -79,11 +79,11 @@ changes, then shows the tab to its right, else the one to its left, else
 the Welcome Screen (the empty workspace when its tab is closed). Window > Close All closes every drawing, asking about
 each one with unsaved changes; Cancel stops. File > Exit, Alt+F4 and the
 window's close button do the same and quit when every drawing is closed.
-On macOS so do Command+Q, Quit TraceDraw in the application menu, the
+On macOS so do Command+Q, Quit TraceLaser in the application menu, the
 Dock icon's Quit and a log-out or shut-down (#1669): AppKit asks the
 application before it terminates (`applicationShouldTerminate:` in the
 patched winit, `winit::platform::macos::set_quit_handler`); with an
-unsaved drawing TraceDraw cancels the terminate and the next frame asks
+unsaved drawing TraceLaser cancels the terminate and the next frame asks
 about each one as File > Exit does (`system_quit`), with none the quit
 goes ahead at once. A log-out with unsaved drawings therefore stops at
 the question, as macOS expects of a document program.
@@ -99,14 +99,14 @@ file for it: the picture is drawn from the drawing itself when the file
 manager asks, so every `.tdraw` file has one, those saved by older
 versions included.
 
-- Windows: `tracedraw_thumbnailer.dll` (`apps/tracedraw-thumbnailer`), a
+- Windows: `tracelaser_thumbnailer.dll` (`apps/tracelaser-thumbnailer`), a
   thumbnail provider (`IThumbnailProvider` with `IInitializeWithStream`,
   class id `{6B1E5D3A-2F41-4C8E-9B7A-1D2C3E4F5A60}`). The setup copies it
-  beside `tracedraw.exe` and registers it under `Software\Classes` of the
+  beside `tracelaser.exe` and registers it under `Software\Classes` of the
   user (an install for the user alone) or of the machine (one for
   everybody): the class with `InprocServer32` and `ThreadingModel`
   Apartment, and the class id under `ShellEx\{e357fccd-a995-4576-b01f-234630154e96}`
-  of `.tdraw`, of `TraceDraw.Document` and of
+  of `.tdraw`, of `TraceLaser.Document` and of
   `SystemFileAssociations\.tdraw`, the last kept when another program
   opens `.tdraw` files. The Store package carries the DLL and declares
   the same class as a surrogate COM server with a `ThumbnailHandler` on
@@ -116,14 +116,14 @@ versions included.
   files seen before the install show their picture once the cache lets
   go of the icon (Disk Cleanup, Thumbnails).
 - Linux: the `.deb` installs the `application/x-tdraw` type and a
-  thumbnailer that runs `tracedraw-cli thumbnail`.
+  thumbnailer that runs `tracelaser-cli thumbnail`.
 
 Version 0.41 had no thumbnail provider; it came in 0.42.0 (#1740).
 
 ## Checks
 
-- `tracedraw_thumbnailer::tests::the_setup_and_the_release_build_ship_and_register_the_provider`
-  and `tracedraw_thumbnailer::tests::the_first_page_is_drawn_at_the_size_asked`.
+- `tracelaser_thumbnailer::tests::the_setup_and_the_release_build_ship_and_register_the_provider`
+  and `tracelaser_thumbnailer::tests::the_first_page_is_drawn_at_the_size_asked`.
 
 - `documents::tests::each_drawing_keeps_its_objects_history_and_selection`
 - `documents::tests::closing_moves_to_a_neighbour_then_to_the_welcome_screen`
@@ -135,7 +135,7 @@ Version 0.41 had no thumbnail provider; it came in 0.42.0 (#1740).
   (the patched winit's part)
 - On a Mac (by hand, no headless check): with an unsaved drawing,
   Command+Q, the application menu's Quit and the Dock icon's Quit each
-  show the Save / Don't Save / Cancel question; Cancel keeps TraceDraw
+  show the Save / Don't Save / Cancel question; Cancel keeps TraceLaser
   running, Don't Save quits; with nothing unsaved each quits at once.
 - Given a drawing open and the Welcome Screen shown, when its tab's
   close button is clicked, then the drawing shows and the tab is a house

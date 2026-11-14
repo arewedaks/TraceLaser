@@ -63,13 +63,13 @@ dialogs it keeps the rest of the application waiting until it closes.
 
 - A folder added is scanned for font files (TTF, OTF, TTC, OTC) three
   levels down, off the interface thread, and its fonts are loaded for
-  TraceDraw at once and at every start while the folder is in the
+  TraceLaser at once and at every start while the folder is in the
   libraries, so they can be used in drawings without Install. Remove
   Folder takes them out again, except files installed on their own or
   in another folder still added; the system's fonts are never taken out
   (#866, `ui::font_manager::tests::the_fonts_of_an_added_folder_are_usable`).
 - Install loads the picked faces' files into the font database for this
-  session and keeps their paths in the settings: TraceDraw loads them
+  session and keeps their paths in the settings: TraceLaser loads them
   again at every start. Add Font installs one file at once and keeps it
   for the next start on every platform (#1400): a file of the file
   system is remembered where it is; a font the Android picker returned
@@ -77,11 +77,11 @@ dialogs it keeps the rest of the application waiting until it closes.
   file at the next start) is copied into `fonts` in the app's settings
   folder and installed from the copy (a different font of the same name
   gets "name (2).ttf"); in the browser it is installed from the upload
-  and kept in the page's IndexedDB (database `tracedraw-fonts`, store
+  and kept in the page's IndexedDB (database `tracelaser-fonts`, store
   `fonts`) under `/fonts/<file name>`, the name the font list shows it
   by, and installed again when the page opens next. A file that is not a
   font is not kept. Uninstall removes the copy or the stored font too.
-- Uninstall takes out files installed for TraceDraw; the system's own
+- Uninstall takes out files installed for TraceLaser; the system's own
   fonts (in the operating system's font folders) are protected and are
   never uninstalled.
 - Folders, installed files, Favorites, collections, the sample text and
@@ -94,7 +94,7 @@ dialogs it keeps the rest of the application waiting until it closes.
 
 - Add Font keeps the font for the next start: a picked Android document
   is copied and installed from the copy, a browser upload is stored
-  under `/fonts/<name>` and listed as installed for TraceDraw, a desktop
+  under `/fonts/<name>` and listed as installed for TraceLaser, a desktop
   file stays where it is; the next start installs them; Uninstall
   removes a copy; a file that is not a font is not kept
   (`ui::font_manager::tests::an_added_font_is_kept_for_the_next_start_everywhere`,

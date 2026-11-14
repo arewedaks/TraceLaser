@@ -1,7 +1,7 @@
 # Dropping files on the window
 
 Files dragged from the desktop or a file manager (in a browser: from the
-computer onto the page) and let go over the TraceDraw window open or
+computer onto the page) and let go over the TraceLaser window open or
 import, with no dialog.
 
 ## What a drop does
@@ -36,7 +36,7 @@ way round it): a drag offering a list of files (`text/uri-list`) is
 accepted as a copy and its list read at once, so the hint knows the
 files while they hover; the drop then gives the files, and the window
 tells the file manager the copy is done. Over the window's frame (its
-title bar drawn by TraceDraw's windowing layer) the place counts as
+title bar drawn by TraceLaser's windowing layer) the place counts as
 outside the drawing window, so a drawing opens. Only local `file:`
 addresses are taken.
 
@@ -59,7 +59,7 @@ over the drawing window is imported like a `.cdr`
 (`a_tdraw_dropped_on_a_drawing_is_imported_into_it`, #1142). On Windows
 the frame shows only while a mouse button is held: a drag taken away
 without a drop could leave the files listed as hovered, and the frame
-then stayed over the window until TraceDraw was closed
+then stayed over the window until TraceLaser was closed
 (`drop_files::drag_held`, #2350).
 
 ## Browser build

@@ -53,6 +53,6 @@ under 0.5) turned by Hue alone stays exactly as it was. The colour comes
 back in its own model: a CMYK colour stays CMYK, an RGB colour RGB, a
 grey stays grey unless it took a hue (a tint), and then becomes RGB.
 
-Code: `tracedraw_core::recolor` (`Recolor::apply`, `recolor_document`),
-`Command::Recolor`, `apps/tracedraw/src/ui/recolor.rs`. Tests:
+Code: `tracelaser_core::recolor` (`Recolor::apply`, `recolor_document`),
+`Command::Recolor`, `apps/tracelaser/src/ui/recolor.rs`. Tests:
 `recolor::tests`, `ui::recolor::tests`.

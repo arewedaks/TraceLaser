@@ -463,17 +463,17 @@ pueden mostrar sus propios atajos; vea
 
 | Comando | Vea |
 |---|---|
-| [[menu.help.help_topics]] | [Bienvenido a la Ayuda de TraceDraw](../index.md#in-the-app) |
-| [[menu.help.product_help]] | [Bienvenido a la Ayuda de TraceDraw](../index.md#in-the-app) |
-| [[menu.help.welcome_screen]] | [Acerca de TraceDraw y actualizaciones](../welcome/about-and-updates.md) |
-| [[menu.help.video_tutorials]] | [Acerca de TraceDraw y actualizaciones](../welcome/about-and-updates.md) |
+| [[menu.help.help_topics]] | [Bienvenido a la Ayuda de TraceLaser](../index.md#in-the-app) |
+| [[menu.help.product_help]] | [Bienvenido a la Ayuda de TraceLaser](../index.md#in-the-app) |
+| [[menu.help.welcome_screen]] | [Acerca de TraceLaser y actualizaciones](../welcome/about-and-updates.md) |
+| [[menu.help.video_tutorials]] | [Acerca de TraceLaser y actualizaciones](../welcome/about-and-updates.md) |
 | [[menu.help.hints]] | [The Hints panel](../get-started/hints.md) |
-| [[menu.help.quick_start_guide]] | [Acerca de TraceDraw y actualizaciones](../welcome/about-and-updates.md) |
-| [[menu.help.user_guide]] | [Acerca de TraceDraw y actualizaciones](../welcome/about-and-updates.md) |
+| [[menu.help.quick_start_guide]] | [Acerca de TraceLaser y actualizaciones](../welcome/about-and-updates.md) |
+| [[menu.help.user_guide]] | [Acerca de TraceLaser y actualizaciones](../welcome/about-and-updates.md) |
 | [[menu.help.whats_new]] | [Novedades](../welcome/whats-new.md) |
 | [[menu.help.highlight_whats_new]] | [Novedades](../welcome/whats-new.md) |
-| [[menu.help.updates]] | [Acerca de TraceDraw y actualizaciones](../welcome/about-and-updates.md) |
-| [[menu.help.message_settings]] | [Acerca de TraceDraw y actualizaciones](../welcome/about-and-updates.md) |
-| [[menu.help.community]] | [Acerca de TraceDraw y actualizaciones](../welcome/about-and-updates.md) |
-| [[menu.help.support]] | [Acerca de TraceDraw y actualizaciones](../welcome/about-and-updates.md) |
-| [[menu.help.about]] | [Acerca de TraceDraw y actualizaciones](../welcome/about-and-updates.md) |
+| [[menu.help.updates]] | [Acerca de TraceLaser y actualizaciones](../welcome/about-and-updates.md) |
+| [[menu.help.message_settings]] | [Acerca de TraceLaser y actualizaciones](../welcome/about-and-updates.md) |
+| [[menu.help.community]] | [Acerca de TraceLaser y actualizaciones](../welcome/about-and-updates.md) |
+| [[menu.help.support]] | [Acerca de TraceLaser y actualizaciones](../welcome/about-and-updates.md) |
+| [[menu.help.about]] | [Acerca de TraceLaser y actualizaciones](../welcome/about-and-updates.md) |

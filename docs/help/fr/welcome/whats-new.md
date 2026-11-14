@@ -1,6 +1,6 @@
 # Nouveautés
 
-Chaque version de TraceDraw ajoute des fonctions et des corrections. Cette
+Chaque version de TraceLaser ajoute des fonctions et des corrections. Cette
 page explique comment savoir ce qui a changé et présente les points forts des
 dernières versions.
 
@@ -18,9 +18,9 @@ dernières versions.
   fin de chaque nouvelle commande, à côté de la flèche d'un sous-menu qui y
   mène, et au-dessus du titre d'un menu qui en contient une. Les marques
   disparaissent quand vous désactivez la commande, et la commande est de
-  nouveau désactivée au prochain démarrage de TraceDraw.
+  nouveau désactivée au prochain démarrage de TraceLaser.
 - La liste complète des changements de chaque version se trouve dans le
-  [journal des modifications](https://github.com/tracedraw/tracedraw/blob/main/CHANGELOG.md)
+  [journal des modifications](https://github.com/arewedaks/TraceLaser/blob/main/CHANGELOG.md)
   du projet.
 
 ## Points forts des dernières versions {#highlights}
@@ -57,7 +57,7 @@ dernières versions.
   [Organiser les objets et les calques](../objects/objects-and-layers.md#objects-docker).
 - **L'Aide dans votre langue.** Chaque bouton **?** et <kbd>F1</kbd> ouvrent
   la page de cette Aide sur la boîte de dialogue, le panneau ou l'outil devant
-  vous, dans la langue choisie dans TraceDraw.
+  vous, dans la langue choisie dans TraceLaser.
 - **Propriétés du document.**
   [[menu.file > menu.file.document_properties]] conserve la langue, le titre,
   le sujet, l'auteur, le copyright, les mots-clés, les notes et la note d'un

@@ -1084,7 +1084,7 @@ impl WinitView {
             position: view_point.to_physical(self.scale_factor()),
         });
 
-        // TraceDraw: a graphics tablet's pen moves the mouse with a
+        // TraceLaser: a graphics tablet's pen moves the mouse with a
         // tablet point subtype and its pressure in `pressure`, 0 to 1. It
         // goes out as a touch that moves with a force, as the Windows
         // backend reports a pen; never as a touch that starts or ends,

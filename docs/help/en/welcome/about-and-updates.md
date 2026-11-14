@@ -1,6 +1,6 @@
-# About TraceDraw and updates
+# About TraceLaser and updates
 
-TraceDraw is free and open source. This page explains how to see which
+TraceLaser is free and open source. This page explains how to see which
 version you have, how to get a newer one, and where to ask for help.
 
 ## The About box {#about}
@@ -10,16 +10,16 @@ the author, the license, a link to the source code and what the program is
 built with. Press [[dialog.close]], <kbd>Enter</kbd> or <kbd>Esc</kbd> to
 close it.
 
-![The About TraceDraw box](../../img/welcome-about-and-updates-about.png)
+![The About TraceLaser box](../../img/welcome-about-and-updates-about.png)
 
 ## Checking for updates {#updates}
 
-On the desktop, TraceDraw can tell you when a newer version is released.
+On the desktop, TraceLaser can tell you when a newer version is released.
 
 To check now:
 
 1. Choose [[menu.help > menu.help.updates]].
-2. TraceDraw asks the project's release page for the latest version and
+2. TraceLaser asks the project's release page for the latest version and
    says whether it is newer than yours. Test builds and nightly builds are
    never offered.
 3. When a newer version exists, choose what to do:
@@ -32,11 +32,11 @@ To check now:
    - [[dialog.close]] closes the box.
 
 When a newer version is known, a card opens in the middle of the window when
-TraceDraw starts, with the two version numbers and **Update now**, so you can
+TraceLaser starts, with the two version numbers and **Update now**, so you can
 update without opening the menu. **What's new** opens the release notes and
 **Dismiss** closes the card until the next start. Nothing is downloaded until
 you choose Update now. Once you do, the card shows the same steps as the
-Updating TraceDraw window described below, with **Cancel** while the file
+Updating TraceLaser window described below, with **Cancel** while the file
 downloads and **Restart Now** when the update is ready.
 
 When your copy can update itself, the box also offers **Install**, so you do
@@ -44,7 +44,7 @@ not have to uninstall anything first. That is the case for every copy that has
 a download: the Windows installer and portable zip, the Mac app, and the Linux
 AppImage, archive and `.deb`.
 
-Install opens the **Updating TraceDraw** window, which shows the two version
+Install opens the **Updating TraceLaser** window, which shows the two version
 numbers and each step as it happens:
 
 1. **Downloading**: a bar fills up with the percentage done, and the line
@@ -52,31 +52,31 @@ numbers and each step as it happens:
    estimated, about how long is left. **Cancel** stops the download at once
    and deletes what was downloaded; nothing is changed. Closing the window
    lets the download go on, and the update card shows its progress.
-2. **Checking the download**: TraceDraw makes sure the file is complete and
+2. **Checking the download**: TraceLaser makes sure the file is complete and
    genuine (its SHA-256 digest must match the release's).
 3. **Installing**: the new version is put in place. This step cannot be
    cancelled half way.
 
-When it is done, a green check mark says **TraceDraw is ready**, with
+When it is done, a green check mark says **TraceLaser is ready**, with
 **Restart Now** and **Later**:
 
-- on the **Windows installer**, Restart Now closes TraceDraw (asking about
+- on the **Windows installer**, Restart Now closes TraceLaser (asking about
   drawings with unsaved changes), the installer runs over this copy and keeps
   your settings and file associations, and the new version starts by itself;
 - on the **Windows portable zip**, the program and its files were replaced in
   place, the settings folder untouched; Restart Now opens the new version;
-- on a **Linux `.deb`**, Restart Now closes TraceDraw, the system asks for
-  your administrator password, installs the package and TraceDraw starts
+- on a **Linux `.deb`**, Restart Now closes TraceLaser, the system asks for
+  your administrator password, installs the package and TraceLaser starts
   again (the old version starts if you cancel the password);
 - on a **Linux archive** (tar.gz), the program was replaced in place; Restart
   Now opens the new version;
-- on a **Mac**, the TraceDraw app was replaced in place; Restart Now opens the
+- on a **Mac**, the TraceLaser app was replaced in place; Restart Now opens the
   new version;
 - on a **Linux AppImage**, the new file took the place of the old one;
   Restart Now opens the new version.
 
 Choose **Later** to keep working: the new version then runs the next time you
-open TraceDraw (on Windows, the downloaded installer is not run until you
+open TraceLaser (on Windows, the downloaded installer is not run until you
 choose Restart Now; on a `.deb`, the downloaded package is not installed
 until then). If anything goes wrong, the old version stays as it was and the
 window says what happened in plain words (for example that the download
@@ -93,10 +93,10 @@ says so and offers the releases page.
 
 [[menu.tools > menu.tools.options > menu.tools.options_global]], page
 [[options.general]], has a setting to check for updates at start. It
-is on at first: once a day, TraceDraw checks quietly when it starts and only
+is on at first: once a day, TraceLaser checks quietly when it starts and only
 speaks up when a newer version that you have not skipped is out.
 
-The first time TraceDraw starts, it asks whether to check for updates: [[updates.policy_always]] or [[updates.policy_never]]. Until you answer, TraceDraw makes no connection on its own. The answer sets this option, so you can change it here at any time.
+The first time TraceLaser starts, it asks whether to check for updates: [[updates.policy_always]] or [[updates.policy_never]]. Until you answer, TraceLaser makes no connection on its own. The answer sets this option, so you can change it here at any time.
 
 > **Note:** The browser version is always the latest one. There,
 > [[menu.help > menu.help.updates]] opens the releases page.
@@ -110,7 +110,7 @@ image).
 
 ## The Welcome Screen {#welcome-screen}
 
-The Welcome Screen is the first tab when TraceDraw starts. From it you can
+The Welcome Screen is the first tab when TraceLaser starts. From it you can
 create a drawing, open one of the drawings you used last (each shown with a
 thumbnail; [[menu.file.clear_recent]] forgets them), start from a template,
 read the news and find learning material. When a page is taller than the
@@ -128,4 +128,4 @@ and [[menu.help.user_guide]] open its learning page, and
 - [[menu.help > menu.help.support]] opens the issue tracker, where you can
   report a problem.
 - [[menu.help > menu.help.message_settings]] opens the options where
-  TraceDraw's messages are set.
+  TraceLaser's messages are set.

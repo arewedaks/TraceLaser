@@ -1,23 +1,23 @@
-# TraceDraw options
+# TraceLaser options
 
 [[menu.tools > menu.tools.options > menu.tools.options_app]] (<kbd>Ctrl+J</kbd>)
 sets how the program works. Choose a page from the list on the left.
 
 ## General {#general}
 
-![The General page of the TraceDraw options](../../img/customize-options-app-general.png)
+![The General page of the TraceLaser options](../../img/customize-options-app-general.png)
 
 - [[options.on_startup]]: show the Welcome Screen, start a new document, or
   open the last edited document.
 - [[options.show_new_document_dialog]] (on): ask for the settings of a new
   drawing; see [Creating a drawing](../get-started/new-document.md).
 - [[options.show_splash]] (on).
-- [[options.hardware_acceleration]] (on): draw the window with the graphics card chosen beside it ([[options.gpu_automatic]] at first); off, with the computer's software renderer. It takes effect at the next start. If the window cannot open that way, TraceDraw starts again with the software renderer, then with OpenGL, and keeps the one that worked.
+- [[options.hardware_acceleration]] (on): draw the window with the graphics card chosen beside it ([[options.gpu_automatic]] at first); off, with the computer's software renderer. It takes effect at the next start. If the window cannot open that way, TraceLaser starts again with the software renderer, then with OpenGL, and keeps the one that worked.
 - [[options.undo_levels]]: how many steps you can undo (150 at first).
 
 ## Display {#display}
 
-![The Display page of the TraceDraw options](../../img/customize-options-app-display.png)
+![The Display page of the TraceLaser options](../../img/customize-options-app-display.png)
 
 - [[menu.view.proof_colors]]: show colors as they will print.
 - [[options.show_tooltips]] (on), [[options.hide_bbox_curve_tools]] and
@@ -32,14 +32,14 @@ sets how the program works. Choose a page from the list on the left.
   [[options.open_view_percent]] (a zoom of your own, typed beside the list,
   with the page in the middle of the window) or
   [[options.open_view_saved]] (the page, place and zoom kept each time a
-  TraceDraw file is saved).
+  TraceLaser file is saved).
 - [[options.ruler_calibration]]: hold a ruler against the screen and change
   the [[options.screen_resolution]] until the marks match, so that zoom 100%
   shows real sizes. [[options.reset]] puts back 96.
 
 ## Edit {#edit}
 
-![The Edit page of the TraceDraw options](../../img/customize-options-app-edit.png)
+![The Edit page of the TraceLaser options](../../img/customize-options-app-edit.png)
 
 - [[options.constrain_angle]]: the step of <kbd>Ctrl</kbd> when rotating and
   drawing (15 degrees at first).
@@ -50,7 +50,7 @@ sets how the program works. Choose a page from the list on the left.
 
 ## Nodes and Handles {#nodes-and-handles}
 
-![The Nodes and Handles page of the TraceDraw options](../../img/customize-options-app-nodes-and-handles.png)
+![The Nodes and Handles page of the TraceLaser options](../../img/customize-options-app-nodes-and-handles.png)
 
 - [[options.node_size]]: small, medium or large.
 - [[options.node_shape]] for [[options.node_cusp]], [[options.node_smooth]]
@@ -63,7 +63,7 @@ sets how the program works. Choose a page from the list on the left.
 
 ## Clip Frame {#clip-frame}
 
-![The Clip Frame page of the TraceDraw options](../../img/customize-options-app-clip-frame.png)
+![The Clip Frame page of the TraceLaser options](../../img/customize-options-app-clip-frame.png)
 
 - [[options.auto_center]]: [[options.auto_center_outside]] (at first),
   [[options.auto_center_always]] or [[options.auto_center_never]].
@@ -73,7 +73,7 @@ See [Placing objects inside a frame](../objects/clip-frames.md).
 
 ## Snapping {#snapping}
 
-![The Snapping page of the TraceDraw options](../../img/customize-options-app-snapping.png)
+![The Snapping page of the TraceLaser options](../../img/customize-options-app-snapping.png)
 
 - [[options.snap_to_objects]], [[options.snap_to_page]],
   [[options.snap_to_guidelines]], [[options.snap_to_grid]], the baseline grid
@@ -87,7 +87,7 @@ See [Snapping](../pages-layout/snapping.md).
 
 ## Save {#save}
 
-![The Save page of the TraceDraw options](../../img/customize-options-app-save.png)
+![The Save page of the TraceLaser options](../../img/customize-options-app-save.png)
 
 - [[options.backup]]: [[options.backup_before_save]] (on) keeps the previous
   file as `backup_of_<name>`, [[options.backup_to]] the
@@ -98,7 +98,7 @@ See [Snapping](../pages-layout/snapping.md).
 
 ## Text {#text}
 
-![The Text page of the TraceDraw options](../../img/customize-options-app-text.png)
+![The Text page of the TraceLaser options](../../img/customize-options-app-text.png)
 
 The page has five tabs.
 

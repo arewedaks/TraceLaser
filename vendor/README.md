@@ -1,11 +1,11 @@
 # Patched dependencies
 
-Copies of published crates with a small change TraceDraw needs before the
+Copies of published crates with a small change TraceLaser needs before the
 upstream release that carries it can be used. They are not workspace
 members (`exclude` in the root `Cargo.toml`) and are wired in with
 `[patch.crates-io]`. Each is the published crate as downloaded from
 crates.io, licence and authors unchanged (see `ATTRIBUTION.md`), with the
-change marked `TraceDraw:` in a comment.
+change marked `TraceLaser:` in a comment.
 
 ## eframe 0.36.2
 
@@ -17,16 +17,16 @@ change marked `TraceDraw:` in a comment.
   older Intel drivers, so a card with OpenGL 2.1 only (Intel HD Graphics
   Ironlake, #616) could not open the window with `--renderer=gl`.
 - `create_first_context` sits in `native/first_context.rs` (0.37 has it in
-  `glow_integration.rs`) with its tests, so that TraceDraw's tests include
+  `glow_integration.rs`) with its tests, so that TraceLaser's tests include
   and run it (`gpu::eframe_context_fallback::tests`); the copy's own tests
   run in no gate. The licence texts, which the published crate leaves
   out, are egui's `LICENSE-MIT` and `LICENSE-APACHE` at tag 0.36.2.
 - Change: a painter for the fixed-function OpenGL pipeline
   (`native/fixed_function_painter.rs`, its arithmetic and tests in
   `native/fixed_function_geometry.rs`, the choice in
-  `native/gl_painter.rs`), TraceDraw's own code. The OpenGL renderer draws
+  `native/gl_painter.rs`), TraceLaser's own code. The OpenGL renderer draws
   with it instead of `egui_glow`'s painter when the context is desktop
-  OpenGL below 3.0, or when `TRACEDRAW_GL_PAINTER=fixed` asks for it
+  OpenGL below 3.0, or when `TRACELASER_GL_PAINTER=fixed` asks for it
   (`shaders` asks for `egui_glow`'s): client-side vertex arrays and
   `GL_MODULATE` texturing, no shaders, buffer objects or vertex array
   objects. The OpenGL 2.1 driver of the Intel HD Graphics of 2010
@@ -34,13 +34,13 @@ change marked `TraceDraw:` in a comment.
   draws everything after the first mesh of a frame as black boxes and
   stray triangles; the fixed-function pipeline is what such drivers were
   made for, and it computes what egui's shader does (vertex colour times
-  texel, premultiplied alpha). `TRACEDRAW_GL_CONTEXT=compat` asks for the
+  texel, premultiplied alpha). `TRACELASER_GL_CONTEXT=compat` asks for the
   compatibility profile before OpenGL 3.3 core and OpenGL ES, for tests
   under Mesa forced to OpenGL 2.1 (which would answer the ES attempt);
   `fixed` alone, on a core profile, draws nothing (every fixed-function
   call is invalid there, the log shows `OpenGL error` lines), which is
-  how TraceDraw's read-back check of the renderer is exercised.
-  TraceDraw's tests include and run the arithmetic
+  how TraceLaser's read-back check of the renderer is exercised.
+  TraceLaser's tests include and run the arithmetic
   (`gpu::eframe_fixed_function_geometry::tests`).
 - Change: a window made maximized is not given its size and position a
   second time once it exists (`native/window_start.rs`, used by
@@ -50,15 +50,15 @@ change marked `TraceDraw:` in a comment.
   the monitor's scaling; the window already has that size as the size it
   restores to, and on Windows a size or position asked for after the
   maximize clears it, so the hidden window was restored, shown at its
-  normal size for a moment and maximized again: TraceDraw started without
+  normal size for a moment and maximized again: TraceLaser started without
   the splash screen opened at its normal size and then grew to the
-  screen (#787). TraceDraw's tests include and run it
+  screen (#787). TraceLaser's tests include and run it
   (`splash::eframe_window_start::tests`). Check whether egui 0.37 still
   needs it before dropping the copy.
 - Change: in the browser, `dragover` and `drop` (`web/events.rs`,
   `install_drag_and_drop`) push a pointer move at the event's place
   before the hovered or dropped files (#1142): the browser sends no mouse
-  moves while files are dragged over the page, so TraceDraw could not
+  moves while files are dragged over the page, so TraceLaser could not
   tell a drop on the drawing (import) from one on the menus or tabs
   (open in a tab of its own), and the hint always said "Drop to open".
 - Change: in the browser, a pen's pointer events send its pressure
@@ -70,7 +70,7 @@ change marked `TraceDraw:` in a comment.
   (`push_pen_pressure`), and sends it as the patched winit copy does on
   X11 and macOS: an `egui::Event::Touch` of phase `Move` only, of a
   device of its own (`PEN_DEVICE`), with the reading as `force`, which
-  TraceDraw's raw input hook reads and takes out (`pen.rs`,
+  TraceLaser's raw input hook reads and takes out (`pen.rs`,
   `docs/behavior/pen-pressure.md`). The pen's position comes from its
   own `pointerdown` and `pointermove` too (`pen_moved`, #1655): Safari
   on iPad sends an Apple Pencil no mouse events at all, so the Pencil
@@ -89,7 +89,7 @@ change marked `TraceDraw:` in a comment.
   0.5 counts as no pressure until a pen has given another reading
   (`WebInput::pen`), since a pen that cannot measure pressure reports
   0.5 while pressed. The arithmetic is in `web/pen_pressure.rs`, which
-  uses nothing of the crate but egui; TraceDraw's tests include and run
+  uses nothing of the crate but egui; TraceLaser's tests include and run
   it (`eframe_web_pen_pressure::tests`).
 - Change: the application can keep a paste shortcut from egui-winit's
   clipboard text read (#1488). egui-winit reads the clipboard as text on
@@ -98,7 +98,7 @@ change marked `TraceDraw:` in a comment.
   with a picture of about 1 MB) answers that text request with its
   picture in parts (INCR); the clipboard library stops after the first
   part, and the owner then waits for the rest of that transfer forever
-  and answers no other request, so TraceDraw's own picture read timed
+  and answers no other request, so TraceLaser's own picture read timed
   out, the picture never pasted and the window froze for about 24 s.
   `native/paste_gate.rs` holds `set_paste_text_gate` (exported from the
   crate root) and `blocks`, which `EpiIntegration::on_window_event`
@@ -108,10 +108,10 @@ change marked `TraceDraw:` in a comment.
   egui-winit neither reads the clipboard nor sends a paste event, as when
   the clipboard holds no text; the application sees the key's release
   and pastes by itself. `blocks` also follows the modifier keys from
-  `ModifiersChanged`. With no gate set, nothing changes. TraceDraw's
+  `ModifiersChanged`. With no gate set, nothing changes. TraceLaser's
   gate (`clipboard::paste_may_read_text`) reads the X11 clipboard's
   types and lets the text be read only when a text type is offered.
-  TraceDraw's tests include and run the key test
+  TraceLaser's tests include and run the key test
   (`clipboard::eframe_paste_gate::tests`). When moving to a newer egui,
   check whether egui-winit still reads the text this way.
 - Change: a window started `centered` is centred where the primary
@@ -126,7 +126,7 @@ change marked `TraceDraw:` in a comment.
   arithmetic), `remember_primary` and `primary_monitor` (exported from
   the crate root: `[x, y, width, height]` in system points); the
   application centres its main window with them
-  (`splash::open_main_window`). TraceDraw's tests include and run it
+  (`splash::open_main_window`). TraceLaser's tests include and run it
   (`splash::eframe_monitor_place::tests`). When moving to a newer
   eframe, check whether it centres with the monitor's position.
 - Drop the copy and the `[patch.crates-io]` entry when the workspace moves
@@ -140,7 +140,7 @@ change marked `TraceDraw:` in a comment.
 - Change: a graphics tablet's pen reports its pressure on X11 and macOS
   (#850). winit 0.30 carries pen pressure on Windows only, as a
   `WindowEvent::Touch` with a `force`, which egui-winit hands to egui as
-  `Event::Touch { force }` and TraceDraw reads (`apps/tracedraw/src/pen.rs`,
+  `Event::Touch { force }` and TraceLaser reads (`apps/tracelaser/src/pen.rs`,
   `docs/behavior/pen-pressure.md`). The copy does the same on the two
   other desktops:
   - X11 (`platform_impl/linux/x11/mod.rs`, `event_processor.rs`,
@@ -159,7 +159,7 @@ change marked `TraceDraw:` in a comment.
     magnify, smart magnify and rotate gestures go through the same
     `mouse_motion`, and AppKit raises an exception for `subtype` on them.
   - `src/pen_pressure.rs`: the shared arithmetic, with its tests; it
-    depends on nothing in the crate, and TraceDraw's tests include and
+    depends on nothing in the crate, and TraceLaser's tests include and
     run it (`winit_pen_pressure::tests`).
   - Only `Moved` touches are sent, never `Started` or `Ended`: egui-winit
     turns those into presses and releases of the primary button, which
@@ -168,7 +168,7 @@ change marked `TraceDraw:` in a comment.
     egui itself would still take any `Event::Touch` for a touch screen
     for the rest of the session (it makes a touch state for the device,
     and `has_touch_screen` turns on: lists scroll by dragging, windows
-    move from anywhere, labels lose drag selection), so TraceDraw's raw
+    move from anywhere, labels lose drag selection), so TraceLaser's raw
     input hook reads the force and then takes out every `Moved` touch
     whose id never had a `Started` one (`pen::filter_raw_input`); a real
     touch screen's touches start, move and end, and pass as they came.
@@ -177,7 +177,7 @@ change marked `TraceDraw:` in a comment.
   winit 0.30 binds no tablet protocol, and a Wayland compositor sends a
   pen's input over nothing else (GNOME's sends a window that does not
   bind it nothing), so the pen did not move the pointer or draw; only
-  XWayland (`tracedraw --x11`) took it. The copy binds the public
+  XWayland (`tracelaser --x11`) took it. The copy binds the public
   tablet-v2 protocol (`zwp_tablet_manager_v2`, version 1, from
   `wayland-protocols`, already a dependency) and makes a tablet seat for
   each seat (`platform_impl/linux/wayland/state.rs`, `seat/mod.rs`);
@@ -198,7 +198,7 @@ change marked `TraceDraw:` in a comment.
   `set_custom_cursor` and `set_cursor_visible`): a named cursor through
   `wp_cursor_shape_manager_v1` (`tablet_tool::cursor_shape_value`), a
   custom image on a surface of the tool's own (`zwp_tablet_tool_v2.
-  set_cursor`), none while the window hides its cursor (TraceDraw draws
+  set_cursor`), none while the window hides its cursor (TraceLaser draws
   its tool cursors itself, so the pen showed the compositor's arrow on
   top of them before); over the window's frame the default arrow. The
   tilt is read and goes out with the pressure as the pen's altitude in
@@ -207,7 +207,7 @@ change marked `TraceDraw:` in a comment.
   Distance, rotation, slider and wheel, and the pad's buttons, rings and
   strips, are not read; over the window's frame the pen drives the
   frame (next change).
-  `src/tablet_tool.rs` depends on nothing in the crate, and TraceDraw's
+  `src/tablet_tool.rs` depends on nothing in the crate, and TraceLaser's
   tests include and run it (`winit_tablet_tool::tests`).
 - Change: a finger and a graphics tablet's pen drive the window's frame
   on Wayland (#2070). A compositor without the `xdg-decoration`
@@ -231,7 +231,7 @@ change marked `TraceDraw:` in a comment.
   on the first seat. `WindowState::frame_input` (`window/state.rs`)
   hands the steps to the frame, and a leave drops a move asked for and
   not started. What each input tells the frame is in `src/frame_input.rs`,
-  which depends on nothing in the crate; TraceDraw's tests include and
+  which depends on nothing in the crate; TraceLaser's tests include and
   run it (`winit_frame_input::tests`).
 - Change: macOS hands the files opened from Finder (double click, Open
   With, a file dropped on the Dock icon) to the program (#646). macOS sends
@@ -243,12 +243,12 @@ change marked `TraceDraw:` in a comment.
   `platform::macos::set_open_files_handler`, or keeps them until one is
   set (at launch they come before the window exists). The manifest asks
   `objc2-foundation` for `NSURL` as well. `src/opened_files.rs` depends on
-  nothing in the crate, and TraceDraw's tests include and run it
+  nothing in the crate, and TraceLaser's tests include and run it
   (`winit_opened_files::tests`).
 - Change: the pointer's place while files are dragged over the window
   (#1142). winit 0.30's file drag events (`HoveredFile`, `DroppedFile`)
   carry no position, and the system drag sends the window no mouse
-  moves, so TraceDraw could not tell a drop on the drawing (import) from
+  moves, so TraceLaser could not tell a drop on the drawing (import) from
   one on the menus or tabs (open in a tab of its own). The copy sends a
   `WindowEvent::CursorMoved` with the place, which egui-winit hands on as
   a pointer move:
@@ -265,7 +265,7 @@ change marked `TraceDraw:` in a comment.
 - Change: files dropped on a native Wayland window (#1142). winit 0.30
   binds no `wl_data_device`, so a Wayland window received no
   `HoveredFile` or `DroppedFile` at all and the compositor showed the drag
-  as refused; only XWayland (`tracedraw --x11`) took drops. The copy binds
+  as refused; only XWayland (`tracelaser --x11`) took drops. The copy binds
   the data device manager and makes a data device for each seat
   (`platform_impl/linux/wayland/state.rs`, `seat/mod.rs`), and
   `platform_impl/linux/wayland/data_device.rs` handles the drag with the
@@ -279,21 +279,21 @@ change marked `TraceDraw:` in a comment.
   then finishes and destroys the offer; a drag that leaves without a
   drop sends `HoveredFileCancelled`. What to send is decided by
   `src/file_drop.rs` (the list's parsing, RFC 2483, and the drag's
-  states), which depends on nothing in the crate; TraceDraw's tests
+  states), which depends on nothing in the crate; TraceLaser's tests
   include and run it (`winit_file_drop::tests`).
 - Change: macOS asks the program before the application quits (#1669).
   The default application menu's Quit item (Command+Q), the Dock icon's
   Quit and a log-out or shut-down send `terminate:`; winit 0.30's
   application delegate has no `applicationShouldTerminate:`, so AppKit
   terminated at once, `applicationWillTerminate:` ended the event loop
-  and no window had a `CloseRequested`: TraceDraw could not ask about
+  and no window had a `CloseRequested`: TraceLaser could not ask about
   unsaved drawings. The delegate (`platform_impl/macos/app_state.rs`)
   now answers `applicationShouldTerminate:` by asking `src/quit_request.rs`,
   which calls the handler the program set with
   `platform::macos::set_quit_handler`: `true` cancels the terminate
   (`NSTerminateCancel`, the program then closes its window itself),
   `false` or no handler lets it go ahead (`NSTerminateNow`, as before).
-  `src/quit_request.rs` depends on nothing in the crate, and TraceDraw's
+  `src/quit_request.rs` depends on nothing in the crate, and TraceLaser's
   tests include and run it (`winit_quit_request::tests`).
 - Change: Android reports each pointer with its tool to the program,
   for palm rejection (#1832). winit 0.30 turns every pointer of a
@@ -307,9 +307,9 @@ change marked `TraceDraw:` in a comment.
   `platform::android::set_pointer_filter` answers whether to deliver the
   touch and which touches of the event to end first with `Cancelled`.
   With no filter set every touch is delivered, as before. The file
-  depends on nothing in the crate, and TraceDraw's tests include and run
-  it (`palm::winit_pointer_filter::tests`); TraceDraw's filter is
-  `apps/tracedraw/src/palm.rs`.
+  depends on nothing in the crate, and TraceLaser's tests include and run
+  it (`palm::winit_pointer_filter::tests`); TraceLaser's filter is
+  `apps/tracelaser/src/palm.rs`.
 - Change: on Windows a window's theme set by the program reaches its
   title bar (#1920). `Window::set_theme` called only the undocumented
   composition attribute (`WCA_USEDARKMODECOLORS`) and `SetWindowTheme`,
@@ -339,7 +339,7 @@ change marked `TraceDraw:` in a comment.
   this window under it, no `CursorLeft` is sent; the inside flag is
   cleared all the same, so the next move enters again and asks for the
   leave tracking anew. Both decisions are in `src/alt_shortcuts.rs`,
-  which depends on nothing in the crate; TraceDraw's tests include and
+  which depends on nothing in the crate; TraceLaser's tests include and
   run it (`winit_alt_shortcuts::tests`).
 - Change: on Windows a window's minimum and maximum size follow the
   monitor's scaling (#2487). egui-winit gives every size bound in
@@ -354,7 +354,7 @@ change marked `TraceDraw:` in a comment.
   `WM_GETMINMAXINFO` and `WM_DPICHANGED` read it at each monitor's own
   scaling; a bound given in logical units is kept as it was. The
   arithmetic is in `src/size_bounds.rs`, which depends on nothing in the
-  crate; TraceDraw's tests include and run it
+  crate; TraceLaser's tests include and run it
   (`winit_size_bounds::tests`). Not run on Windows here: the copy is
   checked to build for `x86_64-pc-windows-gnu`.
 - Change: on Windows 11 a window whose scaling changed takes the
@@ -381,7 +381,7 @@ change marked `TraceDraw:` in a comment.
   buttons that changed in the event's button state, `MouseWheel` in lines
   from `AXIS_VSCROLL` and `AXIS_HSCROLL`, `CursorLeft` once a hover ended
   and no press followed in the same batch of events). The file depends on
-  nothing in the crate, and TraceDraw's tests include and run it
+  nothing in the crate, and TraceLaser's tests include and run it
   (`winit_android_mouse::tests`).
 - Change: Android passes on the modifier keys of a hardware keyboard
   (#2052). winit's Android backend sent no `ModifiersChanged`, so with a
@@ -391,9 +391,9 @@ change marked `TraceDraw:` in a comment.
   (`android_activity::input::MetaState`) gives the held modifiers
   (`modifiers_of`); when they differ from the last ones told, a
   `ModifiersChanged` is sent before the key's `KeyboardInput`.
-- Change: a bitmap cursor on Linux (#2557). TraceDraw hands its drawn
+- Change: a bitmap cursor on Linux (#2557). TraceLaser hands its drawn
   tool pointers to the system as bitmaps on Linux too
-  (`apps/tracedraw/src/ui/cursors.rs`), and egui-winit sets the bitmap
+  (`apps/tracelaser/src/ui/cursors.rs`), and egui-winit sets the bitmap
   cursor again every frame. On X11 (`platform_impl/linux/x11/window.rs`,
   `set_cursor`) the cursor already shown is not sent again. On Wayland
   (`platform_impl/linux/wayland/window/state.rs`, `set_custom_cursor`,

@@ -40,7 +40,7 @@
     picture in a clip frame that lie outside the frame's box, so what a
     crop hid is not in the file; a picture with an outline, a shadow or
     effects laid on its box keeps them all
-    (`tracedraw_io::picture_crop::tests`). Raster exports and previews
+    (`tracelaser_io::picture_crop::tests`). Raster exports and previews
     are drawn clipped;
   - groups are cropped member by member (a group left empty is
     deleted); a clip frame by its frame.
@@ -56,7 +56,7 @@
   not a rectangle along the picture's sides (a piece of a Knife cut, an
   oval, a turned frame) makes the pixels outside its outline
   see-through first, a pixel partly inside keeping that share of its
-  opacity (`tracedraw_io::picture_crop::mask_picture`). The frame's own
+  opacity (`tracelaser_io::picture_crop::mask_picture`). The frame's own
   fill and outline go with the frame. One undo step (#1913,
   `crop_tool::tests::crop_to_frame_frees_the_picture`).
 - Not done: turning the crop area.

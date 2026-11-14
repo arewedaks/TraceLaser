@@ -1,7 +1,7 @@
-//! TraceDraw: the pressure of a graphics tablet's pen as one number in
+//! TraceLaser: the pressure of a graphics tablet's pen as one number in
 //! 0..1, shared by the X11 and macOS backends (see `vendor/README.md`).
 //! The file has no dependency on the rest of the crate, so that
-//! TraceDraw's tests can include and run it.
+//! TraceLaser's tests can include and run it.
 
 /// `value` read on a pressure axis that runs from `min` to `max`, as a
 /// share of the axis, 0 to 1. `None` when the pen does not press (the

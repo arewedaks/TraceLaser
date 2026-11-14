@@ -13,7 +13,7 @@ toolbox with flyouts, rulers, palette, panels, navigator, status bar.
 Status tracked in `docs/features.md`.
 
 ## M1 Real files (done for all three containers)
-- `tracedraw-cli inspect` dumps chunk trees
+- `tracelaser-cli inspect` dumps chunk trees
 - Text objects read as text with font and size; bitmaps read and drawn
 - Layer names, page names, multi-page
 - Version 16+ container (`content/root.dat`, redirected chunks); a
@@ -41,7 +41,7 @@ Status tracked in `docs/features.md`.
 - Signed Windows downloads and a Microsoft Store package: the build signs through SignPath or Azure Artifact Signing and packs an MSIX once the accounts are set up (build ready; signing waits for the accounts, see `code-signing.md`)
 - JavaScript automation with macro recording (done)
 - User interface in 19 languages (done)
-- JSON control channel and MCP server (`tracedraw --mcp`, see `behavior/mcp.md`) (done)
+- JSON control channel and MCP server (`tracelaser --mcp`, see `behavior/mcp.md`) (done)
 - WebAssembly build: the same editor in the browser (WebGL 2), published to GitHub Pages and attached to releases (done; see `behavior/web.md`)
 
 ## M5 Interchange
@@ -76,7 +76,7 @@ Status tracked in `docs/features.md`.
 - Order (decided 2026-10-14): Git hosting first, without a server of our own; storage services and real-time editing later. Stable IDs per object are done
 
 ## Later: image editing of its own (idea)
-- A raster editing tool inside TraceDraw (layers, selections, retouching) so a bitmap need not leave for an outside editor; until then Edit Bitmap hands the file to the system editor and the drawing follows its saves
+- A raster editing tool inside TraceLaser (layers, selections, retouching) so a bitmap need not leave for an outside editor; until then Edit Bitmap hands the file to the system editor and the drawing follows its saves
 
 ## M9 Release (planned)
 - Automatic updates from inside the app (checking and downloading done, see `behavior/updates.md`; installing in place done for the Linux AppImage; Windows and macOS wait for code signing and a test on real machines)

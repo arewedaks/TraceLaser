@@ -220,10 +220,10 @@ mod declared;
         )
 
     def test_module_of(self):
-        crates = {"crates/io": "tracedraw_io", "apps/app": "app"}
-        self.assertEqual(cmw.module_of("crates/io/src/lib.rs", crates), "tracedraw_io")
-        self.assertEqual(cmw.module_of("crates/io/src/a/mod.rs", crates), "tracedraw_io::a")
-        self.assertEqual(cmw.module_of("crates/io/src/a/b.rs", crates), "tracedraw_io::a::b")
+        crates = {"crates/io": "tracelaser_io", "apps/app": "app"}
+        self.assertEqual(cmw.module_of("crates/io/src/lib.rs", crates), "tracelaser_io")
+        self.assertEqual(cmw.module_of("crates/io/src/a/mod.rs", crates), "tracelaser_io::a")
+        self.assertEqual(cmw.module_of("crates/io/src/a/b.rs", crates), "tracelaser_io::a::b")
         self.assertEqual(cmw.module_of("apps/app/tests/round.rs", crates), "app::tests::round")
 
     def test_listed(self):

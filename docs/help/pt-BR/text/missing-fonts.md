@@ -3,7 +3,7 @@
 > *Tradução automática: esta página pode estar atrasada em relação à versão em inglês.*
 
 Um desenho feito em outro computador pode usar fontes que não estão
-instaladas no seu. O TraceDraw sempre mostra esse texto em uma fonte instalada
+instaladas no seu. O TraceLaser sempre mostra esse texto em uma fonte instalada
 parecida e mantém o nome da fonte do texto. Quando o desenho abre, a caixa de
 diálogo [[missing_fonts.title]] deixa você escolher qual fonte instalada
 desenha cada uma que falta, por enquanto ou de vez.
@@ -15,14 +15,14 @@ Quando você abre um desenho com fontes ausentes, a caixa de diálogo
 
 1. Cada linha mostra a [[missing_fonts.missing]] e a fonte com que ela é
    [[missing_fonts.substitute]] agora. A primeira opção da lista é a fonte que
-   o TraceDraw escolheu sozinho, marcada "(automatic)": uma fonte desenhada
+   o TraceLaser escolheu sozinho, marcada "(automatic)": uma fonte desenhada
    com as mesmas larguras quando existe, senão uma do mesmo estilo.
 2. Para usar outra fonte, abra a lista da linha e clique em uma família
    instalada. Digite parte de um nome em [[missing_fonts.filter]] para filtrar
    as listas.
 3. Escolha por quanto tempo a escolha vale:
    - [[missing_fonts.session]] (o padrão): a fonte escolhida desenha o texto
-     até o TraceDraw fechar, negrito e itálico inclusive. O desenho mantém os
+     até o TraceLaser fechar, negrito e itálico inclusive. O desenho mantém os
      próprios nomes de fonte, então é salvo com eles e aparece nas próprias
      fontes num computador que as tenha.
    - [[missing_fonts.keep]]: todo texto na família ausente, também em grupos,
@@ -32,7 +32,7 @@ Quando você abre um desenho com fontes ausentes, a caixa de diálogo
 
 Quando você tem a própria fonte em um arquivo, clique em
 [[missing_fonts.add_font]] e escolha-o (vários arquivos de uma vez, se
-quiser). O TraceDraw a instala como o Adicionar fonte do Gerenciador de
+quiser). O TraceLaser a instala como o Adicionar fonte do Gerenciador de
 fontes e a lembra na próxima vez que abrir; as fontes que ela traz saem da
 lista e, quando não sobra nenhuma, a caixa de diálogo fecha.
 

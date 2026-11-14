@@ -70,12 +70,12 @@ for ABI in $ABIS; do
     # The editor as a shared library (the crate is a library plus a thin
     # program; the library's type is chosen here so the desktop build
     # stays an ordinary binary).
-    cargo rustc -p tracedraw --lib --release --target "$TARGET" --crate-type cdylib
-    so="${CARGO_TARGET_DIR:-target}/$TARGET/release/libtracedraw.so"
+    cargo rustc -p tracelaser --lib --release --target "$TARGET" --crate-type cdylib
+    so="${CARGO_TARGET_DIR:-target}/$TARGET/release/libtracelaser.so"
     [ -f "$so" ] || { echo "no $so" >&2; exit 1; }
     # The library, without its symbol table (a third smaller).
     mkdir -p "$out/build/lib/$ABI"
-    "$TC/llvm-strip" --strip-unneeded -o "$out/build/lib/$ABI/libtracedraw.so" "$so"
+    "$TC/llvm-strip" --strip-unneeded -o "$out/build/lib/$ABI/libtracelaser.so" "$so"
 done
 
 # The build tools: an SDK's newest build-tools folder, else the ones on PATH.
@@ -142,7 +142,7 @@ for ABI in $ABIS; do
     cp "$out/build/resources.apk" "$out/build/unsigned.apk"
     (cd "$out/build" && zip -q -r unsigned.apk "lib/$ABI" classes.dex)
     "$ZIPALIGN" -f -p 4 "$out/build/unsigned.apk" "$out/build/aligned.apk"
-    apk="$out/tracedraw-$version-android-$ABI-debug.apk"
+    apk="$out/tracelaser-$version-android-$ABI-debug.apk"
     "$APKSIGNER" sign --ks "$ks" --ks-pass pass:android --key-pass pass:android \
         --ks-key-alias androiddebugkey --min-sdk-version "$API" --out "$apk" "$out/build/aligned.apk"
     "$APKSIGNER" verify --min-sdk-version "$API" "$apk"
@@ -210,10 +210,10 @@ if [ -n "${ANDROID_KEYSTORE_BASE64:-}" ] || [ -n "${ANDROID_KEYSTORE:-}" ]; then
         exit 1
     fi
     signed_with="upload key ($rks_alias)"
-    aab="$out/tracedraw-$version-android-release.aab"
+    aab="$out/tracelaser-$version-android-release.aab"
 else
     rks="$ks"; rks_pass=android; rks_alias=androiddebugkey; rks_key_pass=android
-    aab="$out/tracedraw-$version-android-debug.aab"
+    aab="$out/tracelaser-$version-android-debug.aab"
 fi
 cp "$aab_unsigned" "$aab"
 # (A PKCS12 keystore, keytool's default, has one password for the store

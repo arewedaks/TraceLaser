@@ -19,7 +19,7 @@ kept in every mode.
 | Duotone (8-bit)... | dialog below |
 | Indexed (8-bit)... | dialog below; the result is stored as an indexed PNG (a palette of up to 256 colours with their opacity), so the status line names it Indexed and the item is ticked while every selected bitmap is indexed; a bitmap left with more than 256 colours and opacities stays RGB. It is no longer CMYK nor keeps ink channels (#2607, `ops2::tests::image_mode_lab_and_indexed_convert_the_bitmap`) |
 | RGB Color (24-bit) | the bitmap's colour mode becomes RGB (`Shape::cmyk_bitmap` off); pixels unchanged, a grayscale bitmap stored with three channels again. Ticked while every selected bitmap is RGB (neither CMYK nor grayscale) |
-| Lab Color (24-bit) | each pixel through CIE Lab (D65) and back, unchanged within one level; the bitmap's colour mode becomes Lab, marked in its PNG (a `tEXt` chunk "TraceDraw color mode" = "Lab"), so the status line names it Lab and the item is ticked while every selected bitmap is Lab; no longer CMYK nor keeping ink channels. RGB Color stores it unmarked again (#2605) |
+| Lab Color (24-bit) | each pixel through CIE Lab (D65) and back, unchanged within one level; the bitmap's colour mode becomes Lab, marked in its PNG (a `tEXt` chunk "TraceLaser color mode" = "Lab"), so the status line names it Lab and the item is ticked while every selected bitmap is Lab; no longer CMYK nor keeping ink channels. RGB Color stores it unmarked again (#2605) |
 | CMYK Color (32-bit) | the colour mode becomes CMYK and the pixels show as the inks print them (through the colour management profiles and back), as Tools > Convert Colors does (#1254, `colour-management.md`). Ticked while every selected bitmap is CMYK |
 
 ## Black and White (1-bit)

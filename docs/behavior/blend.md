@@ -15,7 +15,7 @@ Intermediate objects between a start and an end object.
 | Color blend | Direct | Direct (straight through RGB), Clockwise (hue increasing), Counterclockwise (hue decreasing), through HSB |
 
 A blend asking for more than 999 steps (from a file or a script) draws
-999 (`tracedraw_core::live::tests::a_blend_draws_at_most_its_maximum_steps`, #980).
+999 (`tracelaser_core::live::tests::a_blend_draws_at_most_its_maximum_steps`, #980).
 
 Not yet: mapping nodes, splitting and fusing.
 
@@ -31,7 +31,7 @@ Under "Color Blend" three picture buttons: Direct, Clockwise and
 Counterclockwise. With a blend selected every change applies live and
 New path, Clear Blend and Break Apart follow; otherwise a full-width
 Apply blends the two selected objects with these settings
-(`tracedraw_core::live::tests::blend_options_change_the_steps`).
+(`tracelaser_core::live::tests::blend_options_change_the_steps`).
 
 ## Property bar (Blend tool)
 
@@ -135,7 +135,7 @@ blend spans the whole blend, steps included, and a blend from an older
 file, whose end lives only in the effect, is one object whose box is
 the whole blend (#1540,
 `pick_drag_tests::a_blend_s_start_object_shows_its_own_box_and_handles`,
-`tracedraw_core::live::tests::a_blend_start_s_own_box_leaves_the_steps_out`).
+`tracelaser_core::live::tests::a_blend_start_s_own_box_leaves_the_steps_out`).
 Object > Group (Ctrl+G, and the context menu's Group) groups a blend
 however it is selected: with its start or end object selected alone
 (the blend just made, or a click on a step or on either object) the
@@ -154,7 +154,7 @@ only inside the effect; such a blend draws its end with the steps.
 For step `k` of `n` (`t = k / (n + 1)` with acceleration `t' = ln(1 +
 (K - 1) t) / ln K`, `K = 705.641 ^ (-acc)` (`705.641 = 1.3 ^ 25`), the
 curve and the range the `.cdr` files' blends use, #1192;
-`tracedraw_core::live::blend_place`,
+`tracelaser_core::live::blend_place`,
 `live::tests::blend_acceleration_goes_as_far_either_way`,
 `live::tests::blend_steps_follow_the_file_s_acceleration_curve`):
 - Geometry: the end outline is wound the way the start outline is and
@@ -239,8 +239,8 @@ direction, counted from the lower object (`docs/cdr-format.md`, Blend
 settings; #1192): a blend whose start is the upper object goes out with
 its accelerations and colour direction turned round, and its rotation,
 which the record turns from the lower object, as it is. Read back in
-TraceDraw the blend is on the start object with its settings from
-version 14 (the package names it in `tracedraw/blends.json`); from a
+TraceLaser the blend is on the start object with its settings from
+version 14 (the package names it in `tracelaser/blends.json`); from a
 RIFF file (9 to 13) it comes back the way any file's blend does: on the
 lower object, even acceleration, node-for-node pairing. Versions 7 and
 8 get one plain group of the start object and its steps as curves

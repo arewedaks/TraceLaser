@@ -1480,7 +1480,7 @@ impl UnownedWindow {
                     SelectedCursor::Custom(cursor.clone()),
                 );
 
-                // TraceDraw: the cursor shown already is not sent again
+                // TraceLaser: the cursor shown already is not sent again
                 // (egui-winit sets a bitmap cursor every frame, #2557).
                 #[allow(clippy::mutex_atomic)]
                 if SelectedCursor::Custom(cursor.clone()) != old_cursor

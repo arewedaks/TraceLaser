@@ -462,17 +462,17 @@ soluk görünür. Menüler kendi kısayollarınızı gösterebilir; bkz.
 
 | Komut | Bkz. |
 |---|---|
-| [[menu.help.help_topics]] | [TraceDraw Yardımına hoş geldiniz](../index.md#in-the-app) |
-| [[menu.help.product_help]] | [TraceDraw Yardımına hoş geldiniz](../index.md#in-the-app) |
-| [[menu.help.welcome_screen]] | [TraceDraw hakkında ve güncellemeler](../welcome/about-and-updates.md) |
-| [[menu.help.video_tutorials]] | [TraceDraw hakkında ve güncellemeler](../welcome/about-and-updates.md) |
+| [[menu.help.help_topics]] | [TraceLaser Yardımına hoş geldiniz](../index.md#in-the-app) |
+| [[menu.help.product_help]] | [TraceLaser Yardımına hoş geldiniz](../index.md#in-the-app) |
+| [[menu.help.welcome_screen]] | [TraceLaser hakkında ve güncellemeler](../welcome/about-and-updates.md) |
+| [[menu.help.video_tutorials]] | [TraceLaser hakkında ve güncellemeler](../welcome/about-and-updates.md) |
 | [[menu.help.hints]] | [The Hints panel](../get-started/hints.md) |
-| [[menu.help.quick_start_guide]] | [TraceDraw hakkında ve güncellemeler](../welcome/about-and-updates.md) |
-| [[menu.help.user_guide]] | [TraceDraw hakkında ve güncellemeler](../welcome/about-and-updates.md) |
+| [[menu.help.quick_start_guide]] | [TraceLaser hakkında ve güncellemeler](../welcome/about-and-updates.md) |
+| [[menu.help.user_guide]] | [TraceLaser hakkında ve güncellemeler](../welcome/about-and-updates.md) |
 | [[menu.help.whats_new]] | [Yenilikler](../welcome/whats-new.md) |
 | [[menu.help.highlight_whats_new]] | [Yenilikler](../welcome/whats-new.md) |
-| [[menu.help.updates]] | [TraceDraw hakkında ve güncellemeler](../welcome/about-and-updates.md) |
-| [[menu.help.message_settings]] | [TraceDraw hakkında ve güncellemeler](../welcome/about-and-updates.md) |
-| [[menu.help.community]] | [TraceDraw hakkında ve güncellemeler](../welcome/about-and-updates.md) |
-| [[menu.help.support]] | [TraceDraw hakkında ve güncellemeler](../welcome/about-and-updates.md) |
-| [[menu.help.about]] | [TraceDraw hakkında ve güncellemeler](../welcome/about-and-updates.md) |
+| [[menu.help.updates]] | [TraceLaser hakkında ve güncellemeler](../welcome/about-and-updates.md) |
+| [[menu.help.message_settings]] | [TraceLaser hakkında ve güncellemeler](../welcome/about-and-updates.md) |
+| [[menu.help.community]] | [TraceLaser hakkında ve güncellemeler](../welcome/about-and-updates.md) |
+| [[menu.help.support]] | [TraceLaser hakkında ve güncellemeler](../welcome/about-and-updates.md) |
+| [[menu.help.about]] | [TraceLaser hakkında ve güncellemeler](../welcome/about-and-updates.md) |

@@ -1,6 +1,6 @@
-# Informazioni su TraceDraw e aggiornamenti
+# Informazioni su TraceLaser e aggiornamenti
 
-TraceDraw è libero e open source. Questa pagina spiega come vedere quale
+TraceLaser è libero e open source. Questa pagina spiega come vedere quale
 versione avete, come ottenerne una più recente e dove chiedere aiuto.
 
 ## La finestra Informazioni {#about}
@@ -10,16 +10,16 @@ l'autore, la licenza, un collegamento al codice sorgente e con cosa è costruito
 il programma. Premete [[dialog.close]], <kbd>Invio</kbd> o <kbd>Esc</kbd> per
 chiuderla.
 
-![La finestra Informazioni su TraceDraw](../../img/welcome-about-and-updates-about.png)
+![La finestra Informazioni su TraceLaser](../../img/welcome-about-and-updates-about.png)
 
 ## Cercare aggiornamenti {#updates}
 
-Sul desktop, TraceDraw può avvisarvi quando esce una versione più recente.
+Sul desktop, TraceLaser può avvisarvi quando esce una versione più recente.
 
 Per controllare adesso:
 
 1. Scegliete [[menu.help > menu.help.updates]].
-2. TraceDraw chiede alla pagina delle versioni del progetto l'ultima versione e
+2. TraceLaser chiede alla pagina delle versioni del progetto l'ultima versione e
    indica se è più recente della vostra. Le versioni di prova e le build
    notturne non vengono mai proposte.
 3. Quando esiste una versione più recente, scegliete cosa fare:
@@ -31,10 +31,10 @@ Per controllare adesso:
    - **Salta questa versione** smette di proporre quella versione.
    - [[dialog.close]] chiude la finestra.
 
-Quando TraceDraw funziona come AppImage di Linux, la finestra può offrire anche
+Quando TraceLaser funziona come AppImage di Linux, la finestra può offrire anche
 **Installa**: scarica la nuova AppImage accanto a quella in uso, controlla che
 il download sia completo e autentico e la mette al posto del vecchio file. La
-nuova versione si avvia la prossima volta che aprite TraceDraw. Se qualcosa non
+nuova versione si avvia la prossima volta che aprite TraceLaser. Se qualcosa non
 torna, il vecchio file resta com'era e la finestra vi dice perché.
 
 Se il controllo non riesce (per esempio senza connessione a internet), la
@@ -46,18 +46,18 @@ finestra lo dice e propone la pagina delle versioni.
 
 [[menu.tools > menu.tools.options > menu.tools.options_global]], pagina
 [[options.general]], ha un'impostazione per cercare aggiornamenti all'avvio.
-All'inizio è attiva: una volta al giorno TraceDraw controlla in silenzio
+All'inizio è attiva: una volta al giorno TraceLaser controlla in silenzio
 all'avvio e si fa sentire solo quando esce una versione più recente che non
 avete saltato.
 
-Al primo avvio TraceDraw chiede se cercare aggiornamenti: [[updates.policy_always]] o [[updates.policy_never]]. Finché non rispondi, TraceDraw non apre alcuna connessione di sua iniziativa. La risposta imposta questa opzione, che puoi cambiare qui in qualsiasi momento.
+Al primo avvio TraceLaser chiede se cercare aggiornamenti: [[updates.policy_always]] o [[updates.policy_never]]. Finché non rispondi, TraceLaser non apre alcuna connessione di sua iniziativa. La risposta imposta questa opzione, che puoi cambiare qui in qualsiasi momento.
 
 > **Nota:** La versione per browser è sempre la più recente. Lì,
 > [[menu.help > menu.help.updates]] apre la pagina delle versioni.
 
 ## La schermata di benvenuto {#welcome-screen}
 
-La schermata di benvenuto è la prima scheda all'avvio di TraceDraw. Da lì
+La schermata di benvenuto è la prima scheda all'avvio di TraceLaser. Da lì
 potete creare un disegno, aprire uno degli ultimi disegni usati (ognuno con una
 miniatura; [[menu.file.clear_recent]] li dimentica), partire da un modello,
 leggere le novità e trovare materiale didattico. Scegliete
@@ -73,4 +73,4 @@ leggere le novità e trovare materiale didattico. Scegliete
 - [[menu.help > menu.help.support]] apre il sistema di segnalazione, dove
   potete segnalare un problema.
 - [[menu.help > menu.help.message_settings]] apre le opzioni in cui si
-  impostano i messaggi di TraceDraw.
+  impostano i messaggi di TraceLaser.

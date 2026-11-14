@@ -90,5 +90,5 @@ Una mezcla guardada como `.cdr` (versión 9 o posterior) sigue siendo una mezcla
 guarda los dos objetos y el registro de la mezcla entre ellos, así que el programa
 que abre el archivo muestra los pasos y permite cambiar la mezcla. Los pasos, el
 espaciado y los dos objetos van al archivo; la aceleración, la rotación, un trayecto y
-la dirección del color vuelven en TraceDraw (versión 14 o posterior); otros programas
+la dirección del color vuelven en TraceLaser (versión 14 o posterior); otros programas
 empiezan con sus valores predeterminados.

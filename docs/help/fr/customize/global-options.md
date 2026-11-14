@@ -78,7 +78,7 @@ message ci-dessus.
 ![La page Emplacements des fichiers des options globales](../../img/customize-global-options-file-locations.png)
 
 Indique où sont conservées les préférences et les sauvegardes automatiques.
-Les préférences se trouvent dans un dossier `tracedraw-settings` à côté du
+Les préférences se trouvent dans un dossier `tracelaser-settings` à côté du
 programme quand il existe (une copie portable), sinon à l'emplacement prévu
 par votre système pour les paramètres des programmes ; la version pour
 navigateur les conserve dans le navigateur.

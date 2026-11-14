@@ -1,6 +1,6 @@
 # Yenilikler
 
-TraceDraw'ın her sürümü özellikler ve düzeltmeler ekler. Bu sayfa neyin
+TraceLaser'ın her sürümü özellikler ve düzeltmeler ekler. Bu sayfa neyin
 değiştiğini nasıl öğreneceğinizi açıklar ve son sürümlerin öne çıkanlarını
 listeler.
 
@@ -17,10 +17,10 @@ listeler.
   [[menu.help > menu.help.highlight_whats_new]] komutunu açın: her yeni
   komutun sonunda, ona giden bir alt menünün okunun yanında ve yeni bir komut
   içeren menünün başlığının üstünde küçük bir nokta görünür. Komutu
-  kapattığınızda işaretler kaybolur ve TraceDraw bir sonraki başlatılışında
+  kapattığınızda işaretler kaybolur ve TraceLaser bir sonraki başlatılışında
   komut yine kapalıdır.
 - Her sürümün değişikliklerinin tam listesi projenin
-  [değişiklik günlüğündedir](https://github.com/tracedraw/tracedraw/blob/main/CHANGELOG.md).
+  [değişiklik günlüğündedir](https://github.com/arewedaks/TraceLaser/blob/main/CHANGELOG.md).
 
 ## Son sürümlerin öne çıkanları {#highlights}
 
@@ -51,7 +51,7 @@ listeler.
   yanında küçük olarak çizer; listenin üzerinde Ctrl+tekerlek veya alttaki
   kaydırıcı boyutu ayarlar. Bkz. [Nesneleri ve katmanları düzenleme](../objects/objects-and-layers.md#objects-docker).
 - **Kendi dilinizde Yardım.** Her **?** düğmesi ve <kbd>F1</kbd>, önünüzdeki
-  iletişim kutusu, panel veya araç hakkındaki Yardım sayfasını TraceDraw'ın
+  iletişim kutusu, panel veya araç hakkındaki Yardım sayfasını TraceLaser'ın
   ayarlı olduğu dilde açar.
 - **Belge özellikleri.** [[menu.file > menu.file.document_properties]] bir
   çizimin dilini, başlığını, konusunu, yazarını, telif hakkını, etiketlerini,

@@ -1,6 +1,6 @@
 # Microsoft Store listing
 
-What to type in Partner Center for TraceDraw, field by field, so a
+What to type in Partner Center for TraceLaser, field by field, so a
 submission takes minutes. The package itself comes from the build (see
 [`code-signing.md`](code-signing.md), Microsoft Store). Limits in
 brackets are the Store's.
@@ -14,9 +14,9 @@ brackets are the Store's.
 ## Properties
 
 - Category: Photo & video (or Productivity).
-- Privacy policy URL: <https://github.com/tracedraw/tracedraw/blob/main/PRIVACY.md>
-- Website: <https://github.com/tracedraw/tracedraw>
-- Support contact: <https://github.com/tracedraw/tracedraw/issues>
+- Privacy policy URL: <https://github.com/arewedaks/TraceLaser/blob/main/PRIVACY.md>
+- Website: <https://github.com/arewedaks/TraceLaser>
+- Support contact: <https://github.com/arewedaks/TraceLaser/issues>
 - Product declarations: none of the data, accessibility or
   inking boxes apply; the app works with a mouse and a keyboard.
 - System requirements: Windows 10 version 1809 or later, x64. A
@@ -32,7 +32,7 @@ of location or personal data, no purchases. The usual result is 3+ / E.
 
 ## Store listing (English, United States)
 
-**Product name**: TraceDraw
+**Product name**: TraceLaser
 
 **Short description** [up to 1000 characters, shown first]:
 
@@ -44,7 +44,7 @@ of location or personal data, no purchases. The usual result is 3+ / E.
 
 **Description** [up to 10000 characters]:
 
-> TraceDraw is a free, open-source vector editor for illustration, page
+> TraceLaser is a free, open-source vector editor for illustration, page
 > layout and print, written from scratch in Rust.
 >
 > Draw with rectangles, ellipses, polygons, stars, spirals, 71 common
@@ -73,9 +73,9 @@ of location or personal data, no purchases. The usual result is 3+ / E.
 > export your workspace to another computer. The interface speaks 18
 > languages.
 >
-> TraceDraw collects nothing and needs no account. It is free software
+> TraceLaser collects nothing and needs no account. It is free software
 > under the MIT or Apache-2.0 license; the source code, the feature
-> status and the issue tracker are at github.com/tracedraw/tracedraw.
+> status and the issue tracker are at github.com/arewedaks/TraceLaser.
 >
 > This is an alpha release: some features are still missing, and real
 > work will turn up bugs. Reports and sample files help most.
@@ -99,8 +99,8 @@ of [`CHANGELOG.md`](../CHANGELOG.md) for the version submitted.
 **Keywords** [up to 7]: vector editor, illustration, page layout,
 drawing, graphic design, print, cdr
 
-**Copyright and trademark info**: Copyright (c) 2026 TraceDraw members and
-contributors. MIT or Apache-2.0. TraceDraw is an independent
+**Copyright and trademark info**: Copyright (c) 2026 TraceLaser members and
+contributors. MIT or Apache-2.0. TraceLaser is an independent
 project, not affiliated with, endorsed by or sponsored by Corel
 Corporation or Alludo. CorelDRAW is a registered trademark of Corel
 Corporation. .cdr support is implemented independently, for
@@ -111,12 +111,12 @@ in `docs/images/` saved as PNG (1600 x 950): the poster (`hero`), curves,
 type, fills, effects, trace, export and languages.
 
 **Store logos**: optional; the package carries its own tiles. If asked
-for a square logo, `assets/icon/tracedraw-512.png` scaled to the size
+for a square logo, `assets/icon/tracelaser-512.png` scaled to the size
 requested.
 
 ## Packages
 
-Upload `tracedraw-<version>-windows-x86_64.msix` from the release of the
+Upload `tracelaser-<version>-windows-x86_64.msix` from the release of the
 version (built when the three `MSIX_` repository variables are set). The
 version on the package must be higher than the last one submitted.
 
@@ -124,7 +124,7 @@ version on the package must be higher than the last one submitted.
 
 The package declares `runFullTrust`. Partner Center asks why; answer:
 
-> TraceDraw is a desktop application (Win32, packaged with MSIX). It
+> TraceLaser is a desktop application (Win32, packaged with MSIX). It
 > needs full trust to open and save the user's drawings anywhere they
 > choose, to read the installed fonts, to print, and to export files to
 > the folders the user picks. It collects no data and makes no network
@@ -134,6 +134,6 @@ The package declares `runFullTrust`. Partner Center asks why; answer:
 
 ## Notes for certification
 
-> TraceDraw starts on its Welcome Screen; File > New makes a drawing.
+> TraceLaser starts on its Welcome Screen; File > New makes a drawing.
 > No account or sign-in is needed. Sample drawings can be made with any
 > tool in the toolbox on the left.

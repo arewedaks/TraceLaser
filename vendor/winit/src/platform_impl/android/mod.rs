@@ -21,7 +21,7 @@ use crate::error::EventLoopError;
 use crate::event::{self, Force, InnerSizeWriter, StartCause};
 use crate::event_loop::{self, ActiveEventLoop as RootAEL, ControlFlow, DeviceEvents};
 use crate::platform::pump_events::PumpStatus;
-// TraceDraw: palm rejection (#1832).
+// TraceLaser: palm rejection (#1832).
 use crate::android_mouse::{MouseAction, MouseOut, MouseState};
 use crate::pointer_filter::{self, PointerAction, PointerReport, PointerTool};
 use crate::platform_impl::Fullscreen;
@@ -148,9 +148,9 @@ pub struct EventLoop<T: 'static> {
     cause: StartCause,
     ignore_volume_keys: bool,
     combining_accent: Option<char>,
-    // TraceDraw: the modifier keys last told to the app (#2052).
+    // TraceLaser: the modifier keys last told to the app (#2052).
     modifiers: crate::keyboard::ModifiersState,
-    // TraceDraw: the mouse's buttons and hover as told to the app, and
+    // TraceLaser: the mouse's buttons and hover as told to the app, and
     // the device and place of its last event (#2152).
     mouse: MouseState,
     mouse_at: Option<(i32, PhysicalPosition<f64>)>,
@@ -336,7 +336,7 @@ impl<T: 'static> EventLoop<T> {
             },
         }
 
-        // TraceDraw: a mouse whose hover ended with no press after it has
+        // TraceLaser: a mouse whose hover ended with no press after it has
         // left the window (#2152).
         if let Some((device, at)) = self.mouse_at {
             let out = self.mouse.flush();
@@ -383,7 +383,7 @@ impl<T: 'static> EventLoop<T> {
         self.pending_redraw = pending_redraw;
     }
 
-    /// TraceDraw: hand the window what `android_mouse` says of a mouse's
+    /// TraceLaser: hand the window what `android_mouse` says of a mouse's
     /// motion event (#2152): the pointer's place, its buttons, its wheel.
     fn tell_mouse<F>(
         &self,
@@ -442,7 +442,7 @@ impl<T: 'static> EventLoop<T> {
                 let device_id = event::DeviceId(DeviceId(motion_event.device_id()));
 
                 let action = motion_event.action();
-                // TraceDraw: a mouse (or a touchpad) is told as a mouse,
+                // TraceLaser: a mouse (or a touchpad) is told as a mouse,
                 // with its buttons, its wheel and its hover, not as the
                 // touches of a finger (#2152, #2161).
                 if motion_event.pointer_count() > 0 {
@@ -477,7 +477,7 @@ impl<T: 'static> EventLoop<T> {
                         None // TODO mouse events
                     },
                 };
-                // TraceDraw: a pen near the screen, for the program's palm
+                // TraceLaser: a pen near the screen, for the program's palm
                 // rejection (#1832); no touch comes of it.
                 let hover = match action {
                     MotionAction::HoverEnter => Some(PointerAction::HoverEnter),
@@ -509,7 +509,7 @@ impl<T: 'static> EventLoop<T> {
                         };
 
                     for pointer in pointers {
-                        // TraceDraw: the program's say on the pointer, with
+                        // TraceLaser: the program's say on the pointer, with
                         // its tool (#1832): touches it names are ended
                         // first, and this one is delivered only if it says.
                         let verdict = pointer_filter::judge(&PointerReport {
@@ -577,7 +577,7 @@ impl<T: 'static> EventLoop<T> {
                         input_status = InputStatus::Unhandled
                     },
                     keycode => {
-                        // TraceDraw: Shift, Ctrl, Alt and Meta of a hardware
+                        // TraceLaser: Shift, Ctrl, Alt and Meta of a hardware
                         // keyboard, from the key event's meta state, which
                         // winit's Android backend never passed on: the app
                         // saw no modifier held (#2052).
@@ -1296,7 +1296,7 @@ impl VideoModeHandle {
     }
 }
 
-/// TraceDraw: the modifier keys an Android key event's meta state holds
+/// TraceLaser: the modifier keys an Android key event's meta state holds
 /// (#2052).
 fn modifiers_of(meta: android_activity::input::MetaState) -> crate::keyboard::ModifiersState {
     use crate::keyboard::ModifiersState as M;
@@ -1308,7 +1308,7 @@ fn modifiers_of(meta: android_activity::input::MetaState) -> crate::keyboard::Mo
     m
 }
 
-/// TraceDraw: a motion event's action as `android_mouse` names it
+/// TraceLaser: a motion event's action as `android_mouse` names it
 /// (#2152); `None` for the actions a mouse does not send.
 fn mouse_action(action: MotionAction) -> Option<MouseAction> {
     Some(match action {
@@ -1326,7 +1326,7 @@ fn mouse_action(action: MotionAction) -> Option<MouseAction> {
     })
 }
 
-/// TraceDraw: a pointer's tool as the program's filter names it (#1832).
+/// TraceLaser: a pointer's tool as the program's filter names it (#1832).
 fn pointer_tool(tool: ToolType) -> PointerTool {
     match tool {
         ToolType::Finger => PointerTool::Finger,

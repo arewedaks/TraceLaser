@@ -1,7 +1,7 @@
 # System requirements
 
-What TraceDraw needs to run, for the builds published on the
-[releases page](https://github.com/tracedraw/tracedraw/releases). The
+What TraceLaser needs to run, for the builds published on the
+[releases page](https://github.com/arewedaks/TraceLaser/releases). The
 operating system, library and graphics lines come from the build
 settings, the packaging files and the release programs themselves. The
 memory, processor and disk lines are measured or estimated, and say so.
@@ -43,7 +43,7 @@ memory, processor and disk lines are measured or estimated, and say so.
   Rocky 10, or later.
   **Older distributions** (Ubuntu 20.04, Debian 11, RHEL 9 and its
   rebuilds, glibc 2.34 or older) cannot start the native programs; the
-  [browser version](https://tracedraw.github.io/tracedraw/) runs there.
+  [browser version](https://tracelaser.github.io/tracelaser/) runs there.
   Other libraries are loaded when the program starts: `libxkbcommon`
   (and `libxkbcommon-x11` on X11), the system's OpenGL or EGL, and a
   Vulkan driver when there is one. A desktop that runs other graphical
@@ -57,8 +57,8 @@ memory, processor and disk lines are measured or estimated, and say so.
 
 ## Graphics
 
-TraceDraw tries, in turn, until the window opens and shows what it
-draws (`apps/tracedraw/src/gpu.rs`,
+TraceLaser tries, in turn, until the window opens and shows what it
+draws (`apps/tracelaser/src/gpu.rs`,
 [`docs/behavior/about-and-startup.md`](behavior/about-and-startup.md)):
 
 1. **The graphics card through wgpu:** Direct3D 12 or Vulkan on
@@ -74,8 +74,8 @@ draws (`apps/tracedraw/src/gpu.rs`,
 
 So the minimum is OpenGL 2.1 for drawing on the card, or no usable card
 at all. The recommended setup is a card whose current driver offers
-Direct3D 12, Vulkan or Metal. `tracedraw --renderer=gl` or
-`--renderer=software` starts with a given renderer, and `tracedraw.log`
+Direct3D 12, Vulkan or Metal. `tracelaser --renderer=gl` or
+`--renderer=software` starts with a given renderer, and `tracelaser.log`
 in the settings folder names the one in use.
 
 ## Memory, processor and disk
@@ -94,10 +94,10 @@ estimates from them:
   instruction set beyond the base of x86_64 or ARM64 is needed. Estimate:
   2 cores are enough on a graphics card; with no usable card the CPU
   draws every frame, and 4 cores or more keep it smooth.
-- **Disk:** the programs take about 100 MB (`tracedraw` 82 MB and
-  `tracedraw-cli` 17 MB on Linux; the downloads are 20 to 37 MB). Settings,
+- **Disk:** the programs take about 100 MB (`tracelaser` 82 MB and
+  `tracelaser-cli` 17 MB on Linux; the downloads are 20 to 37 MB). Settings,
   the log and autosaves take a few MB more. The recommended figure leaves
   room for autosaves of large documents and exports.
 
-Something here wrong for your computer? Send `tracedraw.log` in
-[an issue](https://github.com/tracedraw/tracedraw/issues/new?template=bug_report.yml).
+Something here wrong for your computer? Send `tracelaser.log` in
+[an issue](https://github.com/arewedaks/TraceLaser/issues/new?template=bug_report.yml).

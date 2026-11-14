@@ -72,7 +72,7 @@ proportions. To take a shape out, pick it and click
 removed.
 
 Your shapes are kept with your settings, so they are still there the
-next time TraceDraw starts.
+next time TraceLaser starts.
 
 ## Action Lines {#action-lines}
 

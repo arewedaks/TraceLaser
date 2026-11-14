@@ -5,7 +5,7 @@ first row chooses between Copies (the number of copies, each one step
 from the last, as before) and Fill page, which tiles the selection in a
 grid over the page or an area of it: labels, stickers, business cards
 and tags ganged on one sheet (#1255). The work is in
-`apps/tracedraw/src/fill_page.rs` (the grid) and `step_repeat.rs`
+`apps/tracelaser/src/fill_page.rs` (the grid) and `step_repeat.rs`
 (`App::fill_page_apply`, the preview).
 
 ## Fields and defaults

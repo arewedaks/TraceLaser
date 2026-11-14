@@ -406,7 +406,7 @@ included), chosen by the median cut of the paletted bitmap conversion
 (`bitmap-modes.md`, Optimized palette; transparent pixels are left out),
 as RGB colours ordered dark to light, and adds those the palette has not
 got after its colours; in the document palette that is one undo step.
-Check: `ui::palette::tests::colours_come_from_the_selected_picture`. Palettes made in TraceDraw (New
+Check: `ui::palette::tests::colours_come_from_the_selected_picture`. Palettes made in TraceLaser (New
   Palette, Duplicate), which have no file, are kept with their colours
   in the preferences (`user_palettes`).
 
@@ -489,5 +489,5 @@ update the document palette (on).
   Bitmap, worked out only when the number changes, a picture dropped on
   a palette bar, on the document palette as one undo step, on a
   built-in palette, other objects not taken as pictures)
-- `tracedraw_core` `engine::tests::amending_joins_the_last_step_only_right_after_it`
-- `tracedraw_cdr` `container::tests::document_palette_xml_reads_names_and_tints`
+- `tracelaser_core` `engine::tests::amending_joins_the_last_step_only_right_after_it`
+- `tracelaser_cdr` `container::tests::document_palette_xml_reads_names_and_tints`

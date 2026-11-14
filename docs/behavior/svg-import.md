@@ -11,7 +11,7 @@ Text comes in as editable text objects (#1820). The SVG library is built
 without a text engine and leaves text out, so `crates/io/src/svg_text.rs`
 reads every `<text>` element itself, following SVG 1.1:
 
-| SVG | TraceDraw |
+| SVG | TraceLaser |
 |---|---|
 | `<text>` and its `tspan`, `a` and `textPath` children | one text object, a span per run of characters in one style |
 | `x`, `y` of the text and of a `tspan` with an `x` (a text chunk) | the start of the baseline; only the first value of a list is read |

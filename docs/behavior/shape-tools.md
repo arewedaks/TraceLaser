@@ -262,7 +262,7 @@ the user's own shapes, drawn like the built-in ones:
   then draws the built-in shape picked before.
 - The set is kept in the preferences folder as `my_shapes.json` (in the
   browser in the page's local storage), written at once after every
-  change, so it is there after a restart: `{"kind": "tracedraw-my-shapes",
+  change, so it is there after a restart: `{"kind": "tracelaser-my-shapes",
   "version": 1, "shapes": [{"name", "path", "aspect", "closed"}]}`, each
   outline an SVG path in the unit square. A missing, damaged or foreign
   file gives an empty set; outlines that do not read are left out. At
@@ -306,7 +306,7 @@ the user's own shapes, drawn like the built-in ones:
   star's mirrored through the centre
   (`geometry::tests::negative_sharpness_inverts_the_star`; the property
   bar takes -40: `ui::propbar::tests::the_sharpness_box_takes_a_negative_value`;
-  files: `tracedraw_io::tests::inverted_stars_round_trip_in_native_files_and_export_their_outline`,
+  files: `tracelaser_io::tests::inverted_stars_round_trip_in_native_files_and_export_their_outline`,
   `write::tests::inverted_stars_are_written_as_the_curves_they_draw`).
 - `geometry::tests::complex_stars_cross_their_sides` (pentagram winding
   2 in the middle, two triangles for 6 points, sharpness limits) and

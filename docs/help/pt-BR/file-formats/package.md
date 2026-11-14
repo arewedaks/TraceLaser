@@ -25,7 +25,7 @@ o trabalho pronto.
    início).
 5. Clique em [[dialog.ok]].
 
-O TraceDraw cria a pasta quando ela não existe e substitui arquivos de mesmo
+O TraceLaser cria a pasta quando ela não existe e substitui arquivos de mesmo
 nome dentro dela. O desenho aberto não muda: os vínculos dele continuam
 apontando para as imagens originais. A barra de status diz quantas imagens e
 fontes entraram, e quantos itens não puderam entrar (o relatório os nomeia).
@@ -35,7 +35,7 @@ fontes entraram, e quantos itens não puderam entrar (o relatório os nomeia).
 Você também pode empacotar um desenho ao salvá-lo:
 
 1. Escolha [[menu.file > menu.file.save_as]].
-2. Escolha TraceDraw (`*.tdraw`) em [[dialog.save_as_type]].
+2. Escolha TraceLaser (`*.tdraw`) em [[dialog.save_as_type]].
 3. Marque [[dialog.save_package]] e, se quiser também um PDF, [[package.pdf]].
 4. Digite o nome e clique em [[dialog.save]].
 
@@ -63,7 +63,7 @@ desenho de qualquer forma, então ela continua aparecendo.
 ## Abrir um pacote {#open}
 
 Abra o arquivo `.tdraw` do pacote como qualquer desenho. Quando a pasta do
-desenho tem uma pasta `Fonts` ao lado, o TraceDraw usa as fontes dela nesta
+desenho tem uma pasta `Fonts` ao lado, o TraceLaser usa as fontes dela nesta
 sessão, então o texto aparece nas próprias fontes mesmo onde elas não estão
 instaladas. Nada é instalado no computador.
 

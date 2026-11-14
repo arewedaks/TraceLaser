@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=TraceLaser
+Comment=Vector illustration editor
+Exec=tracelaser %F
+Icon=tracelaser
+Terminal=false
+Categories=Graphics;2DGraphics;VectorGraphics;
+MimeType=application/x-tdraw;application/x-cdr;
+StartupWMClass=tracelaser

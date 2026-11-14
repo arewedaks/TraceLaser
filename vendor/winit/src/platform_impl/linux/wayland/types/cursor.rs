@@ -28,7 +28,7 @@ pub struct CustomCursor {
 
 impl CustomCursor {
     pub(crate) fn new(pool: &mut SlotPool, image: &CursorImage) -> Self {
-        // TraceDraw: the buffer's sides are whole multiples of any integer
+        // TraceLaser: the buffer's sides are whole multiples of any integer
         // buffer scale up to 6 (12 is a multiple of 1, 2, 3, 4 and 6), the
         // image at its top left and the rest transparent. Without a
         // viewport the cursor surface takes the output's buffer scale, and

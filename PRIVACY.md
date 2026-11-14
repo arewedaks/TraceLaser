@@ -1,12 +1,12 @@
 # Privacy policy
 
-TraceDraw is a vector editor that runs on your own computer. This policy
+TraceLaser is a vector editor that runs on your own computer. This policy
 covers the desktop program (installer, portable zip, Microsoft Store,
-macOS and Linux packages), `tracedraw-cli` and the browser version.
+macOS and Linux packages), `tracelaser-cli` and the browser version.
 
-## What TraceDraw collects
+## What TraceLaser collects
 
-Nothing. TraceDraw has no accounts, no telemetry, no analytics, no crash
+Nothing. TraceLaser has no accounts, no telemetry, no analytics, no crash
 reporting and no advertising. It does not send your drawings, your files
 or anything about you or your computer anywhere, except what you ask the
 AI features to send to the AI service you set up yourself, and drawings
@@ -16,35 +16,35 @@ you save to your own GitHub repository (see below).
 
 - Your drawings, where you save them.
 - Preferences, the Shelf and thumbnails of recent drawings, in
-  TraceDraw's preferences folder (in the browser version: the page's local
+  TraceLaser's preferences folder (in the browser version: the page's local
   storage in your browser). Deleting that folder removes them; Options >
   Global > Reset all settings puts the preferences back as they came.
 - Automatic backups of open drawings, in the folder set in Options > Save
-  (by default a `TraceDraw` folder in your system's temporary folder).
+  (by default a `TraceLaser` folder in your system's temporary folder).
 - AI Drawing's settings (service, address, model) with the preferences;
   your API key only if you tick "Remember the key on this computer", and
   then in plain text in the preferences file (in the browser version: the
-  page's local storage). Otherwise the key is forgotten when TraceDraw
+  page's local storage). Otherwise the key is forgotten when TraceLaser
   closes.
 - The same goes for File > GitHub's token: kept in the preferences file
   only if you tick the box to remember it.
-- Logs: `tracedraw.log` (written afresh at each start) and, after a
+- Logs: `tracelaser.log` (written afresh at each start) and, after a
   crash, `crash.log`, both in the preferences folder. They hold
   technical messages about the run, are never sent anywhere and are
   only shared if you attach them to a bug report yourself.
 
-## When TraceDraw uses the network
+## When TraceLaser uses the network
 
 Only when you ask it to, plus one update check a day that you choose
 at first start and can turn off at any time:
 
-- Update check (desktop): the first time TraceDraw starts, it asks
+- Update check (desktop): the first time TraceLaser starts, it asks
   whether to check for updates (Always check / Never check) and makes
   no connection on its own before you answer. With Always check, once
   a day at start, and whenever you choose
-  Help > Updates, TraceDraw asks GitHub's public API
+  Help > Updates, TraceLaser asks GitHub's public API
   (`api.github.com`) for the project's latest release. The request
-  carries only TraceDraw's version in its User-Agent header; no
+  carries only TraceLaser's version in its User-Agent header; no
   identifier, drawing or system detail. Turn it off in Options >
   Global > General > "Check for updates at start". Nothing is
   downloaded or installed unless you press Download (or, for the Linux
@@ -57,19 +57,19 @@ at first start and can turn off at any time:
   browser, which then follows its own privacy policy.
 - Send To > Mail hands a file to your mail program; you choose whether to
   send it.
-- `tracedraw --mcp` talks over standard input and output with the
+- `tracelaser --mcp` talks over standard input and output with the
   program that started it, on your computer; it opens no network port.
 - Options > Global > General > "Let AI agents on this computer edit the
   open drawing" (off unless you turn it on) opens a port on your
   computer only (`127.0.0.1`), guarded by a key kept in the preferences
-  folder, for `tracedraw --mcp-window`; nothing outside your computer can
+  folder, for `tracelaser --mcp-window`; nothing outside your computer can
   connect.
 - AI Drawing (Tools > AI Drawing), only when you press Draw: it sends
   your request, the earlier requests of the same conversation and a
   description of the active page (its size, layers and objects: types,
   positions, colours and text; no file names or pictures) to the AI
   service whose address you entered, with your API key. That service
-  handles them under its own terms and privacy policy. TraceDraw has no
+  handles them under its own terms and privacy policy. TraceLaser has no
   AI service of its own and sends nothing to its authors.
 - AI images (making, remixing or cutting out pictures with the same
   service), only when you ask: it sends your request and, for a remix or
@@ -82,8 +82,8 @@ at first start and can turn off at any time:
 
 ## The browser version
 
-The browser version at <https://tracedraw.github.io/tracedraw/> is a set of static
-files served by GitHub Pages. TraceDraw itself sends nothing (AI Drawing
+The browser version at <https://tracelaser.github.io/tracelaser/> is a set of static
+files served by GitHub Pages. TraceLaser itself sends nothing (AI Drawing
 aside, as above, from your browser to the service you set up). When a
 drawing's text needs a font of the page's font catalog, or the pointer
 rests on one in a font list, the page fetches that font's files from
@@ -94,7 +94,7 @@ Files you open in it stay in your browser.
 
 ## Independence and trademarks
 
-TraceDraw is an independent open-source project, not affiliated with,
+TraceLaser is an independent open-source project, not affiliated with,
 endorsed by or sponsored by Corel Corporation, Alludo or any other
 software vendor. CorelDRAW is a registered trademark of Corel Corporation.
 `.cdr` support is implemented independently, for interoperability. Other
@@ -103,6 +103,6 @@ trademarks and product names belong to their owners.
 ## Contact
 
 Questions about this policy: open an issue at
-<https://github.com/tracedraw/tracedraw/issues>.
+<https://github.com/arewedaks/TraceLaser/issues>.
 
 Last updated: 2026-11-01.

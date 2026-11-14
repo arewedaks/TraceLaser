@@ -60,6 +60,6 @@ listet jedes Andockfenster und die Seite auf, die es erklärt.
   ihre Pfeile zeigen zur Fensterseite, an die er sich faltet (links bei
   Andockfenstern am linken Rand).
 - Andockfenster, die Sie offen lassen, kommen beim nächsten Start von
-  TraceDraw wieder.
+  TraceLaser wieder.
 - Die Tastenkürzel der Andockfenster schalten um: Drücken Sie eines, während
   sein Andockfenster vorn ist, werden die Andockfenster ausgeblendet.

@@ -254,7 +254,7 @@ impl Window {
         None
     }
 
-    /// TraceDraw: a size bound in logical units (vendor/README.md, #2487).
+    /// TraceLaser: a size bound in logical units (vendor/README.md, #2487).
     /// One given in physical pixels, as egui-winit gives every bound, held
     /// that many pixels on a monitor of another scaling: moved to a
     /// monitor of a smaller scaling, the window could not take the size
@@ -982,7 +982,7 @@ impl Window {
 
     #[inline]
     pub fn set_theme(&self, theme: Option<Theme>) {
-        // TraceDraw: the theme asked for is kept, so a change of the
+        // TraceLaser: the theme asked for is kept, so a change of the
         // system's theme (`WM_SETTINGCHANGE`) does not put the system's
         // back over it, and the window reports the one it now has (#1920).
         let current = try_theme(self.window, theme);

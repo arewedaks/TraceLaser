@@ -84,5 +84,5 @@ A blend saved as `.cdr` (version 9 or later) stays a blend: the file
 holds the two objects and the blend record between them, so the program
 that opens the file shows the steps and lets you change the blend. The
 steps, spacing and the two objects go into the file; acceleration,
-rotation, a path and the colour direction come back in TraceDraw
+rotation, a path and the colour direction come back in TraceLaser
 (version 14 or later), other programs start from their defaults.

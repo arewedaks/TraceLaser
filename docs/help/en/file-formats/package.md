@@ -22,7 +22,7 @@ folder to a print shop or a colleague, or keep it with the finished job.
 4. Tick [[package.pdf]] to add a PDF of the drawing (off at first).
 5. Click [[dialog.ok]].
 
-TraceDraw makes the folder when it does not exist and replaces files of the
+TraceLaser makes the folder when it does not exist and replaces files of the
 same names in it. The drawing you have open does not change: its links still
 point to the original pictures. The status bar says how many pictures and
 fonts went in, and how many items could not (the report names them).
@@ -32,7 +32,7 @@ fonts went in, and how many items could not (the report names them).
 You can also package a drawing while you save it:
 
 1. Choose [[menu.file > menu.file.save_as]].
-2. Choose TraceDraw (`*.tdraw`) as the [[dialog.save_as_type]].
+2. Choose TraceLaser (`*.tdraw`) as the [[dialog.save_as_type]].
 3. Tick [[dialog.save_package]] and, if you want a PDF too, [[package.pdf]].
 4. Type the name and click [[dialog.save]].
 
@@ -60,7 +60,7 @@ still shows.
 ## Opening a package {#open}
 
 Open the `.tdraw` file of the package as any drawing. When the drawing's
-folder has a `Fonts` folder beside it, TraceDraw uses the fonts in it for
+folder has a `Fonts` folder beside it, TraceLaser uses the fonts in it for
 this session, so the text shows in its own fonts even where they are not
 installed. Nothing is installed on the computer.
 

@@ -83,7 +83,7 @@ below names the call it makes.
 | `Application.ActiveSelection` | the selected objects |
 | `Application.ActiveShape` | the first selected object, or `null` |
 | `Application.Version` | the program's version, as text |
-| `Application.Name` | `'TraceDraw'` |
+| `Application.Name` | `'TraceLaser'` |
 | `Application.CreateColor` | the `Color` class |
 
 `ActiveDocument`, `ActivePage`, `ActiveLayer` and `ActiveSelection` are also

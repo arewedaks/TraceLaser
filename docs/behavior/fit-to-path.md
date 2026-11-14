@@ -5,7 +5,7 @@ the objects to place, then the path last (Shift+click). The objects go
 along all the path's subpaths one after another (Treat subpaths as
 contiguous) or along its first subpath only; a closed path is walked
 all the way round, its closing side included. The code is in
-`apps/tracedraw/src/fit_path.rs`.
+`apps/tracelaser/src/fit_path.rs`.
 
 The panel starts from the defaults below, with no preview, each time
 other objects are selected or another drawing is active (#1136). Once a

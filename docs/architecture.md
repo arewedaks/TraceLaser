@@ -1,11 +1,11 @@
 # Architecture
 
-TraceDraw is a Cargo workspace. The dependency direction is strict and
+TraceLaser is a Cargo workspace. The dependency direction is strict and
 reviewed: nothing below `apps/` knows about egui, and `core` knows about
 nothing else in the workspace.
 
 ```text
-apps/tracedraw, apps/tracedraw-cli
+apps/tracelaser, apps/tracelaser-cli
         |
         v
 crates/io  ---------> crates/render
@@ -80,7 +80,7 @@ with the tree, by object; `docs/cdr-format.md`, "Unknown records"),
 embedded fonts, `ole.rs` reads the compound files of embedded objects.
 It is being grown, step by step, into the home of a neutral document
 model in file units with readers and writers per version, so that what
-TraceDraw's model cannot hold survives a round trip.
+TraceLaser's model cannot hold survives a round trip.
 
 ## cdr
 
@@ -112,7 +112,7 @@ layer, drop shadows a separable box blur. `render_fill_image` rasterises
 a fill alone for exporters.
 
 The app caches the rendered page as a texture keyed by document revision,
-view and canvas size (`apps/tracedraw/src/raster.rs`), so the UI only
+view and canvas size (`apps/tracelaser/src/raster.rs`), so the UI only
 re-renders when something changed.
 
 ## io
@@ -125,7 +125,7 @@ re-renders when something changed.
   CMYK fills, axial and radial shadings with stitching functions,
   ExtGState opacity, images, patterns and textures as images.
 
-## apps/tracedraw
+## apps/tracelaser
 
 `App` holds the engine, the current page, the view, the active tool, the
 selection, drag state and tool defaults. `interaction.rs` turns pointer
@@ -135,7 +135,7 @@ standard toolbar, property bar, toolbox, panels, palette, status bar,
 document tabs, dialogs. `canvas.rs` draws the cached raster and the
 overlays (handles, nodes, rubber bands, guides, rulers).
 
-## apps/tracedraw-cli
+## apps/tracelaser-cli
 
 `inspect` (chunk tree of a `.cdr`), `info` (pages, layers, objects),
 `convert` (to `.tdraw`, SVG, PDF). It installs the text engine so text

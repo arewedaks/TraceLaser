@@ -75,7 +75,7 @@ struct GlowWinitRunning<'app> {
     glutin: Rc<RefCell<GlutinWindowContext>>,
 
     // NOTE: one painter shared by all viewports.
-    // TraceDraw: `GlPainter` in place of `egui_glow::Painter` here, in
+    // TraceLaser: `GlPainter` in place of `egui_glow::Painter` here, in
     // the return type of `init_run_state`, in the parameters of
     // `render_immediate_viewport` and `save_screenshot_and_exit`, and in
     // the `clear` call of `render_immediate_viewport` (see
@@ -236,7 +236,7 @@ impl<'app> GlowWinitApp<'app> {
             }))
         };
 
-        // TraceDraw: egui_glow's painter, or the fixed-function one on
+        // TraceLaser: egui_glow's painter, or the fixed-function one on
         // desktop OpenGL below 3.0 (see vendor/README.md).
         let painter = GlPainter::new(
             gl,
@@ -1128,7 +1128,7 @@ impl GlutinWindowContext {
                 .map_err(|e| crate::Error::NoGlutinConfigs(config_template_builder.build(), e))?
         };
         if let Some(window) = &window {
-            // TraceDraw: a maximized window is not given its size again (#787).
+            // TraceLaser: a maximized window is not given its size again (#787).
             egui_winit::apply_viewport_builder_to_window(
                 egui_ctx,
                 window,
@@ -1149,10 +1149,10 @@ impl GlutinWindowContext {
         });
         log::debug!("creating gl context using raw window handle: {glutin_raw_window_handle:?}");
 
-        // TraceDraw: backported from eframe 0.37 (see vendor/README.md).
+        // TraceLaser: backported from eframe 0.37 (see vendor/README.md).
         let [default_attributes, fallback_attributes @ ..] =
             context_attributes_to_try(glutin_raw_window_handle);
-        // TraceDraw: `TRACEDRAW_GL_CONTEXT=compat` asks for the
+        // TraceLaser: `TRACELASER_GL_CONTEXT=compat` asks for the
         // compatibility profile first, so that a test under a driver that
         // can make OpenGL ES contexts (Mesa forced to OpenGL 2.1) takes the
         // path an older Windows driver takes.
@@ -1304,7 +1304,7 @@ impl GlutinWindowContext {
                     glutin_winit::finalize_window(event_loop, window_attributes, &self.gl_config)?
                 }
             };
-            // TraceDraw: a maximized window is not given its size again (#787).
+            // TraceLaser: a maximized window is not given its size again (#787).
             egui_winit::apply_viewport_builder_to_window(
                 &self.egui_ctx,
                 &window,
@@ -1751,15 +1751,15 @@ fn render_immediate_viewport(
     });
 }
 
-// TraceDraw: the two functions below (the second now in first_context.rs)
+// TraceLaser: the two functions below (the second now in first_context.rs)
 // are backported from eframe 0.37.0 (see vendor/README.md).
 #[path = "first_context.rs"]
 mod first_context;
 use first_context::create_first_context;
 
-/// TraceDraw: the environment variable that puts the compatibility profile
+/// TraceLaser: the environment variable that puts the compatibility profile
 /// first (`compat`), for tests.
-const CONTEXT_ENV: &str = "TRACEDRAW_GL_CONTEXT";
+const CONTEXT_ENV: &str = "TRACELASER_GL_CONTEXT";
 
 /// The OpenGL contexts to ask for, in order of preference.
 ///
@@ -1808,7 +1808,7 @@ fn save_screenshot_and_exit(path: &str, painter: &GlPainter, screen_size_in_pixe
     std::process::exit(0);
 }
 
-// TraceDraw: backported from eframe 0.37.0 (see vendor/README.md).
+// TraceLaser: backported from eframe 0.37.0 (see vendor/README.md).
 #[cfg(test)]
 mod tests {
     use super::context_attributes_to_try;

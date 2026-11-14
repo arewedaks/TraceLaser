@@ -179,7 +179,7 @@ split by thin lines:
    on (see Icon buttons above).
 7. Snap Off (Alt+Q), pressed while snapping is off; Snap To with the
    snapping list.
-8. Options (the TraceDraw options); Panels (a window with a side panel),
+8. Options (the TraceLaser options); Panels (a window with a side panel),
    pressed while the dockers show: shows or hides them (the Touch
    workspace starts without them, #1611).
 9. Launch, an icon with the list arrow (its name in the tooltip): Font

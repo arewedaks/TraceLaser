@@ -1,10 +1,10 @@
 # Browser version
 
 The same editor compiled to WebAssembly (`wasm32-unknown-unknown`) and
-drawn with WebGL 2 by eframe, so TraceDraw runs in a browser with nothing
+drawn with WebGL 2 by eframe, so TraceLaser runs in a browser with nothing
 to install. CI publishes it to GitHub Pages; it is not one of the
 release downloads. Each run keeps the folder as the `web-site` artifact
-(`tracedraw-<version>-web.zip`, a static folder: serve it from any web
+(`tracelaser-<version>-web.zip`, a static folder: serve it from any web
 server; opening `index.html` from disk does not work because browsers
 refuse to load modules from `file://`).
 
@@ -20,12 +20,12 @@ refuse to load modules from `file://`).
 | Edit Bitmap (external editor) | system image editor | not available (a browser cannot hand files to programs) |
 | File > Package | a folder with the drawing, its pictures, fonts and a report (`package.md`) | greyed, its tip says it needs the desktop version: a package is a folder of files (#1416) |
 | Scripts docker | JavaScript and VBA snippets, Debug with breakpoints | JavaScript only: the VBA tab and Debug are greyed, their tips say why (macros and the debugger run on a thread of their own, #1416) |
-| Settings | `settings.json` in the configuration folder, saved as they change | browser local storage (key `tracedraw.settings`), saved as they change: they stay in that browser on that computer, until its site data is cleared (see Storage below) |
-| Shelf | `shelf.json` in the configuration folder | the page's IndexedDB database `tracedraw-kept` (see Storage below) |
+| Settings | `settings.json` in the configuration folder, saved as they change | browser local storage (key `tracelaser.settings`), saved as they change: they stay in that browser on that computer, until its site data is cleared (see Storage below) |
+| Shelf | `shelf.json` in the configuration folder | the page's IndexedDB database `tracelaser-kept` (see Storage below) |
 | Auto-backup and session recovery | backups and session markers in the auto-backup folder (`recovery.md`) | backups in the page's IndexedDB database and markers in its local storage; leaving the page with unsaved drawings asks first (`recovery.md`, "In the browser") |
 | Recent documents | listed on the Welcome screen | not recorded (uploads have no path to reopen) |
-| Interface languages | all nineteen built into the program | English built in; another language's file (`lang/<code>.toml` next to the page, about 430 to 850 KB) is fetched when the editor starts in it or it is chosen, English shows until it arrives and then the interface switches without a reload; the service worker keeps a fetched file with the deploy's other files, so the language is there without a network until the next deploy; when the fetch fails English stays (logged in the browser console) and choosing the language again or the next start tries again (`i18n::tests::a_fetched_language_shows_english_until_it_arrives`, `i18n::tests::a_missing_language_falls_back_to_english`). The start language is the browser's preferred one TraceDraw has (`navigator.languages`, see `language.md`) |
-| Fonts | installed system fonts | bundled at build time: Liberation Sans, Serif and Mono, DejaVu Sans, Noto Sans Devanagari and Bengali; the published page's font folder adds about a hundred free families (stand-ins of the same widths for common office faces, popular families, Chinese, Japanese, Korean, Arabic, Hebrew, Thai and Lao) and its font catalog every other family of the google/fonts collection (about 2,000), each fetched the first time a drawing's text needs it or a font list's pointer rests on it (see `web/FONTS.md`); Chinese and Japanese UI text needs a font the build machine had. A font added with Font Manager > Add Font is kept in the page's IndexedDB (`tracedraw-fonts`) and installed again at the next visit (#1400) |
+| Interface languages | all nineteen built into the program | English built in; another language's file (`lang/<code>.toml` next to the page, about 430 to 850 KB) is fetched when the editor starts in it or it is chosen, English shows until it arrives and then the interface switches without a reload; the service worker keeps a fetched file with the deploy's other files, so the language is there without a network until the next deploy; when the fetch fails English stays (logged in the browser console) and choosing the language again or the next start tries again (`i18n::tests::a_fetched_language_shows_english_until_it_arrives`, `i18n::tests::a_missing_language_falls_back_to_english`). The start language is the browser's preferred one TraceLaser has (`navigator.languages`, see `language.md`) |
+| Fonts | installed system fonts | bundled at build time: Liberation Sans, Serif and Mono, DejaVu Sans, Noto Sans Devanagari and Bengali; the published page's font folder adds about a hundred free families (stand-ins of the same widths for common office faces, popular families, Chinese, Japanese, Korean, Arabic, Hebrew, Thai and Lao) and its font catalog every other family of the google/fonts collection (about 2,000), each fetched the first time a drawing's text needs it or a font list's pointer rests on it (see `web/FONTS.md`); Chinese and Japanese UI text needs a font the build machine had. A font added with Font Manager > Add Font is kept in the page's IndexedDB (`tracelaser-fonts`) and installed again at the next visit (#1400) |
 | System clipboard | text, images and copied files (arboard) | Ctrl+V takes text, pictures and files copied in other programs from the browser's paste event; Edit > Paste reads the clipboard with the browser's clipboard API, which asks once for permission, and pastes the copy made here when the browser refuses (see `clipboard.md`) |
 | Help links | system browser | a new tab |
 | Folder buttons | the system's folder dialog | see "Folder buttons" below (#1399) |
@@ -61,9 +61,9 @@ What the browser version keeps between visits lives in the page's
 storage, which the browser may refuse (#1414):
 
 - The shelf goes to an IndexedDB database of its own
-  (`tracedraw-kept`, store `kept`, key `tracedraw-shelf`), which takes
+  (`tracelaser-kept`, store `kept`, key `tracelaser-shelf`), which takes
   far more than local storage, so a shelf of pictures fits. Earlier
-  versions kept it in local storage (key `tracedraw-shelf`): it is
+  versions kept it in local storage (key `tracelaser-shelf`): it is
   read from there when the database has none, and removed from there
   once the database holds it, which also frees local storage for the
   settings. The database is read when the page opens; the Shelf docker
@@ -71,7 +71,7 @@ storage, which the browser may refuse (#1414):
   read is kept after the stored ones. A browser without IndexedDB keeps
   the shelf in local storage as before.
 - The settings and the auto-backups' session markers stay in local
-  storage, the auto-backups in their own database (`tracedraw`).
+  storage, the auto-backups in their own database (`tracelaser`).
 - Every write is checked: when the browser refuses one (its quota for
   the page is full, `QuotaExceededError`, or storage is turned off, as
   in some private windows), a message says what was not saved (the
@@ -90,7 +90,7 @@ storage, which the browser may refuse (#1414):
 While the module downloads, the page shows the desktop app's splash
 screen on the grey of the drawing window: the same artwork (`splash.rs`,
 `ui/brand.rs`), name, tagline, copyright and version, with the status
-"Loading TraceDraw: 3.5 of 5.7 MB (61%)" and the progress bar under it
+"Loading TraceLaser: 3.5 of 5.7 MB (61%)" and the progress bar under it
 (the build writes the module's size into the page as `data-wasm-size`
 and the version for `@VERSION@`; without the size the page counts the
 megabytes and the bar creeps towards 90 %). The download fills the bar
@@ -102,12 +102,12 @@ arrive, in a response of the type `application/wasm`, so the browser
 compiles the module while it downloads, not after: the wait after the
 last byte is what is left of the compiling, and a server that sends the
 module with another type makes no difference. Under the
-splash, small: "TraceDraw (alpha): open-source vector editor that opens
+splash, small: "TraceLaser (alpha): open-source vector editor that opens
 .cdr files. Written in Rust, free under the MIT or Apache-2.0 license.",
 which screens it suits (a desktop browser with a mouse and keyboard; on
 a tablet the Touch workspace; a phone screen is too small for editing)
 and links to the desktop downloads
-(`https://github.com/tracedraw/tracedraw/releases/latest`), the source
+(`https://github.com/arewedaks/TraceLaser/releases/latest`), the source
 code and the issues. When the editor cannot start, the splash says so,
 its bar turns red and the reason shows under it, with the links.
 
@@ -127,7 +127,7 @@ button); Download the desktop app opens the latest release
 (`app::tests::the_browser_notice_shows_at_every_visit`). When the
 browser runs on Windows (the navigator's platform or user agent,
 `web_page::windows_platform`), a third button, Get it from the Microsoft
-Store, opens TraceDraw's Store page, and a last paragraph says that the
+Store, opens TraceLaser's Store page, and a last paragraph says that the
 Store version may be one or more releases behind the latest download
 because the Store certifies each version first. The macro message
 offers the same buttons
@@ -145,12 +145,12 @@ they finish) and a page has less memory than a program.
 The page is an installable web app (#893): a browser that supports web
 apps offers to put it on the home screen or in the app list, and from
 there it opens full screen, without the browser's address bar and tabs,
-with the TraceDraw icon and name, in any orientation. There is no native
+with the TraceLaser icon and name, in any orientation. There is no native
 Android or iPadOS program and no app store listing: the installed app is
 the same WebAssembly build, run by the system's browser engine.
 
 - Android tablet (Chrome, Edge, Samsung Internet): open
-  `https://tracedraw.github.io/tracedraw/`, then the browser's menu and
+  `https://tracelaser.github.io/tracelaser/`, then the browser's menu and
   "Install app" or "Add to Home screen". Chrome may also show an install
   bar under the address bar.
 - iPad (Safari): open the page, tap Share, then "Add to Home Screen".
@@ -168,18 +168,18 @@ points (iPadOS); `files::picker_filters_by_type` decides, tested by
 `files::tests::mobile_browsers_pick_without_extension_filters`. Desktop
 browsers (Windows, macOS, Linux, touch laptops included) match the
 extensions themselves and keep the filters; the Android app's own picker
-already asks for every file (`*/*`). A file of a type TraceDraw does not
+already asks for every file (`*/*`). A file of a type TraceLaser does not
 open gets the usual message.
 - Desktop (Chrome, Edge): the install icon at the right end of the
-  address bar, or the menu's "Install TraceDraw".
+  address bar, or the menu's "Install TraceLaser".
 
 The installed app is offered by the system for `.tdraw`, `.cdr`, `.svg`
 and `.pdf` files (the manifest's `file_handlers`, where the browser
 supports them: Chrome and Edge on the desktop): a file opened with it goes
-to the TraceDraw window already open (`launch_handler` `focus-existing`)
+to the TraceLaser window already open (`launch_handler` `focus-existing`)
 and opens in a tab of its own (#646). The page reads the files from the
-launch queue into `window.tracedrawLaunched` and sends a
-`tracedraw-launched` event; the editor takes them between frames
+launch queue into `window.tracelaserLaunched` and sends a
+`tracelaser-launched` event; the editor takes them between frames
 (`web::take_launched_files`), only after such an event, and waits while a
 dialog is up.
 
@@ -187,7 +187,7 @@ Once opened, choose Window > Workspace > Touch for the larger interface
 (`workspaces.md`). The installed app stays at the version it was last
 opened with and starts without a network connection (the font folder's
 families still need one the first time text uses them); a new deploy is
-taken the next time the app starts after every TraceDraw page or window
+taken the next time the app starts after every TraceLaser page or window
 has been closed.
 
 How it works: `web/manifest.webmanifest` (name, icons of 192, 256 and
@@ -198,7 +198,7 @@ under a path) is linked from the page, which also carries the mobile
 tags (`viewport-fit=cover`, `theme-color`, `apple-mobile-web-app-capable`,
 `apple-touch-icon`) and keeps the canvas clear of a notch or rounded
 corners with the safe-area insets. `web/sw.js` is a service worker that
-stores the app shell (the page, `tracedraw.js`, `tracedraw_bg.wasm`, the
+stores the app shell (the page, `tracelaser.js`, `tracelaser_bg.wasm`, the
 manifest and the icons) in a cache named after the version and a digest
 of the page, script and module that the build fills in; it stores all of
 them or none, serves them from that cache only, keeps font folder files
@@ -367,28 +367,28 @@ focus.
 ```sh
 rustup target add wasm32-unknown-unknown
 cargo install wasm-bindgen-cli --version 0.2.129   # must match Cargo.lock
-cargo build --target wasm32-unknown-unknown --profile web -p tracedraw
+cargo build --target wasm32-unknown-unknown --profile web -p tracelaser
 wasm-bindgen --target web --no-typescript --out-dir site \
-    target/wasm32-unknown-unknown/web/tracedraw.wasm
+    target/wasm32-unknown-unknown/web/tracelaser.wasm
 # binaryen 133 (https://github.com/WebAssembly/binaryen/releases)
 wasm-opt -Oz --strip-debug --strip-producers \
-    -o site/tracedraw_bg.wasm site/tracedraw_bg.wasm
+    -o site/tracelaser_bg.wasm site/tracelaser_bg.wasm
 cp web/FONTS.md site/
-size=$(wc -c < site/tracedraw_bg.wasm | tr -d ' ')
+size=$(wc -c < site/tracelaser_bg.wasm | tr -d ' ')
 sed -e "s/data-wasm-size=\"0\"/data-wasm-size=\"$size\"/" -e "s/@VERSION@/0.4.0/" \
     web/index.html > site/index.html
-cp assets/icon/tracedraw-256.png site/icon-256.png
+cp assets/icon/tracelaser-256.png site/icon-256.png
 mkdir -p site/lang   # every language file but en.toml (built in)
-for f in apps/tracedraw/lang/*.toml; do
+for f in apps/tracelaser/lang/*.toml; do
     [ "$(basename "$f")" = en.toml ] || cp "$f" site/lang/
 done
 # The installable app: manifest, icons and the service worker, whose
 # cache is named after the version and a digest of the page, script,
 # module and language files (see "Installing on a tablet").
 cp web/manifest.webmanifest site/
-cp assets/icon/tracedraw-192.png site/icon-192.png
-cp assets/icon/tracedraw-512.png site/icon-512.png
-build=$(cat site/index.html site/tracedraw.js site/tracedraw_bg.wasm site/manifest.webmanifest site/lang/*.toml | sha256sum | cut -c1-16)
+cp assets/icon/tracelaser-192.png site/icon-192.png
+cp assets/icon/tracelaser-512.png site/icon-512.png
+build=$(cat site/index.html site/tracelaser.js site/tracelaser_bg.wasm site/manifest.webmanifest site/lang/*.toml | sha256sum | cut -c1-16)
 sed -e "s/@VERSION@/0.4.0/" -e "s/@BUILD@/$build/" web/sw.js > site/sw.js
 node scripts/web/check_pwa.mjs site   # optional: Node, no packages
 python3 -m http.server -d site 8080   # then open http://localhost:8080
@@ -409,7 +409,7 @@ worker's digest
 Checked in a browser with a stand-in module: the progress, the start, an
 error with the links kept, on a desktop and a phone-sized window.
 
-`TRACEDRAW_WEB_FONTS` (folders separated by `:`) points the build at the
+`TRACELASER_WEB_FONTS` (folders separated by `:`) points the build at the
 fonts to bundle; without it the usual Linux font folders are searched.
 
 The font folder is optional: `python3 web/font_folder.py web/fonts.txt

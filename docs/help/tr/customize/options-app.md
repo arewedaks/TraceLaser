@@ -1,4 +1,4 @@
-# TraceDraw seçenekleri
+# TraceLaser seçenekleri
 
 [[menu.tools > menu.tools.options > menu.tools.options_app]]
 (<kbd>Ctrl+J</kbd>) programın nasıl çalışacağını ayarlar. Soldaki listeden
@@ -6,19 +6,19 @@ bir sayfa seçin.
 
 ## Genel {#general}
 
-![TraceDraw seçeneklerinin Genel sayfası](../../img/customize-options-app-general.png)
+![TraceLaser seçeneklerinin Genel sayfası](../../img/customize-options-app-general.png)
 
 - [[options.on_startup]]: Karşılama Ekranını göster, yeni bir belge başlat
   veya son düzenlenen belgeyi aç.
 - [[options.show_new_document_dialog]] (açık): yeni bir çizimin ayarlarını
   sor; bkz. [Çizim oluşturma](../get-started/new-document.md).
 - [[options.show_splash]] (açık).
-- [[options.hardware_acceleration]] (açık): pencere yanında seçilen ekran kartıyla çizilir (başta [[options.gpu_automatic]]); kapalıyken bilgisayarın yazılım oluşturucusuyla. Bir sonraki açılışta geçerli olur. Pencere böyle açılamazsa TraceDraw yazılım oluşturucuyla, ardından OpenGL ile yeniden başlar ve çalışanı hatırlar.
+- [[options.hardware_acceleration]] (açık): pencere yanında seçilen ekran kartıyla çizilir (başta [[options.gpu_automatic]]); kapalıyken bilgisayarın yazılım oluşturucusuyla. Bir sonraki açılışta geçerli olur. Pencere böyle açılamazsa TraceLaser yazılım oluşturucuyla, ardından OpenGL ile yeniden başlar ve çalışanı hatırlar.
 - [[options.undo_levels]]: kaç adımı geri alabileceğiniz (başlangıçta 150).
 
 ## Ekran {#display}
 
-![TraceDraw seçeneklerinin Ekran sayfası](../../img/customize-options-app-display.png)
+![TraceLaser seçeneklerinin Ekran sayfası](../../img/customize-options-app-display.png)
 
 - [[menu.view.proof_colors]]: renkleri basılacakları gibi göster.
 - [[options.show_tooltips]] (açık), [[options.hide_bbox_curve_tools]] ve
@@ -30,7 +30,7 @@ bir sayfa seçin.
 - [[options.open_view]]: [[options.open_view_page]] (başlangıçta),
   [[options.open_view_objects]], [[options.open_view_width]],
   [[options.open_view_height]], [[options.open_view_actual]], [[options.open_view_percent]] veya
-  [[options.open_view_saved]] (her TraceDraw dosyası kaydedilişinde saklanan
+  [[options.open_view_saved]] (her TraceLaser dosyası kaydedilişinde saklanan
   sayfa, yer ve yakınlaştırma).
 - [[options.ruler_calibration]]: ekrana bir cetvel tutun ve işaretler
   eşleşene kadar [[options.screen_resolution]] değerini değiştirin; böylece
@@ -39,7 +39,7 @@ bir sayfa seçin.
 
 ## Düzen {#edit}
 
-![TraceDraw seçeneklerinin Düzen sayfası](../../img/customize-options-app-edit.png)
+![TraceLaser seçeneklerinin Düzen sayfası](../../img/customize-options-app-edit.png)
 
 - [[options.constrain_angle]]: döndürürken ve çizerken <kbd>Ctrl</kbd>
   tuşunun adımı (başlangıçta 15 derece).
@@ -50,7 +50,7 @@ bir sayfa seçin.
 
 ## Düğümler ve Tutamaçlar {#nodes-and-handles}
 
-![TraceDraw seçeneklerinin Düğümler ve Tutamaçlar sayfası](../../img/customize-options-app-nodes-and-handles.png)
+![TraceLaser seçeneklerinin Düğümler ve Tutamaçlar sayfası](../../img/customize-options-app-nodes-and-handles.png)
 
 - [[options.node_size]]: küçük, orta veya büyük.
 - [[options.node_cusp]], [[options.node_smooth]] ve
@@ -63,7 +63,7 @@ bir sayfa seçin.
 
 ## Kırpma Çerçevesi {#clip-frame}
 
-![TraceDraw seçeneklerinin Kırpma Çerçevesi sayfası](../../img/customize-options-app-clip-frame.png)
+![TraceLaser seçeneklerinin Kırpma Çerçevesi sayfası](../../img/customize-options-app-clip-frame.png)
 
 - [[options.auto_center]]: [[options.auto_center_outside]] (başlangıçta),
   [[options.auto_center_always]] veya [[options.auto_center_never]].
@@ -73,7 +73,7 @@ Bkz. [Nesneleri bir çerçevenin içine yerleştirme](../objects/clip-frames.md)
 
 ## Yakalama {#snapping}
 
-![TraceDraw seçeneklerinin Yakalama sayfası](../../img/customize-options-app-snapping.png)
+![TraceLaser seçeneklerinin Yakalama sayfası](../../img/customize-options-app-snapping.png)
 
 - [[options.snap_to_objects]], [[options.snap_to_page]],
   [[options.snap_to_guidelines]], [[options.snap_to_grid]], taban çizgisi
@@ -87,7 +87,7 @@ Bkz. [Yakalama](../pages-layout/snapping.md).
 
 ## Kaydet {#save}
 
-![TraceDraw seçeneklerinin Kaydet sayfası](../../img/customize-options-app-save.png)
+![TraceLaser seçeneklerinin Kaydet sayfası](../../img/customize-options-app-save.png)
 
 - [[options.backup]]: [[options.backup_before_save]] (açık) önceki dosyayı
   `backup_of_<name>` olarak tutar; [[options.backup_to]]
@@ -99,7 +99,7 @@ Bkz. [Yakalama](../pages-layout/snapping.md).
 
 ## Metin {#text}
 
-![TraceDraw seçeneklerinin Metin sayfası](../../img/customize-options-app-text.png)
+![TraceLaser seçeneklerinin Metin sayfası](../../img/customize-options-app-text.png)
 
 Sayfada beş sekme vardır.
 

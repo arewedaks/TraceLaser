@@ -10,14 +10,14 @@ field names as a guide.
 
 ## What the build gives you
 
-- `tracedraw-<version>-android-arm64-v8a-debug.apk` (tablets and
-  phones) and `tracedraw-<version>-android-x86_64-debug.apk` (Chromebooks
+- `tracelaser-<version>-android-arm64-v8a-debug.apk` (tablets and
+  phones) and `tracelaser-<version>-android-x86_64-debug.apk` (Chromebooks
   with Intel or AMD processors, emulators): debug-signed, for
   `adb install` with "install from unknown sources". Never upload them.
-- `tracedraw-<version>-android-release.aab`: the Android App Bundle for
+- `tracelaser-<version>-android-release.aab`: the Android App Bundle for
   Play, with both libraries (Play hands each device its own), signed with the upload key when the four secrets below are set in
   the repository (Settings > Secrets and variables > Actions). Without
-  them the job makes `tracedraw-<version>-android-debug.aab`, signed with
+  them the job makes `tracelaser-<version>-android-debug.aab`, signed with
   the debug key, which Play rejects; it is only for
   `bundletool build-apks --local-testing`.
 - Both are artifacts of the `android` job on every push and pull request
@@ -43,17 +43,17 @@ give Play its certificate. Make it once and keep it safe (losing it means
 a key reset request to Play support):
 
 ```sh
-keytool -genkeypair -v -keystore tracedraw-upload.jks -alias upload \
+keytool -genkeypair -v -keystore tracelaser-upload.jks -alias upload \
     -keyalg RSA -keysize 4096 -validity 10000 \
-    -dname "CN=TraceDraw, O=TraceDraw, C=PT"
-base64 -w0 tracedraw-upload.jks > tracedraw-upload.jks.b64
+    -dname "CN=TraceLaser, O=TraceLaser, C=PT"
+base64 -w0 tracelaser-upload.jks > tracelaser-upload.jks.b64
 ```
 
 Then the four repository secrets:
 
 | Secret | Value |
 |---|---|
-| `ANDROID_KEYSTORE_BASE64` | the content of `tracedraw-upload.jks.b64` |
+| `ANDROID_KEYSTORE_BASE64` | the content of `tracelaser-upload.jks.b64` |
 | `ANDROID_KEYSTORE_PASSWORD` | the keystore password |
 | `ANDROID_KEY_ALIAS` | `upload` (the alias above) |
 | `ANDROID_KEY_PASSWORD` | the key's password: the same as the keystore's for a `.jks` made by a current keytool (PKCS12 keystores have one password; keytool ignores a different `-keypass`), so this secret can be left out |
@@ -69,8 +69,8 @@ with this key: Play registers its certificate as the upload certificate.
    personal account also needs a phone number and address that Play
    shows on the listing, an organisation account a D-U-N-S number). Allow
    a few days for the verification.
-2. **Create the app.** Name TraceDraw, default language English (United
-   States), App, Free. The package name `dev.tracedraw.app` is fixed by
+2. **Create the app.** Name TraceLaser, default language English (United
+   States), App, Free. The package name `dev.tracelaser.app` is fixed by
    the first upload and can never change: keep it.
 3. **Closed testing first.** A personal account created after November
    13, 2023 must run a closed test with at least 12 testers opted in,
@@ -104,7 +104,7 @@ with this key: Play registers its certificate as the upload certificate.
     apply.
 11. **Store listing** (Main store listing). Reuse `docs/store-listing.md`
     and `fastlane/metadata/android/en-US/`:
-    - App name (30): TraceDraw
+    - App name (30): TraceLaser
     - Short description (80): the first sentence of the listing.
     - Full description (4000): the listing text; no mention of other
       products' names apart from the trademark notice at its end.
@@ -140,7 +140,7 @@ and checks that it comes up, stays up and draws the editor
 (`behavior/android.md`, "The emulator check"); nothing there taps,
 picks a file or uses the ARM64 library. These are the first things to
 check on a tablet with the debug APK (`adb install -r`, then
-`adb logcat -s tracedraw`):
+`adb logcat -s tracelaser`):
 
 - The app starts into the Touch workspace and survives rotation and
   going to the background and back.

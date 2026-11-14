@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: How to report a problem
-    url: https://github.com/tracedraw/tracedraw/blob/main/CONTRIBUTING.md#reporting-a-problem
-    about: One problem per issue, with the TraceDraw version and a file or screenshot.
+    url: https://github.com/arewedaks/TraceLaser/blob/main/CONTRIBUTING.md#reporting-a-problem
+    about: One problem per issue, with the TraceLaser version and a file or screenshot.

@@ -45,7 +45,7 @@ than 20%.
 
 ## Robustness
 
-- Mutation testing of every reader: `tracedraw-cli stress <file> [n]`
+- Mutation testing of every reader: `tracelaser-cli stress <file> [n]`
   feeds `n` damaged copies of a file (truncated, byte flips, cut spans,
   overwritten words) to the reader its extension selects and fails on
   any panic. The `.cdr`, PDF, AI, EPS, DXF, PSD, EMF, WMF and SVG readers pass

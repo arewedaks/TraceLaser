@@ -4,7 +4,7 @@
      "unsigned-installer-<build>" (windows-x86_64, windows-x86). -->
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <zip-file>
-    <pe-file path="tracedraw-*-windows-*-setup.exe">
+    <pe-file path="tracelaser-*-windows-*-setup.exe">
       <authenticode-sign />
     </pe-file>
   </zip-file>

@@ -117,21 +117,21 @@ pub struct WinitState {
     /// Loop handle to re-register event sources, such as keyboard repeat.
     pub loop_handle: LoopHandle<'static, Self>,
 
-    /// TraceDraw: the data device manager, for files dragged over a window
+    /// TraceLaser: the data device manager, for files dragged over a window
     /// (#1142, `data_device.rs`).
     pub data_device_manager: Option<DataDeviceManagerState>,
 
-    /// TraceDraw: the drag of files over the windows.
+    /// TraceLaser: the drag of files over the windows.
     pub file_drag: FileDrag<WindowId>,
 
-    /// TraceDraw: the offer of the files dragged over a window, kept until
+    /// TraceLaser: the offer of the files dragged over a window, kept until
     /// a drop is read.
     pub file_drop_offer: Option<DragOffer>,
 
-    /// TraceDraw: the action the compositor chose for that offer.
+    /// TraceLaser: the action the compositor chose for that offer.
     pub file_drop_action: DndAction,
 
-    /// TraceDraw: the tablet manager, for a graphics tablet's pen
+    /// TraceLaser: the tablet manager, for a graphics tablet's pen
     /// (#1841, `tablet.rs`).
     pub tablet: Option<TabletState>,
 
@@ -166,7 +166,7 @@ impl WinitState {
 
         let seat_state = SeatState::new(globals, queue_handle);
 
-        // TraceDraw: a data device for each seat, for files dragged over
+        // TraceLaser: a data device for each seat, for files dragged over
         // a window (#1142).
         let data_device_manager = match DataDeviceManagerState::bind(globals, queue_handle) {
             Ok(manager) => Some(manager),
@@ -176,7 +176,7 @@ impl WinitState {
             },
         };
 
-        // TraceDraw: a tablet seat for each seat, for a graphics tablet's
+        // TraceLaser: a tablet seat for each seat, for a graphics tablet's
         // pen (#1841).
         let tablet = TabletState::bind(globals, queue_handle);
 

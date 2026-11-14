@@ -19,7 +19,7 @@ use crate::window::Theme;
 
 use super::util;
 
-// TraceDraw: also read where a window moved to another scaling goes
+// TraceLaser: also read where a window moved to another scaling goes
 // (event_loop.rs, `WM_DPICHANGED`, #2487).
 pub(super) static WIN10_BUILD_VERSION: Lazy<Option<u32>> = Lazy::new(|| {
     type RtlGetVersion = unsafe extern "system" fn(*mut OSVERSIONINFOW) -> NTSTATUS;
@@ -78,7 +78,7 @@ pub fn try_theme(hwnd: HWND, preferred_theme: Option<Theme>) -> Theme {
 
         let status = unsafe { SetWindowTheme(hwnd, theme_name, ptr::null()) };
 
-        // TraceDraw: the title bar follows through the documented DWM
+        // TraceLaser: the title bar follows through the documented DWM
         // attribute as well, which Windows 11 and later Windows 10 builds
         // read for the caption; the composition attribute below alone
         // left it light (#1920).
@@ -92,7 +92,7 @@ pub fn try_theme(hwnd: HWND, preferred_theme: Option<Theme>) -> Theme {
     Theme::Light
 }
 
-/// TraceDraw: `DWMWA_USE_IMMERSIVE_DARK_MODE` (20 from Windows 10 build
+/// TraceLaser: `DWMWA_USE_IMMERSIVE_DARK_MODE` (20 from Windows 10 build
 /// 18985, 19 before it) on `hwnd`, then the frame redrawn so the title bar
 /// changes at once rather than at the next activation. Whether Windows
 /// took it.

@@ -1,4 +1,4 @@
-# Options de TraceDraw
+# Options de TraceLaser
 
 [[menu.tools > menu.tools.options > menu.tools.options_app]]
 (<kbd>Ctrl+J</kbd>) règle le fonctionnement du programme. Choisissez une
@@ -6,20 +6,20 @@ page dans la liste de gauche.
 
 ## Général {#general}
 
-![La page Général des options de TraceDraw](../../img/customize-options-app-general.png)
+![La page Général des options de TraceLaser](../../img/customize-options-app-general.png)
 
 - [[options.on_startup]] : afficher l'écran d'accueil, commencer un nouveau
   document ou ouvrir le dernier document modifié.
 - [[options.show_new_document_dialog]] (actif) : demander les réglages d'un
   nouveau dessin ; voir [Créer un dessin](../get-started/new-document.md).
 - [[options.show_splash]] (actif).
-- [[options.hardware_acceleration]] (activé) : la fenêtre est dessinée avec la carte graphique choisie à côté ([[options.gpu_automatic]] au départ) ; désactivé, avec le rendu logiciel de l'ordinateur. Le réglage s'applique au prochain démarrage. Si la fenêtre ne peut pas s'ouvrir ainsi, TraceDraw redémarre avec le rendu logiciel, puis avec OpenGL, et garde celui qui a fonctionné.
+- [[options.hardware_acceleration]] (activé) : la fenêtre est dessinée avec la carte graphique choisie à côté ([[options.gpu_automatic]] au départ) ; désactivé, avec le rendu logiciel de l'ordinateur. Le réglage s'applique au prochain démarrage. Si la fenêtre ne peut pas s'ouvrir ainsi, TraceLaser redémarre avec le rendu logiciel, puis avec OpenGL, et garde celui qui a fonctionné.
 - [[options.undo_levels]] : combien d'étapes vous pouvez annuler (150 au
   départ).
 
 ## Affichage {#display}
 
-![La page Affichage des options de TraceDraw](../../img/customize-options-app-display.png)
+![La page Affichage des options de TraceLaser](../../img/customize-options-app-display.png)
 
 - [[menu.view.proof_colors]] : afficher les couleurs telles qu'elles seront
   imprimées.
@@ -33,7 +33,7 @@ page dans la liste de gauche.
   [[options.open_view_objects]], [[options.open_view_width]],
   [[options.open_view_height]], [[options.open_view_actual]], [[options.open_view_percent]] ou
   [[options.open_view_saved]] (la page, l'endroit et le zoom gardés à chaque
-  enregistrement d'un fichier TraceDraw).
+  enregistrement d'un fichier TraceLaser).
 - [[options.ruler_calibration]] : tenez une règle contre l'écran et changez
   la [[options.screen_resolution]] jusqu'à ce que les graduations
   correspondent, afin que le zoom à 100 % montre les tailles réelles.
@@ -41,7 +41,7 @@ page dans la liste de gauche.
 
 ## Édition {#edit}
 
-![La page Édition des options de TraceDraw](../../img/customize-options-app-edit.png)
+![La page Édition des options de TraceLaser](../../img/customize-options-app-edit.png)
 
 - [[options.constrain_angle]] : le pas de <kbd>Ctrl</kbd> pendant la
   rotation et le dessin (15 degrés au départ).
@@ -53,7 +53,7 @@ page dans la liste de gauche.
 
 ## Nœuds et poignées {#nodes-and-handles}
 
-![La page Nœuds et poignées des options de TraceDraw](../../img/customize-options-app-nodes-and-handles.png)
+![La page Nœuds et poignées des options de TraceLaser](../../img/customize-options-app-nodes-and-handles.png)
 
 - [[options.node_size]] : petite, moyenne ou grande.
 - [[options.node_shape]] pour les nœuds [[options.node_cusp]],
@@ -66,7 +66,7 @@ page dans la liste de gauche.
 
 ## Cadre de découpe {#clip-frame}
 
-![La page Cadre de découpe des options de TraceDraw](../../img/customize-options-app-clip-frame.png)
+![La page Cadre de découpe des options de TraceLaser](../../img/customize-options-app-clip-frame.png)
 
 - [[options.auto_center]] : [[options.auto_center_outside]] (au départ),
   [[options.auto_center_always]] ou [[options.auto_center_never]].
@@ -76,7 +76,7 @@ Voir [Placer des objets dans un cadre](../objects/clip-frames.md).
 
 ## Magnétisme {#snapping}
 
-![La page Magnétisme des options de TraceDraw](../../img/customize-options-app-snapping.png)
+![La page Magnétisme des options de TraceLaser](../../img/customize-options-app-snapping.png)
 
 - [[options.snap_to_objects]], [[options.snap_to_page]],
   [[options.snap_to_guidelines]], [[options.snap_to_grid]], la grille de
@@ -90,7 +90,7 @@ Voir [Magnétisme](../pages-layout/snapping.md).
 
 ## Enregistrement {#save}
 
-![La page Enregistrement des options de TraceDraw](../../img/customize-options-app-save.png)
+![La page Enregistrement des options de TraceLaser](../../img/customize-options-app-save.png)
 
 - [[options.backup]] : [[options.backup_before_save]] (actif) conserve le
   fichier précédent sous le nom `backup_of_<nom>`, [[options.backup_to]] le
@@ -102,7 +102,7 @@ Voir [Magnétisme](../pages-layout/snapping.md).
 
 ## Texte {#text}
 
-![La page Texte des options de TraceDraw](../../img/customize-options-app-text.png)
+![La page Texte des options de TraceLaser](../../img/customize-options-app-text.png)
 
 La page a cinq onglets.
 

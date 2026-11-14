@@ -1,6 +1,6 @@
 # Graphics card and processor
 
-Tools > Options > TraceDraw > General, under "Use hardware acceleration".
+Tools > Options > TraceLaser > General, under "Use hardware acceleration".
 
 ## What each one does
 
@@ -27,7 +27,7 @@ takes effect at once (no restart).
 - With it on and the window drawn on a graphics card (not the software
   adapter, which is the processor itself), the blur of a drop shadow on
   screen whose layer has at least 65,536 pixels (`accel::MIN_PIXELS`,
-  256 x 256) is worked out by a compute shader (`apps/tracedraw/src/gpu_fx.rs`).
+  256 x 256) is worked out by a compute shader (`apps/tracelaser/src/gpu_fx.rs`).
   Smaller shadows stay on the processor: sending them to the card and
   back costs more than blurring them.
 - The shader does the same box blur as the processor: each pass, for

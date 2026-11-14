@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- The Android app (docs/behavior/android.md): TraceDrawActivity, a
-     NativeActivity written in packaging/android/java, loads libtracedraw.so,
+<!-- The Android app (docs/behavior/android.md): TracelaserActivity, a
+     NativeActivity written in packaging/android/java, loads libtracelaser.so,
      the editor compiled as a shared library, which draws and reads touch
      input itself; the activity's Java methods reach the system's document
      picker, clipboard, print service and share sheet for it. The version code and name are filled in
      by scripts/android/build.sh from Cargo.toml. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.tracedraw.app">
+    package="dev.tracelaser.app">
 
     <!-- Android 7.0 (API 24) and later, built for Android 16 (API 36), the
          level Google Play asks of new apps; the build links against the
@@ -26,7 +26,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:label="TraceDraw"
+        android:label="TraceLaser"
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="true"
         android:hasCode="true"
@@ -40,27 +40,27 @@
              change of the system's resource overlays (wallpaper colours,
              icon shapes, display cutout) cannot be declared: either
              relaunches the activity, which then ends the process once
-             the drawings are backed up (TraceDrawActivity.onDestroy);
+             the drawings are backed up (TracelaserActivity.onDestroy);
              stateNotNeeded makes the system keep the activity and start
              it again in a new process instead of closing it. -->
         <activity
-            android:name="dev.tracedraw.app.TraceDrawActivity"
-            android:label="TraceDraw"
+            android:name="dev.tracelaser.app.TracelaserActivity"
+            android:label="TraceLaser"
             android:exported="true"
             android:launchMode="singleTask"
             android:stateNotNeeded="true"
             android:screenOrientation="unspecified"
             android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|screenLayout|smallestScreenSize|uiMode|locale|layoutDirection|navigation|touchscreen|mcc|mnc|fontScale|fontWeightAdjustment|colorMode|grammaticalGender">
-            <!-- The library the activity loads: lib/arm64-v8a/libtracedraw.so. -->
-            <meta-data android:name="android.app.lib_name" android:value="tracedraw" />
+            <!-- The library the activity loads: lib/arm64-v8a/libtracelaser.so. -->
+            <meta-data android:name="android.app.lib_name" android:value="tracelaser" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!-- Documents other apps open with TraceDraw (a file manager's
+            <!-- Documents other apps open with TraceLaser (a file manager's
                  Open with, a mail's attachment, Share): they open in tabs
-                 of the running editor (#646, TraceDrawActivity.onNewIntent).
+                 of the running editor (#646, TracelaserActivity.onNewIntent).
                  image/* takes pictures and the types file managers give
                  .cdr and .svg files; .tdraw and many .cdr files come as
                  octet-stream. -->
@@ -98,8 +98,8 @@
              private folders under content URIs. Not exported: an app
              reaches a file only through the grant of the intent naming it. -->
         <provider
-            android:name="dev.tracedraw.app.SharedFiles"
-            android:authorities="dev.tracedraw.app.files"
+            android:name="dev.tracelaser.app.SharedFiles"
+            android:authorities="dev.tracelaser.app.files"
             android:exported="false"
             android:grantUriPermissions="true" />
     </application>

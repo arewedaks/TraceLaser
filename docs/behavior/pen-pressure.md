@@ -10,11 +10,11 @@ platform gives no pressure, draw exactly as before: an even width.
 
 The windowing layer (winit 0.30 through egui-winit 0.36) reports a pen as
 a touch with a force in 0..1 (`egui::Event::Touch { force }`), and at the
-same time moves the pointer and presses its primary button. TraceDraw's
+same time moves the pointer and presses its primary button. TraceLaser's
 raw input hook reads the force of the touch events of each frame
 (`pen.rs`, `filter_raw_input`) before egui and the tools see them; a
 touch that ends, or one with no force, clears it. The published winit does this on Windows
-only; TraceDraw's patched copy (`vendor/winit`, see `vendor/README.md`)
+only; TraceLaser's patched copy (`vendor/winit`, see `vendor/README.md`)
 adds X11, Wayland and macOS, and the patched eframe copy (`vendor/eframe`) the
 browser. What each platform gives:
 
@@ -51,7 +51,7 @@ each tool's events into what the other platforms send
 - The pen coming near the tablet over the window enters it, and moving
   away leaves it, as the mouse pointer does; its motion moves the
   pointer. Over the window the pen shows the window's own cursor and
-  follows its changes, as the mouse does: none where TraceDraw draws
+  follows its changes, as the mouse does: none where TraceLaser draws
   the tool's cursor itself (the cross hair with the tool's badge, the
   Shape tool's arrow, the hand), the system's resize, move or text
   cursor through the cursor shape protocol (`wp_cursor_shape_manager_v1`,
@@ -82,15 +82,15 @@ each tool's events into what the other platforms send
 - A compositor without the tablet protocol (rare: GNOME, KDE and the
   wlroots compositors offer it) leaves the pen as before.
 
-`tracedraw --x11` still opens the window through X11 instead: it asks
+`tracelaser --x11` still opens the window through X11 instead: it asks
 the windowing layer for its X11 backend, so the window opens on
 XWayland, where the pen moves the pointer, clicks and reports its
 pressure (XWayland lists the pen as an XInput 2 device, `xwayland-tablet
 stylus`, with the same `Abs Pressure` valuator). The environment is left
-as it is, so programs TraceDraw starts (a browser for a link) still run
+as it is, so programs TraceLaser starts (a browser for a link) still run
 on Wayland. Without `DISPLAY` (no XWayland, no X server) `--x11` stops at
 once with a message saying it needs XWayland or an X11 session, and
-exits with status 2. `env -u WAYLAND_DISPLAY tracedraw` opens the window
+exits with status 2. `env -u WAYLAND_DISPLAY tracelaser` opens the window
 on XWayland too. `GDK_BACKEND=x11` does not: it is read by GTK programs
 only, and the window opens on Wayland whenever `WAYLAND_DISPLAY` is set.
 

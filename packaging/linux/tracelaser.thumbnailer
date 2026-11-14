@@ -1,0 +1,4 @@
+[Thumbnailer Entry]
+TryExec=tracelaser-cli
+Exec=tracelaser-cli thumbnail %i %o %s
+MimeType=application/x-tdraw;application/x-cdr;

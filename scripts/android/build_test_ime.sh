@@ -5,14 +5,14 @@
 # keyboard does (scripts/android/emulator_check.sh). It is for the check
 # only and never shipped:
 #   scripts/android/build_test_ime.sh [output.apk]
-# (dist-android/test/tracedraw-test-ime.apk by default). Needs what
+# (dist-android/test/tracelaser-test-ime.apk by default). Needs what
 # scripts/android/build.sh needs for its Java part: the Android build
 # tools (aapt2, zipalign, apksigner, d8) in ANDROID_HOME or on PATH, the
 # android.jar of platform 36 (or ANDROID_PLATFORM_JAR) and a JDK.
 set -eu
 cd "$(dirname "$0")/../.."
 
-apk="${1:-dist-android/test/tracedraw-test-ime.apk}"
+apk="${1:-dist-android/test/tracelaser-test-ime.apk}"
 src=scripts/android/test-ime
 work=dist-android/test/ime-build
 rm -rf "$work" && mkdir -p "$work/classes" "$(dirname "$apk")"

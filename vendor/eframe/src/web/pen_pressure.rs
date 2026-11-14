@@ -1,17 +1,17 @@
-//! TraceDraw: the pressure of a graphics tablet's pen in the browser
+//! TraceLaser: the pressure of a graphics tablet's pen in the browser
 //! (#1410). The published web layer reads a force only from touch events
 //! (a finger, or a stylus the browser reports as a touch) and drops the
 //! `pressure` of pointer events, so a pen on a tablet drew with no
 //! pressure. A pen's pointer events now also send its pressure the way the
 //! patched winit copy does on X11 and macOS (see `vendor/README.md`): an
 //! `egui::Event::Touch` of phase `Move` only, with the reading as `force`,
-//! which TraceDraw's raw input hook reads and then takes out before egui
-//! sees it (`apps/tracedraw/src/pen.rs`). The pen's pointer events also
+//! which TraceLaser's raw input hook reads and then takes out before egui
+//! sees it (`apps/tracelaser/src/pen.rs`). The pen's pointer events also
 //! move the pointer, and its touches are left out (#1655): Safari on iPad
 //! sends an Apple Pencil no mouse events (`pen_moved`, `is_stylus_touch`,
 //! `pen_cancelled`).
 //!
-//! The file uses nothing of the crate but egui, so that TraceDraw's tests
+//! The file uses nothing of the crate but egui, so that TraceLaser's tests
 //! can include and run it.
 
 /// The `pointerType` of a pen's pointer events.

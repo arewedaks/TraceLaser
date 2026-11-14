@@ -13,7 +13,7 @@ Customization > Commands lists them and takes shortcuts of your own
 | Ctrl+I, Ctrl+E, Ctrl+P | Import, Export, Print |
 | Ctrl+Shift+E | Export with Options (the export options even when set not to show) |
 | Ctrl+F4, Alt+F4 | Close window, Exit |
-| Command+Q (macOS) | Quit TraceDraw from the application menu: asks about unsaved drawings as Exit does; File > Exit shows it there (see "On macOS" below) |
+| Command+Q (macOS) | Quit TraceLaser from the application menu: asks about unsaved drawings as Exit does; File > Exit shows it there (see "On macOS" below) |
 | Ctrl+Z, Ctrl+Shift+Z, Ctrl+R | Undo, Redo, Repeat |
 | Alt+Backspace | Undo, a second key for it (#2201) |
 | Ctrl+X, Ctrl+C, Ctrl+V, Ctrl+Shift+V | Cut, Copy, Paste, Paste in view |

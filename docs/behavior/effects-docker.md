@@ -5,7 +5,7 @@ effect stack of the first selected object: its live effects (contour,
 blend, distortion, envelope, perspective, extrude, bevel, block shadow,
 symmetry, lens, transparency) in the order they apply, from the top
 down. Code: `ui/effects_docker.rs`; the stack in
-`tracedraw_core::document::Shape::effect_stack`.
+`tracelaser_core::document::Shape::effect_stack`.
 
 Each row:
 

@@ -1,4 +1,4 @@
-//! TraceDraw: a mouse on Android (#2152, #2161, see `vendor/README.md`).
+//! TraceLaser: a mouse on Android (#2152, #2161, see `vendor/README.md`).
 //! winit's Android backend turns every pointer of a `MotionEvent` into a
 //! `Touch` and drops the actions it has no touch for, so a Bluetooth or
 //! USB mouse (or a touchpad) clicked like a finger whatever button was
@@ -9,7 +9,7 @@
 //! or up since the last event (from the event's button state, which every
 //! Android version fills in, not from `ACTION_BUTTON_PRESS`, which only
 //! Android 6 and later send) and the wheel's turn. The file depends on
-//! nothing in the crate, so that TraceDraw's tests can include and run it.
+//! nothing in the crate, so that TraceLaser's tests can include and run it.
 
 /// `MotionEvent.BUTTON_PRIMARY`: the left button.
 pub const PRIMARY: u32 = 1;

@@ -1,24 +1,24 @@
 # AGENTS.md: guide for AI agents and contributors
 
-TraceDraw is an open-source vector editor in **Rust only**: native egui/eframe
+TraceLaser is an open-source vector editor in **Rust only**: native egui/eframe
 desktop app and the same app compiled to WebAssembly for the browser. No
 Electron, Tauri or webview.
-The product name is **TraceDraw** in prose; machine names are `tracedraw`
-(`tracedraw-core`, `tracedraw-cdr`, `.tdraw` files).
+The product name is **TraceLaser** in prose; machine names are `tracelaser`
+(`tracelaser-core`, `tracelaser-cdr`, `.tdraw` files).
 
 ## Golden rules
 
 1. **Everything is a command.** New user-visible behaviour is a variant of
-   `tracedraw_core::Command`, applied through `Engine::run`. The UI only builds
+   `tracelaser_core::Command`, applied through `Engine::run`. The UI only builds
    commands and reads the document; it never mutates it directly.
 2. **Never panic on input.** Non-test code does not use `unwrap`, `expect`,
    `panic!`, `todo!` or raw indexing on data that came from a file or the
    user. Return `Result`, log a warning, skip the object. Opening any file
    must always yield a document.
-3. **Clean-room and independence.** TraceDraw stands on its own: never
+3. **Clean-room and independence.** TraceLaser stands on its own: never
    name other graphics editors or their makers anywhere in the repo (code,
    comments, docs, commit messages, packaging, file names), and never
-   describe TraceDraw or a feature as modelled on another program.
+   describe TraceLaser or a feature as modelled on another program.
    Features carry our own names: generic terms (Fill, Blend, Contour,
    Envelope, Weld) are fine, distinctive product or feature names of other
    software are never used. File formats go by their usual names (`.cdr`,
@@ -27,7 +27,7 @@ The product name is **TraceDraw** in prose; machine names are `tracedraw`
    notices that a license requires stay in `ATTRIBUTION.md`. The one
    exception is the trademark notice (README, `PRIVACY.md`, the About
    box, the web page and the store listings), which names the owner of
-   the `.cdr` format's trademark to state that TraceDraw is independent
+   the `.cdr` format's trademark to state that TraceLaser is independent
    of it; keep its wording the same everywhere. Never decompile any program and never use
    decompiled code or dumps, not even in conversations with AI tools.
    Format readers come from public format notes and from inspecting files
@@ -67,10 +67,10 @@ crates/render CPU rasteriser
 crates/io     svg.rs, pdf.rs, lib.rs (native format)
 crates/tracecut  TraceCut geometry: cut/ (HPGL, weeding, bridges, cut
               order, marks), nest/, calc/ (time, cost), measure.rs
-apps/tracedraw    main.rs, app.rs, interaction.rs, canvas.rs, ops.rs,
+apps/tracelaser    main.rs, app.rs, interaction.rs, canvas.rs, ops.rs,
                   tools.rs, tools2.rs, ui/ (menus, toolbar, toolbox,
                   dockers, palette, status, dialogs, icons)
-apps/tracedraw-cli
+apps/tracelaser-cli
 ```
 
 ## Visual checks
@@ -91,7 +91,7 @@ screen; CI runs it on the Linux build.
 ## Browser build
 
 The app must keep compiling for `wasm32-unknown-unknown`. File dialogs and
-file access go through `apps/tracedraw/src/files.rs` (never `rfd` or
+file access go through `apps/tracelaser/src/files.rs` (never `rfd` or
 `std::fs` directly in UI code); anything that needs a desktop (processes,
 temporary folders, system clipboard images) checks `files::WEB` or is
 `#[cfg(not(target_arch = "wasm32"))]`. `std::time::Instant`,
@@ -110,10 +110,10 @@ behind it, and never add a feature without updating the row.
 - Commits carry a `Signed-off-by:` line (DCO, see `CONTRIBUTING.md`).
   Commits keep their author's own name and address, maintainers
   included; only the project's own account (the organization's owner)
-  commits and signs off as `TraceDraw Maintainers <contact@tracedraw.org>`.
+  commits and signs off as `TraceLaser Maintainers <contact@tracelaser.org>`.
   No personal name or address goes into the repository's files, packages
   or listings (contributors' GitHub handles in `CONTRIBUTORS.md` aside).
-- `cargo build -p tracedraw` and `cargo clippy --workspace` must stay
+- `cargo build -p tracelaser` and `cargo clippy --workspace` must stay
   warning-free (CI runs clippy with `-D warnings` on the library crates,
   on the pinned toolchain 1.97.0; use the same version locally so the
   lint set matches).

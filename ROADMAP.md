@@ -1,20 +1,20 @@
 # TraceLaser Roadmap
 
-Fork of [tracedraw/tracedraw](https://github.com/tracedraw/tracedraw) (MIT OR Apache-2.0)
+Fork of [tracelaser/tracelaser](https://github.com/arewedaks/TraceLaser) (MIT OR Apache-2.0)
 focused on **direct laser output** for Lihuiyu M3 / CH341 controller boards, with an
 Engrave/Cut workflow that matches the placement semantics users expect (page-accurate,
 origin-aware).
 
 - **Repo:** https://github.com/arewedaks/TraceLaser (public)
 - **Local:** `/home/arewedaks/orca/TraceLaser` (ext4)
-- **Upstream:** `upstream` → `https://github.com/tracedraw/tracedraw.git`
+- **Upstream:** `upstream` → `https://github.com/arewedaks/TraceLaser.git`
 - **Origin:** `origin` → `https://github.com/arewedaks/TraceLaser.git`
 
 ---
 
 ## Constraints (non-negotiable)
 
-- **Language / stack:** **Rust only**, matching upstream TraceDraw (Rust/egui/eframe, no
+- **Language / stack:** **Rust only**, matching upstream TraceLaser (Rust/egui/eframe, no
   Electron/Tauri/webview runtime, no external script runtime for core behavior). New device
   logic, protocol encoding, and UI live in Rust crates/modules in this workspace.
 - **Licensing:** keep `LICENSE-MIT`, `LICENSE-APACHE`, `ATTRIBUTION.md`. All new code must
@@ -27,7 +27,7 @@ origin-aware).
 - **Naming:** use neutral, original names in code/docs/commits (e.g. "Laser Output",
   "M3/LHY driver", "Engrave/Cut", "Page/Selection"). Do not present this as a clone of
   any other product.
-- **Architecture (TraceDraw rules):** user-visible behavior as `tracedraw_core::Command`
+- **Architecture (TraceLaser rules):** user-visible behavior as `tracelaser_core::Command`
   via `Engine::run`; UI builds commands/reads document, no direct mutation. Driver kept in
   its own crate/layer; `tracecut` depends only on `core` (respect layering).
 - **No panics on input:** return `Result`, warn/skip on bad data.
@@ -36,8 +36,8 @@ origin-aware).
 
 ## Phase 0 — Foundation ✅
 
-- [x] Fork upstream tracedraw → **TraceLaser** (public)
-- [x] Remotes: `origin` (TraceLaser), `upstream` (tracedraw)
+- [x] Fork upstream tracelaser → **TraceLaser** (public)
+- [x] Remotes: `origin` (TraceLaser), `upstream` (tracelaser)
 - [x] Workspace placed alongside M3 materials, then moved to local ext4: `/home/arewedaks/orca/TraceLaser`
 - [x] exFAT copy removed (avoids permission-bit/hardlink issues); ext4 clone is clean (`core.fileMode true`, executable bits preserved)
 
@@ -47,12 +47,12 @@ origin-aware).
 
 ## Phase 1 — Repo hygiene
 
-- [ ] Add fork notice to README (independent fork of TraceDraw, same license) + keep upstream
+- [ ] Add fork notice to README (independent fork of TraceLaser, same license) + keep upstream
       attribution and trademark notice intact
 - [x] Create local `reference/` folder (gitignored) with layout-study screenshots
       (`laser-plugin-data-settings.png`, `laser-plugin-machine-properties.jpg`) — not committed
 - [ ] Record M3 protocol knowledge + sources in a clean-room note (no decompiled material)
-- [ ] Decide: rename internal crates/binary/branding `tracedraw` → `tracelaser` **now** vs
+- [ ] Decide: rename internal crates/binary/branding `tracelaser` → `tracelaser` **now** vs
       **after feature** (tradeoff: clean branding early vs easier upstream merges now)
 
 ---
@@ -81,7 +81,7 @@ implementation (USB, protocol, streaming) — no external interpreter or GPL too
 
 ---
 
-## Phase 3 — Laser Output UI (TraceDraw app)
+## Phase 3 — Laser Output UI (TraceLaser app)
 
 Goal: user-facing Engrave/Cut controls **following the familiar layout of the laser plugin we
 are replacing** (button placement, dialog field order, grouping) — behavioural parity first,
@@ -110,7 +110,7 @@ expect them:
 
 Layout rules:
 - Keep the same **order and grouping** as the reference so muscle memory transfers.
-- Adapt visuals to TraceDraw's own widget style and theming; do **not** copy artwork,
+- Adapt visuals to TraceLaser's own widget style and theming; do **not** copy artwork,
   icons, or pixel geometry, and do not label anything with another product's name.
 
 ### Work items
@@ -138,7 +138,7 @@ Placement targets (behavioural parity with the reference panel):
 ## Phase 4 — Pipelines
 
 ### 4a. Vector Cut
-- [ ] Reuse TraceCut geometry (`tracedraw_tracecut::cut::hpgl` knife path, layout, order)
+- [ ] Reuse TraceCut geometry (`tracelaser_tracecut::cut::hpgl` knife path, layout, order)
 - [ ] Convert plotted/layout paths → M3 vector packets (mm → ticks, origin transform)
 - [ ] Honor cut order / inner-first / optimize where applicable
 
@@ -184,7 +184,7 @@ Rules for using references:
 
 ## Open decisions
 
-- [ ] **Rename timing:** internal `tracedraw` → `tracelaser` now or after feature lands?
+- [ ] **Rename timing:** internal `tracelaser` → `tracelaser` now or after feature lands?
 - [ ] **USB stack:** `rusb`/`libusb`, `nusb`, or CH341-specific crate — pick based on portability
       and maintenance (must work on Linux; Windows/macOS nice-to-have)
 - [ ] **Raster source:** render-to-bitmap via existing render path vs a dedicated engrave

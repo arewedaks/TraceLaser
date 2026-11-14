@@ -2,27 +2,27 @@
 # Build the browser version into ./site (see docs/behavior/web.md).
 set -e
 cd "$(dirname "$0")/../.."
-cargo build --target wasm32-unknown-unknown --profile web -p tracedraw
+cargo build --target wasm32-unknown-unknown --profile web -p tracelaser
 rm -rf site && mkdir -p site
 wasm-bindgen --target web --no-typescript --out-dir site \
-    target/wasm32-unknown-unknown/web/tracedraw.wasm
+    target/wasm32-unknown-unknown/web/tracelaser.wasm
 # Shrink the module for download with binaryen's wasm-opt (version 133,
 # as in CI): optimise for size and drop the name, debug and producer
 # sections, which the page does not use.
 wasm-opt -Oz --strip-debug --strip-producers \
-    -o site/tracedraw_bg.wasm site/tracedraw_bg.wasm
+    -o site/tracelaser_bg.wasm site/tracelaser_bg.wasm
 cp web/FONTS.md site/
 # The page with the module's size (the download shows its progress) and
 # the version.
-size=$(wc -c < site/tracedraw_bg.wasm | tr -d ' ')
+size=$(wc -c < site/tracelaser_bg.wasm | tr -d ' ')
 version=$(sed -n 's/^version = "\(.*\)"$/\1/p' Cargo.toml | head -n 1)
 sed -e "s/data-wasm-size=\"0\"/data-wasm-size=\"$size\"/" -e "s/@VERSION@/$version/" \
     web/index.html > site/index.html
-cp assets/icon/tracedraw-256.png site/icon-256.png
+cp assets/icon/tracelaser-256.png site/icon-256.png
 # The interface languages but English, which the module embeds: the page
-# fetches the one chosen (apps/tracedraw/src/i18n.rs).
+# fetches the one chosen (apps/tracelaser/src/i18n.rs).
 mkdir -p site/lang
-for f in apps/tracedraw/lang/*.toml; do
+for f in apps/tracelaser/lang/*.toml; do
     [ "$(basename "$f")" = en.toml ] || cp "$f" site/lang/
 done
 # The installable app (docs/behavior/web.md, "Installing on a tablet"): the
@@ -31,22 +31,22 @@ done
 # site is a new worker and a new cache (never a stale module against a
 # new script).
 cp web/manifest.webmanifest site/
-cp assets/icon/tracedraw-192.png site/icon-192.png
-cp assets/icon/tracedraw-512.png site/icon-512.png
-build=$(cat site/index.html site/tracedraw.js site/tracedraw_bg.wasm site/manifest.webmanifest site/lang/*.toml \
+cp assets/icon/tracelaser-192.png site/icon-192.png
+cp assets/icon/tracelaser-512.png site/icon-512.png
+build=$(cat site/index.html site/tracelaser.js site/tracelaser_bg.wasm site/manifest.webmanifest site/lang/*.toml \
     | (sha256sum 2>/dev/null || shasum -a 256) | cut -c1-16)
 sed -e "s/@VERSION@/$version/" -e "s/@BUILD@/$build/" web/sw.js > site/sw.js
 if command -v node >/dev/null 2>&1; then
     node scripts/web/check_pwa.mjs site
 fi
 # The font folder (web/fonts.txt) and the font catalog when asked for:
-# TRACEDRAW_FONT_FOLDER=1,
-# with TRACEDRAW_GOOGLE_FONTS pointing at a google/fonts checkout to copy
+# TRACELASER_FONT_FOLDER=1,
+# with TRACELASER_GOOGLE_FONTS pointing at a google/fonts checkout to copy
 # from instead of downloading.
-if [ -n "$TRACEDRAW_FONT_FOLDER" ]; then
-    if [ -n "$TRACEDRAW_GOOGLE_FONTS" ]; then
-        python3 web/font_folder.py web/fonts.txt site/fonts --google-fonts "$TRACEDRAW_GOOGLE_FONTS"
-        python3 web/font_catalog.py web/fonts.txt site/fonts --google-fonts "$TRACEDRAW_GOOGLE_FONTS"
+if [ -n "$TRACELASER_FONT_FOLDER" ]; then
+    if [ -n "$TRACELASER_GOOGLE_FONTS" ]; then
+        python3 web/font_folder.py web/fonts.txt site/fonts --google-fonts "$TRACELASER_GOOGLE_FONTS"
+        python3 web/font_catalog.py web/fonts.txt site/fonts --google-fonts "$TRACELASER_GOOGLE_FONTS"
     else
         python3 web/font_folder.py web/fonts.txt site/fonts
         python3 web/font_catalog.py web/fonts.txt site/fonts

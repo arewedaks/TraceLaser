@@ -1,6 +1,6 @@
 # Yang baru
 
-Setiap versi TraceDraw menambah fitur dan perbaikan. Halaman ini menjelaskan
+Setiap versi TraceLaser menambah fitur dan perbaikan. Halaman ini menjelaskan
 cara mengetahui apa yang berubah dan mencantumkan sorotan versi-versi terbaru.
 
 ## Melihat yang baru di program {#in-the-program}
@@ -15,9 +15,9 @@ cara mengetahui apa yang berubah dan mencantumkan sorotan versi-versi terbaru.
   baru di versi ini pada menu: titik kecil muncul di ujung setiap perintah
   baru, di samping panah submenu yang menuju ke sana, dan di atas judul menu
   yang memuatnya. Tanda hilang saat Anda menonaktifkan perintah itu, dan
-  perintah kembali nonaktif saat TraceDraw dimulai lagi.
+  perintah kembali nonaktif saat TraceLaser dimulai lagi.
 - Daftar lengkap perubahan setiap versi ada di
-  [log perubahan](https://github.com/tracedraw/tracedraw/blob/main/CHANGELOG.md)
+  [log perubahan](https://github.com/arewedaks/TraceLaser/blob/main/CHANGELOG.md)
   proyek.
 
 ## Sorotan versi terbaru {#highlights}
@@ -50,7 +50,7 @@ cara mengetahui apa yang berubah dan mencantumkan sorotan versi-versi terbaru.
   di bawah mengatur ukurannya. Lihat [Mengatur objek dan lapisan](../objects/objects-and-layers.md#objects-docker).
 - **Bantuan dalam bahasa Anda.** Setiap tombol **?** dan <kbd>F1</kbd> membuka
   halaman Bantuan ini tentang kotak dialog, panel, atau alat di depan Anda,
-  dalam bahasa yang diatur di TraceDraw.
+  dalam bahasa yang diatur di TraceLaser.
 - **Properti dokumen.** [[menu.file > menu.file.document_properties]]
   menyimpan bahasa, judul, subjek, penulis, hak cipta, tag, catatan, dan
   penilaian gambar, di atas laporan lengkap isi gambar itu. Lihat

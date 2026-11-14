@@ -278,16 +278,16 @@ window shows.
 
 ## Checks
 
-- `tracedraw_render::culling_tests::objects_out_of_sight_are_skipped`
+- `tracelaser_render::culling_tests::objects_out_of_sight_are_skipped`
 - `raster::tests::a_moving_view_shows_the_last_render_until_it_rests`
 - `raster::tests::a_canvas_that_moves_renders_again`
 - `raster::tests::a_slow_page_is_drawn_on_its_own_thread`
 - `raster::tests::the_latest_zoom_wins_without_restarting_renders`
 - `raster::tests::one_render_job_runs_at_a_time_and_the_current_page_goes_first`
 - `raster::tests::the_current_page_gets_the_next_turn`
-- `tracedraw_core::engine::tests::the_history_keeps_to_its_memory_limit`
-- `tracedraw_core::engine::tests::a_group_stays_one_step_at_the_memory_limit`
-- `tracedraw_core::engine::tests::live_steps_are_not_measured_again`
+- `tracelaser_core::engine::tests::the_history_keeps_to_its_memory_limit`
+- `tracelaser_core::engine::tests::a_group_stays_one_step_at_the_memory_limit`
+- `tracelaser_core::engine::tests::live_steps_are_not_measured_again`
 
 - `ui::windows::tests::windows_tile_and_cascade_inside_the_area`
 - `ui::windows::tests::tiled_windows_draw_every_drawing_and_switch`

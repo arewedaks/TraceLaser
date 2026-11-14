@@ -530,7 +530,7 @@ pub enum OptionAsAlt {
     None,
 }
 
-/// TraceDraw: receive the files the system asks the application to open
+/// TraceLaser: receive the files the system asks the application to open
 /// (Finder's double click and Open With, a file dropped on the Dock icon),
 /// which macOS sends as an "open documents" event rather than on the
 /// command line. Set it before the event loop runs: files that arrive
@@ -543,7 +543,7 @@ pub fn set_open_files_handler(
     crate::opened_files::set_handler(Box::new(handler));
 }
 
-/// TraceDraw: decide on a quit asked of the whole application (the Quit
+/// TraceLaser: decide on a quit asked of the whole application (the Quit
 /// item of the application menu and its Command+Q, the Dock icon's Quit,
 /// a log-out or shut-down), which AppKit otherwise carries out at once,
 /// without a `CloseRequested` for any window. The handler returns `true`

@@ -19,7 +19,7 @@ Record); Save Data Source, Finish and Cancel.
   `export::tests::data_files_in_every_encoding_read`), or an Excel workbook
   (`.xlsx`): its first sheet, shared, inline and formula strings, numbers
   as plain text (whole numbers without a decimal point), TRUE and FALSE,
-  empty rows and trailing empty cells left out (`tracedraw_io::xlsx`,
+  empty rows and trailing empty cells left out (`tracelaser_io::xlsx`,
   #377). The field types are guessed: a name holding photo, picture,
   image, foto, imagem, img or logo, or cells that all name picture files,
   gives Picture; a name holding QR gives QR code; the rest Text. Configure
