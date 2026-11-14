@@ -14,6 +14,9 @@ origin-aware).
 
 ## Constraints (non-negotiable)
 
+- **Language / stack:** **Rust only**, matching upstream TraceDraw (Rust/egui/eframe, no
+  Electron/Tauri/webview runtime, no external script runtime for core behavior). New device
+  logic, protocol encoding, and UI live in Rust crates/modules in this workspace.
 - **Licensing:** keep `LICENSE-MIT`, `LICENSE-APACHE`, `ATTRIBUTION.md`. All new code must
   be compatible (MIT/Apache-2.0). **No GPL code** copied in (e.g. do not copy K40
   Whisperer / `nano_library.py`). Implement protocol logic from clean-room understanding
@@ -52,10 +55,11 @@ origin-aware).
 
 ---
 
-## Phase 2 — M3 / LHY device crate (new)
+## Phase 2 — M3 / LHY device crate (new, Rust)
 
-Goal: a small, isolated crate (e.g. `crates/m3` or `crates/laser-m3`) that can stream a
-job to an M3 board over USB (CH341), with no UI dependency.
+Goal: a small, isolated **Rust** crate (e.g. `crates/m3` or `crates/laser-m3`) that can
+stream a job to an M3 board over USB (CH341), with no UI dependency. Pure Rust
+implementation (USB, protocol, streaming) — no external interpreter or GPL tooling at runtime.
 
 - [ ] USB transport (CH341/libusb or equivalent) — detect device, open/claim, bulk/ctrl I/O
 - [ ] Protocol primitives (hardware-verified): init/reset, speed/power encoding, direction
@@ -139,3 +143,4 @@ Placement targets (behavioral parity):
 |---|---|
 | 2026-04-11 | Forked, created repo, added ROADMAP.md |
 | 2026-04-11 | Moved workspace to `/home/arewedaks/orca/TraceLaser` (ext4), deleted exFAT copy, roadmap updated |
+| 2026-04-11 | Roadmap: explicitly state Rust-only stack (constraints + Phase 2) |
