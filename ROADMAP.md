@@ -6,7 +6,7 @@ Engrave/Cut workflow that matches the placement semantics users expect (page-acc
 origin-aware).
 
 - **Repo:** https://github.com/arewedaks/TraceLaser (public)
-- **Local:** `/run/media/arewedaks/PS210/Software/M3 Coreldraw/TraceLaser`
+- **Local:** `/home/arewedaks/orca/TraceLaser` (ext4)
 - **Upstream:** `upstream` → `https://github.com/tracedraw/tracedraw.git`
 - **Origin:** `origin` → `https://github.com/arewedaks/TraceLaser.git`
 
@@ -35,13 +35,10 @@ origin-aware).
 
 - [x] Fork upstream tracedraw → **TraceLaser** (public)
 - [x] Remotes: `origin` (TraceLaser), `upstream` (tracedraw)
-- [x] Move workspace to M3 material location (exFAT volume)
-- [x] `git config core.fileMode false` (exFAT has no permission bits)
+- [x] Workspace placed alongside M3 materials, then moved to local ext4: `/home/arewedaks/orca/TraceLaser`
+- [x] exFAT copy removed (avoids permission-bit/hardlink issues); ext4 clone is clean (`core.fileMode true`, executable bits preserved)
 
-**Build note (exFAT):** cargo uses hardlinks; exFAT does not support them. Build on local disk:
-```bash
-export CARGO_TARGET_DIR=$HOME/.cache/tracelaser-target
-```
+**Build note:** workspace is on local ext4, so default `cargo` target dir inside the repo is fine (no `CARGO_TARGET_DIR` override needed).
 
 ---
 
@@ -140,4 +137,5 @@ Placement targets (behavioral parity):
 
 | Date | Note |
 |---|---|
-| 2026-04-11 | Forked, moved to M3 material dir, exFAT config, roadmap created |
+| 2026-04-11 | Forked, created repo, added ROADMAP.md |
+| 2026-04-11 | Moved workspace to `/home/arewedaks/orca/TraceLaser` (ext4), deleted exFAT copy, roadmap updated |
